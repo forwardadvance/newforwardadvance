@@ -58,6 +58,7 @@ var app = express();
 // var mongoUrl = require('./config/mongo_url');
 
 var mongoUrl = config.mongoUrl;
+console.log('connecting to mongoUrl', mongoUrl);
 mongoose.connect(mongoUrl);
 mongoose.connection.on('error', function(err) {
   console.log('MongoDB Connection Error. Please make sure that MongoDB is running.', mongoUrl, err);
