@@ -27,6 +27,11 @@ var upload = multer({ dest: path.join(__dirname, 'uploads') });
 dotenv.load({ path: '.env' });
 
 /**
+ * Config
+ */
+var config = require('./config/config');
+
+/**
  * Controllers (route handlers).
  */
 var homeController     = require('./controllers/home');
@@ -52,7 +57,7 @@ var app = express();
 
 // var mongoUrl = require('./config/mongo_url');
 
-var mongoUrl = process.env.NODE_ENV == 'production' ? process.env.MONGODB : process.env.MONGOLAB_URI
+var mongoUrl = config.mongoUrl;
 mongoose.connect(mongoUrl);
 mongoose.connection.on('error', function(err) {
   console.log('MongoDB Connection Error. Please make sure that MongoDB is running.', mongoUrl, err);
