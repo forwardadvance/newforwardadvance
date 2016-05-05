@@ -50,11 +50,11 @@ var app = express();
  * Connect to MongoDB.
  */
 
-var mongoUrl = 'mongodb://CloudFoundry_u8e707it_7aveni1n_fijh3n54:-DVG2FGB9WoDjQcgIj1h9dNs6a5zDL2s@ds015942.mlab.com:15942/CloudFoundry_u8e707it_7aveni1n';
+var mongoUrl = process.env.MONGODB || process.env.MONGOLAB_URI
 // mongoose.connect(process.env.MONGODB || process.env.MONGOLAB_URI );
 mongoose.connect(mongoUrl);
 mongoose.connection.on('error', function(err) {
-  console.log('MongoDB Connection Error. Please make sure that MongoDB is running.', process.env.MONGOLAB_URI, err);
+  console.log('MongoDB Connection Error. Please make sure that MongoDB is running.', mongoUrl, err);
   process.exit(1);
 });
 
