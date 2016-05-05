@@ -1,9 +1,9 @@
 {
-  "name": "hackathon-starter",
+  "name": "forwardadvance.com",
   "version": "3.5.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sahat/hackathon-starter.git"
+    "url": "http://github.com/forwardadvance/newforwardadvance.git"
   },
   "scripts": {
     "start": "node app.js",
