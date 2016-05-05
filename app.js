@@ -49,9 +49,10 @@ var app = express();
 /**
  * Connect to MongoDB.
  */
-mongoose.connect(process.env.MONGODB || process.env.MONGOLAB_URI);
+mongoose.connect(process.env.MONGODB || process.env.MONGOLAB_URI );
 mongoose.connection.on('error', function() {
-  console.log('MongoDB Connection Error. Please make sure that MongoDB is running.');
+  console.log('MongoDB Connection Error. Please make sure that MongoDB is running.', process.env.MONGOLAB_URI);
+  console.log('process', process.env);
   process.exit(1);
 });
 
