@@ -1,0 +1,146 @@
+---
+title: "Angular 2 Exercise"
+section: "angular2"
+exercise: "bound-variables"
+layout: "exercise"
+---
+
+%section
+  :markdown
+
+    # Bound Variables
+
+    Any attributes of our component are available in the component template. These are plain old attributes of the component.
+
+    Bindings are live, so whenever an attribute of the component updates, the template will be updated to match.
+
+    ## Binding in Angular 1 vs. Angular 2
+
+    In Angular 1 we used a $scope object to pass variables to and from the front end. Anything we wrote to $scope would be available in the template. We could $watch $scope, and make things happen in response to changes. Bound variables were available in a $scope and any child $scopes.
+
+    In Angular 2, our components themselves hold our bind variables. We write to `this` in our constructor. Bound variables are only available to the current component, not child components.
+
+    ## We bind with curlies {{}}
+
+    We have a range of binding options in Angular 2, the simplest uses the curly brace syntax, like so:
+
+  :ruby
+    code = <<-CODE
+    <div>Hello {{dinosaurName}}</div>
+    CODE
+  =code(code, :html)
+
+  :markdown
+
+    Here's that in context:
+
+  :ruby
+    code = <<-CODE
+    var AppComponent = ng.core
+      .Component({
+        selector: 'app',
+        template: '<h1>Hello {{dinosaurName}}</h1>'
+      })
+      .Class({
+        constructor: function() {
+          this.dinosaurName = "Liopleurodon";
+        }
+      });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      ng.platform.browser.bootstrap(AppComponent);
+    });
+    CODE
+  =code(code)
+
+  :markdown
+
+    <http://codepen.io/superluminary/pen/GoYaYa?editors=1010>
+
+    ## Including Expressions
+
+    We can include expressions in our curly braces, for example we can do maths or string concatenation.
+
+  :ruby
+    code = <<-CODE
+    <div>1 + 1 = {{1 + 1}}</div>
+    <div>{{"Hello " + "World"}}</div>
+    CODE
+  =code(code, :html)
+
+%section.exercise
+  :markdown
+    ## Exercise - seconds in a day
+
+    * Create a micro app that simply outputs the number of seconds in a day.
+    * Extend it to show you the number of weeks in a human lifetime of 80 years.
+
+    You can either generate these values in the component, or directly into the template.
+
+%section
+  :markdown
+
+    ## Live binding
+
+    If we change the value of an attribute of the component in any asynchronous way we can think of, the template will also update.
+
+    This includes:
+
+    * setTimeout
+    * setInterval
+    * Ajax load events
+
+    Here we change the value using setInterval. In this instance the template will update every 500ms with a new number.
+
+    This magic is achieved using a piece of kit called Zone.js which is integrated into Angular. If we open up setInterval in a console, we will find that it has been overridden with a custom setTimeout. This does the same thing, with the addition that it will fire an event that we can subscribe to.
+
+  :ruby
+    code = <<-CODE
+    var AppComponent = ng.core
+      .Component({
+        selector: 'app',
+        template: '<h1>{{count}}</h1>'
+      })
+      .Class({
+        constructor: function() {
+          var vm = this;
+          setInterval(function() {
+            vm.count ++;
+          }, 500);
+          this.count = 1;
+        }
+      });
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+      ng.platform.browser.bootstrap(AppComponent);
+    });
+    CODE
+  =code(code)
+
+%section.exercise
+  :markdown
+    ## Exercise - A clock
+
+    Use setTimeout to build a little clock that shows the time of the day. You can make it as fancy as you like.
+
+    Create a clock component. In a timeout, set values for vm.hours, vm.minutes and vm.seconds.
+
+    Note that this can also be achieved using pipes. More on this later.
+
+
+%section
+  :markdown
+    ## Calling Functions - Side effects
+
+    We can also call functions in a binding, but if we do this we need to be careful. Angular 2's change detection works in a single pass. If you call a function from the template that changes a value that is referred to elsewhere, you will end up with an inconsistent result, and Angular will throw an error.
+
+  -#TODO: Example*
+
+%section
+  :markdown
+
+
+    ## Further Reading
+
+    * <http://gurustop.net/blog/2015/12/16/angular2-beta-javascript-component>

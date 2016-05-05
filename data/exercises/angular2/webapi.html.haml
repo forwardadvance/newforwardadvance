@@ -1,0 +1,140 @@
+---
+title: "Routes - AngularJS Exercise"
+section: "angular"
+exercise: "webapi"
+layout: "exercise"
+---
+
+
+%section
+  :markdown
+    # Microsoft WebAPI
+
+    When implementing an API, we have 3 choices.
+
+    1. Serve our templates from the same domain as the API to get around the same domain policy.
+    2. Use CORS in IE10+. Optionally implement a polyfill for IE9.
+    3. Use JSONP.
+
+    In this section we will implement a solution where the templates are served from the same domain.
+
+    Create a new asp.net web application. Then choose WebAPI as the project type.
+
+%section.exercise
+  :markdown
+
+    ## Building a simple hardcoded API
+
+    We are now going to create a simple hardcoded web API.
+
+    1. Go here and complete tasks 1 and 2. <http://www.asp.net/web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api#Exercise1>
+    2. Now we can visit a URL of this form and see a JSON feed: /api/contact.
+
+    ## Build a service to consume the API
+
+    We use an Angular 2 service to access our web API. Something like this:
+
+
+  :ruby
+    code = <<-CODE
+    import {Injectable} from 'angular2/core';
+    import {Http} from 'angular2/http';
+
+
+    @Injectable()
+    export class UserService {
+      url
+      http
+      constructor(public http: Http) {
+        this.url = "http:localhost:1234/api/contacts"
+        this.http = http;
+      }
+      index() {
+          return this.http.get(this.url)
+      }
+    }
+    CODE
+  =code(code)
+
+%section.exercise
+  :markdown
+
+    ## Build a RESTful API
+
+    We're now going to take this further and build a Restful API.
+
+    Go here and follow this. We don't need to deploy to Azure (doing so is optional). We just need to build the API.
+
+    <https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-rest-service-aspnet-api-sql-database/>
+
+    At the end we should be able to hit /api/contacts to get a list of contacts. We should also be able to post to the same URL to create a new contact.
+
+    ## Build a service to talk to the API
+
+    First up, build a service which can talk to the API. It will look something like the following:
+
+  :ruby
+    code = <<-CODE
+    import {Injectable} from 'angular2/core';
+    import {Http} from 'angular2/http';
+
+    @Injectable()
+    export class UserService {
+      url
+      http
+      constructor(public http: Http) {
+        this.url = "http://www.mywebservice.com"
+        this.jsonp = jsonp;
+      }
+      get(id) {
+          return http.get([this.url,id].join('/'))
+      }
+      index() {
+          return http.get(this.url)
+      }
+      create(data) {
+          return http.post(this.url, data)
+      }
+      update(id, data) {
+          return http.patch([this.url,id].join('/'), data)
+      }
+    }
+    CODE
+  =code(code)
+
+  :markdown
+
+    (You will need to update the URLs here.) Test this out in the console.
+
+    ## Build a Component
+
+    Next build a component which can talk to the API and pull a list of the contacts. Save the contacts on the compoennt. Write a view which can render them.
+
+    ## Create a form
+
+    Make a form which can create a new contact. Create a createContactComponent to manage the form. When the form is submitted, send the new contact.
+
+    ## Optional Extra - Extract the form into a template
+
+    If you extract the form into a template, you can reuse the same form to edit contacts.
+
+    Optionally create an EditContactFormComponent which will let you edit a contact in scope.
+
+%section.exercise
+  :markdown
+    ## Optional Extra - A Spinner
+
+    For bonus points have the component display a spinner until the contact is ready to display.
+
+%section.exercise
+  :markdown
+    ## Harder Exercise - CORS
+
+    CORS will allow us to serve templates from any URL. We can keep our front end and back end on different servers. We can use multiple APIs. we call this a component based architecture. It's a very nice way to do things.
+
+    You can find instructions to enable CORS here:
+
+    <http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api#enable-cors>
+
+    Try to enable CORS in your server.
+

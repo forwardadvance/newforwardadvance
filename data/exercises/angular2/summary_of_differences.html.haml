@@ -1,0 +1,57 @@
+x
+%section
+  :markdown
+
+    # Angular 1 to Angular 2
+
+    Angular 1 evolved from a simple DOM compiler, into a clever, component based framework underpinning some of the largest apps in the world.
+
+    Many of the design decisions that worked well for small apps caused problems with larger ones. Angular 2 rethinks the framework to support large applications.
+
+    In this section we summarise the changes, and why they might make you happy.
+
+%aside.questions_answered
+  :markdown
+    ## Questions answered:
+
+    * How is Angular 2 different to Angular 1?
+    * Why did Angular need to change?
+
+%section
+  :markdown
+
+    ## We all liked Angular 1
+
+    Angular was a well liked framework. It was at heart an HTML5 compilation tool. It would take an HTML page, and compile it into a web application. It gave web designers the ability to create web applications simply by writing HTML. Angular would take care of compiling the HTML into an application.
+
+    Over time, Angular was used to make larger and larger apps. The applications that depended on it matured and we started bumping up against shortcomings.
+
+    The $scope tree, which is so liberating in a small app became a source of bugs. We gained a profusion of components: Templates, Controllers, Services, Factories, Directives, Providers, Filters. It became hard to know what did what. We introduced isolate $scope and transclusion. The learning curve from beginner to expert became rather bumpy.
+
+    Angular 2 builds on Angular 1 but doesn't as was initially fit completely depart from it. We can write Angular 2 in a similar way to you that when we are given a similar set of components. there are a few things to unlearn but the departure is not as drastic as we initially feared.
+
+    ## $scope is no more
+
+    $scope was a clever data storage object that you could use to pass data around your app. It roughly mirrored your DOM tree. If you set a value in $scope it would be available in all child $scopes.
+
+    This was wonderfully productive, but once an app became more complex it became easy to leak scope objects into the tree.
+
+    ## Filters are now Pipes
+
+    There is a new API, but otherwise they work in the same way.
+
+    ## Directives are now Directives and Components
+
+    In Angular 1, we used directives to extend the compiler. In Angular 2, we have Components, which essentially act like new types of DOM node. They can have behaviour, custom attributes, their own events and templates.
+
+    Components are front and center. Even the simplest hello world involves creating a component. We compose an app as a tree of Components.
+
+    Directives are Components without
+
+    ## Main differences
+
+    1. There's a new API. It's not hard, you will like it.
+    2. The component tree now replaces the $scope tree. We store our data in components, and components manage a portion of the DOM. Components are analogous to Directives.
+    3. There is no transclusion. Components completely manage their own HTML.
+    3. Most of the Angular 1 components that we used to use: Services factories directives etc. are no longer required. Instead we just have objects.
+    4. Dependency Injection is no longer handled by the framework. Instead we use third party libraries such as requireJS, or native ES6 modules, or just hang our app off a global singleton.

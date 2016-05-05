@@ -1,0 +1,120 @@
+---
+title: "Gulp - Automation Exercise"
+section: "automation"
+exercise: "watch-and-reload"
+layout: "exercise"
+---
+
+
+%section
+  :markdown
+    # Watch & Reload
+
+    We can use gulp to watch a set of files and automatically run a task when any of them change.
+
+    For example we might watch our js directory and run the js task.
+
+  :ruby
+    code = <<-CODE
+    gulp.task('watch', function() {
+      gulp.watch('./js/**/*.js', ['js']);
+    });
+    CODE
+  =code(code)
+
+  :markdown
+
+    We can then start our watchers using gulp watch.
+
+  %aside.box
+    :markdown
+
+      ## Some limitations with watch
+
+      For speed, gulp watch only watches files that existed when the task was started. If you add files or rename then
+
+  :markdown
+    ## Combination tasks
+
+    We can make a task depend on other tasks. This can help us split our tasks up into smaller pieces, like so:
+
+  :ruby
+    code = <<-CODE
+    gulp.task('build', [
+      'js',
+      'sass',
+      'lib',
+    ]);
+    CODE
+  =code(code)
+
+  :markdown
+    Now we run:
+
+  :ruby
+    code = <<-CODE
+    gulp build
+    CODE
+  =code(code, :bash)
+
+  :markdown
+
+    and this will run all the tasks.
+
+    ## Default task
+
+    We can set a default task that will be run when we call gulp:
+
+  :ruby
+    code = <<-CODE
+    gulp.task('default', [
+      'build',
+      'watch'
+    ]);
+    CODE
+  =code(code)
+
+  :markdown
+    Now we only need to run:
+
+  :ruby
+    code = <<-CODE
+    gulp
+    CODE
+  =code(code)
+
+  :markdown
+    to build and turn on the watchers.
+
+    ## Livereload
+
+    Live reload will automatically reload your web page when a task completes. It comes in two parts:
+
+    * The gulp-livereload plugin that manages the livereload server
+    * A Chrome plugin that listens for a reload
+
+    If you install both of these you can chain live-reload into your tasks and have gulp reload your browser automatically on file change.
+
+    This works extremely well when multi-screening.
+
+
+  :ruby
+    code = <<-CODE
+    gulp.task('assets:js', function () {
+      return gulp.src('./js/**/*.js')
+        .pipe(concat('app.js'))
+        .pipe(gulp.dest('./build'))
+        .pipe(livereload());
+    });
+    CODE
+  =code(code)
+
+  :markdown
+
+%section.exercise
+  :markdown
+    ## Exercise - Livereload
+
+    * Create a gulp watch task which watches your js.
+    * Create a default task so you can just call gulp to start watching.
+    * integrate live-reload

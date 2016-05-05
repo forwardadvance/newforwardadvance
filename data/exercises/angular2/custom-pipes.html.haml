@@ -1,0 +1,111 @@
+
+%section
+  :markdown
+
+    # Custom Pipes
+
+    We have used pipes before for transforming data. For example, we have uses pipes to convert text into upper case.
+
+    A pipe is simply an object that has a transform function. We can write our own pipes very easily. This is a simple pipe that receives a value, and prepends it with the word "toast"
+
+  :ruby
+    code = <<-CODE
+    var ToastPipe = ng.core
+      .Pipe({
+        name:'toast'
+      })
+      .Class({
+        constructor: function() {},
+        transform: function(value) {
+          return "Toast " + value
+        }
+      })
+    CODE
+  =code(code)
+
+  :markdown
+
+    We would make use of it like this:
+
+  :ruby
+    code = <<-CODE
+    var AppComponent = ng.core
+      .Component({
+        selector: "app",
+        pipes: [ToastPipe],
+        template:
+        `
+          {{"hello" + "world" | toast}}
+        `
+      })
+      .Class({
+        constructor: function() {}
+      })
+    CODE
+  =code(code)
+
+  :markdown
+
+    Notice that we have to tell our template we want to use it by passing a pipes attribute.
+
+%section.exercise
+  :markdown
+    ## Exercise - Reversing a String
+
+    We can reverse a string by using code a little like this:
+
+  :ruby
+    code = <<-CODE
+    "abc".split('').reverse().join('');
+    CODE
+  =code(code)
+
+  :markdown
+
+    Write a pipe that will reverse an string, so I can say `hello | reverse` and it will output `olleh`
+
+%section.exercise
+  :markdown
+    ## Harder Exercise - Sort Filter
+
+    I have an array of people like this:
+
+  :ruby
+    code = <<-CODE
+    [
+      {
+        name: "Hairy Margo",
+        age: 43
+      },
+      {
+        name: "Snake-eye Sammy",
+        age: 9
+      },
+      {
+        name: "Manchego McGraw",
+        age: 68
+      }
+    ]
+    CODE
+  =code(code)
+
+  :markdown
+
+    I would like to be able to sort these people by name.
+
+    Write a filter that accepts an array like this and sorts it by the name attribute. You may wish to read up on the [array sort method on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)
+
+    Use ngFor to output the sorted filter.
+
+    ## Extra difficult extension
+
+    Parameterise the filter, so you can choose which attribute to sort on.
+
+    Now add buttons to the page, so that you can click them to sort on different attributes.
+
+
+%section
+  :markdown
+    ## Dropbox Link
+
+    * <https://www.dropbox.com/sh/pz4wggje2pw0ryk/AADXumRQ-jPtow13k7MoAJGKa?dl=1>

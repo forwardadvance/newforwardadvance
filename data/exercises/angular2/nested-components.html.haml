@@ -1,0 +1,93 @@
+---
+title: "Angular 2 Exercise"
+section: "angular2"
+exercise: "nested-components"
+layout: "exercise"
+---
+
+%section
+  :markdown
+
+    # Nesting Components
+
+    Angular 2 is built out of components. Up till now, our applications have consisted of a single component, but a real app will be made out of a tree of components, one inside the next.
+
+    Because child components are injected into their parent, order of definition matters. We can get around this using a module loader (more on this later).
+
+    In this instance, because we have no module loader, we must define the child component first.
+
+    ## A Cat Component
+
+    Let's create a component that can sit on our page. I'm going to make a Cat Component to render out a single cat.
+
+  :ruby
+    code = <<-CODE
+    var CatComponent = ng.core
+      .Component({
+        selector: 'cat',
+        template: '<h1>Here is {{catName}} the cat!</h1>'
+      })
+      .Class({
+        constructor: function() {
+          var vm = this;
+          vm.catName = "Fluffy"
+        }
+      });
+    CODE
+  =code(code)
+
+  :markdown
+
+    ## Now for the app
+
+    Next we define the parent component, which will be the root of the tree:
+
+  :ruby
+    code = <<-CODE
+    var AppComponent = ng.core
+      .Component({
+        selector: 'app',
+        template: '<cat>hello</cat>',
+        directives: [CatComponent]
+      })
+      .Class({
+        constructor: function() {}
+      });
+    CODE
+  =code(code)
+
+  :markdown
+
+    Finally we can bootstrap
+
+  :ruby
+    code = <<-CODE
+    document.addEventListener('DOMContentLoaded', function() {
+      ng.platform.browser.bootstrap(AppComponent);
+    });
+    CODE
+  =code(code)
+
+  :markdown
+
+
+%section.exercise
+  :markdown
+    ## Exercise - A little web app
+
+    We are going to create a small web page using components that will render information about a single user / product / cat.
+
+    The sole purpose of this app will be to know about a user, and to render that user in a template.
+
+    First create an app template. Now create a header component and a footer component. Pop them in. Finally create a user display component that will display the user.
+
+    Now declare the user as an attribute of the user component. Use data binding to render the user data out.
+
+    Later we will look at passing data into our component and sending it back out again.
+
+
+
+
+  -# Further reading:
+
+  -# * <http://blog.thoughtram.io/angular/2015/07/06/even-better-es5-code-for-angular-2.html>

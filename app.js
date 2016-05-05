@@ -29,10 +29,12 @@ dotenv.load({ path: '.env.example' });
 /**
  * Controllers (route handlers).
  */
-var homeController = require('./controllers/home');
-var userController = require('./controllers/user');
-var apiController = require('./controllers/api');
-var contactController = require('./controllers/contact');
+var homeController     = require('./controllers/home');
+var userController     = require('./controllers/user');
+var apiController      = require('./controllers/api');
+var contactController  = require('./controllers/contact');
+var courseController   = require('./controllers/course');
+var exerciseController = require('./controllers/exercise');
 
 /**
  * API keys and Passport configuration.
@@ -104,6 +106,28 @@ app.use(function(req, res, next) {
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
 
 /**
+  * Enable Pygments
+  */
+var jade = require('jade')
+var marked = require('marked')
+var execSync = require('child_process').execSync // node >= 0.11.12
+
+renderer = new marked.Renderer()
+renderer.code = function(code, lexer) {
+  var lexer = lexer || 'js';
+  var result = execSync("pygmentize -l "+ lexer + " -f html -O nowrap=true", {input: code});
+  // console.log(result.toString().split('\n'));
+  return [
+    '<code class="code_block">',
+    result.toString().split('\n').map((row) => ['<div class="line">',row,'</div>'].join('')).join('\n'),
+    '</code>'
+  ].join('');
+}
+
+marked.setOptions({renderer: renderer});
+jade.filters.markdown = marked;
+
+/**
  * Primary app routes.
  */
 app.get('/', homeController.index);
@@ -123,6 +147,13 @@ app.post('/account/profile', passportConfig.isAuthenticated, userController.post
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
+
+/**
+  Course Routes
+  */
+app.get('/courses', courseController.index);
+app.get('/course/:courseName', courseController.show);
+app.get('/course/:courseId/:exerciseId', exerciseController.show);
 
 /**
  * API examples routes.

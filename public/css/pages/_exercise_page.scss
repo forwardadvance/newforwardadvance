@@ -1,0 +1,78 @@
+@import '../imports';
+
+.exercise_page {
+  article {
+    max-width: $max_text_width;
+    float:right;
+    width:75%;
+    padding-left:5%;
+  }
+  nav.sidebar {
+    padding-top:50px;
+    padding-right:5%;
+    float:left;
+    width:25%;
+    float:left;
+    ul, li {
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+    a, span {
+      display:block;
+      padding:10px 0;
+    }
+    span{
+      font-weight:bold;
+    }
+    li.section {
+      a {
+        border:1px dotted black;
+        border-bottom: none;
+      }
+    }
+    li.course {
+      a {
+        background:black;
+        color:white;
+      }
+    }
+    li ul {
+      border:1px solid black;
+      background: $dark_grey;
+      padding:10px 10px 10px 30px;
+      li {
+        list-style:disc;
+        color:white;
+      }
+      a {
+        padding:0;
+        color:white;
+      }
+    }
+  }
+
+  section.exercise {
+    border:1px solid black;
+    border-radius:3px;
+    padding:$gutter;
+    margin:$gutter*2 0;
+    >:first-child {
+      margin-top:0
+    }
+  }
+  aside.resources {
+    background:$mid_grey;
+    padding:$gutter;
+    color:$white;
+    h2 {
+      margin-top:0;
+      color:$white;
+    }
+    a {
+      color:$white;
+      text-decoration:underline;
+    }
+  }
+
+}

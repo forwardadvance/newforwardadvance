@@ -1,0 +1,137 @@
+
+%section
+  :markdown
+
+    # Making Angular 2 Components Receive Values (inputs)
+
+    Components are analogous to DOM nodes. Just as the behaviour of a DOM node can be affected by setting attributes on it, our components can also receive attributes (and property bindings) as inputs.
+
+    Attributes are the **inputs** of our components.
+
+    We tell our app it can receive inputs by setting an inputs attribute in the Component decorator, like so:
+
+  :ruby
+    code = <<-CODE
+    inputs: ["profile"]
+    CODE
+  =code(code)
+
+  :markdown
+    Here's that in context:
+
+  :ruby
+    code = <<-CODE
+    var UserComponent = ng.core
+      .Component({
+        selector: "user",
+        inputs: ["profile"],
+        template:
+        `
+          <div>
+            user: {{profile}}
+          </div>
+        `
+      })
+      .Class({
+        constructor: function() {}
+      })
+    CODE
+  =code(code)
+
+  :markdown
+
+    ## Passing the inputs in
+
+    We can pass inputs in several ways:
+
+    We can pass an attribute (which will come through as a literal)
+
+  :ruby
+    code = <<-CODE
+    <user profile="davey"></user>
+    CODE
+  =code(code)
+
+  :markdown
+
+    We can pass a property from the parent component, which will be evaluated in it's current context:
+
+  :ruby
+    code = <<-CODE
+    <user [profile]="userProfile"></user>
+    CODE
+  =code(code)
+
+  :markdown
+
+    If we want a string literal here, we can compose one in the expression:
+
+  :ruby
+    code = <<-CODE
+    <user [profile]="'mikey'"></user>
+    CODE
+  =code(code)
+
+  :markdown
+
+    Or we could hardcode an object:
+
+  :ruby
+    code = <<-CODE
+    <user [profile]="{name: 'mikey'}"></user>
+    CODE
+  =code(code)
+
+  :markdown
+
+    Finally we might use a curly expression to bind an expression to an attribute. Though this works, and may feel quite attractive, it is not the preferred way to do this. Changing an attribute may trigger a browser **reflow**, where the browser re-renders the page. This is an expensive thing and may slow down your app.
+
+  :ruby
+    code = <<-CODE
+    <user profile="{{name}}"></user>
+    CODE
+  =code(code)
+
+  :markdown
+
+    Here's the above in context
+
+  :ruby
+    code = <<-CODE
+
+    var AppComponent = ng.core
+      .Component({
+        selector: "app",
+        directives: [UserComponent],
+        template:
+        `
+          <user [profile]="name"></user>
+          <user [profile]="'mikey'"></user>
+          <user profile="davey"></user>
+          <user profile="{{name}}"></user>
+        `
+      })
+      .Class({
+        constructor: function() {
+          var vm = this;
+          vm.name = 'stewey'
+        }
+      })
+
+    document.addEventListener('DOMContentLoaded', function() {
+      ng.platform.browser.bootstrap(AppComponent, [])
+    });
+    CODE
+  =code(code)
+
+%section.exercise
+  :markdown
+    ## Exercise - Bind the profile component
+
+    Remember the profile component we made before that displays a single user or cat? We are going to parameterise that, so that the user can be passes in from outside.
+
+    Add an inputs attribute to your component decorator. Now make the user component receive a parameter that tells it which user to show.
+
+    ## Bonus points
+
+    Create several user components, and add them to your tabbed pane, so that you can tab around and see multiple users.

@@ -1,0 +1,119 @@
+-# TODO Written late at night. Refactor please. In Particu;ar, explain what the files are called and where they go
+
+
+
+%section
+  :markdown
+    # Building Angular Components with TypeScript
+
+    Now that we can compile TypeScript, it's time to build an app.
+
+    First up we'll need some HTML. There's quite a lot of required JavaScript. I'm assuming here that you have used NPM to install these JavaScript dependencies in the last chapter. If not, you'll need to download these manually, or link to the CDN.
+
+  :ruby
+    code = <<-CODE
+    <html>
+      <head>
+        <title>Hello World</title>
+
+        <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+        <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+
+        <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+        <script src="node_modules/systemjs/dist/system.src.js"></script>
+        <script src="node_modules/rxjs/bundles/Rx.js"></script>
+        <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+
+
+        <script>
+          System.config({
+            packages: {
+              app: {
+                format: 'register',
+                defaultExtension: 'js'
+              }
+            }
+          });
+          System.import('app/app')
+                .then(null, console.error.bind(console));
+        </script>
+
+      </head>
+
+
+      <body>
+        <app></app>
+      </body>
+
+    </html>
+
+    CODE
+  =code(code, :html)
+
+  :markdown
+
+    ## SystemJS
+
+    We will use SystemJS as a module loader here. This will allow us to put our modules in separate files, and require them via AJAX.
+
+    ## app.ts
+
+    Next we need our bootstrapper object that will start the whole thing. This will look something like this:
+
+  :ruby
+    code = <<-CODE
+    import {bootstrap} from 'angular2/platform/browser'
+    import {AppComponent} from './app.component'
+
+    bootstrap(AppComponent);
+    CODE
+  =code(code)
+
+  :markdown
+
+    If you have your compiler running you will notice that it fails at this point because it can't find app.component. We'll make this now.
+
+    ## app.component.ts
+
+    App.component looks like this. Notice how, instead of ng.core.component, we use the @component decorator. Apart from this, all else is the same. We can still do inputs and events. We still have directives.
+
+  :ruby
+    code = <<-CODE
+    import {Component} from 'angular2/core';
+
+    @Component({
+        selector: 'app',
+        template: `
+          <h1>Hello World</h1>
+        `,
+        directives: []
+
+    })
+    export class AppComponent { }
+    CODE
+  =code(code)
+
+  :markdown
+
+
+
+%section.exercise
+  :markdown
+    ## Exercise - Implement the hello world above
+
+    Try to get the simple hello world running in a browser.
+
+
+%section.exercise
+  :markdown
+    ## Harder Exercise - Tab Pane
+
+    Have a go at implementing your tab pane using TypeScript. Use the Hello World as a jumping off point, then rewrite the Tab Pane js files into TypeScript.
+
+%section.exercise
+  :markdown
+    ## Even Harder Exercise - Flickr
+
+    Re-implement the Flikr search app using TypeScript.
+
+    Be sure to use separate files for each component. Break your app down as far as is sensible.

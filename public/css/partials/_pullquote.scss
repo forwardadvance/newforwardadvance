@@ -1,0 +1,15 @@
+
+aside.pullquote {
+  position:absolute;
+  right:$gutter;
+  padding:$gutter;
+  width:$aside_width;
+  font-weight:800;
+  border-radius:$round;
+  &:before {
+    content:'\201C';
+  }&:after {
+    content:'\201D';
+  }
+  border:1px solid $highlight_colour;
+}

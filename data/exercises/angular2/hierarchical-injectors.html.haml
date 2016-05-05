@@ -1,0 +1,35 @@
+
+%section
+  :markdown
+
+    # Hierarchical Injectors
+
+    As previously mentioned, Angular 1 had a number of limitations with its injector. One of the most irksome was the fact that all components registered with Angular were global.
+
+    This meant that your string tokens needed to be namespaced. In a small app this was manageable, but in a larger app, the tokens became less pretty to look at.
+
+    ## The injector tree
+
+    Angular 2 improves on this by creating a tree of injectors that mirrors the component tree. When you bootstrap your app, a global root injector is created. Any tokens we add to this injector are available throughout our app.
+
+    Every time we create a component, we have the option of creating a child injector that will extend its parent. This will contain all the tokens from the parent, plus any additional ones we want to add
+
+    ## Services are singletons
+
+    As with Angular 1, services are singletons within the injector, but unlike Angular 1, services are only singletons in the context of their own injector. If you override an injector token in a child injector, you get a new singleton just for that injector tree branch.
+
+    In ES5
+
+    Let's create a dinner service
+
+  :ruby
+    code = <<-CODE
+    var DinnerService = function() {
+      this.guestCount: Math.random();
+    };
+    CODE
+  =code(code)
+
+  :markdown
+
+    If we inject DinnerService into the root injector, we will find that it is a singleton.

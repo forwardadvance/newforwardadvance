@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+  .wrap
+    article
+      h1 Courses
+      each course in courses
+        h2= course.title
+
+      :markdown
+        ```bash
+        console.log('yo');
+        var x = "hey there";
+        ```

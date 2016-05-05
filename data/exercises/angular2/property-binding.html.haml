@@ -1,0 +1,165 @@
+
+%section
+  :markdown
+
+    # Angular brings back the DOM
+
+    For a long time we thought of a web page as a triune structure, composed of HTML for content, CSS for styling and JavaScript for behaviour.
+
+    If we wanted to modify our page, we would write JavaScript to modify attributes on the HTML. If we wanted style, we created style attributes. If we wanted to set the value of an input, we would set the value attribute. If we wanted text content, we would append it.
+
+    We forgot about the DOM.
+
+    ## The DOM lurks beneath, like an awesome Kraken, waiting to surface and eat us all
+
+    The DOM is the browser's representation of the web page. HTML initialises it, but once created it has a life of its own.
+
+    It is a tree of objects (Elements). Each Element has attributes, which are taken directly from the HTML, and properties, which are not.
+
+    Attributes look like this:
+
+  :ruby
+    code = <<-CODE
+    <img src="kitty_cheese.gif" />
+    CODE
+  =code(code)
+
+  :markdown
+
+    The attribute here is `src`. Attributes are visible in the HTML, and also stored in the DOM as Element attributes.
+
+
+    ## DOM properties != HTML attributes
+
+
+    DOM properties are not visible in the HTML. They may be kept in sync with the HTML attributes, or they may not, depending on the exact behaviour of the attribute.
+
+    There are many more DOM properties than there are attributes. If we can set properties, we can do many more things than we can do if we just manipulate HTML.
+
+    * [For more on this, see here](http://www.nicholasjohnson.com/blog/angular-is-bringing-back-the-dom/)
+
+    ## Angular works directly on DOM properties.
+
+    Angular takes the DOM and makes it available directly in the HTML. Angular does not work on attributes at all. If you open your elements tab in Chrome and look at an Angular component, you may be surprised to see fewer attributes than you expected, perhaps none at all.
+
+    ## Setting DOM properties
+
+    We can create a template like this:
+
+  :ruby
+    code = <<-CODE
+    <img [src]="wiggling_hamster_bums.gif" />
+    CODE
+  =code(code)
+
+  :markdown
+
+    Here we set the src property directly on the DOM, bypassing the attribute altogether.
+
+    ## Setting Attributes
+
+    The DOM is not perfect. It is wonky in many places and in many ways.
+
+    One issue you may run into when you start using Angular templates is the `Can't bind to 'x' since it isn't a known native property` error.
+
+    This happens because some attributes are not mapped to properties. This is a shortcoming in the DOM API. It's an omission that may be corrected at some future date.
+
+    an example of this would be colspan. You might see this error:
+
+    `Can't bind to 'colspan' since it isn't a known native property`
+
+    We can set attributes directly in out html by binding to attr.colspan:
+
+  :ruby
+    code = <<-CODE
+    <td [attr.colspan]="12" />
+    CODE
+  =code(code)
+
+  :markdown
+
+    ## The Hidden Property
+
+    We can show or hide elements by setting the hidden property on an element.
+
+  :ruby
+    code = <<-CODE
+    <a on-click="iAmHidden=true" />
+    <div [hidden]="iAmHidden">Hey!</div>
+    CODE
+  =code(code)
+
+  :markdown
+
+%section.exercise
+  :markdown
+    ## Exercise - A Show / Hide link
+
+    Use the above as a base to create a little "read more link". When you click it, it flips the value of a boolean (check out the section on events if you can't remember how) and sets the [hidden] attribute of a div.
+
+    ## Extension
+
+    When you click it again, it becomes a read less link, so you can hide the content again.
+
+%section.exercise
+  :markdown
+    ## Exercise - Tabs
+
+    In this section we are going to create a tabbed pane. This will have a row of links at the top, and a set of panels below. Clicking the links at the top will toggle visibility on the panels.
+
+    The HTML will look something like this:
+
+    <a>Tab 1</a>
+    <a>Tab 2</a>
+    <a>Tab 3</a>
+    <div>Panel 1</div>
+    <div>Panel 2</div>
+    <div>Panel 3</div>
+
+    When you click on Tab 1, Panel 1 is displayed, and Panels 2 and 3 are hidden.
+
+    Start out by adding click handlers to the tabs. Something like this: on-click="currentTab=1"
+
+    Now bind the hidden attribute to the panels, something like this: [hidden]="currentTab!=1"
+
+    ## Extension
+
+    Extract this into a component and integrate it with your user app (with the header and footer) from the previous section.
+
+    ## Coming up
+
+    Later we will see how we can extract the tabs themselves into a child component. We will also see another way of doing this using routing.
+
+%section
+  :markdown
+
+    ## The Disabled property
+
+    We can disable inputs and buttons by setting the [disabled] property on the Element, like so.
+
+  :ruby
+    code = <<-CODE
+    <input [disabled]="true" />
+    CODE
+  =code(code)
+
+
+
+%section.exercise
+  :markdown
+    ## Exercise - Disabled Submit Button
+
+    Create a little email signup form with fields for name and email, and submit button. Make it so that the button is disabled until you detect a keyup event in the name field and the email field.
+
+    Note, we will find a better way to do this when we get to the section on forms.
+
+    ## Extension
+
+    Integrate this form into your tabbed pane from the previous exercise.
+
+
+%section.exercise
+  :markdown
+    ## Exercise - Hyper bonus exercise
+
+    Open up the DOM inspector in Chrome, right click an element, and choose 'inspect'. On the right, you will see a properties tab. This shows all the DOM properties you can modify. (Note that properties and attributes are mixed up in this tab). Have a play with some of these properties and see what you can do.

@@ -1,0 +1,207 @@
+---
+title: "Angular 2 Exercise"
+section: "typescript"
+exercise: "classes"
+layout: "exercise"
+---
+
+
+%section
+  :markdown
+    # An Introduction to TypeScript
+
+    TypeScript is was first released by MicroSoft in 2012, so it's relatively new. It is a superset of JavaScript. All legal JavaScript is also legal TypeScript, so knowing TypeScript doesn't excuse you from knowing JavaScript.
+
+    however, if you are used to a classical, class based environment with type safety and decorators, TypeScript might be the tool for you.
+
+    ## Features
+
+    On top of JavaScript it also gives us features like:
+
+    * Optional strong typing, with compile time errors if we mess up.
+    * Classes (which are sugar for a special case of Prototypical inheritance).
+    * Decorators - which are fabulously powerful.
+
+    We can have start to have a play with TypeScript in Microsoft's TypeScript playground. It gives us real time compilation, so we can see how to make things.
+
+    ## Classes
+
+    Let's start with a class. Here's a Toaster:
+
+  :ruby
+    code = <<-CODE
+    class Toaster {}
+    CODE
+  =code(code)
+
+  :markdown
+
+    This compiles to a little JavaScript IIFE which generates the newable function and returns it:
+
+  :ruby
+    code = <<-CODE
+    var Toaster = (function () {
+      function Toaster() {
+      }
+      return Toaster;
+    }());
+    CODE
+  =code(code)
+
+  :markdown
+
+    We use the `new` keyword to make a new object using the Toaster constructor, like so:
+
+  :ruby
+    code = <<-CODE
+    var myToaster = new Toaster();
+    CODE
+  =code(code)
+
+  :markdown
+
+%section.exercise
+  :markdown
+    ## Exercise - Create a class
+
+    Visit the TypeScript playground here:
+
+    <http://www.typescriptlang.org/Playground>
+
+    Now create a your own simple class. Take a look at the code that is generated. Use `new` to make a new object.
+
+%section
+  :markdown
+    ## Attributes
+
+    JAvaScript objects are just Hashmaps, and so we can set any attributes we like on them. TypeScript gives us compile time safety, we can choose what attributes we want people to write to.
+
+    Say we do this:
+
+  :ruby
+    code = <<-CODE
+    class Toaster {}
+    var myToaster = new Toaster();
+    myToaster.bread = "Artisan rye splashed with swan's breath"
+    CODE
+  =code(code)
+
+  :markdown
+
+    We get an error. `Property bread does not exist on type Toaster.`
+
+    This is a compile time error. The generated JavaScript will of course run just fine.
+
+    We tell the compiler to expect a bread attribute like so:
+
+  :ruby
+    code = <<-CODE
+    class Toaster {
+      bread
+    }
+    CODE
+  =code(code)
+
+  :markdown
+
+    The error is now gone.
+
+%section.exercise
+  :markdown
+    ## Exercise - Attributes
+
+    Give your new object an attribute. Create an instance using the new keyword. Check out the intellisense.
+
+
+%section
+  :markdown
+    ## Constructors
+
+    A constructor function allows us to configure the new object. Here's our toaster with a constructor function. This constructor gets bread, saves it in an attribute, and console.logs it.
+
+    Note that we need to declare the bread attribute:
+
+  :ruby
+    code = <<-CODE
+    class Toaster {
+      bread
+      constructor(bread) {
+        this.bread = bread
+        console.log('Toast was made with bread', bread)
+      }
+    }
+    CODE
+  =code(code)
+
+  :markdown
+
+    This compiles to the following. The constructor becomes the newable function returned from the IIFE:
+
+  :ruby
+    code = <<-CODE
+    var Toaster = (function () {
+      function Toaster(bread) {
+        this.bread = bread;
+        console.log('Toast was made with bread', bread);
+      }
+      return Toaster;
+    }());
+    CODE
+  =code(code)
+
+  :markdown
+
+
+    We also have a shorthand for creating public parameters. We can set the paramter to public, and it will create the attribute for us.
+
+    class Toaster {
+      constructor(public bread) {}
+    }
+
+%section.exercise
+  :markdown
+    ## Exercise - Constructors
+
+    Visit the TypeScript playground here:
+
+    <http://www.typescriptlang.org/Playground>
+
+    Add a constructor function to your class. See how it changes your JavaScript. Have your constructor receive a value and save it in an attribute.
+
+    Check out the public setting for the parameter.
+
+    Use new to create an object. Notice the intellisense as you interact with your new object.
+
+%section
+  :markdown
+    ## Strong Typing
+
+    TypeScript gives us optional Strong Typing, like so:
+
+  :ruby
+    code = <<-CODE
+    class Toaster {
+      constructor(public bread:Bread) {}
+    }
+    CODE
+  =code(code)
+
+  :markdown
+
+    Our Toaster will now only receive bread. If we try to pass it something else, the compiler will complain (though of course the generated code will still run.)
+
+    To make this work, we now need to declare Bread:
+
+  :ruby
+    code = <<-CODE
+    class Bread {}
+    CODE
+  =code(code)
+
+  :markdown
+
+%section.exercise
+  :markdown
+    ## Exercise - Strong Typing
+
+    Apply some strong typing to a constructor argument. Add in classes to make the compiler happy. Check out the code you get.

@@ -1,0 +1,228 @@
+
+%section
+  :markdown
+
+    # Component Based Hello World
+
+    Angular applications are built out of components. A component works like a brand new type of DOM node which we invent. It can have behaviour, it can emit events, it can have custom attributes, it holds its own state.
+
+    In this section we'll build the simplest possible "Hello World" component using regular ol' JavaScript.
+
+  %aside.questions_answered
+    :markdown
+      ## Questions Answered
+
+      * What is an Angular 2 component?
+      * What is the simplest meaningful Angular 2 *Hello World* we can create?
+
+  :markdown
+
+    ## The JavaScripts
+
+    First up we need some JavaScript. We currently need four files to make our simple app work. These are:
+
+    1. angular2-polyfills.js
+    2. Rx.umd.js
+    3. angular2-all.umd.js
+    4. app.js
+
+    ### angular2-polyfills.js
+
+    Angular uses edge JavaScript, things like Reflect for example that are not available in any current browser. The polyfills script makes these features available.
+
+    ### Rx.umd.js
+
+    Angular uses Observables for AJAX. Observables are like Promises, but with a much fuller API.
+
+    ### angular2-all.umd.js
+
+    Angular 2 UMD - the Universal Module Definition version of Angular exposes the Angular internals on a glbal variable called ng. This means we don't need a module loader for our hello world which simplifies things a lot.
+
+    Module loaders are cool, and we will get to them, but not in a hello world.
+
+    ### app.js
+
+    Our code.
+
+
+%section.box
+  :markdown
+
+    ## What is UMD?
+
+    UMD (as in angular-all.umd.js) stands for Universal Module Definition. It is a common specification for exposing variables. In this case, it creates the ng global for us.
+
+    We don't have to use it. We can explicitly import Angular components wherever they are required. More on this later.
+
+%section
+  :markdown
+
+
+    ## HTML5 Skeleton
+
+    An HTML skeleton includes the necessary JavaScripts, then declared an app component.
+
+    Here's a skeleton HTML page for you to copy.
+
+  :ruby
+    code = <<-CODE
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.3/angular2-polyfills.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.3/Rx.umd.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.3/angular2-all.umd.js"></script>
+        <script src='app/app.js'></script>
+      </head>
+      <body>
+        <app>Hello from the HTML</app>
+      </body>
+    </html>
+    CODE
+  =code(code, :html)
+
+  :markdown
+
+    ## What is that &lt;app> tag?
+
+    The &lt;app> tag is going to be a component. We will create a component that matches that tag, and add behaviour and a template to it.
+
+    ## The JavaScript
+
+    Now we need to create our app component. In app.js, include the following:
+
+  :ruby
+    code = <<-CODE
+    // First define the component. I'm just whopping it in a global variable here.
+    // Globals are uncool, but this is fine for our simple hello world.
+    var AppComponent = ng.core
+      .Component({
+        selector: 'app', // Look for the <app> element in the HTML
+        template: '<p>Hello World!</p>' // Insert this template
+      })
+      .Class({
+        constructor: function() {} // An empty constructor
+      });
+    CODE
+  =code(code)
+
+  :markdown
+
+    Now we have a component to match the &lt;app> tag
+
+    ## Bootstrapping
+
+    In Angular 1 we could bootstrap an application automatically using the ng-app directive. In Angular 2 we must manually bootstrap our app.
+
+    We wait till the DOM is loaded, then we call `ng.platform.browser.bootstrap` to initialise the application.
+
+  :ruby
+    code = <<-CODE
+    // Wait till the DOM is loaded, them Bootstrap the component.
+    document.addEventListener('DOMContentLoaded', function() {
+      ng.platform.browser.bootstrap(AppComponent);
+    });
+    CODE
+  =code(code)
+
+  :markdown
+
+    You can see this in action here:
+
+    <http://codepen.io/superluminary/pen/ZQMNqa?editors=1010>
+
+%section.exercise
+  :markdown
+
+    ## Exercise - Mucking about with code
+
+    As coders we learn best by getting our hands dirty, by tinkering. Let's get tinkering.
+
+    Fork this pen <http://codepen.io/superluminary/pen/ZQMNqa?editors=1010> (click the fork button at the top).
+
+    1. Now improve on this template a little. Change the p into an h1.
+    2. Make it say goodbye world.
+    3. Change the html selector from app to monsier-moreau. Update the HTML as well. Make it work.
+
+%section.exercise
+  :markdown
+
+    ## Exercise - Looking at errors
+
+    Angular 1 would often fail silently on error. Angular 2 is great at error handling. Let's make some mistakes.
+
+    Codepen has a console button at the bottom. Click it to see the errors. Scroll down until you see something meaningful.
+
+    1. Break the template. Change it to this: <p>Hello World!</>
+    2. Break the selector. Change it to 'abc123', but don't update the html.
+
+    Angular 2 is much more strict. It will not try to make everything right for you, and will fail loudly and explicitly, which is generally what we developers like.
+
+%section.exercise
+  :markdown
+    ## Exercise - Make your own
+
+    The goal of this exercise is just to get something working for real.
+
+    Break out of the pen. Make your own variation of the hello world app in an editor. Use the HTML skeleton above.
+
+    Save it in a folder and view it in a browser.
+
+    You don't need to have a server running or anything special, just open the HTML file in the browser as a file.
+
+    If you run into errors, open the console, view them and fix them.
+
+
+%section.exercise
+  :markdown
+
+    ## Exercise - Visual Studio
+
+    If you need to develop in Visual Studio, you may have a bit of a culture shock when you start using Angular. We use static HTML templates and compile in the browser using JavaScript. The role of the server is dramatically reduced.
+
+    Visual Studio 2015 has excellent support for Angular. MS TypeScript is the language of Angular 2, and VS 2015 has Gulp and Node built right into it.
+
+    You may however have to adjust your thinking just a little bit, and you will have rather more hoops to jump through.
+
+    ### Creating the Project
+
+    1. First create a new project.
+    2. From Templates, create an ASP.Net Web Application.
+    3. Choose Empty to create a completely empty application. We won't be using any of the features of .Net in our front end application.
+
+    ### Create the HTML file
+
+    1. Right click your new application, add new item, and create an html file. Call it index.html. This is our template.
+    2. Insert a little bit of text inside it.
+    3. Now right click the file and open in browser. See the text?
+    4. Alt tab back to Visual Studio and make a change to the text.
+    5. Now alt tab back to your web browser. Press refresh. See the change you made?
+
+    ### Getting Angular
+
+    We have 3 choices here.
+
+    1. We can use NuGet to install Angular.
+    2. We can simply download Angular into our Scripts folder and link to it.
+    3. We can link to the Angular CDN, as show in the hello world example above.
+
+    ### If you use Nuget
+
+    At time of writing there was not a viable Nuget package for Angular 2. If you choose to use NuGet, make sure you get the UMD version, i.e. angular2-all.umd.js
+
+    1. Right click the project in the solution explorer and choose manage NuGet packages.
+    2. Choose Angular 2 Core from the list. It will be installed into your Scripts folder.
+
+    ### Linking Angular
+
+    Now we need to link Angular. Because this is the front end we do this with a script tag right in the html.
+
+  :ruby
+    code = <<-CODE
+    <script src="/Scripts/angular.js"></script>
+    CODE
+  =code(code)
+
+  :markdown
+
+    Now Attempt the Hello World exercise.

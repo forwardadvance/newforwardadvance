@@ -1,0 +1,250 @@
+
+%section
+  :markdown
+
+
+    # Gulp
+
+    Gulp is a development automation tool. It's the successor to Grunt.
+
+    We configure gulp using a gulpfile. Our gulpfile contains a set of tasks that we would like to automate. Each task is a stream of activities, for example a js task might:
+
+    1. Compile your code from TypeScript to JavaScript
+    2. Reload your web browser so you can see the changes.
+    3. Minify.
+    4. Save the minified code as app.min.js.
+
+    ## Gulp streams
+
+    Gulp has a concept of streams. A stream is a set of files that can be transformed from one form into another.
+
+    We create a stream using gulp.src, then pipe it through different functions which can modify the stream in a variety of ways. We can optionally pipe our stream back out onto the filesystem at any point using gulp.dest.
+
+    We use gulp for:
+
+    * Compilation
+    * Validation
+    * Concatenation
+    * Reformatting
+    * Transformation and transclusion
+    * Renaming
+    * Wrapping content
+    * Anything else we can think of
+
+
+    ## Gulp modules
+
+    We extend the capabilities of Gulp using modules, which are installed using npm. Here are some useful ones:
+
+    * jshint - JavaScript validation
+    * sass - CSS precompilation
+    * Uglify - JavaScript minification
+    * Concat - Script concatenation
+    * Autoprefixer - Automatically add vendor prefixes to CSS
+    * Header - Adds a header to the file
+    * Size - Outputs the size of a minified file
+
+    ## Validating code
+
+    A common requirement is to validate our JavaScript. We can do this with a simple Gulp task:
+
+  :ruby
+    code = <<-CODE
+    var gulp = require('gulp'),
+      jshint = require('gulp-jshint');
+
+    gulp.task('assets:js', function () {
+      return gulp.src(components.js)
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'))
+    }
+    CODE
+  =code(code)
+
+  :markdown
+
+    We execute this task with:
+
+  :ruby
+    code = <<-CODE
+    gulp assets:js
+    CODE
+  =code(code, :bash)
+
+  :markdown
+
+    ## Automatic execution
+
+    We can tell gulp to watch our filesystem for changes, and execute a task whenever a file is modified.
+
+
+  :ruby
+    code = <<-CODE
+    gulp.task('watch', function() {
+      gulp.watch(components.js, ['assets:js']);
+    CODE
+  =code(code)
+
+  :markdown
+
+    Now we might create a default gulp task:
+
+  :ruby
+    code = <<-CODE
+    gulp.task('default', [
+      'watch'
+    ]);
+    CODE
+  =code(code)
+
+  :markdown
+
+    We can now set our gulp task running simply by typing gulp at a command line.
+
+  :ruby
+    code = <<-CODE
+    gulp
+    CODE
+  =code(code, :bash)
+
+  :markdown
+
+%section.exercise
+  :markdown
+    ## Exercise - JSHint
+
+    Install Gulp and the gulp-cli using npm. Note that currently gulp has to be installed locally in your project, so we omit the -g flag.
+
+  :ruby
+    code = <<-CODE
+    npm install gulp
+    npm install gulp-cli -g
+    CODE
+  =code(code, :bash)
+
+  :markdown
+
+    Test your installation:
+
+  :ruby
+    code = <<-CODE
+    gulp --version
+    CODE
+  =code(code, :bash)
+
+  :markdown
+
+    Now we're going to set up gulp to validate our javascript.
+
+    first install the gulp-jshint dependency
+
+  :ruby
+    code = <<-CODE
+    npm install gulp-jshint
+    CODE
+  =code(code)
+
+  :markdown
+
+    Now create a gulpfile containing something like the following:
+
+  :ruby
+    code = <<-CODE
+    var gulp = require('gulp'),
+      jshint = require('gulp-jshint');
+
+    gulp.task('js', function () {
+      return gulp.src('js/**/*.js')
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'))
+    }
+    CODE
+  =code(code)
+
+  :markdown
+
+    Now run gulp js to execute the task:
+
+  :ruby
+    code = <<-CODE
+    gulp js
+    CODE
+  =code(code)
+
+  :markdown
+
+    Any errors? You may need to introduce an error to see the effect.
+
+    Set up Gulp to automatically validate the code in your node server. When you save the file, it should give you an error if you have made a mistake.
+
+
+%section
+  :markdown
+    ## Piping out a stream
+
+    We can make transformations to our code right in the stream, and then at any point, pipe it out into a file. We might pipe it out more than once if we want to.
+
+  :ruby
+    code = <<-CODE
+    var gulp = require('gulp'),
+      concat = require('gulp-concat'),
+      uglify = require('gulp-uglify');
+
+    gulp.task('js', function () {
+      return gulp.src('./js/**/*.js')
+        .pipe(concat('app.js'))
+        .pipe(gulp.dest('./build/js'))
+        .pipe(rename('app.min.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest('./build/js'))
+    });
+    CODE
+  =code(code)
+
+  :markdown
+
+%section.exercise
+  :markdown
+    ## Exercise - Pipe out
+
+    Try to get the above running. Make a gulp task that will concatenate and minify your JavaScript.
+
+    **Remember you will need to npm install gulp-concat and gulp-uglify.**
+
+    Now integrate this with the lint exercise above. Make a task that will first lint your code, then concat and minify.
+
+%section.exercise
+  :markdown
+    ## Angular Exercise - ngAnnotate
+
+    ngAnnotate is a project that will convert Angular round brace injectors into minification safe square brace injectors.
+
+    Here's the gulp task: <https://www.npmjs.com/package/gulp-ng-annotate>
+
+    Try to integrate ngAnnotate into your js build process.
+
+%section.exercise
+  :markdown
+    ## Exercise - Header
+
+    You might wish to mark your generated files as such so that future coders don't try to edit them directly. We can use gulp-header for this.
+
+    <https://www.npmjs.com/package/gulp-header>
+
+    Use gulp-header to add a header to your concatenated js file, something like this:
+
+  :ruby
+    code = <<-CODE
+    "Generated by `gulp js`\n// Do not modify\n\n"
+    CODE
+  =code(code)
+
+%section.exercise
+  :markdown
+    ## Exercise - Validate your gulpfile
+
+    Slightly meta this one. Use the gulp-jsonlint package to automatically validate your gulpfile.
+
+
+
+

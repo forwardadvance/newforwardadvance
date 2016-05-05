@@ -1,0 +1,170 @@
+{
+  "angular": {
+    "title": "Learn AngularJS",
+    "book": {
+      "cover": "angular"
+    },
+    "exercises": [
+      // "angular/angular-intro",
+      "angular/templates",
+      "angular/binding",
+      "angular/more-binding",
+      "angular/controllers",
+      "angular/scope",
+      "angular/watch",
+      "angular/di",
+      "angular/karma",
+      "angular/repeat-and-filter",
+      "angular/ajax",
+      "angular/ng-include",
+      "angular/animation",
+      "angular/custom-filters",
+      "angular/services",
+      "angular/promises",
+      "angular/directives",
+      "angular/directive-compilation",
+      // "angular/parse",
+      // "angular/testing-directives",
+      "angular/isolate-scope",
+      "angular/transclusion",
+      // "angular/crud",
+      // "angular/webapi",
+      "angular/validation",
+      "angular/protractor",
+      "angular/resource",
+      "angular/routing",
+      "angular/ui-router"
+    ]
+  },
+  "angular-live": {
+    "title": "AngularJS Live Course",
+    "book": {
+      "cover": "angular-live"
+    },
+    "exercises": [
+      // "angular/angular-intro",
+      "angular/templates",
+      "angular/binding",
+      "angular/more-binding",
+      "angular/controllers",
+      "angular/scope",
+      "angular/watch",
+      "angular/di",
+      "angular/karma",
+      "angular/homework",
+      "angular/repeat-and-filter",
+      "angular/ajax",
+      "angular/ng-include",
+      "angular/animation",
+      "angular/custom-filters",
+      "angular/services",
+      "angular/promises",
+      "angular/directives",
+      "angular/directive-compilation",
+      // "angular/parse",
+      // "angular/testing-directives",
+      "angular/isolate-scope",
+      "angular/homework-2",
+      "angular/transclusion",
+      "angular/crud",
+      // "angular/webapi",
+      "angular/validation",
+      "angular/protractor",
+      "angular/resource",
+      "angular/routing",
+      "angular/ui-router"
+    ]
+  },
+  "angular2": {
+    "title": "Learn Angular 2",
+    "exercises": [
+      // "angular2/angular2-intro",
+      // "angular2/summary-of-differences",
+      "angular2/components",
+      "angular2/bound-variables",
+      "angular2/events",
+      "angular2/nested-components",
+      "angular2/property-binding",
+      "angular2/inputs",
+      "angular2/event-emitters",
+
+      "angular2/shadow-dom",
+      "angular2/inline-templates",
+      "angular2/ng-for",
+      "angular2/custom-pipes",
+      "angular2/forms",
+      // "angular2/form-validation",
+      "angular2/di",
+      "angular2/ajax",
+
+      "angular2/javascript-closure",
+      "angular2/json",
+      "angular2/object-orientation",
+      "angular2/meaning-of-this",
+      "es6/fat-arrows",
+      "typescript/typescript-intro",
+      "angular2/building-typescript",
+      "angular2/components-with-typescript",
+
+
+      "angular2/services-with-typescript",
+      "angular2/ajax-with-typescript",
+      // "typescript/modules",
+      // "typescript/decorators",
+      "angular2/webapi",
+      // "angular2/hierarchical-injectors",
+      "angular2/gulp",
+      "automation/sass",
+      "automation/jade",
+      "automation/watch-and-reload"
+
+
+    ]
+  },
+  "es6": {
+    "title": "ES6: Future Javascript",
+    "exercises": [
+      "es6/fat-arrows"
+    ]
+  },
+  "typescript": {
+    "title": "TypeScript",
+    "exercises": [
+      "typescript/typescript-intro",
+      "typescript/gulp-for-typescript"
+      // "typescript/decorators",
+      // "typescript/modules",
+      // "typescript/strong typing"
+    ]
+  },
+
+  "automation": {
+    "title": "Automation with Gulp, SASS, Jade and TypeScript",
+    "exercises": [
+      "automation/gulp",
+      "automation/watch-and-reload",
+      "automation/sass",
+      "automation/jade",
+      "automation/yeoman"
+    ]
+  },
+  "javascript": {
+    "title": "JavaScript for Programmers",
+    "exercises" : [
+      "javascript/intro",
+      "javascript/gulp",
+      "javascript/functions",
+      "javascript/closure",
+      "javascript/arrays",
+      "javascript/jquery",
+      "javascript/events",
+      "javascript/each-peach",
+      "javascript/json",
+      "javascript/object-orientation",
+      "javascript/meaning-of-this",
+      "javascript/ajax",
+      "javascript/lodash-templates",
+      "javascript/promises"
+    ]
+  }
+}

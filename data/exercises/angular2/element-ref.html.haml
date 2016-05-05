@@ -1,0 +1,42 @@
+
+%section
+  :markdown
+
+    # Using ElementRef for Direct DOM Manipulation
+
+    We can use ElementRef to get hold of a reference to the element itself in our component.
+
+    ElementRef will inject the current DOM node into your component. The ElementRef service will always be local to your current DOM node.
+
+    Having injected it, you can get hold of the actual DOM node using nativeElement:
+
+    var el = elementRef.nativeElement
+    Once you have this, you can manipulate it it in any way you like, either using DOM scripting, or using a DOM wrapper like jQuery:
+
+    $(el)
+      .append('<p>Some interesting Stuff')
+      .addClass('my_class');
+    But don't do this if you can help it
+    Be aware that, as with Angular 1, the use of direct DOM manipulation is discouraged. You can get pretty much all of your work done using templates, and you should favour this way of working most of the time.
+
+    Direct DOM manipulation leads to convoluted, hard to understand, hard to test code.
+
+
+  :ruby
+    code = <<-CODE
+    var AppComponent = ng.core
+      .Component({
+        selector: "app",
+        template:
+        `
+          <div>Captured element</div>
+        `
+      })
+      .Class({
+        constructor: [ng.core.ElementRef, function(elementRef) {
+          var el = elementRef.nativeElement
+          el;
+        }]
+      })
+    CODE
+  =code(code)

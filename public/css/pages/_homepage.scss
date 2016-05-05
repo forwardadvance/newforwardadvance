@@ -1,0 +1,32 @@
+.homepage {
+  header {
+    nav.technology {
+      display:none;
+    }
+  }
+  nav.banner {
+    h1 {
+      margin:auto;
+      padding:30px 0 20px 0;
+      text-align:center;
+      color:$white;
+      // font-weight: medium;
+      max-width:800px;
+    }
+    background: url(/images/backgrounds/small_steps_dark.png) $dark_grey;
+    text-align: center;
+    ul, li {
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+    ul {
+      padding:0 0 30px 0;
+    }
+    li {
+      display: inline-block;
+      width:100px;
+      margin:$gutter;
+    }
+  }
+}

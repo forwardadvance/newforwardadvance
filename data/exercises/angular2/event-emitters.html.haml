@@ -1,0 +1,231 @@
+---
+title: "Angular 2 Exercise"
+section: "angular2"
+exercise: "event-emitters"
+layout: "exercise"
+---
+
+
+%section
+  :markdown
+
+
+    # Event Emitters (Outputs)
+
+    Just as an anchor can emit a click event, and a form can emit a submit event, our custom components can emit events that we make up too.
+
+    For example, say we have a likes button. We might have it output a 'like' event and an 'unlike' event. It we have a rating star component, we might have it emit a 'rate' event. We might extend that event object to include the number of stars.
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/RkzgXGhfPV8?rel=0" frameborder="0" allowfullscreen></iframe>
+
+    We need to do 3 things to make our component emit an event:
+
+    1. Configure our component to emit the event.
+    2. Create the event emitter in our component.
+    3. Tell the event emitter to emit the event.
+
+    Let's do this now. We are going to create a like button. We click it and it emits a 'like' event.
+
+    ## 1. Configure the component
+
+    First we need to add the 'liked' to our component decorator:
+
+  :ruby
+    code = <<-CODE
+    .Component({
+      selector: "like",
+      events: ["liked"],
+      template:
+      `
+        <a (click)="handleClick()">
+          Like?
+        </a>
+      `
+    })
+    CODE
+  =code(code)
+
+  :markdown
+
+    This tells Angular that this component will emit a liked event. Notice also that the template is calling a function called handleClick() when we click it.
+
+    ## 2. Create the EventEmitter
+
+    Next we need to create an attribute of our component object to manage the event. We do this in our class decorator:
+
+  :ruby
+    code = <<-CODE
+    .Class({
+      constructor: function() {
+        var vm = this;
+        vm.liked = new ng.core.EventEmitter();
+      }
+    })
+    CODE
+  =code(code)
+
+  :markdown
+
+    This will be an instance of ng.core.EventEmitter.
+
+    ## Emit the event
+
+    Finally we need to tell our class to emit the event. Let's extend our Class to handle a click event:
+
+  :ruby
+    code = <<-CODE
+    .Class({
+      constructor: function() {
+        var vm = this;
+        vm.liked = new ng.core.EventEmitter();
+        vm.handleClick =  => {
+          console.log('clicked');
+          vm.liked.next();
+        }
+      }
+    })
+    CODE
+  =code(code)
+
+  :markdown
+
+    ## Putting it together
+
+    Here's the whole component:
+
+  :ruby
+    code = <<-CODE
+    var LikeButtonComponent = ng.core
+      .Component({
+        selector: "like",
+        events: ["liked"],
+        template:
+        `
+          <a (click)="handleClick()">
+            Like?
+          </a>
+        `
+      })
+      .Class({
+        constructor: function() {
+          var vm = this;
+          vm.liked = new ng.core.EventEmitter();
+          vm.handleClick = function() {
+            console.log('clicked');
+            vm.liked.next();
+          }
+        }
+      });
+    CODE
+  =code(code)
+
+  :markdown
+
+
+    ## Make use of the component
+
+    We can now make use of this component in a parent component, like so:
+
+
+  :ruby
+    code = <<-CODE
+    var AppComponent = ng.core
+      .Component({
+        selector: "app",
+        directives: [LikeButtonComponent],
+        template:
+        `
+          <like (liked)="handleLike()">Hello</like>
+          {{message}}
+        `
+      })
+      .Class({
+        constructor: function() {
+          var vm = this;
+          this.handleLike = function() {
+            this.message = "Thanks for liking us"
+          }
+        }
+      });
+    CODE
+  =code(code)
+
+  :markdown
+
+    Notice the like component is now able to emit a liked event, which we can handle.
+
+%section.exercise
+  :markdown
+    ## Exercise - like counter
+
+    Extend the code above so that we can count the number of likes. When the like counter emits a like event, have the counter in the parent template increase by one.
+
+    A user can like as many times as they want to.
+
+
+%section.exercise
+  :markdown
+    ## Harder Exercise - Upvoting users
+
+    Change the above into an upvote/downvote component. Upvoting emits an upvote event. Downvoting emits a downvote event.
+
+    Now add this to your User component. Bind to the upvote in the user, such that when we click upvote, the user's voteCount property is increased. Vice-versa for downvotes.
+
+%section
+  :markdown
+    ## Appending data to events
+
+    We can return data from our EventEmitter, just by passing it as a parameter. We might like to return a JSON object:
+
+  :ruby
+    code = <<-CODE
+    vm.liked.next({
+      name: 'davey',
+      age: 47
+    });
+    CODE
+  =code(code)
+
+  :markdown
+
+    we can return an attribute of the component, or some made up data, even data that has been passed in from outside. Here's that in context:
+
+  :ruby
+    code = <<-CODE
+    var CatComponent = ng.core
+      .Component({
+        selector: "like",
+        events: ["liked"],
+        template:
+        `
+          <a (click)="handleClick()">
+            Like?
+          </a>
+        `
+      })
+      .Class({
+        constructor: function() {
+          var vm = this;
+          vm.cat = {
+            name: 'davey',
+            age: 47
+          }
+          vm.liked = new ng.core.EventEmitter();
+          vm.handleClick = function() {
+            vm.liked.next(vm.cat);
+          }
+        }
+      });
+    CODE
+  =code(code)
+
+
+%section.exercise
+  :markdown
+    ## Integration Exercise - Select a user
+
+    Add a select button to the user component. Make it so that when I click the select button, an event fires and returns the user. Save this user on the parent component and display it nicely.
+
+    ## Bonus points
+
+    Create a component that displays the currently selected user. This will need to receive the user from the parent component as a property binding.

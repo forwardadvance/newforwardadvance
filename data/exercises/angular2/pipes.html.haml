@@ -1,0 +1,36 @@
+
+%section
+  :markdown
+    # Pipes
+
+    A Pipe is an object that can be used to transform a value from one form into another form. For example:
+
+    * A Date into a human readable String
+    * A number into a currency
+    * An unsorted array into an alphabetised array
+
+    Pipes are most commonly used in templates, but we can also use them in other components, simply by injecting them.
+
+    In this section we will use pipes in a template, and will
+
+    ## Using Pipes
+
+    A Pipe is applied in a template using a vertical bar, like this:
+
+    <p>
+      {{123 | currency}}
+    </p>
+
+    We can use pipes in any expression, including attributes:
+
+    <div title="{{'hello'|uppercase}}">Hello</div>
+
+    ## Pipes in Angular 1
+
+    In Angular 1, Pipes were known as Filters. A filter was a function that would recieve data in one form and convert it to another form. It might modify a string, or return a subset of an array.
+
+
+    You can find all the pipes here
+
+    https://angular.io/docs/ts/latest/api/#!?apiFilter=pipe
+

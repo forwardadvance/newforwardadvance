@@ -1,0 +1,94 @@
+
+%section
+  :markdown
+    # Building Services with TypeScript
+
+    In a TypeScript Angular app, a service is just a class. Generally the class will expose some data and some methods.
+
+    ## Creating a service
+
+    Here is a cat service. It lives in its own file called cat.service.ts
+
+  :ruby
+    code = <<-CODE
+    export class CatsService {
+      cats
+      constructor() {
+        this.cats = [
+          { name: "Danger Moog" },
+          { name: "Pippa T. Floof" },
+          { name: "Sniff Weasel" }
+        ]
+      }
+      get() {
+          return this.cats;
+      }
+    }
+    CODE
+  =code(code)
+
+  :markdown
+
+    We run TSC to compile it into a JavaScript file.
+
+    ## Injecting this service
+
+    Now for the DI.
+
+    We could add this service to our global injector in our **app.ts** file like this:
+
+  :ruby
+    code = <<-CODE
+    import {bootstrap}    from 'angular2/platform/browser'
+    import {AppComponent} from './app.component'
+    import {CatsService} from './cats.service';
+
+    bootstrap(AppComponent, [CatsService]);
+    CODE
+  =code(code)
+
+  :markdown
+
+
+
+    (notice the CatsService between the braces, configuring the global injector.)
+
+    ## Hierarchal Injectors
+
+    This seems like overkill. Our CatsService doesn't need to be global to our app. It would be sufficient for it to be local to just the component that needs to access it.
+
+    We can create a child injector by adding a providers attribute of our component. `providers: [CatsService]`. Here's that in context in the **catlist.component.ts** file:
+
+  :ruby
+    code = <<-CODE
+    import {Component} from 'angular2/core';
+    import {CatsService} from './cats.service';
+
+    @Component({
+        selector: 'cat-list',
+        template: `
+          <ul>
+            <li *ngFor="#cat of cats">
+              {{cat.name}}
+            </li>
+          </ul>
+        `,
+        directives: [],
+        providers: [CatsService]
+
+    })
+    export class CatListComponent {
+        constructor(cats: CatsService) {
+            this.cats = cats.get();
+        }
+    }
+    CODE
+  =code(code)
+
+  :markdown
+
+%section.exercise
+  :markdown
+    ## Exercise - Create a service
+
+    Use the code above as a foundation. Refactor the Mario service, and port this to TypeScript. Be sure to use sensible components.

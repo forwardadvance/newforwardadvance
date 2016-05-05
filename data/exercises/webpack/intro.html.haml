@@ -1,0 +1,67 @@
+:markdown
+
+  Pretty much every major language in the world has a module system.  Modules are just bits of stuff that can be pulled in and used.
+
+  Every major language that is, apart from the three we use most: JavaScript, HTML and CSS. This is probably more of an issue than you have ever realised. If you've never used modules, you might be wondering why you need them. To this, I'd answer that you'll have to trust me on this for now. Give it 5 minutes, and then see how you feel.
+
+  ## Webpack lets you define your assets as modules, and choose how to build them
+
+  Webpack allows you to define all your front end assets as modules. It also allows you to build these assets from precursor languages. Want to write SASS instead of CSS? Webkit can compile that for you. Need JSX, or TypeScript, of CoffeeScript? Webkit has you covered.
+
+  ## Installation
+
+  Installation is via npm:
+
+      npm install webpack -g
+
+  ## Compiling JavaScript
+
+  Give Webpack an entry point and an output file:
+
+      webpack ./app.js app.bundle.js
+
+  ## Creating a JavaScript module
+
+  We can define modules in JavaScript using the CommonJS syntax, as for Node:
+
+  **cats.js**
+
+      var cats = ['dave', 'henry', 'martha'];
+      module.exports = cats;
+
+  **app.js**
+
+      cats = require('./cats.js');
+      console.log(cats);
+
+  ## Loaders
+
+  Webkit can only compile JavaScript natively. To compile other file types, and to do transforms, you need a loader.
+
+  npm install css-loader style-loader
+
+  ## Further Reading
+
+  Meanwhile, recommended reading: [Webpack your bags](http://blog.madewithlove.be/post/webpack-your-bags/) by [Maxime Fabre](https://twitter.com/anahkiasen) - a very good introduction on how to setup a real-world project using Webpack.
+
+  * see [[CLI]] for the command line interface.
+  * see [[node.js API]] for the node.js interface.
+  * see [[Configuration]] for the configuration options.
+  ## To Install Webpack
+
+  mkdir webpack_demo_project
+  cd webpack_demo_project
+
+  npm install webpack -g
+
+  npm init
+  npm install webpack --save-dev
+  npm install webpack-dev-server --save-dev
+
+  Further reading:
+
+  http://webpack.github.io/docs/installation.html
+
+  ## Bundling a JavaScript file
+
+

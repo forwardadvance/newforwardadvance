@@ -1,0 +1,222 @@
+---
+title: "Jade - Automation Exercise"
+section: "automation"
+exercise: "jade"
+layout: "exercise"
+---
+
+%section
+  :markdown
+    # Jade
+
+    Jade is an HTML templating language that's extremely popular in Node circles. You make fewer keystrokes to get the same result, which makes you a more productive coder. This is very Node.
+
+    ## First Install with NPM
+
+    To use Jade you must install the package. Do this with NPM.
+
+  :ruby
+    code = <<-CODE
+    npm install jade
+    CODE
+  =code(code)
+
+  :markdown
+
+    ## Here's a gulpfile:
+
+  :ruby
+    code = <<-CODE
+
+    var gulp  = require('gulp');
+    var jade  = require('gulp-jade');
+    var gutil = require('gulp-util');
+
+    var components = {
+      jade: './jade/**/*.jade',
+      out: './build'
+    }
+
+    gulp.task('jade', function() {
+      return gulp.src(components.jade)
+        .pipe(jade({pretty:true}))
+        .on('error', gutil.log)
+        .pipe(gulp.dest(components.out));
+    })
+
+    gulp.task('watch', function() {
+      gulp.watch(components.jade, ['jade']);
+    });
+
+    CODE
+  =code(code)
+
+  :markdown
+
+    ## Elements
+
+    The first word on any line is the html element:
+
+  :ruby
+    code = <<-CODE
+    h1 Hello there
+    CODE
+  =code(code, :jade)
+
+  :markdown
+    Compiles to:
+
+  :ruby
+    code = <<-CODE
+    <h1>Hello there</h1>
+    CODE
+  =code(code, :html)
+
+  :markdown
+
+    ## Nesting elements
+
+    We can nest elements inside each other using indentation:
+
+  :ruby
+    code = <<-CODE
+    article
+      h1 Hello
+      p Hey!
+    CODE
+  =code(code, :jade)
+
+  :markdown
+    Compiles to:
+
+  :ruby
+    code = <<-CODE
+    <article>
+      <h1>Hello</h1>
+      <p>Hey!</h1>
+    </article>
+    CODE
+  =code(code, :html)
+
+  :markdown
+
+    ## Attributes
+
+    We can create attributes:
+
+  :ruby
+    code = <<-CODE
+    a(href='http://www.lolcats.com/') LOL cats
+    CODE
+  =code(code, :jade)
+
+  :markdown
+
+    Compiles to:
+
+  :ruby
+    code = <<-CODE
+    <a href="http://www.lolcats.com/">Lol cats</a>
+    CODE
+  =code(code, :html)
+
+  :markdown
+
+    ## Variables
+
+    We can include variables in our template using an equals sign like this if we just have one value:
+
+  :ruby
+    code = <<-CODE
+    article
+      h1= titleContent
+    CODE
+  =code(code, :jade)
+
+  :markdown
+
+    or using curly brace interpolation like this if we want to embed content into text:
+
+  :ruby
+    code = <<-CODE
+    html
+      head
+        title myWebsite.com - \#{titleContent}
+    CODE
+  =code(code, :jade)
+
+  :markdown
+
+    ## Compiling Jade
+
+    We con compile Jade manually using the jade package. First we install it with npm:
+
+  :ruby
+    code = <<-CODE
+    npm install jade
+    CODE
+  =code(code)
+
+  :markdown
+
+    Now we can compile our template. This gives us a template function:
+
+  :ruby
+    code = <<-CODE
+    var jade = require('jade');
+    var template = jade.compile('h1 hello \#{name}');
+    CODE
+  =code(code)
+
+  :markdown
+
+    Or from a file:
+
+  :ruby
+    code = <<-CODE
+    var template = jade.compileFile('./path/to/template.jade');
+    CODE
+  =code(code)
+
+  :markdown
+
+    Finally we can compile our template into HTML, passing it an object full of include variables, like so:
+
+  :ruby
+    code = <<-CODE
+    template({name: "Davie Skitch Mulldoon"});
+    CODE
+  =code(code)
+
+  :markdown
+
+    ## Jade with Gulp
+
+    We can use gulp to automatically compile jade into static html templates.
+
+    We use the gulp-jade package
+
+
+  :ruby
+    code = <<-CODE
+    gulp.task('assets:templateCache', function () {
+      return gulp.src('../jade/**/*.jade')
+        .pipe(jade({basedir: __dirname}))
+        .on('error', gutil.log)
+        .pipe(gulp.dest('../build/templates'));
+    });
+    CODE
+  =code(code)
+
+  :markdown
+
+
+%section.exercise
+  :markdown
+    ## Angular Exercise
+
+    Create a gulp task to automatically compile a folder full of jade into a folder full of html.
+
+    ## Extension
+
+    Try to integrate gulp-template-cache to generate an angular template module from a folder full of jade.

@@ -1,0 +1,100 @@
+-# TODO Requires two way form binding,
+
+
+%section
+  :markdown
+
+    # Inline Templates and ngIf
+
+    Sometimes we want to specify a template right inside another component. This is useful for things like:
+
+    * conditional content
+    * repeated content
+
+    These templates can be passed to directives, which can then render them in a variety of ways.
+
+    ## Directives?
+
+    A directive has a slightly different meaning in Angular 2 to Angular 1. In Angular 2, a directive can be thought of as a compiler directive. It extends the DOM compiler, giving you more options.
+
+    In Angular 2 a directive is just a component without a template. It operates on the current Element or Component, changing its behaviour, adding listeners, DOM properties, etc.
+
+    Later, we will build a directive of our own.
+
+    ## Making a template
+
+    We create a template using the `<template>` tag. If we append a `<template>` tag to a component template, it will not be output and all the content in it will be ignored.
+
+    <template>hello template!</template>
+
+    ## ngIf
+
+    To make this template do something, we pass it to a directive such as ngIf.
+
+    This directive will completely remove an element from the DOM if an expression is falsey, or append a clone if it is truthy. We set a property on the template to activate the directive:
+
+  :ruby
+    code = <<-CODE
+    <a on-click="visible = !visible">Click</a>
+    <template [ngIf]="visible">This is the template</template>
+    CODE
+  =code(code, :html)
+
+  :markdown
+    We also have a slightly strange, albeit convenient shorthand. We can write this instead:
+
+  :ruby
+    code = <<-CODE
+    <div *ngIf="visible">This is the template</div>
+    CODE
+  =code(code, :html)
+
+  :markdown
+
+    The entire div will become the template and will be injected into the ngIf directive.
+
+%section.exercise
+  :markdown
+    ## Exercise - Payment widget
+
+    We are going to create a little payment widget, like this:
+
+  :ruby
+    code = <<-CODE
+    <form>
+      <select>
+        <option value='visa'>Visa</option>
+        <option value='mastercard'>Mastercard</option>
+      </select>
+      <div>
+        <label>Start Date:</label><input type='date' />
+      </div>
+      <div>
+        <label>End Date:</label><input type='date' />
+      </div>
+      <div>
+        <label>CVC:</label><input type='number' />
+      </div>
+      <button>Purchase the Cheese</button>
+    </form>
+    CODE
+  =code(code, :html)
+
+  :markdown
+
+    The user can choose Visa or Mastercard from a dropdown.
+
+    If they select Mastercard, show the start date, end date fields. If they choose Visa, show the CVC field.
+
+    ## Harder Extension - automatically selecting Visa or Mastercard
+
+    Refer to this SO answer: <http://stackoverflow.com/a/72801/687677>
+
+    Write a small function that Parses the first digits of the card number to automatically select Visa or Mastercard. Bind [value] on the select.
+
+-#   %section
+-#     :markdown
+-#       ## Dropbox Link
+-#
+-#       * <https://www.dropbox.com/sh/pz4wggje2pw0ryk/AADXumRQ--# jPtow13k7MoAJGKa?dl=1>
+

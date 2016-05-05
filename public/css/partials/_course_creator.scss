@@ -1,0 +1,110 @@
+
+.course_creator {
+  margin: $gutter 0;
+  article{
+    width: 75%;
+    float: left;
+    padding: 0 $gutter 0 0;
+  }
+  aside {
+    padding: $gutter;
+    width: 25%;
+    float: right;
+    background: #888;
+    color: #fff;
+    p {
+      margin:0;
+    }
+    h2 {
+      margin:0;
+      font-size:$normal;
+      font-weight:bold;
+    }
+    ul, li {
+      margin:0;
+      padding:0;
+    }
+    li {
+      margin-left:1em;
+    }
+  }
+  .shareButton {
+    background: black;
+    color: $white;
+    padding:$gutter / 2;
+    text-align:center;
+    margin:$gutter/2 0;
+    a {
+      color: $white;
+      cursor: pointer;
+      &:after {
+        display:none;
+      }
+    }
+    input {
+      width:auto;
+      display:block;
+    }
+  }
+  .shareByEmailButton, .bookButton {
+    background: black;
+    color: $white;
+    padding:$gutter / 2;
+    margin:$gutter/2 0;
+    text-align:center;
+    display:block;
+    &:after {
+      display:none;
+    }
+  }
+  section {
+    transition:0.5s;
+    padding: $gutter;
+    border:1px solid #888;
+    margin: 0 0 $gutter 0;
+    position: relative;
+    h2 {
+      margin: 0 5em 0 0;
+      font-size:$normal;
+      font-weight:bold;
+    }
+    .readmore {
+      position:absolute;
+      top: $gutter;
+      right: $gutter;
+    }
+    &.selected {
+      background: #444;
+      color: #fff;
+      .readmore {
+        color: $white;
+      };
+      h2 {
+        font-size: $large;
+        color: $white;
+      }
+    }
+    a {
+      border-bottom: none;
+      cursor: pointer;
+      color:$black;
+    }
+  }
+  @media (max-width: $mobile+($gutter*2)) {
+    article, aside {
+      float:none;
+      width:auto;
+      .shareButton, .shareByEmailButton, .bookButton {
+        width:50%;
+        margin:$gutter/2 0;
+      }
+    }
+    aside {
+      margin-bottom:$gutter;
+    }
+    article{
+      padding:0;
+
+    }
+  }
+}

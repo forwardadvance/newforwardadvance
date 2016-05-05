@@ -1,0 +1,23 @@
+@media print {
+  header, footer, nav.top_nav, #disqus_thread, aside.sidenote {
+    display: none; }
+  aside.box {
+    background: transparent;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #aaa; }
+    aside.box * {
+      color: black; }
+  article {
+    page-break-after: always; }
+  section.downloads {
+    display: none; }
+  body {
+    font-size: 12px; }
+  h1 {
+    font-size: 27px; }
+  h2 {
+    font-size: 18px; }
+  h3 {
+    font-size: 12px; } }
+
+/*# sourceMappingURL=pdf.css.map */

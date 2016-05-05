@@ -1,0 +1,34 @@
+
+%section
+  :markdown
+
+
+    # Using SystemJS with Angular
+
+    ## What is SystemJS?
+
+    ES6, the new JavaScript spec, includes the ability to define JavaScript modules.
+
+    A module is a ball of code (typically an object or function) that can be required by other modules. We can use modules to share code around our app without creating global variables. Anywhere we need a particular object or function we can simply require it and save it in a local variable.
+
+    SystemJS is a polyfill that gives us ES6 style modules today.
+
+    ## Modules prevent globals?
+
+    For example, jQuery creates a global $ variable. This actually creates some interoperability issues with other libraries that use $ as a variable, such as Prototype.
+
+    Rather than create the global $ variable, we might use a module, then require jQuery in only the parts of our app where it is needed.
+
+    ## Modules let us do lazy loading
+
+    We can also dynamically load modules from a URL, only when they are required, giving us a faster start time. This is done using AJAX. We might load admin scripts only if the person logs in.
+
+    Lazy loading is of course optional. You probably don't want to lazy load all your JAvaScript, but the option is there if required.
+
+    ## What about CommonJS, RequireJS, Browserify etc
+
+    These are other dynamic module loaders. The reason you might want to use SystemJS are:
+
+    1. It's recommended by the Angular core team
+    2. It's a polyfill for the coming built in ES6 module syntax. This is the API we'll probably be using in the future.
+

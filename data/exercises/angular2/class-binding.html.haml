@@ -1,0 +1,28 @@
+
+%section
+  :markdown
+
+    class-binding.html.haml
+
+    Copy pasted from here:
+
+    https://angular.io/docs/ts/latest/guide/template-syntax.html#!#binding-syntax
+
+    <!-- standard class attribute setting  -->
+    <div class="bad curly special">Bad curly special</div>
+    We can replace that with a binding to a string of the desired class names; this is an all-or-nothing, replacement binding.
+
+
+    <!-- reset/override all class names with a binding  -->
+    <div class="bad curly special"
+         [class]="badCurly">Bad curly</div>
+    Finally, we can bind to a specific class name. Angular adds the class when the template expression evaluates to something truthy. It removes the class when the expression is falsey.
+
+
+    <!-- toggle the "special" class on/off with a property -->
+    <div [class.special]="isSpecial">The class binding is special</div>
+
+    <!-- binding to `class.special` trumps the class attribute -->
+    <div class="special"
+         [class.special]="!isSpecial">This one is not so special</div>
+    While this is a fine way to toggle a single class name, we generally prefer the NgClass directive for managing multiple class names at the same time.
