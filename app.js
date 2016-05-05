@@ -24,7 +24,7 @@ var upload = multer({ dest: path.join(__dirname, 'uploads') });
  *
  * Default path: .env (You can remove the path argument entirely, after renaming `.env.example` to `.env`)
  */
-dotenv.load({ path: '.env.example' });
+dotenv.load({ path: '.env' });
 
 /**
  * Controllers (route handlers).
@@ -50,8 +50,9 @@ var app = express();
  * Connect to MongoDB.
  */
 
-var mongoUrl = process.env.MONGODB || process.env.MONGOLAB_URI
-// mongoose.connect(process.env.MONGODB || process.env.MONGOLAB_URI );
+// var mongoUrl = require('./config/mongo_url');
+
+var mongoUrl = process.env.NODE_ENV == 'production' ? process.env.MONGODB : process.env.MONGOLAB_URI
 mongoose.connect(mongoUrl);
 mongoose.connection.on('error', function(err) {
   console.log('MongoDB Connection Error. Please make sure that MongoDB is running.', mongoUrl, err);
