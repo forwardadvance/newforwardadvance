@@ -1,3 +1,4 @@
 ---
 applications:
 - name: forwardadvance.com
+  buildpack: git@github.com:cloudfoundry/nodejs-buildpack.git
