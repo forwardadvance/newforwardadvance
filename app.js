@@ -55,8 +55,6 @@ var app = express();
  * Connect to MongoDB.
  */
 
-// var mongoUrl = require('./config/mongo_url');
-
 var mongoUrl = config.mongoUrl;
 console.log('connecting to mongoUrl', mongoUrl);
 mongoose.connect(mongoUrl);
@@ -86,7 +84,7 @@ app.use(session({
   saveUninitialized: true,
   secret: process.env.SESSION_SECRET,
   store: new MongoStore({
-    url: process.env.MONGODB || process.env.MONGOLAB_URI,
+    url: mongoUrl,
     autoReconnect: true
   })
 }));
