@@ -562,193 +562,76 @@ nav.sharing {
 .testimonials h2 {
   margin-top: 40px; }
 
-code {
-  /* Comment */
-  /* Error */
-  /* Keyword */
-  /* Literal */
-  /* Name */
-  /* Operator */
-  /* Punctuation */
-  /* Comment.Multiline */
-  /* Comment.Preproc */
-  /* Comment.Single */
-  /* Comment.Special */
-  /* Generic.Emph */
-  /* Generic.Strong */
-  /* Keyword.Constant */
-  /* Keyword.Declaration */
-  /* Keyword.Namespace */
-  /* Keyword.Pseudo */
-  /* Keyword.Reserved */
-  /* Keyword.Type */
-  /* Literal.Date */
-  /* Literal.Number */
-  /* Literal.String */
-  /* Name.Attribute */
-  /* Name.Builtin */
-  /* Name.Class */
-  /* Name.Constant */
-  /* Name.Decorator */
-  /* Name.Entity */
-  /* Name.Exception */
-  /* Name.Function */
-  /* Name.Label */
-  /* Name.Namespace */
-  /* Name.Other */
-  /* Name.Property */
-  /* Name.Tag */
-  /* Name.Variable */
-  /* Operator.Word */
-  /* Text.Whitespace */
-  /* Literal.Number.Float */
-  /* Literal.Number.Hex */
-  /* Literal.Number.Integer */
-  /* Literal.Number.Oct */
-  /* Literal.String.Backtick */
-  /* Literal.String.Char */
-  /* Literal.String.Doc */
-  /* Literal.String.Double */
-  /* Literal.String.Escape */
-  /* Literal.String.Heredoc */
-  /* Literal.String.Interpol */
-  /* Literal.String.Other */
-  /* Literal.String.Regex */
-  /* Literal.String.Single */
-  /* Literal.String.Symbol */
-  /* Name.Builtin.Pseudo */
-  /* Name.Variable.Class */
-  /* Name.Variable.Global */
-  /* Name.Variable.Instance */
-  /* Literal.Number.Integer.Long */
-  /* Generic Heading & Diff Header */
-  /* Generic.Subheading & Diff Unified/Comment? */
-  /* Generic.Deleted & Diff Deleted */
-  /* Generic.Inserted & Diff Inserted */ }
-  code .hll {
-    background-color: #49483e; }
-  code .c {
-    color: #75715e; }
-  code .err {
-    color: #f92672; }
-  code .k {
-    color: #66d9ef; }
-  code .l {
-    color: #ae81ff; }
-  code .n {
-    color: #f8f8f2; }
-  code .o {
-    color: #f92672; }
-  code .p {
-    color: #f8f8f2; }
-  code .cm {
-    color: #75715e; }
-  code .cp {
-    color: #75715e; }
-  code .c1 {
-    color: #75715e; }
-  code .cs {
-    color: #75715e; }
-  code .ge {
-    font-style: italic; }
-  code .gs {
-    font-weight: bold; }
-  code .kc {
-    color: #66d9ef; }
-  code .kd {
-    color: #66d9ef; }
-  code .kn {
-    color: #f92672; }
-  code .kp {
-    color: #66d9ef; }
-  code .kr {
-    color: #66d9ef; }
-  code .kt {
-    color: #66d9ef; }
-  code .ld {
-    color: #e6db74; }
-  code .m {
-    color: #ae81ff; }
-  code .s {
-    color: #e6db74; }
-  code .na {
-    color: #a6e22e; }
-  code .nb {
-    color: #f8f8f2; }
-  code .nc {
-    color: #a6e22e; }
-  code .no {
-    color: #66d9ef; }
-  code .nd {
-    color: #a6e22e; }
-  code .ni {
-    color: #f8f8f2; }
-  code .ne {
-    color: #a6e22e; }
-  code .nf {
-    color: #a6e22e; }
-  code .nl {
-    color: #f8f8f2; }
-  code .nn {
-    color: #f8f8f2; }
-  code .nx {
-    color: #a6e22e; }
-  code .py {
-    color: #f8f8f2; }
-  code .nt {
-    color: #f92672; }
-  code .nv {
-    color: #f8f8f2; }
-  code .ow {
-    color: #f92672; }
-  code .w {
-    color: #f8f8f2; }
-  code .mf {
-    color: #ae81ff; }
-  code .mh {
-    color: #ae81ff; }
-  code .mi {
-    color: #ae81ff; }
-  code .mo {
-    color: #ae81ff; }
-  code .sb {
-    color: #e6db74; }
-  code .sc {
-    color: #e6db74; }
-  code .sd {
-    color: #e6db74; }
-  code .s2 {
-    color: #e6db74; }
-  code .se {
-    color: #ae81ff; }
-  code .sh {
-    color: #e6db74; }
-  code .si {
-    color: #e6db74; }
-  code .sx {
-    color: #e6db74; }
-  code .sr {
-    color: #e6db74; }
-  code .s1 {
-    color: #e6db74; }
-  code .ss {
-    color: #e6db74; }
-  code .bp {
-    color: #f8f8f2; }
-  code .vc {
-    color: #f8f8f2; }
-  code .vg {
-    color: #f8f8f2; }
-  code .vi {
-    color: #f8f8f2; }
-  code .il {
-    color: #ae81ff; }
-  code .gu {
-    color: #75715e; }
-  code .gd {
-    color: #f92672; }
-  code .gi {
-    color: #a6e22e; }
+/*
+
+Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
+
+*/
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #23241f; }
+
+.hljs,
+.hljs-tag,
+.hljs-subst {
+  color: #f8f8f2; }
+
+.hljs-strong,
+.hljs-emphasis {
+  color: #a8a8a2; }
+
+.hljs-bullet,
+.hljs-quote,
+.hljs-number,
+.hljs-regexp,
+.hljs-literal,
+.hljs-link {
+  color: #ae81ff; }
+
+.hljs-code,
+.hljs-title,
+.hljs-section,
+.hljs-selector-class {
+  color: #a6e22e; }
+
+.hljs-strong {
+  font-weight: bold; }
+
+.hljs-emphasis {
+  font-style: italic; }
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-attr {
+  color: #f92672; }
+
+.hljs-symbol,
+.hljs-attribute {
+  color: #66d9ef; }
+
+.hljs-params,
+.hljs-class .hljs-title {
+  color: #f8f8f2; }
+
+.hljs-string,
+.hljs-type,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-selector-id,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-variable {
+  color: #e6db74; }
+
+.hljs-comment,
+.hljs-deletion,
+.hljs-meta {
+  color: #75715e; }
 
 .book_page article {
   max-width: 800px; }

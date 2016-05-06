@@ -1,4 +1,3 @@
 ---
 applications:
 - name: forwardadvance.com
-  buildpack: https://github.com/ozzyjohnson/heroku-buildpack-multi.git
