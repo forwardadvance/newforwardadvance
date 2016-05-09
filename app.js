@@ -42,6 +42,13 @@ var courseController   = require('./controllers/course');
 var exerciseController = require('./controllers/exercise');
 
 /**
+ * Middleware
+ */
+var getCourse = require('./middleware/get_course')
+var getCourseModule = require('./middleware/get_course_module')
+var getExercise = require('./middleware/get_exercise')
+
+/**
  * API keys and Passport configuration.
  */
 var passportConfig = require('./config/passport');
@@ -161,8 +168,8 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
   Course Routes
   */
 app.get('/courses', courseController.index);
-app.get('/course/:courseName', courseController.show);
-app.get('/course/:courseId/:exerciseId', exerciseController.show);
+app.get('/course/:courseSlug', getCourse, courseController.show);
+app.get('/course/:courseSlug/:moduleSlug/:exerciseSlug', getCourse, getCourseModule, getExercise, exerciseController.show);
 
 /**
  * API examples routes.

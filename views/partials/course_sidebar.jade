@@ -1,0 +1,13 @@
+nav.course_sidebar
+  each courseModule in course.courseModules
+    h2= courseModule.title
+
+    ul
+      each exercise in courseModule.exercises
+        li
+          if current_exercise && current_exercise.slug == exercise.slug
+            span= exercise.title
+          else
+            a( href=['/course', course.slug, courseModule.slug, exercise.slug].join('/') )
+              =exercise.title
+

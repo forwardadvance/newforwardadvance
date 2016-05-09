@@ -24,6 +24,24 @@ body {
       margin: 0 20px;
       width: auto; } }
 
+.one_col {
+  width: 250px; }
+
+.two_col {
+  width: 500px; }
+
+.three_col {
+  width: 750px; }
+
+.four_col {
+  width: 1000px; }
+
+.right {
+  float: right; }
+
+.left {
+  float: left; }
+
 header nav.main, header nav.technology {
   margin: 0;
   padding: 0 20px;
@@ -562,76 +580,55 @@ nav.sharing {
 .testimonials h2 {
   margin-top: 40px; }
 
-/*
+.testimonials img {
+  width: 10%;
+  float: left;
+  margin: 8px 20px 20px 0; }
 
-Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
+.testimonials h2 {
+  margin-top: 40px; }
 
-*/
-.hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  background: #23241f; }
+section.exercise {
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 20px;
+  margin: 40px 0; }
+  section.exercise > :first-child {
+    margin-top: 0; }
 
-.hljs,
-.hljs-tag,
-.hljs-subst {
-  color: #f8f8f2; }
-
-.hljs-strong,
-.hljs-emphasis {
-  color: #a8a8a2; }
-
-.hljs-bullet,
-.hljs-quote,
-.hljs-number,
-.hljs-regexp,
-.hljs-literal,
-.hljs-link {
-  color: #ae81ff; }
-
-.hljs-code,
-.hljs-title,
-.hljs-section,
-.hljs-selector-class {
-  color: #a6e22e; }
-
-.hljs-strong {
-  font-weight: bold; }
-
-.hljs-emphasis {
-  font-style: italic; }
-
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-name,
-.hljs-attr {
-  color: #f92672; }
-
-.hljs-symbol,
-.hljs-attribute {
-  color: #66d9ef; }
-
-.hljs-params,
-.hljs-class .hljs-title {
-  color: #f8f8f2; }
-
-.hljs-string,
-.hljs-type,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-selector-id,
-.hljs-selector-attr,
-.hljs-selector-pseudo,
-.hljs-addition,
-.hljs-variable,
-.hljs-template-variable {
-  color: #e6db74; }
-
-.hljs-comment,
-.hljs-deletion,
-.hljs-meta {
-  color: #75715e; }
+nav.course_sidebar {
+  padding-top: 50px;
+  padding-right: 5%; }
+  nav.course_sidebar ul, nav.course_sidebar li {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+  nav.course_sidebar h2 {
+    font-size: 16px;
+    background: #040404;
+    color: #fff;
+    padding: 10px; }
+  nav.course_sidebar a, nav.course_sidebar span {
+    display: block;
+    padding: 10px 0; }
+  nav.course_sidebar span {
+    font-weight: bold; }
+  nav.course_sidebar li.section a {
+    border: 1px dotted black;
+    border-bottom: none; }
+  nav.course_sidebar li.course a {
+    background: black;
+    color: white; }
+  nav.course_sidebar li ul {
+    border: 1px solid black;
+    background: #222;
+    padding: 10px 10px 10px 30px; }
+    nav.course_sidebar li ul li {
+      list-style: disc;
+      color: white; }
+    nav.course_sidebar li ul a {
+      padding: 0;
+      color: white; }
 
 .book_page article {
   max-width: 800px; }
@@ -648,52 +645,6 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 .course_page .subtitle {
   font-size: 26.56px;
   text-align: center; }
-
-.exercise_page article {
-  max-width: 800px;
-  float: right;
-  width: 75%;
-  padding-left: 5%; }
-
-.exercise_page nav.sidebar {
-  padding-top: 50px;
-  padding-right: 5%;
-  float: left;
-  width: 25%;
-  float: left; }
-  .exercise_page nav.sidebar ul, .exercise_page nav.sidebar li {
-    margin: 0;
-    padding: 0;
-    list-style: none; }
-  .exercise_page nav.sidebar a, .exercise_page nav.sidebar span {
-    display: block;
-    padding: 10px 0; }
-  .exercise_page nav.sidebar span {
-    font-weight: bold; }
-  .exercise_page nav.sidebar li.section a {
-    border: 1px dotted black;
-    border-bottom: none; }
-  .exercise_page nav.sidebar li.course a {
-    background: black;
-    color: white; }
-  .exercise_page nav.sidebar li ul {
-    border: 1px solid black;
-    background: #222;
-    padding: 10px 10px 10px 30px; }
-    .exercise_page nav.sidebar li ul li {
-      list-style: disc;
-      color: white; }
-    .exercise_page nav.sidebar li ul a {
-      padding: 0;
-      color: white; }
-
-.exercise_page section.exercise {
-  border: 1px solid black;
-  border-radius: 3px;
-  padding: 20px;
-  margin: 40px 0; }
-  .exercise_page section.exercise > :first-child {
-    margin-top: 0; }
 
 .exercise_page aside.resources {
   background: #888;

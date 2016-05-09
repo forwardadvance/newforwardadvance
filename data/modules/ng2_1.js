@@ -1,4 +1,4 @@
-{
+module.exports = {
   "title": "Angular 2 Foundations",
   "duration": 1.5,
   "price": 2250,

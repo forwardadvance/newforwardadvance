@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+  .wrap
+    article.course_exercise.right.three_col
+      h1= exercise.title
+
+      != exerciseContent
+
+    .left.one_col
+      -current_exercise = exercise
+      include ../partials/course_sidebar

@@ -1,4 +1,4 @@
-{
+module.exports = {
   "title": "Building Websites and APIs with NodeJS & Express",
   "duration": 1,
   "price": 1500,

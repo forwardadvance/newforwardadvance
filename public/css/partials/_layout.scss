@@ -1,0 +1,37 @@
+@import '../imports';
+
+.wrap {
+  width: $desktop;
+  margin:0 auto;
+  @include clearfix;
+
+  @media (max-width: $desktop) {
+    & {
+      margin: 0 $gutter;
+      width:auto;
+    }
+  }
+}
+
+.one_col {
+  width: $desktop/4
+}
+
+.two_col {
+  width: $desktop/2
+}
+
+.three_col {
+  width: $desktop/4*3
+}
+.four_col {
+  width: $desktop
+}
+
+.right {
+  float:right;
+}
+
+.left {
+  float:left;
+}

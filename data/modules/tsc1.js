@@ -1,4 +1,4 @@
-{
+module.exports = {
   "title": "TypeScript for Angular 2",
   "duration": 0.5,
   "price": 800,

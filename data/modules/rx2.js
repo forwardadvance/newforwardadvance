@@ -1,4 +1,4 @@
-{
+module.exports = {
   "title": "React Advanced",
   "duration": 1,
   "price": 1500,

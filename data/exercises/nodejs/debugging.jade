@@ -1,0 +1,28 @@
+:markdown
+  debugging with Node Inspector
+
+  Node Inspector is a piece of software that will allow you to inspect and debug a running node app. To use it you start it up with:
+
+  node-inspector
+
+  The debugger will then sit and wait happily for an application to connect.
+
+  Viewing the inspector
+
+  node-inspector gives us a web interface, actually, it uses the Chrome developer tools. In your web browser visit:
+
+  http://127.0.0.1:8080/?port=5858
+
+  and you will see the node-inspector interface. It's not attached to an app yet, that happens next.
+
+  ## Connecting an app
+
+  Now we need to connect an app to our debugger. Start up any node app in debug mode, by passing it the --debug flag, like so:
+
+  node --debug app.js
+
+  Wait a moment for it to connect to the debugger. Now return to the debugger console and press refresh. Presto, your app is loaded.
+
+  ## Breakpoints
+
+  Load up files into the debugger.

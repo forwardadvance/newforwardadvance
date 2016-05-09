@@ -3,7 +3,7 @@
 
 @import 'partials/box_sizing';
 @import 'partials/body';
-@import 'partials/wrap';
+@import 'partials/layout';
 @import 'partials/header';
 @import 'partials/footer';
 @import 'partials/a';
@@ -23,7 +23,9 @@
 @import 'partials/share_links';
 @import 'partials/subtitle';
 @import 'partials/testimonials';
-@import 'partials/monokai';
+@import 'partials/testimonials';
+@import 'partials/exercise';
+@import 'partials/course_sidebar';
 
 @import 'pages/book_page';
 @import 'pages/course_page';

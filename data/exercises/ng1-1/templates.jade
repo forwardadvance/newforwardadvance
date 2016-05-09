@@ -1,15 +1,6 @@
----
-title: "Intro"
-section: "angular"
-exercise: "templates"
-layout: "exercise"
----
 
-
-%section
+section
   :markdown
-    # Welcome Exercises
-
     The goal of this exercise is just to get some Angular running in a browser.
 
 
@@ -25,31 +16,25 @@ layout: "exercise"
 
     We use the ng-app attribute (directive) to tell Angular to begin compiling our DOM. We can attach this attribute to any DOM node, typically the html or body tags:
 
-  :ruby
-    code = <<-CODE
+    ```html
     <body ng-app>
       Hello!
     </body>
-    CODE
-  =code(code, :html)
-
-  :markdown
+    ```
 
     All the HTML5 within this directive is an Angular template and will be compiled as such.
 
 
-  %aside.box
+  aside.box
     :markdown
-
       ## Linking from a CDN
 
       Delivering common libraries from a shared CDN can be a good idea. It may help our initial pageload as Angular may already be cached in the user's browser. This may also help our SEO as Google cared about initial download times.
 
       However, our project is now tied to Google's uptime, and we can't easily develop on the train.
 
-%section.exercise
+section.exercise
   :markdown
-
     ## Exercise 1 - Hello Universe
 
     Let's start with the simplest thing possible. Hello World.
@@ -59,9 +44,8 @@ layout: "exercise"
     3. Create an Angular template which tells you how many seconds there are in a day, a year, a century.
     4. Find out how many weeks there are in a human lifetime.
 
-%section.exercise
+section.exercise
   :markdown
-
     ## Exercise 2 - Visual Studio Setup (if you are using VS)
 
     If you need to develop in Visual Studio, you may have a bit of a culture shock when you start using Angular. We use static HTML templates and compile in the browser using JavaScript. The role of the server is dramatically reduced.
@@ -95,20 +79,15 @@ layout: "exercise"
 
     Now we need to link Angular. Because this is the front end we do this with a script tag right in the html.
 
-  :ruby
-    code = <<-CODE
+    ```html
     <script src="/Scripts/angular.js"></script>
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     Now Attempt the Hello Universe exercise.
 
 
-%section.exercise
+section.exercise
   :markdown
-
     ## Optional Extension - if you are first to finish
 
     You've downloaded Angular. Open it in your editor and have a quick browse through the Angular codebase. You'll find it clean, and well commented and easy to scan.

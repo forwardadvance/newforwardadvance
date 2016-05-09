@@ -1,0 +1,47 @@
+nav.course_sidebar {
+  padding-top:50px;
+  padding-right:5%;
+  ul, li {
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  h2 {
+    font-size:$normal;
+    background: $black;
+    color: $white;
+    padding:$gutter/2;
+  }
+  a, span {
+    display:block;
+    padding:10px 0;
+  }
+  span{
+    font-weight:bold;
+  }
+  li.section {
+    a {
+      border:1px dotted black;
+      border-bottom: none;
+    }
+  }
+  li.course {
+    a {
+      background:black;
+      color:white;
+    }
+  }
+  li ul {
+    border:1px solid black;
+    background: $dark_grey;
+    padding:10px 10px 10px 30px;
+    li {
+      list-style:disc;
+      color:white;
+    }
+    a {
+      padding:0;
+      color:white;
+    }
+  }
+}
