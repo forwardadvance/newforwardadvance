@@ -10,10 +10,10 @@ exports.show = function(req, res) {
   var exercise = req.exercise;
 
   var exercisePath = [
-    '../data/exercises',
+    './data/exercises',
     courseModule.slug,
     exercise.slug,
-  ].join('/');
+  ].join('/')+'.jade';
 
   res.render('exercise/show', {
     title: exercise.title,
@@ -21,6 +21,6 @@ exports.show = function(req, res) {
     course: course,
     courseModule: courseModule,
     exercise: exercise,
-    exerciseContent: jade.renderFile('./data/exercises/ng1-1/templates.jade')
+    exerciseContent: jade.renderFile(exercisePath)
   });
 };

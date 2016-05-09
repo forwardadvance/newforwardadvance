@@ -33,6 +33,32 @@ input, textarea {
   border-radius:2px;
 }
 
+button {
+  font-size:$font_size;
+  background: #858585;
+  background-image: -webkit-linear-gradient(top, #858585, #2e2e2e);
+  background-image: -moz-linear-gradient(top, #858585, #2e2e2e);
+  background-image: -ms-linear-gradient(top, #858585, #2e2e2e);
+  background-image: -o-linear-gradient(top, #858585, #2e2e2e);
+  background-image: linear-gradient(to bottom, #858585, #2e2e2e);
+  border-radius: 10px;
+  color: $white;
+  padding: $gutter/2 $gutter;
+  text-decoration: none;
+  &:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+  }
+  .fa {
+    margin-right:10px;
+  }
+}
+
 label {
   padding:10px 0;
 }

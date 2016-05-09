@@ -32,6 +32,15 @@ h3 {
   }
 }
 
+.small {
+  font-size: $normal*0.75;
+}
+
+.light,
+a.light {
+  color:$mid-grey;
+}
+
 @media (max-width: $mobile) {
   h1 {
     font-size: $font-size * $scaling-factor;

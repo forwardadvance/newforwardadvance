@@ -25,22 +25,34 @@ body {
       width: auto; } }
 
 .one_col {
-  width: 250px; }
+  width: 250px;
+  padding: 0 20px; }
 
 .two_col {
-  width: 500px; }
+  width: 500px;
+  padding: 0 20px; }
 
 .three_col {
-  width: 750px; }
+  width: 750px;
+  padding: 0 20px; }
 
 .four_col {
-  width: 1000px; }
+  width: 1000px;
+  padding: 0 20px; }
 
 .right {
   float: right; }
 
 .left {
   float: left; }
+
+.center {
+  float: none;
+  margin-left: auto;
+  margin-right: auto; }
+
+.center_contents {
+  text-align: center; }
 
 header nav.main, header nav.technology {
   margin: 0;
@@ -196,6 +208,13 @@ h3 {
   h3, h3 a {
     color: #222; }
 
+.small {
+  font-size: 12px; }
+
+.light,
+a.light {
+  color: #888; }
+
 @media (max-width: 800px) {
   h1 {
     font-size: 26.56px; } }
@@ -268,6 +287,29 @@ input, textarea {
   border: 1px solid #888;
   padding: 10px;
   border-radius: 2px; }
+
+button {
+  font-size: 16px;
+  background: #858585;
+  background-image: -webkit-linear-gradient(top, #858585, #2e2e2e);
+  background-image: -moz-linear-gradient(top, #858585, #2e2e2e);
+  background-image: -ms-linear-gradient(top, #858585, #2e2e2e);
+  background-image: -o-linear-gradient(top, #858585, #2e2e2e);
+  background-image: linear-gradient(to bottom, #858585, #2e2e2e);
+  border-radius: 10px;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none; }
+  button:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none; }
+  button .fa {
+    margin-right: 10px; }
 
 label {
   padding: 10px 0; }
@@ -610,7 +652,7 @@ nav.course_sidebar {
     padding: 10px; }
   nav.course_sidebar a, nav.course_sidebar span {
     display: block;
-    padding: 10px 0; }
+    padding: 10px 10px; }
   nav.course_sidebar span {
     font-weight: bold; }
   nav.course_sidebar li.section a {
@@ -629,6 +671,153 @@ nav.course_sidebar {
     nav.course_sidebar li ul a {
       padding: 0;
       color: white; }
+
+.social_auth ul, .social_auth li {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.social_auth li {
+  margin: 10px; }
+
+.social_auth .facebook {
+  background-color: #3b5998;
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  text-align: center; }
+  .social_auth .facebook .fa {
+    margin-right: 10px; }
+  .social_auth .facebook:hover {
+    background: #222; }
+
+.social_auth .twitter {
+  background-color: #55acee;
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  text-align: center; }
+  .social_auth .twitter .fa {
+    margin-right: 10px; }
+  .social_auth .twitter:hover {
+    background: #222; }
+
+.social_auth .google {
+  background-color: #dd4b39;
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  text-align: center; }
+  .social_auth .google .fa {
+    margin-right: 10px; }
+  .social_auth .google:hover {
+    background: #222; }
+
+.social_auth .github {
+  background-color: #444444;
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  text-align: center; }
+  .social_auth .github .fa {
+    margin-right: 10px; }
+  .social_auth .github:hover {
+    background: #222; }
+
+.social_auth .linkedin {
+  background-color: #007bb6;
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  text-align: center; }
+  .social_auth .linkedin .fa {
+    margin-right: 10px; }
+  .social_auth .linkedin:hover {
+    background: #222; }
+
+.social_auth .instagram {
+  background-color: #3f729b;
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  text-align: center; }
+  .social_auth .instagram .fa {
+    margin-right: 10px; }
+  .social_auth .instagram:hover {
+    background: #222; }
+
+/*
+
+Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
+
+*/
+code .hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #23241f; }
+
+code .hljs,
+code .hljs-tag,
+code .hljs-subst {
+  color: #f8f8f2; }
+
+code .hljs-strong,
+code .hljs-emphasis {
+  color: #a8a8a2; }
+
+code .hljs-bullet,
+code .hljs-quote,
+code .hljs-number,
+code .hljs-regexp,
+code .hljs-literal,
+code .hljs-link {
+  color: #ae81ff; }
+
+code .hljs-code,
+code .hljs-title,
+code .hljs-section,
+code .hljs-selector-class {
+  color: #a6e22e; }
+
+code .hljs-strong {
+  font-weight: bold; }
+
+code .hljs-emphasis {
+  font-style: italic; }
+
+code .hljs-attr {
+  color: #6495ED; }
+
+code .hljs-keyword,
+code .hljs-selector-tag,
+code .hljs-name {
+  color: #f92672; }
+
+code .hljs-symbol,
+code .hljs-attribute {
+  color: #66d9ef; }
+
+code .hljs-params,
+code .hljs-class .hljs-title {
+  color: #f8f8f2; }
+
+code .hljs-string,
+code .hljs-type,
+code .hljs-built_in,
+code .hljs-builtin-name,
+code .hljs-selector-id,
+code .hljs-selector-attr,
+code .hljs-selector-pseudo,
+code .hljs-addition,
+code .hljs-variable,
+code .hljs-template-variable {
+  color: #e6db74; }
+
+code .hljs-comment,
+code .hljs-deletion,
+code .hljs-meta {
+  color: #75715e; }
 
 .book_page article {
   max-width: 800px; }

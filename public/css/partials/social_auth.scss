@@ -1,0 +1,33 @@
+.social_auth {
+  ul, li {
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  li {
+    margin:$gutter/2
+  }
+
+  @mixin social_login_button($color-bg, $color: #fff) {
+    background-color: $color-bg;
+    display:block;
+    padding: $gutter / 2 $gutter;
+    color:$white;
+    text-align:center;
+    .fa {
+      margin-right:$gutter/2;
+    }
+    &:hover {
+      background: $dark_grey;
+    }
+  }
+
+
+  .facebook      { @include social_login_button($facebook_blue); }
+  .twitter       { @include social_login_button($twitter_blue); }
+  .google        { @include social_login_button($google_red); }
+  .github        { @include social_login_button($github_grey); }
+  .linkedin      { @include social_login_button($linkedin_blue); }
+  .instagram     { @include social_login_button($instagram_blue); }
+
+}

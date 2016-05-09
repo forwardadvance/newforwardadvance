@@ -1,42 +1,26 @@
----
-title: "Repeat and Filter - AngularJS Exercise"
-section: "angular"
-exercise: "repeat-and-filter"
-layout: "exercise"
----
-
-%section
+section
   :markdown
-    # Repeat and Filter
-
-
     If we have an array of objects in $scope, like this:
 
-  :ruby
-    code = <<-CODE
+    ```
     .controller('catController', function() {
       $scope.cats = [
         {name: "Tigger"},
         {name: "Cheeze Wizz"}
       ]
     })
-    CODE
-  =code(code)
+    ```
 
   :markdown
-
     we might want to iterate over them and output them one by one. We can achieve this in the template using the ng-repeat directive:
 
-  :ruby
-    code = <<-CODE
+    ```html
     <li ng-repeat="cat in cats">
       {{cat.name}}
     </li>
-    CODE
-  =code(code, :html)
+    ```
 
   :markdown
-
     ## What is happening here?
 
     For each item in the cats array, the ng-repeat directive creates a new $scope, seeding it with a value 'cat'. It then compiles the <li> against that scope and adds it to the DOM. The result is a list of cats.
@@ -45,25 +29,21 @@ layout: "exercise"
 
     We can pipe our cats array through a filters to modify it. ng-repeat will iterate over the modified array
 
-  :ruby
-    code = <<-CODE
+    ```html
     <input ng-model="filterString" />
     <input ng-model="orderString" />
     <li ng-repeat="cat in cats | filter:filterString | orderBy:orderString">
       {{cat.name}}
     </li>
-    CODE
-  =code(code, :html)
+    ```
 
   :markdown
-
     You may wish to briefly review the ng-repeat docs here: <https://docs.angularjs.org/api/ng/directive/ngRepeat>. Familiarise yourself with the available variables.
 
 
 
-%section.exercise
+section.exercise
   :markdown
-
     ## Exercise - List your Assets
 
     As an evil genius, you will have a list of henchmen that you rely on. Create such a list in JSON and add it to $scope from inside your controller.
@@ -73,55 +53,44 @@ layout: "exercise"
     **n.b.** If you have a particular love for another domain, please feel free to use that instead.
 
 
-%section.exercise
+section.exercise
   :markdown
-
     ## Exercise - Search the henchmen
 
     We are now going to add a search field.
 
     Create an input field and bind it to a "search" model, like this:
 
-  :ruby
-    code = <<-CODE
+    ```html
     <input ng-model="search" />
-    CODE
-  =code(code, :html)
+    ```
 
   :markdown
-
     Add a filter to allow you to search according to the term.
 
-  :ruby
-    code = <<-CODE
+    ```html
     <div ng-repeat="cat in cats | filter:search">
-    CODE
-  =code(code, :html)
+    ```
 
   :markdown
-
     The filter documentation is here: <https://docs.angularjs.org/api/ng/filter/filter>
 
 
 
 
-%section.exercise
+section.exercise
   :markdown
-
     ## Further Exercise - Sort the henchmen
 
     You have a problem. You have to kidnap a rocket scientist and you need to work out the best henchman for the job. We need to sort the henchmen
 
     Pipe the array through the orderBy filter to sort the array sensibly.
 
-  :ruby
-    code = <<-CODE
+    ```html
     <div ng-repeat="cat in cats | filter:search | orderBy:order">
-    CODE
-  =code(code, :html)
+    ```
 
   :markdown
-
     Review the docs here to find out how: <https://docs.angularjs.org/api/ng/filter/orderBy>
 
     ### Optional extension
@@ -134,7 +103,7 @@ layout: "exercise"
 
 
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Write Unit Tests
 
@@ -146,9 +115,8 @@ layout: "exercise"
     2. Your scope contains henchmen.
 
 
-%section.exercise
+section.exercise
   :markdown
-
     ## Extra Exercise (if you finish first)
 
     Review the track by documentation here: <https://docs.angularjs.org/api/ng/directive/ngRepeat#tracking-and-duplicates>
