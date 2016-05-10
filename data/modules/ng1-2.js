@@ -1,5 +1,5 @@
 module.exports = {
-  title: "Angular Intermediate",
+  title: "Angular $Scope and DI",
   duration: 1,
   price: 1500,
   description: "The second part of the Angular course. Teaches you the skills you need to build a simple app using a modular component based design.",
@@ -37,53 +37,6 @@ module.exports = {
       description: "Fun and simple homework. It's like school"
     },
 
-    {
-      slug: "karma",
-      title: "Unit Testing with Karma (Testacular)",
-      description: "All good developers write unit tests. This is ongoing through the rest of the course.",
-      github: "angular_karma_demo"
-    },
-    {
-      slug: "ajax",
-      title: "AJAX",
-      description: "Drop JSON into your $scope and it will automatically bind it to the template.",
-      github: "angular_ajax_demo"
-    },
-    {
-      slug: "ng-include",
-      title: "Templates and the Template Cache",
-      description: "Talking to the template cache directly can make your app feel more responsive. Learn how.",
-      github: "angular_template_cache_demo"
-    },
-    {
-      slug: "animation",
-      title: "The Animation Framework (Optional)",
-      description: "Angular will inspect your CSS and modify it's behavior.",
-      github: "angular_animation_demo"
-    },
-    {
-      slug: "custom-filters",
-      title: "Writing Custom Filters",
-      description: "A filter is a function for modifying and presenting data. We learn to write and use our own.",
-      github: "angular_custom_filters_demo"
-    },
-    {
-      slug: "services",
-      title: "Writing Services",
-      description: "Services are singleton objects that act as repositories of useful functions. How to make them, and when to use them.",
-      github: "angular_services_demo"
-    },
-    {
-      slug: "directives",
-      title: "Writing Directives",
-      description: "Directives tell the Angular compiler how to transform the DOM. They are the guts of Angular. You will learn all about them.",
-      github: "angular_directives_demo"
-    },
-    {
-      slug: "homework-2",
-      title: "Homework 2",
-      description: "Again, like school, but better paid."
-    }
   ],
   outline: [
     "Testing with Karma (this is ongoing through the rest of the course)",

@@ -672,6 +672,17 @@ nav.course_sidebar {
       padding: 0;
       color: white; }
 
+.exercise_resources {
+  margin: 20px 0;
+  background: #040404;
+  color: #fff;
+  padding: 20px;
+  border-radius: 3px; }
+  .exercise_resources a, .exercise_resources h2 {
+    color: white; }
+  .exercise_resources h2 {
+    margin-top: 0; }
+
 .social_auth ul, .social_auth li {
   margin: 0;
   padding: 0;

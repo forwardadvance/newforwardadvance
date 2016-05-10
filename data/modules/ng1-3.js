@@ -1,56 +1,42 @@
 module.exports = {
-  "title": "Angular Advanced",
+  "title": "Angular AJAX",
   "duration": 1,
   "price": 1500,
   "description": "Advanced use of directives and components. In this section we learn all the skills required to build a component based Single Page App (SPA)",
   "outcome": "You will have a full and deep understanding of directives and the angular compiler, and will be able to confidently build a scalable Angular app.",
-  "exercises": {
-    "directive-compilation": {
-      "title": "Directive Compilation",
-      "description": "We look at how the Angular compiler traverses the DOM, order of compilation, and when to use the compile, link and controller functions.",
-      "github": "angular_directive_compilation_demo"
+  "exercises": [
+
+    {
+      slug: "karma",
+      title: "Unit Testing with Karma (Testacular)",
+      description: "All good developers write unit tests. This is ongoing through the rest of the course.",
+      github: "angular_karma_demo"
     },
-    "parse": {
-      "title": "Parsing attributes against $scope",
-      "description": "How to make out directives receive an expression.",
-      "github": "angular_parse_demo"
+    {
+      slug: "ajax",
+      title: "AJAX",
+      description: "Drop JSON into your $scope and it will automatically bind it to the template.",
+      github: "angular_ajax_demo"
     },
-    "testing-directives": {
-      "title": "Unit testing directives using Karma",
-      "description": "Unit testing is for directives too.",
-      "github": "angular_testing_directives_demo"
+    {
+      slug: "ng-include",
+      title: "Templates and the Template Cache",
+      description: "Talking to the template cache directly can make your app feel more responsive. Learn how.",
+      github: "angular_template_cache_demo"
     },
-    "isolate-scope": {
-      "title": "Isolate Scopes",
-      "description": "One of the most misunderstood features of directives. We learn, in detail, how to control the scope hierarchy.",
-      "github": "angular_directive_isolate_scopes_demo"
+    {
+      slug: "animation",
+      title: "The Animation Framework (Optional)",
+      description: "Angular will inspect your CSS and modify it's behavior.",
+      github: "angular_animation_demo"
     },
-    "transclusion": {
-      "title": "Directive Transclusion",
-      "description": "Transclusion allows us to pass template content to a directive as an attribute. This is a lot more useful than it sounds. Here we see why.",
-      "github": "angular_directive_transclusion_demo"
+    {
+      slug: "services",
+      title: "Writing Services",
+      description: "Services are singleton objects that act as repositories of useful functions. How to make them, and when to use them.",
+      github: "angular_services_demo"
     },
-    "validation": {
-      "title": "Form Validation",
-      "description": "We validate our inputs the right way",
-      "github": "angular_form_validation_demo"
-    },
-    "protractor": {
-      "title": "Protractor",
-      "description": "End to end integration testing.",
-      "github": "angular_protractor_demo"
-    },
-    "routing": {
-      "title": "Routing",
-      "description": "Learn about routing, Pushstate, and how to make an Angular site SEO friendly without hashbangs",
-      "github": "angular_routing_demo"
-    },
-    "ui-router": {
-      "title": "UI Router",
-      "description": "The UI Router is an alternative state based router for Angular. Learn all about it.",
-      "github": "angular_ui_router_demo"
-    }
-  },
+  ],
   "outline": [
     "Further Directives",
     "Order of Compilation",

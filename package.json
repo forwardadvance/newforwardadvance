@@ -52,6 +52,7 @@
     "passport-openid": "^0.4.0",
     "passport-twitter": "^1.0.4",
     "paypal-rest-sdk": "^1.6.8",
+    "pug": "^2.0.0-alpha7",
     "request": "^2.72.0",
     "stripe": "^4.5.0",
     "tumblr.js": "^0.0.7",

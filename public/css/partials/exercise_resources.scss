@@ -1,0 +1,13 @@
+.exercise_resources {
+  margin:$gutter 0;
+  background:$black;
+  color:$white;
+  padding:$gutter;
+  border-radius: $round;
+  a, h2 {
+    color:white;
+  }
+  h2 {
+    margin-top:0;
+  }
+}

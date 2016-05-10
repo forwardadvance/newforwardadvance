@@ -3,7 +3,7 @@ module.exports = {
   duration: 0.5,
   price: 1500,
   description: "What's new in Edge Angular.",
-  exercises: {},
+  exercises: [],
   outline: [
     "Components",
     "Component Oriented Architecture",
