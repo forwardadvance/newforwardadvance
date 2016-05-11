@@ -1,27 +1,16 @@
----
-title: "Angular 2 Exercise"
-section: "angular2"
-exercise: "nested-components"
-layout: "exercise"
----
-
-%section
+section
   :markdown
-
-    # Nesting Components
-
     Angular 2 is built out of components. Up till now, our applications have consisted of a single component, but a real app will be made out of a tree of components, one inside the next.
 
-    Because child components are injected into their parent, order of definition matters. We can get around this using a module loader (more on this later).
-
-    In this instance, because we have no module loader, we must define the child component first.
+    Because child components are injected into their parent, order of definition matters. We get around this using a module loader, more on this later, but for now we're going to continue putting everything in one file.
 
     ## A Cat Component
 
     Let's create a component that can sit on our page. I'm going to make a Cat Component to render out a single cat.
 
-  :ruby
-    code = <<-CODE
+    Because we have no module loader, we must define the child component first in our source.
+
+    ```
     var CatComponent = ng.core
       .Component({
         selector: 'cat',
@@ -33,17 +22,13 @@ layout: "exercise"
           vm.catName = "Fluffy"
         }
       });
-    CODE
-  =code(code)
+    ```
 
-  :markdown
-
-    ## Now for the app
+    ## Now for the app component
 
     Next we define the parent component, which will be the root of the tree:
 
-  :ruby
-    code = <<-CODE
+    ```
     var AppComponent = ng.core
       .Component({
         selector: 'app',
@@ -53,25 +38,20 @@ layout: "exercise"
       .Class({
         constructor: function() {}
       });
-    CODE
-  =code(code)
+    ```
 
-  :markdown
+    Notice that we tell our AppComponent that it can contain CatComponents by giving it an array of directives.
 
-    Finally we can bootstrap
+    Finally we can bootstrap:
 
-  :ruby
-    code = <<-CODE
+    ```
     document.addEventListener('DOMContentLoaded', function() {
       ng.platform.browser.bootstrap(AppComponent);
     });
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - A little web app
 
@@ -88,6 +68,6 @@ layout: "exercise"
 
 
 
-  -# Further reading:
+// # Further reading:
 
-  -# * <http://blog.thoughtram.io/angular/2015/07/06/even-better-es5-code-for-angular-2.html>
+// * <http://blog.thoughtram.io/angular/2015/07/06/even-better-es5-code-for-angular-2.html>

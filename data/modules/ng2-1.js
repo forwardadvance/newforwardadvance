@@ -20,28 +20,28 @@ module.exports = {
       learnings: []
     },
     {
-      title: 'components',
+      title: 'Component Based Hello World',
       slug: 'components',
       description: '',
       github: '',
       learnings: []
     },
     {
-      title: 'bound-variables',
+      title: 'Bound Variables',
       slug: 'bound-variables',
       description: '',
       github: '',
       learnings: []
     },
     {
-      title: 'events',
+      title: 'Dealing with Browser Events',
       slug: 'events',
       description: '',
       github: '',
       learnings: []
     },
     {
-      title: 'nested-components',
+      title: 'Nesting Components',
       slug: 'nested-components',
       description: '',
       github: '',

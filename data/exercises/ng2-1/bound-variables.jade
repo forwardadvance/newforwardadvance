@@ -1,9 +1,5 @@
-
 section
   :markdown
-
-    # Bound Variables
-
     Any attributes of our component are available in the component template. These are plain old attributes of the component.
 
     Bindings are live, so whenever an attribute of the component updates, the template will be updated to match.
@@ -23,7 +19,6 @@ section
     ```
 
   :markdown
-
     Here's that in context:
 
     ```
@@ -44,7 +39,6 @@ section
     ```
 
   :markdown
-
     <http://codepen.io/superluminary/pen/GoYaYa?editors=1010>
 
     ## Including Expressions
@@ -120,7 +114,7 @@ section
 
     We can also call functions in a binding, but if we do this we need to be careful. Angular 2's change detection works in a single pass. If you call a function from the template that changes a value that is referred to elsewhere, you will end up with an inconsistent result, and Angular will throw an error.
 
-  -#TODO: Example*
+//- TODO: Example
 
 section
   :markdown

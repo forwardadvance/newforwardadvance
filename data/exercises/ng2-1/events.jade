@@ -1,46 +1,28 @@
----
-title: "Angular 2 Exercise"
-section: "angular2"
-exercise: "events"
-layout: "exercise"
----
-
-%section
+section
   :markdown
-    # Dealing with Browser Events
-
     Angular 2 has a new special syntax for dealing with events. In Angular 1 we had many special case directives to handle user interactions, such as ng-click, ng-submit, etc.
 
     In Angular 2, events are no longer handed by special directives. There is a generic syntax. This means that we can handle any type of DOM event, and also custom events that our components might emit.
 
     We handle a click event like this:
 
-  :ruby
-    code = <<-CODE
+    ```html
     <a (click)="handleClick()">
       Click Me!
     </a>
-    CODE
-  =code(code,:html)
-
-  :markdown
+    ```
 
     If you don't like this syntax, we have a more traditional XML syntax available like so:
 
-  :ruby
-    code = <<-CODE
+    ```html
     <a on-click="handleClick()">
       Click Me!
     </a>
-    CODE
-  =code(code, :html)
-
-  :markdown
+    ```
 
     We then need to define a our handleClick function inside the class decorator, like so:
 
-  :ruby
-    code = <<-CODE
+    ```
     .Class({
       constructor: function() {
         this.handleClick = function() {
@@ -48,15 +30,11 @@ layout: "exercise"
         }
       }
     })
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     Put it all together:
 
-  :ruby
-    code = <<-CODE
+    ```
     var AppComponent = ng.core
       .Component({
         selector: "app",
@@ -74,20 +52,14 @@ layout: "exercise"
           }
         }
       })
-    CODE
-  =code(code)
-
-
-
-  :markdown
+    ```
 
     ## Dealing with events in the expression
 
     We don't need to shell out to a handler to deal with events, although it's often a good idea. We can write an expression to deal with them right in the template, like so:
 
 
-  :ruby
-    code = <<-CODE
+    ```
     var AppComponent = ng.core
       .Component({
         selector: "app",
@@ -102,10 +74,9 @@ layout: "exercise"
       .Class({
         constructor: function() {}
       })
-    CODE
-  =code(code)
+    ```
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - A Click Counter
 
@@ -115,45 +86,34 @@ layout: "exercise"
 
     *Note that i++ or i+=1 is not currently supported in Angular expressions. You will need to use the longhand i = i + 1;
 
-%section
+section
   :markdown
-
     ## Getting the Event
 
     We can get a reference to the event by passing $event from the template. This is a real DOM event, complete with all the information you would expect.
 
-
-  :ruby
-    code = <<-CODE
+    ```html
     <a (click)="handleClick($event)">
       Hello World!
     </a>
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     We then handle this in our handler:
 
-  :ruby
-    code = <<-CODE
+    ```
     this.handleClick = function(event) {
       console.log(event);
     }
-    CODE
-  =code(code)
+    ```
 
 
-
-%section.exercise
+section.exercise
   :markdown
-
     ## Exercise - Mouse Coordinates
 
     We are going to access the mouse coordinates in a div. Use the following scaffold:
 
-  :ruby
-    code = <<-CODE
+    ```
     var AppComponent = ng.core
       .Component({
         selector: "app",
@@ -165,10 +125,8 @@ layout: "exercise"
       .Class({
         constructor: function() {}
       })
-    CODE
-  =code(code)
+    ```
 
-  :markdown
     When the user clicks on the div, grab the mouse coordinates from the event and output them on the page.
 
     For bonus points, make this happen when on mousemove

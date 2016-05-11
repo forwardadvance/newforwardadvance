@@ -1,14 +1,11 @@
 
-%section
+section
   :markdown
-
-    # Component Based Hello World
-
     Angular applications are built out of components. A component works like a brand new type of DOM node which we invent. It can have behaviour, it can emit events, it can have custom attributes, it holds its own state.
 
     In this section we'll build the simplest possible "Hello World" component using regular ol' JavaScript.
 
-  %aside.questions_answered
+  aside.questions_answered
     :markdown
       ## Questions Answered
 
@@ -16,7 +13,6 @@
       * What is the simplest meaningful Angular 2 *Hello World* we can create?
 
   :markdown
-
     ## The JavaScripts
 
     First up we need some JavaScript. We currently need four files to make our simple app work. These are:
@@ -45,27 +41,23 @@
     Our code.
 
 
-%section.box
+section.box
   :markdown
-
     ## What is UMD?
 
     UMD (as in angular-all.umd.js) stands for Universal Module Definition. It is a common specification for exposing variables. In this case, it creates the ng global for us.
 
     We don't have to use it. We can explicitly import Angular components wherever they are required. More on this later.
 
-%section
+section
   :markdown
-
-
     ## HTML5 Skeleton
 
     An HTML skeleton includes the necessary JavaScripts, then declared an app component.
 
     Here's a skeleton HTML page for you to copy.
 
-  :ruby
-    code = <<-CODE
+    ```html
     <!DOCTYPE html>
     <html>
       <head>
@@ -78,11 +70,9 @@
         <app>Hello from the HTML</app>
       </body>
     </html>
-    CODE
-  =code(code, :html)
+    ```
 
   :markdown
-
     ## What is that &lt;app> tag?
 
     The &lt;app> tag is going to be a component. We will create a component that matches that tag, and add behaviour and a template to it.
@@ -91,8 +81,7 @@
 
     Now we need to create our app component. In app.js, include the following:
 
-  :ruby
-    code = <<-CODE
+    ```
     // First define the component. I'm just whopping it in a global variable here.
     // Globals are uncool, but this is fine for our simple hello world.
     var AppComponent = ng.core
@@ -103,11 +92,9 @@
       .Class({
         constructor: function() {} // An empty constructor
       });
-    CODE
-  =code(code)
+    ```
 
   :markdown
-
     Now we have a component to match the &lt;app> tag
 
     ## Bootstrapping
@@ -116,24 +103,20 @@
 
     We wait till the DOM is loaded, then we call `ng.platform.browser.bootstrap` to initialise the application.
 
-  :ruby
-    code = <<-CODE
+    ```
     // Wait till the DOM is loaded, them Bootstrap the component.
     document.addEventListener('DOMContentLoaded', function() {
       ng.platform.browser.bootstrap(AppComponent);
     });
-    CODE
-  =code(code)
+    ```
 
   :markdown
-
     You can see this in action here:
 
     <http://codepen.io/superluminary/pen/ZQMNqa?editors=1010>
 
-%section.exercise
+section.exercise
   :markdown
-
     ## Exercise - Mucking about with code
 
     As coders we learn best by getting our hands dirty, by tinkering. Let's get tinkering.
@@ -144,9 +127,8 @@
     2. Make it say goodbye world.
     3. Change the html selector from app to monsier-moreau. Update the HTML as well. Make it work.
 
-%section.exercise
+section.exercise
   :markdown
-
     ## Exercise - Looking at errors
 
     Angular 1 would often fail silently on error. Angular 2 is great at error handling. Let's make some mistakes.
@@ -158,7 +140,7 @@
 
     Angular 2 is much more strict. It will not try to make everything right for you, and will fail loudly and explicitly, which is generally what we developers like.
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Make your own
 
@@ -173,9 +155,8 @@
     If you run into errors, open the console, view them and fix them.
 
 
-%section.exercise
+section.exercise
   :markdown
-
     ## Exercise - Visual Studio
 
     If you need to develop in Visual Studio, you may have a bit of a culture shock when you start using Angular. We use static HTML templates and compile in the browser using JavaScript. The role of the server is dramatically reduced.
@@ -217,12 +198,9 @@
 
     Now we need to link Angular. Because this is the front end we do this with a script tag right in the html.
 
-  :ruby
-    code = <<-CODE
+    ```
     <script src="/Scripts/angular.js"></script>
-    CODE
-  =code(code)
+    ```
 
   :markdown
-
     Now Attempt the Hello World exercise.
