@@ -688,18 +688,9 @@ nav.course_sidebar {
   nav.course_sidebar h2, nav.course_sidebar p {
     margin: 10px 0;
     padding: 0 10px; }
-  nav.course_sidebar ul, nav.course_sidebar li {
-    margin: 0;
-    padding: 0;
-    list-style: none; }
   nav.course_sidebar h2 {
     font-size: 16px;
     font-weight: normal; }
-  nav.course_sidebar a, nav.course_sidebar span {
-    display: block;
-    padding: 10px 10px; }
-  nav.course_sidebar span {
-    font-weight: bold; }
   nav.course_sidebar .course {
     border: 1px solid black;
     border-radius: 5px; }
@@ -710,8 +701,24 @@ nav.course_sidebar {
       padding: 10px; }
   nav.course_sidebar .course_module {
     margin-top: 20px;
-    border: 1px solid black;
+    background: #eee;
+    border: 1px solid #eee;
     border-radius: 5px; }
+    nav.course_sidebar .course_module h2 {
+      background: #222;
+      color: #fff;
+      margin-top: 0;
+      padding: 10px; }
+      nav.course_sidebar .course_module h2 .number {
+        margin-right: 1em; }
+    nav.course_sidebar .course_module ul, nav.course_sidebar .course_module li {
+      margin: 0;
+      padding: 0;
+      list-style: none; }
+    nav.course_sidebar .course_module ul {
+      padding: 10px; }
+    nav.course_sidebar .course_module li {
+      border-top: 1px solid #888; }
 
 aside.box {
   border-radius: 3px;

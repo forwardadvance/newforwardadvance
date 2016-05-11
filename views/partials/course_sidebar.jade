@@ -5,16 +5,22 @@ nav.course_sidebar
     p.description
       = course.description
     p.duration
-      | Duration: #{course.duration}
+      | Duration: #{course.duration} days
 
-  each courseModule in course.courseModules
+  each courseModule, index in course.courseModules
     .course_module
-      h2= courseModule.title
+      h2
+        span.number #{index+1}.
+        =courseModule.title
       p.description
-        = courseModule.description
+        strong description:
+        =  courseModule.description
+      p.outcome
+        strong outcome:
+        |  #{courseModule.outcome}
       p.duration
-        | Duration:
-        = courseModule.duration
+        strong duration:
+        |  #{courseModule.duration} days
       ul
         each exercise in courseModule.exercises
           li
