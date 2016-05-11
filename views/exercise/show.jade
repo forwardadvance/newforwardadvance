@@ -1,12 +1,12 @@
 extends ../layout
 
 block content
-  .wrap
-    article.course_exercise.right.three_col
+  .liquid_wrap
+    article.course_exercise.right.eight_col
       h1= exercise.title
 
       != exerciseContent
 
-    .left.one_col
+    .left.four_col
       -current_exercise = exercise
       include ../partials/course_sidebar

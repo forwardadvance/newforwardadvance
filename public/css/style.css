@@ -24,21 +24,49 @@ body {
       margin: 0 20px;
       width: auto; } }
 
+.liquid_wrap {
+  width: auto;
+  margin: 0 80px;
+  max-width: 2000px; }
+  @media (max-width: 1000px) {
+    .liquid_wrap {
+      margin: 0; } }
+
 .one_col {
-  width: 250px;
-  padding: 0 20px; }
+  width: 100%/12; }
 
 .two_col {
-  width: 500px;
-  padding: 0 20px; }
+  width: 16.66667%; }
 
 .three_col {
-  width: 750px;
-  padding: 0 20px; }
+  width: 25%; }
 
 .four_col {
-  width: 1000px;
-  padding: 0 20px; }
+  width: 33.33333%; }
+
+.five_col {
+  width: 41.66667%; }
+
+.six_col {
+  width: 50%; }
+
+.seven_col {
+  width: 58.33333%; }
+
+.eight_col {
+  width: 66.66667%; }
+
+.nine_col {
+  width: 75%; }
+
+.ten_col {
+  width: 83.33333%; }
+
+.eleven_col {
+  width: 91.66667%; }
+
+.twelve_col {
+  width: 100%; }
 
 .right {
   float: right; }
@@ -53,6 +81,23 @@ body {
 
 .center_contents {
   text-align: center; }
+
+@media (min-width: 1600px) and (max-width: 2000px) {
+  .one_col, .two_col, .three_col, .four_col, .five_col, .six_col, .seven_col, .eight_col, .nine_col, .ten_col, .eleven_col, .twelve_col {
+    padding: 0 60px; } }
+
+@media (min-width: 1000px) and (max-width: 1600px) {
+  .one_col, .two_col, .three_col, .four_col, .five_col, .six_col, .seven_col, .eight_col, .nine_col, .ten_col, .eleven_col, .twelve_col {
+    padding: 0 40px; } }
+
+@media (min-width: 800px) and (max-width: 1600px) {
+  .one_col, .two_col, .three_col, .four_col, .five_col, .six_col, .seven_col, .eight_col, .nine_col, .ten_col, .eleven_col, .twelve_col {
+    padding: 0 20px; } }
+
+@media (min-width: 0) and (max-width: 800px) {
+  .one_col, .two_col, .three_col, .four_col, .five_col, .six_col, .seven_col, .eight_col, .nine_col, .ten_col, .eleven_col, .twelve_col, .left, .right {
+    width: auto;
+    float: none; } }
 
 header nav.main, header nav.technology {
   margin: 0;
@@ -639,38 +684,47 @@ section.exercise {
     margin-top: 0; }
 
 nav.course_sidebar {
-  padding-top: 50px;
-  padding-right: 5%; }
+  margin-top: 50px; }
+  nav.course_sidebar h2, nav.course_sidebar p {
+    margin: 10px 0;
+    padding: 0 10px; }
   nav.course_sidebar ul, nav.course_sidebar li {
     margin: 0;
     padding: 0;
     list-style: none; }
   nav.course_sidebar h2 {
     font-size: 16px;
-    background: #040404;
-    color: #fff;
-    padding: 10px; }
+    font-weight: normal; }
   nav.course_sidebar a, nav.course_sidebar span {
     display: block;
     padding: 10px 10px; }
   nav.course_sidebar span {
     font-weight: bold; }
-  nav.course_sidebar li.section a {
-    border: 1px dotted black;
-    border-bottom: none; }
-  nav.course_sidebar li.course a {
-    background: black;
-    color: white; }
-  nav.course_sidebar li ul {
+  nav.course_sidebar .course {
     border: 1px solid black;
-    background: #222;
-    padding: 10px 10px 10px 30px; }
-    nav.course_sidebar li ul li {
-      list-style: disc;
-      color: white; }
-    nav.course_sidebar li ul a {
-      padding: 0;
-      color: white; }
+    border-radius: 5px; }
+    nav.course_sidebar .course h2 {
+      margin-top: 0;
+      background: #040404;
+      color: #fff;
+      padding: 10px; }
+  nav.course_sidebar .course_module {
+    margin-top: 20px;
+    border: 1px solid black;
+    border-radius: 5px; }
+
+aside.box {
+  border-radius: 3px;
+  background: #222;
+  padding: 20px;
+  margin: 20px 0; }
+  aside.box * {
+    color: #fff;
+    text-shadow: 1px 1px #090909; }
+  aside.box *:first-child {
+    margin-top: 0; }
+  aside.box *:last-child {
+    margin-bottom: 0; }
 
 .exercise_resources {
   margin: 20px 0;
@@ -896,34 +950,6 @@ aside.sidenote {
   font-weight: 800;
   border-radius: 3px;
   border: 1px solid #222; }
-
-aside.box {
-  border-radius: 3px;
-  background: #222;
-  padding: 20px;
-  margin: 0 auto 5em auto; }
-  aside.box * {
-    color: #fff;
-    text-shadow: 1px 1px #090909; }
-  aside.box *:first-child {
-    margin-top: 0; }
-  aside.box *:last-child {
-    margin-bottom: 0; }
-
-.blog_article_list section {
-  width: auto; }
-
-.blog_article_list a {
-  text-decoration: none;
-  color: #222;
-  display: block; }
-
-.blog_article_list a:hover {
-  background: #eee; }
-
-.blog_article_list .read_more {
-  font-weight: bold;
-  text-align: right; }
 
 .date {
   font-style: italic; }

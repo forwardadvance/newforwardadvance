@@ -26,6 +26,7 @@
 @import 'partials/testimonials';
 @import 'partials/exercise';
 @import 'partials/course_sidebar';
+@import 'partials/box';
 @import 'partials/exercise_resources';
 @import 'partials/social_auth';
 @import 'partials/monokai';
@@ -55,41 +56,6 @@ aside.sidenote {
   font-weight:800;
   border-radius:$round;
   border:1px solid $highlight_colour;
-}
-
-aside.box {
-  border-radius:$round;
-  background: $highlight_colour;
-  padding:$gutter;
-  margin: 0 auto 5em auto;
-  * {
-    color: $white;
-    text-shadow:1px 1px darken($highlight_colour, 10%);
-  }
-  *:first-child {
-    margin-top:0;
-  }
-  *:last-child {
-    margin-bottom:0;
-  }
-}
-
-.blog_article_list {
-  section {
-    width:auto;
-  }
-  a {
-    text-decoration:none;
-    color: $dark_grey;
-    display:block;
-  }
-  a:hover {
-    background: $light_grey
-  }
-  .read_more {
-    font-weight:bold;
-    text-align:right;
-  }
 }
 
 .date {

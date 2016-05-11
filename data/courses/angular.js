@@ -1,14 +1,15 @@
 module.exports = {
-  slug: "angular",
-  title: "Angular",
-  description: "The Angular Course",
+  slug: 'angular',
+  title: 'Angular',
+  description: 'The Angular Course',
+  duration: 3,
   courseModules: [
-    require("../modules/ng1-1"),
-    require("../modules/ng1-2"),
-    require("../modules/ng1-3"),
-    require("../modules/ng1-4"),
-    require("../modules/ng1-5"),
-    require("../modules/ng1-6")
+    require('../modules/ng1-1'),
+    require('../modules/ng1-2'),
+    require('../modules/ng1-3'),
+    require('../modules/ng1-4'),
+    require('../modules/ng1-5'),
+    require('../modules/ng1-6')
   ],
-  optionalModules: ["js2", "es6", "webpack", "browserify", "gulp"]
-}
+  optionalModules: ['js2', 'es6', 'webpack', 'browserify', 'gulp']
+};

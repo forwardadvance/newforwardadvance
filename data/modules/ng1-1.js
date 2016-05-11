@@ -1,6 +1,6 @@
 module.exports = {
   title: "Angular Templates and Controllers",
-  duration: 1,
+  duration: 0.5,
   slug: "ng1-1",
   price: 1100,
   description: "Foundations of AngularJS. This module covers all the basic concepts and tries to make Angular less surprising. This is part one the full Angular course, or it can be a complete course if you only need the basics.",

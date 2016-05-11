@@ -1,13 +1,26 @@
 nav.course_sidebar
-  each courseModule in course.courseModules
-    h2= courseModule.title
 
-    ul
-      each exercise in courseModule.exercises
-        li
-          if current_exercise && current_exercise.slug == exercise.slug
-            span= exercise.title
-          else
-            a( href=['/course', course.slug, courseModule.slug, exercise.slug].join('/') )
-              =exercise.title
+  .course
+    h2 #{course.title} Course
+    p.description
+      = course.description
+    p.duration
+      | Duration: #{course.duration}
+
+  each courseModule in course.courseModules
+    .course_module
+      h2= courseModule.title
+      p.description
+        = courseModule.description
+      p.duration
+        | Duration:
+        = courseModule.duration
+      ul
+        each exercise in courseModule.exercises
+          li
+            if current_exercise && current_exercise.slug == exercise.slug
+              span= exercise.title
+            else
+              a( href=['/course', course.slug, courseModule.slug, exercise.slug].join('/') )
+                =exercise.title
 

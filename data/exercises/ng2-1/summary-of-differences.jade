@@ -1,0 +1,107 @@
+section
+  :markdown
+    **TL;DR; Angular 1 evolved from a simple DOM compiler, into a clever, component based framework underpinning some of the largest apps in the world.**
+
+    **Many of the design decisions that worked well for small apps caused problems with larger ones. Many of the convenient features of Angular 1 have been rendered obsolete by changes in the way we write web apps. Angular 2 rethinks the framework to support large applications.**
+
+    **In this section, we summarise the changes, and why they might make you happy.**
+
+aside.questions_answered
+  :markdown
+    ## Questions answered:
+
+    * How is Angular 2 different to Angular 1?
+    * Why did Angular need to change?
+
+section
+  :markdown
+    ## We all liked Angular 1
+
+    Angular was a well-liked framework. It was at heart an HTML5 compilation tool. It would take an HTML template, and compile it into a web application. It gave web designers the ability to create web applications simply by writing HTML. Angular would take care of compiling the HTML into an application.
+
+    Over time, Angular was used to make larger and larger apps. The applications that depended on it matured, and we started bumping up against shortcomings.
+
+    The $scope tree, which is so liberating in a small app became a source of bugs. We gained a profusion of components: Templates, Controllers, Services, Factories, Directives, Providers, Filters. It became hard to know what did what. We introduced isolate $scope and transclusion. The learning curve from beginner to expert became rather bumpy.
+
+    Angular 2 builds on Angular 1 but doesn't, as was initially feared, completely depart from it. We can write Angular 2 in a similar way to Angular 1.5. there are a few things to unlearn, but the departure is not as drastic as we initially feared.
+
+    However, unless you're primed, Angular 2 code can initially look quite surprising.
+
+    ## $scope is no more
+
+    $scope was a smart data storage object that you could use to pass data around your app. It roughly mirrored your DOM tree. If you set a value in $scope, it would be available in all child $scopes.
+
+    This was wonderfully productive, but once an app became more complex, it became easy to leak scope objects into the tree. It also became harder to write modular code, since a variable could be defined in a parent component, and used in a child component.
+
+    We now use components themselves as data storage objects. Data must be explicitly passed down into child components, and components return data to their parents by means of events, which must also be explicitly specified.
+
+    ## TypeScript and ES7 are Everywhere
+
+    You don't need to write Angular 2 using TypeScript, but you will certainly benefit from learning enough TypeScript to be able to read and understand the various tutorials that are out there.
+
+    Any valid JavaScript file is also a valid TypeScript file. TypeScript also gives us:
+
+    * Classes (which are sugar for IIFEs that return a constructor)
+    * Modules (which compile into require statements, suitable for use with a module packer like Browserify)
+    * Type Annotations (which the editor can use to draw squiggly lines under errors)
+    * Decorators (which compile into transformation functions that can modify a constructor, store metadata, or execute arbitrary code.)
+
+    In a larger team the benefits of TypeScript are obvious. Your co-workers will write more standardised code, and many of the nice IDE features like intellisense and refactoring will become available.
+
+    ## Directives are now Components
+
+    Angular 1 gave us directives which provided us with an interface onto the DOM. Over time we started to use directives as components, creating our apps as trees of nested directives, each of which managed its own $scope.
+
+    Angular 2 completes this transition. Components can have behaviour, custom attributes, and templates. They can emit events. They can even manage their own styling using the shadow DOM polyfill.
+
+    You're probably using components already, but the difference is the prominence given to them. Components are everything in Angular 2. Even the simplest hello world involves creating a component. The option to simply compile an ordinary HTML page is gone. Even the simplest app must be built as a tree of Components.
+
+    This arguably makes Angular 2 much less accessible to designers, but it does introduce a level of rigour that will be hugely beneficial when creating larger apps.
+
+    Directives are still present. A directive is a component without a template.
+
+    ## Filters are now Pipes
+
+    They have a new name and API, but otherwise, they work in the same way.
+
+    However many of the built-in filters you may be used to have changed their behaviour, notably the currency filter.
+
+    ## Services and factories are now just plain objects.
+
+    Services and Factories allowed us to create singleton helper objects that could be passed around an app, sharing data or common functions. These are now gone. Simply create regular constructor functions instead.
+
+    The DI system will take care of instantiating them and enforcing appropriate singletons.
+
+    If you are using TypeScript, you can create classes, which compile down to IIFEs that return constructor functions.
+
+    This rather marvelously means that any object from the Node ecosystem can now be a service. Angular is no longer a ghetto.
+
+    ## DI is no longer magical (unless you are using TypeScript)
+
+    In Angular 1 we could simply pass in objects to our controllers, and let Angular take care of intuiting types for us. This was possible because the DI system was based on Strings. Evey injectable we created would be given a string name, and we could use this name to bring it out. This feature is now gone.
+
+    Injection is now based on object identity. In JavaScript, we must pass in an array of injectables, followed by the object we want to construct.
+
+    TypeScript, however, uses the magic of strong typing to make this work. We can simply pass in the types of things we would like our object to receive, and the DI system will make it so.
+
+    ## DI is no longer a monolith
+
+    In Angular 1 we had a single global DI system. A service was a global singleton for the whole app. In Angular 2 we get a DI hierarchy. Any component can declare a new Injector. This injector will be used for itself, and all it's child components.
+
+    This means you could have multiple shopping carts on the page, and store the data in a singleton service that was local to that cart and it's children.
+
+    ## Angular Modules are gone
+
+    Angular dates from a time before module systems were widespread. RequireJS, Browserify, Webpack, and SystemJS allow us to write modular JavaScript without angular.module, so Angular no longer has it's own module system. Instead, you are expected to pick an off the shelf module system.
+
+    The Angular core team are currently using SystemJS. Most people will probably choose Browserify or Webpack. These technologies will compile commonJS modules into a single app.js file, will dynamically bring in script as required via AJAX, or will dynamically append script tags to the page as they are needed (or a combination of the three).
+
+    These are the require/import statements at the top of Angular demo files.
+
+    ## Main differences
+
+    1. There's a new API. It's not hard; you will like it.
+    2. The component tree now replaces the $scope tree. We store our data in components, and components manage a portion of the DOM. Components are analogous to Directives.
+    3. Most of the Angular 1 components that we used to use: Services factories directives etc. are no longer required. Instead, we just have objects.
+    4. Dependency Injection is no longer handled by the framework. Instead, we use third party libraries such as Browserify, or native ES6 modules, or just hang our app off a global singleton.
+    5. There is a new DI system that is based on object identity rather than string equality.

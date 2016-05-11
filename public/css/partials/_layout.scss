@@ -13,23 +13,54 @@
   }
 }
 
+.liquid_wrap {
+  width:auto;
+  margin:0 $gutter*4;
+  max-width: $ultrawide;
+  @media (max-width: $desktop) {
+    & {
+      margin:0;
+    }
+  }
+}
+
 .one_col {
-  width: $desktop/4;
-  padding:0 $gutter;
+  width: 100%/12;
 }
 
 .two_col {
-  width: $desktop/2;
-  padding:0 $gutter;
+  width: 100%/12*2;
 }
 
 .three_col {
-  width: $desktop/4*3;
-  padding:0 $gutter;
+  width: 100%/12*3;
 }
 .four_col {
-  width: $desktop;
-  padding:0 $gutter;
+  width: 100%/12*4;
+}
+.five_col {
+  width: 100%/12*5;
+}
+.six_col {
+  width: 100%/12*6;
+}
+.seven_col {
+  width: 100%/12*7;
+}
+.eight_col {
+  width: 100%/12*8;
+}
+.nine_col {
+  width: 100%/12*9;
+}
+.ten_col {
+  width: 100%/12*10;
+}
+.eleven_col {
+  width: 100%/12*11;
+}
+.twelve_col {
+  width: 100%;
 }
 
 .right {
@@ -48,4 +79,29 @@
 
 .center_contents {
   text-align:center;
+}
+
+@media (min-width: $widescreen) and (max-width: $ultrawide) {
+  .one_col, .two_col, .three_col, .four_col, .five_col, .six_col, .seven_col, .eight_col, .nine_col, .ten_col, .eleven_col, .twelve_col {
+    padding:0 $gutter*3;
+  }
+}
+
+@media (min-width: $desktop) and (max-width: $widescreen) {
+  .one_col, .two_col, .three_col, .four_col, .five_col, .six_col, .seven_col, .eight_col, .nine_col, .ten_col, .eleven_col, .twelve_col {
+    padding:0 $gutter*2;
+  }
+}
+
+@media (min-width: $mobile) and (max-width: $widescreen) {
+  .one_col, .two_col, .three_col, .four_col, .five_col, .six_col, .seven_col, .eight_col, .nine_col, .ten_col, .eleven_col, .twelve_col {
+    padding:0 $gutter;
+  }
+}
+
+@media (min-width: 0) and (max-width: $mobile) {
+  .one_col, .two_col, .three_col, .four_col, .five_col, .six_col, .seven_col, .eight_col, .nine_col, .ten_col, .eleven_col, .twelve_col, .left, .right {
+    width:auto;
+    float:none;
+  }
 }

@@ -1,0 +1,45 @@
+
+section
+  :markdown
+    Angular 2 is a component based web application framework. We create components, and nest them inside one another to create an application.
+
+
+    ## What is a component?
+
+    A component is a DOM node. At least it behaves like one. We invent brand new DOM nodes, give them behaviour, attributes, content, styling, etc.
+
+    Here is a cat component:
+
+    <cat></cat>
+
+    We might give it an attribute to tell it how to be:
+
+    <cat name="Hilda" age="19"></cat>
+
+    We might let it fire events so that we can handle them for it:
+
+    <cat on-miow="getFood()"></cat>
+
+    ## Unfortunately the docs are hard.
+
+    As was the case for Angular 1, the official documentation was written by, and for geniuses.
+
+    This is wonderful, and also problematic. What was unfathomable in Angular 1 can now seem even more cryptic. The 5 minute quickstart includes topics such as System.js, RX.js, TypeScript, ES7 modules, annotations, and destructuring assignation. Wonderful, worthy topics, but not right for a quickstart.
+
+    In order to make a hello world we are told you need to understand ES6 Modules, the transpiler, RX.js, Node, NPM, ES6 Polyfills, Observables, the Reflect API and so on and so forth. It's hard to know what is Angular, and what is optional.
+
+    It turns out that most of it is optional, most of it is not part of Angular, but most of it is stuff that you will want to use and know about. Angular 2 is highly modular. We can choose technology to build our stack. We can leave technology out altogether.
+
+    ## But what about TypeScript et al?
+
+    But what about `requires` and TypeScript and annotations and all of that good shiney stuff. We will certainly look at it, and it is important, but it's not core Angular. The official Quickstart says that it takes *"very little effort to do things properly"* however if you try to learn everything all at once it is very easy to become overwhelmed with *properlyness* and end up doing nothing at all.
+
+    These are all good things, and we will look at them later in the course, but none of them are required to build for Angular 2. In fact, Angular 2 at it's core represents a radical simplification of Angular 1.
+
+    ## What is this course?
+
+    This course is not a recipe based course I aim to teach you he is not just what you must do, but why and how things work.
+
+    We will start out looking at core Angular, which at heart (you will be please to hear) is very easy. Then move on to some of the new module features, then after that he will move to TypeScript and understand how it can help us, how we can use it to make out code better, and how annotations work.
+
+    Onwards and upwards

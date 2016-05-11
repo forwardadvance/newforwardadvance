@@ -1,11 +1,5 @@
----
-title: "Angular 2 Exercise"
-section: "angular2"
-exercise: "bound-variables"
-layout: "exercise"
----
 
-%section
+section
   :markdown
 
     # Bound Variables
@@ -24,18 +18,15 @@ layout: "exercise"
 
     We have a range of binding options in Angular 2, the simplest uses the curly brace syntax, like so:
 
-  :ruby
-    code = <<-CODE
+    ```html
     <div>Hello {{dinosaurName}}</div>
-    CODE
-  =code(code, :html)
+    ```
 
   :markdown
 
     Here's that in context:
 
-  :ruby
-    code = <<-CODE
+    ```
     var AppComponent = ng.core
       .Component({
         selector: 'app',
@@ -50,8 +41,7 @@ layout: "exercise"
     document.addEventListener('DOMContentLoaded', function() {
       ng.platform.browser.bootstrap(AppComponent);
     });
-    CODE
-  =code(code)
+    ```
 
   :markdown
 
@@ -61,14 +51,12 @@ layout: "exercise"
 
     We can include expressions in our curly braces, for example we can do maths or string concatenation.
 
-  :ruby
-    code = <<-CODE
+    ```html
     <div>1 + 1 = {{1 + 1}}</div>
     <div>{{"Hello " + "World"}}</div>
-    CODE
-  =code(code, :html)
+    ```
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - seconds in a day
 
@@ -77,9 +65,8 @@ layout: "exercise"
 
     You can either generate these values in the component, or directly into the template.
 
-%section
+section
   :markdown
-
     ## Live binding
 
     If we change the value of an attribute of the component in any asynchronous way we can think of, the template will also update.
@@ -94,8 +81,7 @@ layout: "exercise"
 
     This magic is achieved using a piece of kit called Zone.js which is integrated into Angular. If we open up setInterval in a console, we will find that it has been overridden with a custom setTimeout. This does the same thing, with the addition that it will fire an event that we can subscribe to.
 
-  :ruby
-    code = <<-CODE
+    ```
     var AppComponent = ng.core
       .Component({
         selector: 'app',
@@ -115,10 +101,9 @@ layout: "exercise"
     document.addEventListener('DOMContentLoaded', function() {
       ng.platform.browser.bootstrap(AppComponent);
     });
-    CODE
-  =code(code)
+    ```
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - A clock
 
@@ -129,7 +114,7 @@ layout: "exercise"
     Note that this can also be achieved using pipes. More on this later.
 
 
-%section
+section
   :markdown
     ## Calling Functions - Side effects
 
@@ -137,10 +122,8 @@ layout: "exercise"
 
   -#TODO: Example*
 
-%section
+section
   :markdown
-
-
     ## Further Reading
 
     * <http://gurustop.net/blog/2015/12/16/angular2-beta-javascript-component>
