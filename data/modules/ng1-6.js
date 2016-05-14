@@ -1,10 +1,23 @@
 module.exports = {
-  title: "Routing and Animation",
+  title: "Advanced Directives Content",
   duration: 0.5,
   slug: 'ng1-6',
   price: 1100,
   description: "What's new in Edge Angular.",
   exercises: [
+
+    {
+      slug: 'directive-compilation',
+      title: 'Directive Compilation',
+      description: 'We look at how the Angular compiler traverses the DOM, order of compilation, and when to use the compile, link and controller functions.',
+      github: 'angular_directive_compilation_demo'
+    },
+    {
+      slug: 'transclusion',
+      title: 'Directive Transclusion',
+      description: 'Transclusion allows us to pass template content to a directive as an attribute. This is a lot more useful than it sounds. Here we see why.',
+      github: 'angular_directive_transclusion_demo'
+    },
     {
       slug: 'routing',
       title: 'Routing',

@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Components and Directives',
+  title: 'Components and Code Organisation',
   duration: 0.5,
   slug: 'ng1-5',
   price: 1100,
@@ -12,22 +12,22 @@ module.exports = {
       github: 'angular_directives_demo'
     },
     {
-      slug: 'directive-compilation',
-      title: 'Directive Compilation',
-      description: 'We look at how the Angular compiler traverses the DOM, order of compilation, and when to use the compile, link and controller functions.',
-      github: 'angular_directive_compilation_demo'
-    },
-    {
       slug: 'isolate-scope',
       title: 'Isolate Scopes',
       description: 'One of the most misunderstood features of directives. We learn, in detail, how to control the scope hierarchy.',
       github: 'angular_directive_isolate_scopes_demo'
     },
     {
-      slug: 'transclusion',
-      title: 'Directive Transclusion',
-      description: 'Transclusion allows us to pass template content to a directive as an attribute. This is a lot more useful than it sounds. Here we see why.',
-      github: 'angular_directive_transclusion_demo'
+      slug: 'modules',
+      title: 'Angular Modules.',
+      description: 'Angular comes with it\'s own Module system.',
+      github: 'angular_modules_demo'
+    },
+    {
+      slug: 'browserify',
+      title: 'Breaking code into files with Browserify',
+      description: 'Putting code all in one file in not cool. Let\'s fix that problem',
+      github: 'angular_modules_demo'
     },
     {
       slug: 'homework-2',

@@ -1,7 +1,7 @@
 module.exports = {
   slug: 'ucas-angular2',
-  title: 'Angular 2',
-  description: 'The Angular 2 Course',
+  title: 'The Angular 2 Course',
+  description: 'Angular 2 is a brand new iteration of Angular sporting components from the ground up.',
   courseModules: [
     require('../modules/ng2-1'),
     require('../modules/ng2-2'),
@@ -10,5 +10,5 @@ module.exports = {
     require('../modules/webpack'),
     require('../modules/ng2-4')
   ],
-  optionalModules: ['webpack', 'gulp']
+  optionalModules: ['gulp']
 };

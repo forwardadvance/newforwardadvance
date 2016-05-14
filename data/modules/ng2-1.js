@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Angular 2 Foundations',
+  title: 'Angular 2 Foundations (part 1)',
   duration: 0.5,
   slug: 'ng2-1',
   price: 2250,
@@ -46,7 +46,14 @@ module.exports = {
       description: '',
       github: '',
       learnings: []
-    }
+    },
+    {
+      title: 'custom-pipes',
+      slug: 'custom-pipes',
+      description: '',
+      github: '',
+      learnings: []
+    },
   ],
   outline: [
     'Flux and one-way binding',

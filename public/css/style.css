@@ -667,13 +667,25 @@ nav.sharing {
 .testimonials h2 {
   margin-top: 40px; }
 
-.testimonials img {
-  width: 10%;
-  float: left;
-  margin: 8px 20px 20px 0; }
-
-.testimonials h2 {
-  margin-top: 40px; }
+nav.technology_banner {
+  background: url(/images/backgrounds/small_steps_dark.png) #222;
+  text-align: center; }
+  nav.technology_banner h1 {
+    margin: auto;
+    padding: 30px 0 20px 0;
+    text-align: center;
+    color: #fff;
+    max-width: 800px; }
+  nav.technology_banner ul, nav.technology_banner li {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+  nav.technology_banner ul {
+    padding: 0 0 30px 0; }
+  nav.technology_banner li {
+    display: inline-block;
+    width: 100px;
+    margin: 20px; }
 
 section.exercise {
   border: 1px solid black;
@@ -920,26 +932,6 @@ code .hljs-meta {
 
 .homepage header nav.technology {
   display: none; }
-
-.homepage nav.banner {
-  background: url(/images/backgrounds/small_steps_dark.png) #222;
-  text-align: center; }
-  .homepage nav.banner h1 {
-    margin: auto;
-    padding: 30px 0 20px 0;
-    text-align: center;
-    color: #fff;
-    max-width: 800px; }
-  .homepage nav.banner ul, .homepage nav.banner li {
-    margin: 0;
-    padding: 0;
-    list-style: none; }
-  .homepage nav.banner ul {
-    padding: 0 0 30px 0; }
-  .homepage nav.banner li {
-    display: inline-block;
-    width: 100px;
-    margin: 20px; }
 
 .pullout {
   font-size: 26.56px;

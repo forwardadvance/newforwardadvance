@@ -1,9 +1,8 @@
+//- -# TODO written while drunk. Please fix
 
-%section
-  -# TODO written while drunk. Please fix
+section
+
   :markdown
-    # Building Forms in Angular 2
-
     In the previous sections we looked at input and output with our Angular 2 components
 
     * Input: via attributes and properties
@@ -24,18 +23,13 @@
 
     The most interesting of these is the input event. This fires whenever the value attribute changes.
 
-  :ruby
-    code = <<-CODE
+    ```html
     <input on-input="onInput($event)" />
-    CODE
-  =code(code, :html)
-
-  :markdown
+    ```
 
     We can deal with this event like so:
 
-  :ruby
-    code = <<-CODE
+    ```
     .Class({
       constructor: function() {
         var vm = this;
@@ -45,34 +39,23 @@
         // this.username = new ng.common.Control('username')
       }
     });
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     ## Initialising the value:
 
     We might want to initialise the value of catName. We can do this in our template using simple property binding, like so:
 
-  :ruby
-    code = <<-CODE
+    ```html
     <input [value]="catName" on-input="onInput($event)" />
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     We might then output this value somewhere using curlies:
 
-  :ruby
-    code = <<-CODE
+    ```
     {{catName}}
-    CODE
-  =code(code, :html)
+    ```
 
-  :markdown
-
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Two way binding
 
@@ -82,9 +65,8 @@
 
     For bonus points, allow the user to be passed in from the parent template.
 
-%section
+section
   :markdown
-
     ## NgModel
 
     NgModel is a directive. We haven't seen any directives yet. A directive is just a component which doesn't have it's own template. Instead it modifies the template of the component or element it is applied to.
@@ -93,50 +75,41 @@
 
     The NgModel directive creates all of this data binding for us. It will bind a value and add an input listener.
 
-  :ruby
-    code = <<-CODE
+    ```html
     <input [(ngModel)]='catName' />
-    CODE
-  =code(code, :html)
-
-  :markdown
+    ```
 
     Notice the [()] brace combo. This shows that we are binding a property, to the return value of the event listener. It's a two way binding.
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - ngModel
 
     Re-implement the above using 2 way binding.
 
-%section
+section
   :markdown
     ## Binding to submit
 
     We can bind to the (submit) event of a form to have something happen when we submit. This is better than binding to the (click) event of the button, because there are ways to submit a form other than clicking the button, for example the user might press enter on an input element.
 
-  :ruby
-    code = <<-CODE
+    ```html
     <form (submit)="onSubmit()">
       <button>Go!</button>
     </form>
-    CODE
-  =code(code, :html)
-
-  :markdown
+    ```
 
     If we have used ngInput to bind our inputs, we can then use this data to update a model.
 
-%section.exercise
+section.exercise
   :markdown
     ## Hard Exercise - Update the user
 
     Extend your user userEditor component, such that the user is only updated when we click submit.
 
 
-%section
+section
   :markdown
-
     ## Further Reading
 
     * <a href="http://blog.thoughtram.io/angular/2015/08/11/angular-2-template-syntax-demystified-part-1.html#two-way-data-binding" target="_blank">Two Way Databinding</a>

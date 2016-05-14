@@ -26,13 +26,6 @@ module.exports = {
       github: 'angular_services_demo'
     },
     {
-      slug: 'custom-filters',
-      title: 'Writing Custom Filters',
-      description: 'A filter is a function for modifying and presenting data. We learn to write and use our own.',
-      github: 'angular_custom_filters_demo'
-    },
-
-    {
       slug: 'validation',
       title: 'Form Validation',
       description: 'We validate our inputs the right way',

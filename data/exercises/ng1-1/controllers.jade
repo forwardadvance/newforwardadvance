@@ -50,13 +50,13 @@ aside.box
 
     Well, yes and no. What you've heard about here is what we call a component based architecture. Components are objects which ball together a view and a controller into a single object which acts like a new DOM node.
 
-    You will still need to create controllers though, and they will still work in the same way, so what we learn here is still relevant. Just bear it in mind that later in the course we will be wrapping these controllers up into larger objects.
+    They will still work in the same way, so what we learn here is still relevant. Just bear it in mind that later in the course we will be writing custom code to apply controllers to the DOM.
 
 section
   :markdown
     ## Adding Helper Methods to a Controller
 
-    If we store helper methods on our controller, those will be available in the front end:
+    We can store helper methods on our controller, those will be available in the front end:
 
     ```
     angular.module('app', [])
@@ -64,6 +64,15 @@ section
         $scope.sayHello = function() {
           $scope.greeting = "Hello"!
         };
+      });
+    ```
+
+    If we have Babel, or are targetting only evergreen browsers, we can use the ES6 fat arrow syntax like so:
+
+    ```
+    angular.module('app', [])
+      .controller("DemoController", function($scope) {
+        $scope.sayHello = () => $scope.greeting = "Hello"!
       });
     ```
 
@@ -80,11 +89,13 @@ section
   :markdown
     ## When to create a controller
 
-    I generally expect to create one controller per unit of interaction. This means we typically create quite a lot of controllers. For example, you might have a loginFormController, a profileController, a signupController, etc. Many small controllers are better than one massive multi-purpose monolith.
+    I generally expect to create one controller per unit of interaction (later per-component). This means we typically create quite a lot of controllers. For example, you might have a loginFormController, a profileController, a signupController, etc. Many small controllers are better than one massive multi-purpose monolith. A medium sized app might have dozens or even hundreds of controllers.
 
     ## Controller scope
 
     A controller will apply to an html5 element and all of it's children. We can nest controllers inside each other, in which case the child controller takes precedence if there is a conflict. This is decided using prototypical inheritance. More on this when we get to the section on $scope.
+
+    Some of you might be yelling "What about controller-as!" right about now. We'll get to that shortly.
 
 section.exercise
   :markdown

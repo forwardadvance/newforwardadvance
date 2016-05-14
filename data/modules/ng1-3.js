@@ -8,12 +8,29 @@ module.exports = {
   'exercises': [
 
     {
-      slug: 'karma',
-      title: 'Unit Testing with Karma (Testacular)',
+      slug: 'karma-intro',
+      title: 'Intoduction to Unit Testing',
       description: 'All good developers write unit tests. This is ongoing through the rest of the course.',
+      github: ''
+    },
+    {
+      slug: 'karma',
+      title: 'Testing a Controller with Karma',
+      description: 'Here we see how to use Karma to automate controller tests.',
       github: 'angular_karma_demo'
     },
-
+    {
+      slug: 'custom-filters',
+      title: 'Writing Custom Filters',
+      description: 'A filter is a function for modifying and presenting data. We learn to write and use our own.',
+      github: 'angular_custom_filters_demo'
+    },
+    {
+      slug: 'karma-filters',
+      title: 'Testing a Filter with Karma',
+      description: 'Now let\'s expand our Karma knowledge by writing a test for our filter.',
+      github: ''
+    },
     {
       slug: 'protractor',
       title: 'Protractor',

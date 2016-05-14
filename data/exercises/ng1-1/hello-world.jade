@@ -1,0 +1,185 @@
+
+section
+  :markdown
+    In this section we are going to get some Angular running in a browser.
+
+    ## Getting Angular
+
+    We download Angular from [angularjs.org](http://angularjs.org). If you want to get fancy, there's also an NPM module.
+
+    To use Angular, tt is then sufficient to just link it in  a script tag at the top of the page.
+
+    ```html
+    <script src="angular.js"></script>
+    ```
+
+    If you prefer, you can also use a CDN such as the [Google Angular CDN](https://developers.google.com/speed/libraries/devguide#angularjs).
+
+    ```html
+    <script src="https://developers.google.com/speed/libraries/devguide#angularjs"></script>
+    ```
+
+    ## Angular is template driven
+
+    Angular is driven by the template. Your HTML5 is the wires that hold together your app. This is different from most other JavaScript frameworks where the HTML is driven by the JavaScript. We call this an inversion of control.
+
+    In Angular we modify our app by modifying our template. Angular reads the templates and decides which JavaScript components are needed.
+
+    The simplest Angular template is just an HTML5 file like this:
+
+    ```html
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <script src="angular.js"></script>
+      </head>
+      <body>
+
+      </body>
+    </html>
+    ```
+
+    ## Angular is a DOM compiler
+
+    Angular will take a portion of this HTML5 file and compile it. We tell it which portion to compile using an ng-app attribute (directive).
+
+    We can attach this attribute to any DOM node, typically the html or body tags:
+
+    ```html
+    <body ng-app>
+      Hello!
+    </body>
+    ```
+
+    All the HTML5 within this directive is an Angular template and will be compiled as such.
+
+    ## Curly curlies
+
+    We can tell Angular to treat portions of our HTML as an expression using curly curly braces, like so:
+
+    ```html
+    <p>
+      {{"hello" + "world"}}
+    </p>
+    ```
+
+    We can put all kinds of expressions between these braces:
+
+
+    ```html
+    <span>
+      {{1000 * 1000}}
+    </span>
+    ```
+
+    ## Hello World
+
+    The simplest possible Angular hello world app would look something like this:
+
+    ```html
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <script src="angular.js"></script>
+      </head>
+      <body ng-app>
+        {{"Hello" + "World"}}
+      </body>
+    </html>
+    ```
+
+    ## Expressions !== JavaScript
+
+    It's important to remember that Angular expressions are not JavaScript. The expression language looks a lot like JavaScript, but we can do other things too, for example, filters:
+
+    ## Filters
+
+    A filter looks like this:
+
+    ```html
+    {{100000000 | number}}
+    ```
+
+    This is the number filter. It will output a string like this:
+
+    100,000,000
+
+    There are other filters, for example the uppercase filter, which looks like this:
+
+
+    ```html
+    {{'hello world' | uppercase}}
+    ```
+
+    This is the uppercase filter. It will output a string like this:
+
+    HELLO WORLD
+
+    We can write our own filters, as we will see later.
+
+
+  !=resources(exercise)
+
+section.exercise
+  :markdown
+    ## Exercise 1 - Hello Universe
+
+    Try and get a simple hello world app running in your browser.
+
+    1. Download Angular latest uncompressed from here: <https://angularjs.org/>
+    2. Concatenate the strings "Hello" and "World" to make a hello world app.
+    3. Open the file in your browser and verify that it works.
+
+    You can use the exercise start point in the Github repository, or you can just make a file and start hacking.
+
+
+section.exercise
+  :markdown
+    ## Exercise 2 - Maths
+
+    We're going to do some simple maths in the browser.
+
+    1. Create an Angular template which tells you how many seconds there are in a day, a year, a century.
+    2. Find out how many weeks there are in a human lifetime.
+
+
+section.exercise
+  :markdown
+    ## Exercise 3 - Visual Studio Setup (if you are using VS)
+
+    If you need to develop in Visual Studio, you may have a bit of a culture shock when you start using Angular. We use static HTML templates and compile in the browser using JavaScript. The role of the server is dramatically reduced.
+
+    Visual Studio 2015 has excellent support for Angular. MS TypeScript is the language of Angular 2, and VS 2015 has Gulp and Node built right into it.
+
+    You may however have to adjust your thinking just a little bit, and you will have rather more hoops to jump through.
+
+    ### Creating the Project
+
+    1. First create a new project.
+    2. From Templates, create an ASP.Net Web Application.
+    3. Choose Empty to create a completely empty application. We won't be using any of the features of .Net in our front end application.
+
+    ### Create the HTML file
+
+    1. Right click your new application, add new item, and create an html file. Call it index.html. This is our template.
+    2. Insert a little bit of text inside it.
+    3. Now right click the file and open in browser. See the text?
+    4. Alt tab back to Visual Studio and make a change to the text.
+    5. Now alt tab back to your web browser. Press refresh. See the change you made?
+
+    ### Getting Angular
+
+    We can use NuGet to install Angular.
+
+    1. Right click the project in the solution explorer and choose manage NuGet packages.
+    2. Choose Angular Core from the list. It will be installed into your Scripts folder. Have a look there now.
+
+    ### Linking Angular
+
+    Now we need to link Angular. Because this is the front end we do this with a script tag right in the html.
+
+    ```html
+    <script src="/Scripts/angular.js"></script>
+    ```
+
+    Now Attempt the Hello Universe exercise.

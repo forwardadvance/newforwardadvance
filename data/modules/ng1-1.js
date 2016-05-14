@@ -15,9 +15,9 @@ module.exports = {
       description: 'Here we learn, at a high level, what angular is, how it works, and how we should think about it.'
     },
     {
-      slug: 'templates',
+      slug: 'hello-world',
       title: 'Hello World',
-      description: 'We build a Hello World app and learn about compilation and binding.',
+      description: 'We build a Hello World app and learn about templates, expressions and filters.',
       github: 'angular_templates_demo',
       learnings: [
         'ng-app',

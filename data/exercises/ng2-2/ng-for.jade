@@ -1,26 +1,21 @@
--# TODO var i = index
+// -# TODO var i = index
+// TODO: Filter?
 
-%section
+section
   :markdown
-    # Repeat and Filter
-
     NgFor is a directive that allows you to show a list of things. Say we have an array of cheese declared in out component:
 
     vm.cheeses = ['manchego', 'dolchelatte', 'fingers']
 
     We can render it like so:
 
-  :ruby
-    code = <<-CODE
+    ```html
     <ul>
       <li *ngFor='var cheese of cheeses'>
         {{ cheese }}
       </li>
     </ul>
-    CODE
-  =code(code, :html)
-
-  :markdown
+    ```
 
     ## Template variable
 
@@ -28,21 +23,15 @@
 
     The * signals that the li should be used as a template. `var cheese of cheeses` signals that we should create a *template variable* a value that exists only in the context of the template. This will contain each of the cheeses in order.
 
-  :ruby
-    code = <<-CODE
+    ```html
     <ul>
       <li *ngFor='#cheese of cheeses'>
         {{ cheese }}
       </li>
     </ul>
-    CODE
-  =code(code, :html)
+    ```
 
-  :markdown
-
-
-
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Generate Tabs from an Array
 

@@ -1,28 +1,27 @@
-extends layout
+extends ./layouts/home_layout
 
 block content
-  h1 Forward Advance
 
-  nav.banner
+  nav.technology_banner
 
     h1 Developer Focused Training for the Modern Internet
 
     ul
       li
-        a( href='angular2' )
+        a( href='/course/angular2' )
           img( src='/images/logos/angular2.svg' )
       li
-        a( href='angular' )
+        a( href='/course/angular' )
           img( src='/images/logos/angular.svg' )
       li
-        a( href='javascript' )
+        a( href='/course/javascript' )
           img( src='/images/logos/javascript.svg' )
       li
-        a( href='html5' )
+        a( href='/course/html5' )
           img( src='/images/logos/html5-light.svg' )
 
   .wrap
     article
 
       section
-        h1 Angular 2 - Developer focused training for the modern internet
+

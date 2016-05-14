@@ -1,27 +1,27 @@
 module.exports = {
-  title: 'Angular 2 Foundations',
+  title: 'Angular 2 Additional Topics',
   duration: 0.5,
   slug: 'ng2-4',
   price: 2250,
   description: 'Angular 2 is a brand new iteration of Angular sporting components from the ground up.',
   exercises: [
     {
-      title: 'di',
-      slug: 'di',
-      description: '',
-      github: '',
-      learnings: []
-    },
-    {
-      title: 'webapi',
-      slug: 'webapi',
-      description: '',
-      github: '',
-      learnings: []
-    },
-    {
       title: 'hierarchical-injectors',
       slug: 'hierarchical-injectors',
+      description: '',
+      github: '',
+      learnings: []
+    },
+    {
+      title: 'shadow-dom',
+      slug: 'shadow-dom',
+      description: '',
+      github: '',
+      learnings: []
+    },
+    {
+      title: 'form-validation',
+      slug: 'form-validation',
       description: '',
       github: '',
       learnings: []

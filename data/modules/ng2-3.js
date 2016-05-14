@@ -1,11 +1,10 @@
 module.exports = {
-  title: "Angular 2 Foundations",
+  title: 'Client / Server interaction with Angular 2 ',
   duration: 0.5,
-  slug: "ng2-3",
+  slug: 'ng2-3',
   price: 2250,
-  description: "Angular 2 is a brand new iteration of Angular sporting components from the ground up.",
+  description: 'We build an app based on the Twitter API, split it into services, and convert it to TypeScript.',
   exercises: [
-
     {
       title: 'ajax',
       slug: 'ajax',
@@ -14,33 +13,33 @@ module.exports = {
       learnings: []
     },
     {
-      title: 'shadow-dom',
-      slug: 'shadow-dom',
+      title: 'di',
+      slug: 'di',
       description: '',
       github: '',
       learnings: []
     },
     {
-      title: 'custom-pipes',
-      slug: 'custom-pipes',
+      title: 'Service Objects',
+      slug: 'services',
       description: '',
       github: '',
       learnings: []
     },
     {
-      title: 'forms',
-      slug: 'forms',
+      title: 'services-with-typescript',
+      slug: 'typescript-services',
       description: '',
       github: '',
       learnings: []
     },
     {
-      title: 'form-validation',
-      slug: 'form-validation',
+      title: 'components-with-typescript',
+      slug: 'components-with-typescript',
       description: '',
       github: '',
       learnings: []
-    },
+    }
   ],
   outline: [
   ]

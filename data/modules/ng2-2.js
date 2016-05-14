@@ -1,41 +1,48 @@
 module.exports = {
-  title: "Angular 2 Foundations",
+  title: 'Angular 2 Foundations (part 2)',
   duration: 0.5,
-  slug: "ng2-2",
+  slug: 'ng2-2',
   price: 2250,
-  description: "Angular 2 is a brand new iteration of Angular sporting components from the ground up.",
+  description: 'More on templates, and allowing components to talk to one another.',
   exercises: [
 
     {
-      title: 'property-binding',
+      title: 'Binding to DOM properties',
       slug: 'property-binding',
-      description: '',
+      description: 'Angular brings back the DOM',
       github: '',
       learnings: []
     },
     {
-      title: 'inputs',
+      title: 'Making Angular 2 Components Receive Values (inputs)',
       slug: 'inputs',
       description: '',
       github: '',
       learnings: []
     },
     {
-      title: 'event-emitters',
+      title: 'Event Emitters (Outputs)',
       slug: 'event-emitters',
       description: '',
       github: '',
       learnings: []
     },
     {
-      title: 'inline-templates',
+      title: 'Two-Way-Binding Forms in Angular 2',
+      slug: 'two-way-binding',
+      description: '',
+      github: '',
+      learnings: []
+    },
+    {
+      title: 'Inline Templates and ngIf',
       slug: 'inline-templates',
       description: '',
       github: '',
       learnings: []
     },
     {
-      title: 'ng-for',
+      title: 'Repeat and Filter',
       slug: 'ng-for',
       description: '',
       github: '',
@@ -43,25 +50,25 @@ module.exports = {
     },
   ],
   outline: [
-    "Flux and one-way binding",
-    "Data binding",
-    "Components",
-    "Templates",
-    "Component inputs",
-    "Binding attributes and DOM properties",
-    "Handling events",
-    "Throwing custom events",
-    "Nesting components",
-    "dealing with contentChildren",
-    "scope of contentChildren",
-    "Forms",
-    "AJAX",
-    "REST",
-    "ng-for",
-    "Testing with Karma",
-    "Services (classes)",
-    "Starting with TypeScript"
+    'Flux and one-way binding',
+    'Data binding',
+    'Components',
+    'Templates',
+    'Component inputs',
+    'Binding attributes and DOM properties',
+    'Handling events',
+    'Throwing custom events',
+    'Nesting components',
+    'dealing with contentChildren',
+    'scope of contentChildren',
+    'Forms',
+    'AJAX',
+    'REST',
+    'ng-for',
+    'Testing with Karma',
+    'Services (classes)',
+    'Starting with TypeScript'
   ]
-}
+};
 
 

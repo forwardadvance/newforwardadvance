@@ -1,9 +1,6 @@
 
-%section
+section
   :markdown
-
-    # Angular brings back the DOM
-
     For a long time we thought of a web page as a triune structure, composed of HTML for content, CSS for styling and JavaScript for behaviour.
 
     If we wanted to modify our page, we would write JavaScript to modify attributes on the HTML. If we wanted style, we created style attributes. If we wanted to set the value of an input, we would set the value attribute. If we wanted text content, we would append it.
@@ -18,13 +15,9 @@
 
     Attributes look like this:
 
-  :ruby
-    code = <<-CODE
+    ```html
     <img src="kitty_cheese.gif" />
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     The attribute here is `src`. Attributes are visible in the HTML, and also stored in the DOM as Element attributes.
 
@@ -46,13 +39,9 @@
 
     We can create a template like this:
 
-  :ruby
-    code = <<-CODE
+    ```html
     <img [src]="wiggling_hamster_bums.gif" />
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     Here we set the src property directly on the DOM, bypassing the attribute altogether.
 
@@ -70,28 +59,20 @@
 
     We can set attributes directly in out html by binding to attr.colspan:
 
-  :ruby
-    code = <<-CODE
+    ```html
     <td [attr.colspan]="12" />
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     ## The Hidden Property
 
     We can show or hide elements by setting the hidden property on an element.
 
-  :ruby
-    code = <<-CODE
+    ```
     <a on-click="iAmHidden=true" />
     <div [hidden]="iAmHidden">Hey!</div>
-    CODE
-  =code(code)
+    ```
 
-  :markdown
-
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - A Show / Hide link
 
@@ -101,7 +82,7 @@
 
     When you click it again, it becomes a read less link, so you can hide the content again.
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Tabs
 
@@ -109,6 +90,7 @@
 
     The HTML will look something like this:
 
+    ```html
     <a>Tab 1</a>
     <a>Tab 2</a>
     <a>Tab 3</a>
@@ -130,22 +112,19 @@
 
     Later we will see how we can extract the tabs themselves into a child component. We will also see another way of doing this using routing.
 
-%section
+section
   :markdown
-
     ## The Disabled property
 
     We can disable inputs and buttons by setting the [disabled] property on the Element, like so.
 
-  :ruby
-    code = <<-CODE
+    ```html
     <input [disabled]="true" />
-    CODE
-  =code(code)
+    ```
 
 
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Disabled Submit Button
 
@@ -158,7 +137,7 @@
     Integrate this form into your tabbed pane from the previous exercise.
 
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Hyper bonus exercise
 

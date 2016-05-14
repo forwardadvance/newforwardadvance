@@ -1,10 +1,17 @@
 module.exports = {
-  title: 'TypeScript for Angular 2',
+  title: 'TypeScript',
   duration: 0.5,
   slug: 'typescript',
   price: 750,
   description: 'TypeScript is a superset of JavaScript featuring strong typing and classes. It\'s great for larger teams, and those wanting the powerful tooling that strong typing enables.',
   exercises: [
+    {
+      title: 'typescript',
+      slug: 'typescript-intro',
+      description: '',
+      github: '',
+      learnings: []
+    },
     {
       title: 'building-typescript',
       slug: 'building-typescript',
@@ -13,26 +20,26 @@ module.exports = {
       learnings: []
     },
     {
-      title: 'components-with-typescript',
-      slug: 'components-with-typescript',
+      title: 'decorators',
+      slug: 'decorators',
       description: '',
       github: '',
       learnings: []
     },
     {
-      title: 'services-with-typescript',
-      slug: 'services-with-typescript',
+      title: 'classes',
+      slug: 'classes-and-interfaces',
       description: '',
       github: '',
       learnings: []
     },
     {
-      title: 'ajax-with-typescript',
-      slug: 'ajax-with-typescript',
+      title: 'import',
+      slug: 'import',
       description: '',
       github: '',
       learnings: []
-    },
+    }
   ],
   outline: [
     'Starting with TypeScript'
