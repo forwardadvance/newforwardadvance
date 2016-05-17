@@ -1,23 +1,12 @@
----
-title: "Watch - AngularJS Exercise"
-section: "angular"
-exercise: "watch"
-layout: "exercise"
----
+//- TODO: Talk about scope as a prototypical hierarchy
 
-%section
+section
   :markdown
-    # Watching and Applying
-
-
     We can watch an attribute of $scope using:
-  :ruby
-    code = <<-CODE
-    $scope.$watch('test', function(newVal, oldVal) {});
-    CODE
-  =code(code)
 
-  :markdown
+    ```
+    $scope.$watch('test', function(newVal, oldVal) {});
+    ```
 
     Now whenever the value of $scope.test changes the function will be called.
 
@@ -31,9 +20,8 @@ layout: "exercise"
 
     The digest cycle will repeat over and over until the entire `$scope` hierarchy is clean or the digest limit is reached. The default digest limit is 10.
 
-%section.exercise
+section.exercise
   :markdown
-
     ## Exercise
 
     We are going to hack some quick validation into our profile form. We'll see the right way to do validation using directives in a bit.
@@ -45,10 +33,3 @@ layout: "exercise"
     Otherwise set `$scope.errors = {name: "should not be blank."}`.
 
     Now in your template, use ng-show to show a nice warning message if errors != false.
-
-%section
-  :markdown
-
-    ## Downloads
-
-    * [Code from the board](https://www.dropbox.com/sh/impzopzu853qdu0/AADic5blJ1rgfhI6H8ulwXs3a?dl=1)

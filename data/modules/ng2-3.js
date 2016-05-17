@@ -13,6 +13,13 @@ module.exports = {
       learnings: []
     },
     {
+      title: 'observables',
+      slug: 'observables',
+      description: '',
+      github: '',
+      learnings: []
+    },
+    {
       title: 'di',
       slug: 'di',
       description: '',

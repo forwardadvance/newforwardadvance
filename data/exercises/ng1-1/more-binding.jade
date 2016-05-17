@@ -7,11 +7,12 @@ section
     Say we have a value bound to an input element. We could use that value to form part of a style attribute:
 
     ```html
-    <input ng-model="color" />
-    <p style="color: {{color}}">Hello</p>
+    <input ng-model="myTitle" />
+    <p title="{{myTitle}}">Hello</p>
     ```
 
-  :markdown
+    Hover over it to see the title popup.
+
     ## Binding to a class
 
     We can use values in scope to construct a class attribute using the ng-class directive. A class attribute can have many values, so we pass an object and all values that evaluate to true are included in the compiled class.
@@ -20,7 +21,6 @@ section
     <body ng-class="{red: color=='red', blue: color=='blue' }">
     ```
 
-  :markdown
     ## Binding visibility
 
     We can conditionally show and hide elements using ng-show.
@@ -31,7 +31,21 @@ section
     <div ng-show='!happyCat'>Cat is grumpy</div>
     ```
 
-  :markdown
+    ## Binding Styles
+
+    We can also bind styles. You might think you could write this:
+
+    ```html
+    <input ng-model="color" />
+    <p style="color: {{color}}">Hello</p>
+    ```
+
+    Unfortunately, this will fail in Internet Explorer because IE will helpfully delete any style attributes it thinks are malformed before Angular even gets a chance to run. Angular gives us a workaround:
+
+    ```html
+    <input ng-model="color" />
+    <p ng-style="{color: color}">Hello</p>
+    ```
 
 section.exercise
   :markdown

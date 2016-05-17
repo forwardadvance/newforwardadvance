@@ -1,0 +1,199 @@
+---
+title: "Dependency Injection - AngularJS Exercise"
+section: "angular"
+exercise: "di"
+layout: "exercise"
+---
+
+//- TODO: Reformulate so we don't need ngdialog
+
+section
+  :markdown
+    # Services and Dependency Injection
+
+    We should now be used to writing controllers like this:
+
+
+    ```
+    angular.module('app', [])
+      .controller('demoController', function($scope) {
+        $scope.name = 'Davey McGee';
+      }
+    ```
+
+    You may not have realised that you can pass anything to your controller. Angular will intuit the type of thing that you want to pass in, and will take care of creating it for you.
+
+    We call this Dependency Injection or DI.
+
+    Here we have a controller that is receiving a $scope object and a $log object. Notice that we don't have to create the $scope and the $log. Angular just does this for us.
+
+    //- TODO: Explain how this works
+
+    ```
+    angular.module('app', [])
+      .controller('demoController', function($scope, $log) {
+        $scope.name = 'Davey McGee';
+        $log.log('Hi Davey!');
+      }
+    ```
+
+    This is dark magic. JavaScript technically does not have this feature. Angular is actually making this work by converting the function declaration into a string, then using a regex to parse out the
+
+section.exercise
+  :markdown
+    ## Exercise - Try some DI
+
+    Have a go at this. Pass a $log object into one of your controllers and verify that this works.
+
+    Reverse the order of imports, pass in the $log first, then the $scope and verify that this does indeed work.
+
+section
+  :markdown
+    ## Services, Factories and Values
+
+    Angular comes with many built in injectables, but the fun starts when we start to define our own.
+
+    Services and Factories are objects Angular injectables that we use to create objects. They are very similar to one another and are often used interchangeably.
+
+    * Service and factories both yield singleton objects.
+    * Once created this object will persist and you will get the same object back each time you request it.
+    * We can inject services and factories into controllers using DI.
+
+    ## A Service
+
+    We compose a service by giving Angular a newable function (one which writes to "this").
+
+  :ruby
+    code = <<-CODE
+    angular.module('app')
+      .service('helloService', function() {
+        this.sayHello = function() {
+          alert("Hello");
+        };
+      });
+    CODE
+  =code(code)
+
+  :markdown
+
+    ## A Factory
+
+    A factory on the other hand composes an object and returns it:
+
+  :ruby
+    code = <<-CODE
+    angular.module('app')
+      .service('helloFactory', function() {
+        return {
+          sayHello: function() {
+            alert("Hello");
+          }
+        };
+      });
+    CODE
+  =code(code)
+
+  :markdown
+
+    ## Making use of factories and services
+
+    Once we declare them, services and factories become injectable. Let's inject them into a controller:
+
+  :ruby
+    code = <<-CODE
+    angular.module('app')
+      .controller('myController', function(helloService, helloFactory) {
+        helloService.sayHello();
+        helloFactory.sayHello();
+      })
+    CODE
+  =code(code)
+
+%section.exercise
+  :markdown
+    ## Further Exercise - Simple shopping cart service
+
+    1. Create a service to manage a shopping cart. Give it a cart variable which holds an array of objects.
+    2. Add an addToCart function to the service which pushes an item into the cart.
+    3. Write a controller to display the cart. Inject the cart into your controller.
+    4. In your controller, write a simple method on $scope which calls shoppingCart.addToCart.
+    5. In your controller, create an attribute of $scope that holds the shoppingCart.cart.
+    5. Write a view to render the cart.
+
+%section.downloads
+  :markdown
+
+    ## Downloads
+
+    * [Code from the board](https://www.dropbox.com/sh/2kmvfno34kql3ff/AAAylZo0Vb1v5maMApgHcpKNa?dl=1)
+
+
+//- section.exercise
+//-   :markdown
+
+//-     ## Exercise - NgDialog
+
+//-     We are going to inject the ngDialog service into a controller. This will allow our controller to create popup dialog boxes.
+
+//-     First go here and grab the ng-dialog.js. Link it in the header of your document in the usual way with a script tag.
+
+//-     Now download the CSS files: ng-dialog.css and ng-dialog-theme-plain.css. Link them using link tags.
+
+//-     <http://ngmodules.org/modules/ngDialog>
+
+//-     ## Include it in your app.
+
+//-     We need to include ngDialog as a dependency of the app, like this:
+
+//-     ```
+//-     angular.module('app', ['ngDialog'])
+//-     ```html
+
+//-   :markdown
+
+//-     ## Inject into your controller.
+
+//-     Create a little controller and use the ng-controller directive to hook it to the DOM.
+
+//-     ```
+//-     <div ng-controller="myController">
+//-     ```html
+
+//-   :markdown
+
+//-     Inject the ngDialog service into your controller.
+
+//-     ```
+//-     .controller('myController', function($scope, ngDialog) {
+
+//-     })
+//-     ```html
+
+//-   :markdown
+
+//-     You now have access to ngDialog.open. Call this according to the documentation to create a dialog box when the page loads: <https://github.com/likeastore/ngDialog#api>
+
+//-     e.g.
+
+//-     ```
+//-     ngDialog.open({
+//-       template: '<p>my template</p>',
+//-       className: 'ngdialog-theme-plain',
+//-       plain: true
+//-     });
+//-     ```html
+
+//- section.exercise
+//-   :markdown
+
+//-     ## Exercise - Extension
+
+//-     Create a form. Create a method on scope that opens the dialog. Call the method when the button is pressed.
+
+//-     Have a go at the minification safe DI syntax.
+
+//-     ## Further extension
+
+//-     If you finish first, have a read through the DI documentation here:
+
+//-     <https://docs.angularjs.org/guide/di>

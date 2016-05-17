@@ -1,22 +1,24 @@
 section
   :markdown
-    Angular features super easy two way binding. Binding a value means setting up listeners so when the value changes, the front end updates to match, and when the front end is changed (say using a form) the saved value is updated.
+    Angular features super easy two way binding. Binding a value means setting up listeners so when a value changes, the front end updates to match, and when the front end is changed (say by typing into a text input) the saved value is updated.
 
     ## $scope
 
     Angular uses a special object called $scope to store data. All bound values are actually attributes of the $scope object. We will look at $scope in some detail shortly.
 
+    Whenever an attribute of $scope changes, the template is automatically updated to reflect the change. Angular just makes this happen. Your front end is always consistent with $scope.
+
     ## ng-model
 
-    We can bind an input to a model using the ng-model directive. This automatically creates watchers (listeners) on the input element. When the input element changes the watchers fire and set an attribute of a special object called $scope.
+    We can bind an input to a model using the ng-model directive. This automatically creates watchers (listeners) on the input element. When the input element changes the watchers fire and set the corresponding $scope attribute.
+
+    ng-model looks like this:
 
     ```html
     <body ng-app>
       <input ng-model="test" />
     </body>
     ```
-
-    $scope is available elsewhere in the view, and also in the controller as we shall very soon see.
 
     ## Curlies {{}}
 

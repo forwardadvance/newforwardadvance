@@ -6,10 +6,9 @@ module.exports = {
   description: 'Learn how to organise your Angular code into modules, and how to inject components as required.',
   outcome: 'You will be able to build a simple client server app based around a public API, This will generally be a Flickr app, but your own API can be used instead.',
   exercises: [
-
     {
       slug: 'scope',
-      title: 'Scope and Scope Inheritance (View Model)',
+      title: '$Scope and the $scope tree',
       description: '$scope is an object in which you can store your models',
       github: 'angular_scope_demo'
     },
