@@ -79,42 +79,42 @@ section.exercise
 
 section.exercise
   :markdown
-    ## Exercise - Multiple profile widgets
+    ## Optional Exercise - Multiple profile widgets
 
     Extend the profile exercise from the previous section. We should be able to have multiple profile widgets on the same page. Copy and paste a few profile widgets next to each other. Type in one. Notice how they are separate units of interaction, each with its own controller and $scope.
 
-    Now copy paste a few profile widgets inside one another, notice how they inherit, typing in the parent
+    Now copy paste a few profile widgets inside one another, notice how they inherit. Typing in the parent changes the value in the child.
 
 
 
-section.exercise
-  :markdown
-    ## Harder Exercise - Storing data on the controller
+//- section.exercise
+//-   :markdown
+//-     ## Harder Exercise - Storing data on the controller
 
-    *This is a harder, more freeform exercise. Feel free to skip this. We will return to writing code like this later in the course.*
+//-     *This is a harder, more freeform exercise. Feel free to skip this. We will return to writing code like this later in the course.*
 
-    Because our controller is just an object, we can store your controller itself in $scope, like this:
+//-     Because our controller is just an object, we can store your controller itself in $scope, like this:
 
-    ```
-    .controller('myController', function($scope) {
-      var vm = $scope.vm = this;
-      vm.profile = {
-        name: "Dave"
-      }
-    })
-    ```
+//-     ```
+//-     .controller('myController', function($scope) {
+//-       var vm = $scope.vm = this;
+//-       vm.profile = {
+//-         name: "Dave"
+//-       }
+//-     })
+//-     ```
 
-    This is possible because the controller itself is an object, so we can set attributes of it and use it to store data.
+//-     This is possible because the controller itself is an object, so we can set attributes of it and use it to store data.
 
-    You can now access your controller and associated model in your view, like this:
+//-     You can now access your controller and associated model in your view, like this:
 
-    ```
-    <p>{{vm.profile.name}}</p>
-    ```html
+//-     ```
+//-     <p>{{vm.profile.name}}</p>
+//-     ```html
 
-    You don't need to write code like this, but if you do it leads nicely onto components.
+//-     You don't need to write code like this, but if you do it leads nicely onto components.
 
-    Modify the profile widget so that the data is stored on the controller.
+//-     Modify the profile widget so that the data is stored on the controller.
 
 
 section
