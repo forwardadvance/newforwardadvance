@@ -49,18 +49,6 @@ module.exports = {
         'ng-if and $scope issues'
       ]
     },
-    {
-      slug: 'controllers',
-      title: 'Controllers',
-      description: 'Controllers glue the scope to the template.',
-      github: 'angular_controllers_demo'
-    },
-    {
-      slug: 'repeat-and-filter',
-      title: 'Repeat and Filter',
-      description: 'The show-off feature of Angular. This stuff makes clients really happy.',
-      github: 'angular_ngrepeat_demo'
-    },
   ],
   'outline': [
     'Hello World',
