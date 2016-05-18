@@ -13,6 +13,12 @@ module.exports = {
       github: 'angular_scope_demo'
     },
     {
+      slug: 'controller-as',
+      title: 'Controller As',
+      description: 'We can use the controller itself as a model store.',
+      github: 'angular_controller_as_demo'
+    },
+    {
       slug: 'watch',
       title: 'Watch and the $digest cycle',
       description: 'Here we delve into the workings of the digest cycle and discover the logic behind Angular data binding.',
@@ -20,7 +26,7 @@ module.exports = {
     },
     {
       slug: 'di',
-      title: 'Dependency Injection (DI)',
+      title: 'Services and Dependency Injection (DI)',
       description: 'Dependency Injection allows us to require components simply be referring to them. Learn about DI and also split your code into sensible modules.',
       github: 'angular_di_demo'
     },

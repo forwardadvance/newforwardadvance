@@ -1,0 +1,47 @@
+section
+  :markdown
+    We saw in the last section that $scope problems can be avoided by using an object to store data on $scope, rather than storing strings and numbers directly in scope.
+
+    Doing this makes our code more predictable, and less brittle. The Controller is an object that is often used for this purpose.
+
+    In our controller, rather than writing to $scope, we write to `this`.
+
+    ```
+    angular.module('app', [])
+      .controller('MyController', function() {
+        this.name = "Spratley Lumpchops"
+      });
+    ```
+
+    Notice that we haven't used $scope at all.
+
+    Now in our template we use controller as:
+
+    ```html
+    <div ng-controller="MyController as vm">
+      {{vm.name}}
+    </div>
+    ```
+
+    This implicitly stores the controller on $scope with the attribute name `vm`. We can then just refer to vm in our template.
+
+    ## VM?
+
+    VM stands for View Model. Te controller is acting as a special model that stores data relevant to the view. You can use any variable name you like, which is occasionally useful if you need to nest ng-controller directives inside one another.
+
+    This little idiom will make your code clearer and easier to understand and debug, and leads nicely into what we call a Component Oriented Design. More on this soon
+
+  !=resources(exercise)
+
+section.exercise
+  :markdown
+    ## Exercise - controller-as
+
+    WE can use controller-as to fix the issues in the $scope exercises. Try this now.
+
+
+section.exercise
+  :markdown
+    ## Exercise - profile widget
+
+    In an earlier section we created a little profile widget. Refactor this now to use controller as.

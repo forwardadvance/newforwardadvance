@@ -1,16 +1,5 @@
----
-title: "Dependency Injection - AngularJS Exercise"
-section: "angular"
-exercise: "di"
-layout: "exercise"
----
-
-//- TODO: Reformulate so we don't need ngdialog
-
 section
   :markdown
-    # Services and Dependency Injection
-
     We should now be used to writing controllers like this:
 
 
@@ -63,25 +52,21 @@ section
 
     We compose a service by giving Angular a newable function (one which writes to "this").
 
-  :ruby
-    code = <<-CODE
+    ```
     angular.module('app')
       .service('helloService', function() {
         this.sayHello = function() {
           alert("Hello");
         };
       });
-    CODE
-  =code(code)
+    ```
 
   :markdown
-
     ## A Factory
 
     A factory on the other hand composes an object and returns it:
 
-  :ruby
-    code = <<-CODE
+    ```
     angular.module('app')
       .service('helloFactory', function() {
         return {
@@ -90,26 +75,39 @@ section
           }
         };
       });
-    CODE
-  =code(code)
+    ```
 
   :markdown
-
     ## Making use of factories and services
 
     Once we declare them, services and factories become injectable. Let's inject them into a controller:
 
-  :ruby
-    code = <<-CODE
+    ```
     angular.module('app')
       .controller('myController', function(helloService, helloFactory) {
         helloService.sayHello();
         helloFactory.sayHello();
       })
-    CODE
-  =code(code)
+    ```
 
-%section.exercise
+
+section.exercise
+  :markdown
+    ## Exercise - A service for the repeat and filter
+
+    In an earlier exercise, we created an app that created a list of henchmen, nad used ng-repeat to list them out.
+
+    We put the list of henchmen right into $scope from inside our controller. I said at the time that this was not such a great thing to do.
+
+    In this exercise we are going to rectify this situation with a service or a factory.
+
+    1. Create a factory that contains a method that will return a list of henchmen.
+    2. Inject this into your controller.
+    3. Now call the method on the factory from inside your controller, and save the resulting object in $scope.
+
+    For bonus points, recode the factory as a service.
+
+section.exercise
   :markdown
     ## Further Exercise - Simple shopping cart service
 
@@ -120,12 +118,6 @@ section
     5. In your controller, create an attribute of $scope that holds the shoppingCart.cart.
     5. Write a view to render the cart.
 
-%section.downloads
-  :markdown
-
-    ## Downloads
-
-    * [Code from the board](https://www.dropbox.com/sh/2kmvfno34kql3ff/AAAylZo0Vb1v5maMApgHcpKNa?dl=1)
 
 
 //- section.exercise

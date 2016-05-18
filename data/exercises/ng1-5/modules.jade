@@ -1,39 +1,82 @@
-// todo: Refactor into modules
----
-title: "Dependency Injection - AngularJS Exercise"
-section: "angular"
-exercise: "di"
-layout: "exercise"
----
-
-//- TODO: Reformulate so we don't need ngdialog
+//- todo: Add in a nicer exercise
 
 section
   :markdown
-    # Dependency Injection
+    Thus far we have put all our code into a single module, which we have called 'app'. This is fine for smaller apps, but when things start to get larger, we will want some more organisation.
 
-    We can inject a dependency into a controller by simply receiving it.
+    angular.module('app', [])
 
-    ```
-    angular.module('demoModule', [])
-      .controller('demoController', function($log) {
-        $log.log('Hi!');
-      }
-    ```html
+    We may also wish to include third party code. It would be useful if we could simply include other modules into our app module.
 
-  :markdown
-
-    ## Modules
-
-    We can include a module into another module by placing it's name between the square braces:
+    The square braces that we pass to our module can include a list of names of other modules, like so:
 
     ```
-    angular.module('app', ['demoModule']);
-    ```html
+    angular.module('app', ['cats', 'dogs']);
+    ```
+
+    We can then declare code in these other modules:
+
+    ```
+    angular.module('cats', [])
+      .controller('catsController', function() {});
+      .service('catsService', function() {})
+
+    angular.module('dogs', [])
+      .controller('dogsController', function() {});
+    ```
+
+    ## Namespacing still matters
+
+    Including a module in another module makes everything in that module available globally. There is no subtlety here. The example above, could just as well be written like this:
+
+    ```
+    angular.module('app', [])
+      .controller('catsController', function() {})
+      .service('catsService', function() {})
+      .controller('dogsController', function() {});
+    ```
+
+    It doesn't matter how deep the module tree you make, everything is available globally to your whole app.
+
+    This means that namespacing is still a big deal.
+
+    ## How to namespace controllers.
+
+    I would typically name an app component something like:
+
+    `<Domain><Subdomain><TypeOfObject>`
+
+    So for example:
+
+    * CatsController
+    * CatsAdminController
+    * CatsService (or just cats)
+
+    You may wish to go further and prepend the name of your app:
+
+    * MyappCatsController
+    * MyappCatsAdminController
+    * MyappCatsService (or just cats)
+
+    Some people use dots, though this will prevent you from using the injector shorthand
+
+
+    * 'Myapp.Cats.Controller'
+    * 'Myapp.Cats.Admin.Controller'
+    * 'Myapp.Cats.Service (or just cats)'
+
+    You can then inject using the longhand square brace injector syntax like this:
+
+    angular.module('app', ['cats'])
+      .controller('appController', [
+        'Myapp.Cats.Service',
+        function(cats) {
+          // make use of the cats service here
+        }
+      ])
 
 section.exercise
   :markdown
-
     ## Exercise - NgDialog
 
     We are going to inject the ngDialog service into a controller. This will allow our controller to create popup dialog boxes.
@@ -52,8 +95,6 @@ section.exercise
     angular.module('app', ['ngDialog'])
     ```html
 
-  :markdown
-
     ## Inject into your controller.
 
     Create a little controller and use the ng-controller directive to hook it to the DOM.
@@ -62,8 +103,6 @@ section.exercise
     <div ng-controller="myController">
     ```html
 
-  :markdown
-
     Inject the ngDialog service into your controller.
 
     ```
@@ -71,8 +110,6 @@ section.exercise
 
     })
     ```html
-
-  :markdown
 
     You now have access to ngDialog.open. Call this according to the documentation to create a dialog box when the page loads: <https://github.com/likeastore/ngDialog#api>
 
@@ -92,11 +129,3 @@ section.exercise
     ## Exercise - Extension
 
     Create a form. Create a method on scope that opens the dialog. Call the method when the button is pressed.
-
-    Have a go at the minification safe DI syntax.
-
-    ## Further extension
-
-    If you finish first, have a read through the DI documentation here:
-
-    <https://docs.angularjs.org/guide/di>

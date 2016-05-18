@@ -3,7 +3,9 @@ extends ../layouts/page_layout
 block content
   .liquid_wrap
     article.right.eight_col
-      h1= course.title
+      h1= exercise.title
+
+      != exerciseContent
 
     .left.four_col
       include ../partials/course_sidebar

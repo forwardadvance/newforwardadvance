@@ -1,11 +1,11 @@
+'use strict';
 /**
  * GET /course/:courseId/:exerciseId/
  * Exercise page.
  */
 exports.show = function(req, res) {
-
   var jade = require('jade');
-  var exerciseResourcesHelper = require('../helpers/exercise_resources')
+  var exerciseResourcesHelper = require('../helpers/exercise_resources');
   var course = req.course;
   var courseModule = req.courseModule;
   var exercise = req.exercise;

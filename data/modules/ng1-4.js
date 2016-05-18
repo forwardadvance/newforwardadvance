@@ -15,21 +15,21 @@ module.exports = {
     },
     {
       slug: 'ng-include',
-      title: 'Templates and the Template Cache',
+      title: 'Templates, ng-include and the $templateCache',
       description: 'Talking to the template cache directly can make your app feel more responsive. Learn how.',
       github: 'angular_template_cache_demo'
     },
     {
       slug: 'services',
-      title: 'Writing Services and Factories',
-      description: 'Services are singleton objects that act as repositories of useful functions. How to make them, and when to use them.',
+      title: 'Services and Factories as AJAX wrappers',
+      description: 'The Controller is not the right place for business logic. Here we create a Service to pick up the load.',
       github: 'angular_services_demo'
     },
-    {
-      slug: 'validation',
-      title: 'Form Validation',
-      description: 'We validate our inputs the right way',
-      github: 'angular_form_validation_demo'
-    },
+    // {
+    //   slug: 'validation',
+    //   title: 'Form Validation',
+    //   description: 'We validate our inputs the right way',
+    //   github: 'angular_form_validation_demo'
+    // },
   ]
 };

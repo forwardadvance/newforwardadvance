@@ -9,14 +9,15 @@ module.exports = {
   `,
   outcome: 'You will be able to create simple data driven forms and lists.',
   exercises:[
-    {
-      slug: 'angular-intro',
-      title: 'Introducing Angular - Theory and Architecture',
-      description: 'Here we learn, at a high level, what angular is, how it works, and how we should think about it.'
-    },
+    // TODO: REinstate Angular Intro
+    // {
+    //   slug: 'intro',
+    //   title: 'Introducing Angular - Theory and Architecture',
+    //   description: 'Here we learn, at a high level, what angular is, how it works, and how we should think about it.'
+    // },
     {
       slug: 'hello-world',
-      title: 'Hello World',
+      title: 'Hello Angular',
       description: 'We build a Hello World app and learn about templates, expressions and filters.',
       github: 'angular_templates_demo',
       learnings: [

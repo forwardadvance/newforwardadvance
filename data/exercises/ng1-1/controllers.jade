@@ -38,9 +38,9 @@ section
 
     $scope is a special object managed by Angular that is shared between the controller and the template. We use it to pass data abck and forth. All our data (models) are stored in $scope. We can also store helper functions here.
 
-    ## The primary purpose of the controller is to initialise $scope
+    ## The purpose of the controller is to create models and helper functions for the view
 
-    I'll say again: **The primary job of the controller is to initialize $scope.** Not to do AJAX (we use services for this). Not to make DOM changes (we use Directives for this). If you find your controller getting large and trying to manage too much, you probably need to reconsider. We'll look more at this later in the course.
+    I'll say again: **The purpose of the controller is to create models and helper functions for the view.** Not to do AJAX (we use services for this). Not to make DOM changes (we use Directives for this). If you find your controller getting large and trying to manage too much, you probably need to reconsider. We'll look more at this later in the course.
 
 aside.box
   :markdown
@@ -96,6 +96,9 @@ section
     A controller will apply to an html5 element and all of it's children. We can nest controllers inside each other, in which case the child controller takes precedence if there is a conflict. This is decided using prototypical inheritance. More on this when we get to the section on $scope.
 
     Some of you might be yelling "What about controller-as!" right about now. We'll get to that shortly.
+
+
+  !=resources(exercise)
 
 section.exercise
   :markdown

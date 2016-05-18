@@ -1,14 +1,5 @@
----
-title: "Directives - AngularJS Exercise"
-section: "angular"
-exercise: "directives"
-layout: "exercise"
----
-
-%section
+section
   :markdown
-    # Directives
-
     Angular is a DOM compiler. It receives an HTML template, and compiles it into an app. Directives allow us to extend the capabilities of the compiler. We can recognize new elements, new attributes, even classes.
 
     ## Directives let us touch the DOM
@@ -43,8 +34,7 @@ layout: "exercise"
 
     We declare a directive by writing a constructor function that returns a definition object, like so:
 
-  :ruby
-    code = <<-CODE
+    ```
     angular.module('app', [])
       .directive('usefulDirective', function() {
         var directive = {
@@ -55,10 +45,9 @@ layout: "exercise"
         }
         return directive;
       });
-    CODE
-  =code(code)
 
-  :markdown
+    ```
+
     * template - a string that will be used as a template. This is a real template and can include other directives or curly braces.
     * templateUrl - use this instead of template if your template content is web accessible.
     * restrict - Accepts the characters "AEC" or any subset thereof. Tells the directive to match an attribute, element or class.
@@ -67,13 +56,9 @@ layout: "exercise"
 
     Use your directive like this:
 
-  :ruby
-    code = <<-CODE
+    ```html
     <div useful-directive></div>
-    CODE
-  =code(code, :html)
-
-  :markdown
+    ```
 
     ## Directive naming - HTML is case InSenSiTiVe!
 
@@ -93,9 +78,8 @@ layout: "exercise"
     See the section on Gulp if you'd like to know more on this.
 
 
-%section.exercise
+section.exercise
   :markdown
-
     ## Exercise - Flickr Directive
 
     We are going to create a directive which displays the Flickr application.
@@ -104,12 +88,8 @@ layout: "exercise"
     2. Create a directive which has a controller and a template. The controller should get the flickr feed (ideally using a service). It should save the feed into $scope, so the template can display it.
     3. It should be possible to add a `<flickr></flickr>` element to the page, and have it output a little flickr application, possibly containing a list of cat pictures.
 
-  :ruby
-    code = <<-CODE
+    ```html
     <flickr></flickr>
-    CODE
-  =code(code, :html)
-
-  :markdown
+    ```
 
     Don't worry about passing data into your directive at this stage, we'll get to that.
