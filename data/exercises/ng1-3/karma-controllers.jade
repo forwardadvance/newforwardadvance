@@ -1,0 +1,48 @@
+
+
+section
+  :markdown
+    To test an Angular controller, we have to do a little more work. Remember that the main purpose of the controller is to initialise $scope. If we want to test functions on our controller, we must get hold of a $scope object, use the controller to initialise it, and then check that it does what we expect it to do.
+
+    We do this in a beforeEach block. This will build a new $scope object before each test is executed:
+
+
+    ```
+    describe('MyController', function() {
+
+      // Load the module containing MyController
+      beforeEach(module('app'));
+
+      var scope;
+      // inject the $controller and $rootScope services
+      beforeEach(inject(function($controller, $rootScope) {
+        // Create a new scope from $rootScope
+        scope = $rootScope.$new();
+        // Instantiate the controller
+        $controller('myController', {
+          $scope: scope
+        });
+      }));
+
+      it('should have a hamster', function() {
+        expect(scope.hamster).toBeDefined();
+      });
+
+      it('should say hello to Hammy', function() {
+        scope.sayHello();
+        expect(scope.greeting).toBe('Hello Hammy');
+      });
+
+    });
+    ```
+
+
+
+
+section.exercise
+  :markdown
+    ## Exercise - destroy the helidrones
+
+    Your helidrones have been destroyed by United Nations special forces.
+
+    The calculator app has a reset button which resets the inputs to zero. Write a test which calls the zero() function and checks that num1 and num2 have become zero.

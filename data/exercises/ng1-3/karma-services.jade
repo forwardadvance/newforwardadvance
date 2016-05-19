@@ -1,0 +1,101 @@
+section
+  :markdown
+    Testing Services is fun and easy.
+
+    * First we instantiate the angular app module
+    * Then we get a reference to the service.
+    * Now we can just write our tests as normal
+
+
+    ## Instantiate the app module
+
+    We do this in a beforeEach block like this:
+
+    ```
+    beforeEach(module('app'));
+    ```
+
+    This will create the app module first.
+
+    ## Get a reference to the service
+
+    We use Angular's own injector to do this.
+
+    ```
+    var myHelloService;
+    beforeEach(inject(function(helloService) {
+      myHelloService = helloService;
+    }));
+    ```
+
+    This is quite annoying, as now we have a testable variable called myHelloService, so Angular gives us a little hack to make it nicer:
+
+    ```
+    var helloService;
+    beforeEach(inject(function(_helloService_) {
+      helloService = _helloService_;
+    }));
+    ```
+
+    The underscores are ignored by the injector, allowing us to simply save our service to a variable called helloService.
+
+    ## Test the service
+
+    Now we can Karma test our service as normal:
+
+
+    ```
+    it('can say hello', function() {
+      var greeting = helloService.sayHello('dave');
+      expect(greeting).toEqual('hello dave');
+    });
+    ```
+
+    The whole test looks like this:
+
+    ```
+    describe('HelloService', function() {
+      beforeEach(module('app'));
+
+      var helloService;
+      beforeEach(inject(function(_helloService_) {
+        helloService = _helloService_;
+      }));
+
+      it('can say hello', function() {
+        var greeting = helloService.sayHello('dave');
+        expect(greeting).toEqual('hello dave');
+      });
+    });
+    ```
+
+    ## Angular Mocks
+
+    The module and inject functions are not native to Karma. We need a file called Angular Mocks that contains Angular specific test helpers. Download Angular Mocks from the AngularJS website.
+
+    You need to make sure you are using the same version of Angular Mocks as your version of Angular, or you will get an odd error.
+
+    ## Karma Conf
+
+    It can help to arrange your code in lib, js and specs directories. Then, in your karma.conf file, you can import files in this order:
+
+    ```
+    files: [
+      'lib/*.js',
+      'js/*.js',
+      'specs/angular-mocks.js',
+      'specs/*.js'
+    ]
+    ```
+
+
+section.exercise
+  :markdown
+    ## Exercise - Maths
+
+    Create a little service that can do maths. It should have power, sum and division operators.
+
+    While writing it, write unit tests. Try to write the tests first.
+
+
+    Use Nodejs and your Karma test runner to make it work in the command line, so the tests are run automatically as you save.

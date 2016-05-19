@@ -3,7 +3,7 @@ module.exports = {
   duration: 0.5,
   slug: 'ng1-3',
   price: 1100,
-  'description': 'Advanced use of directives and components. In this section we learn all the skills required to build a component based Single Page App (SPA)',
+  // 'description': 'Advanced use of directives and components. In this section we learn all the skills required to build a component based Single Page App (SPA)',
   'outcome': 'You will understand Unit and Integration testing, and will be able to do test driven development.',
   'exercises': [
 
@@ -18,7 +18,13 @@ module.exports = {
       slug: 'karma-intro',
       title: 'Intoduction to Unit Testing',
       description: 'All good developers write unit tests. This is ongoing through the rest of the course.',
-      github: ''
+      github: 'angular_karma_intro_demo'
+    },
+    {
+      slug: 'karma-cli',
+      title: 'Karma CLI - testing on the command line',
+      description: 'Tests are only useful when they run all the time. The Karma CLI is a background test runner that will execute all tests on save.',
+      github: 'angular_karma_intro_demo'
     },
     {
       slug: 'karma-services',
@@ -27,7 +33,7 @@ module.exports = {
       github: 'angular_karma_service_demo'
     },
     {
-      slug: 'karma',
+      slug: 'karma-controllers',
       title: 'Testing a Controller with Karma',
       description: 'Here we see how to use Karma to automate controller tests.',
       github: 'angular_karma_demo'
@@ -50,11 +56,11 @@ module.exports = {
     //   description: 'End to end integration testing.',
     //   github: 'angular_protractor_demo'
     // },
-    {
-      slug: 'homework',
-      title: 'Homework',
-      description: 'Fun and simple homework. It\'s like school'
-    },
+    // {
+    //   slug: 'homework',
+    //   title: 'Homework',
+    //   description: 'Fun and simple homework. It\'s like school'
+    // },
   ],
   'outline': [
     'Further Directives',

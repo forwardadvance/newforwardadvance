@@ -1,8 +1,9 @@
 module.exports = {
-  title: '$Scope and Code Controllers',
+  title: '$Scope and Controllers',
   duration: 0.5,
   slug: 'ng1-2',
   price: 1100,
+  description: '$Scope is a data storage object that underpins databinding in Angular. In this section we understand scope, controllers, and the magic of the digest cycle.',
   // description: 'Learn how to organise your Angular code into modules, and how to inject components as required.',
   // outcome: 'You will be able to build a simple client server app based around a public API, This will generally be a Flickr app, but your own API can be used instead.',
   exercises: [

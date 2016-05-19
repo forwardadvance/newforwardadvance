@@ -2,18 +2,18 @@ section
   :markdown
     Karma is a unit testing framework that works especially nicely with Angular. A unit test will test a single tiny piece of our app. We might write a test for a single controller for example. Unit tests generally don't care about the template, they only test the code. We can write unit tests for template code, but this is generally a little more complex.
 
-    In this section we are going to use Karma to unit test a controller.
-
-aside.box
-  :markdown
     ## What about Jasmine?
 
     Jasmine is a unit testing syntax. It allows us to write tests using an English like syntax. Karma is most commonly written using Jasmine syntax, but can also be written using QUnit, and several other syntaxes.
 
     If you don't know which syntax to choose, choose Jasmine because it's the most popular, and is the syntax that Angular itself is tested with.
 
-section
-  :markdown
+    ## Karma CLI
+
+    Unit tests are only useful if we run them all the time. It would be nice if all our tests could run automatically on save. The Karma CLI gives us this facility. Our tests run in a command line, and will turn green or red depending on the outcome.
+
+    We can install additional reporters, for example the Nyan cat reporter. The cat will die if a unit test fails.
+
     ## Installation
 
     First up we need to install Karma. Karma is a NodeJS module, and Node is a JavaScript runtime that runs in your command line. We will need to have Node installed to run Karma. If you don't have it, you can grab it from here:
@@ -37,6 +37,8 @@ section
 
     Depending on your exact version of Node and Karma, NPM may complain about missing dependencies. If you see any red error messages, go and get those dependencies too.
 
+    When installing node modules, Don't worry about warnings and occasional errors, these are normal, and npm will usually work around them. You only need to worry if an npm install ends with an error.
+
     Once Karma is installed, you should be able to type `karma` at a command line and see a helpful message.
 
     ## Initialise Karma
@@ -59,14 +61,12 @@ section
 
     ```
     files: [
-      'lib/*.js',
       'js/*.js',
-      'specs/angular-mocks.js',
       'specs/*.js'
     ]
     ```
 
-    This is a list of file paths to look at in order. Karma will use this to create a complete version of our app.
+    This is a list of file paths to look at in order. Karma will use this to include our JavaScript files in order. Put your JavaScripts in the js folder. Put your tests in the specs folder. This will ensure that the JavaScripts are always included before the tests that run them.
 
     ## Writing a test
 
@@ -84,50 +84,10 @@ section
     });
     ```
 
-
-
-section
-  :markdown
-    ## Testing the controller
-
-    To test an Angular controller, we have to do a little more work. Remember that the main purpose of the controller is to initialise $scope. If we want to test functions on our controller, we must get hold of a $scope object, use the controller to initialise it, and then check that it does what we expect it to do.
-
-    We do this in a beforeEach block. This will build a new $scope object before each test is executed:
-
-
-    ```
-    describe('MyController', function() {
-
-      // Load the module containing MyController
-      beforeEach(module('app'));
-
-      var scope;
-      // inject the $controller and $rootScope services
-      beforeEach(inject(function($controller, $rootScope) {
-        // Create a new scope from $rootScope
-        scope = $rootScope.$new();
-        // Instantiate the controller
-        $controller('myController', {
-          $scope: scope
-        });
-      }));
-
-      it('should have a hamster', function() {
-        expect(scope.hamster).toBeDefined();
-      });
-
-      it('should say hello to Hammy', function() {
-        scope.sayHello();
-        expect(scope.greeting).toBe('Hello Hammy');
-      });
-
-    });
-    ```
-
 section.exercise
   :markdown
-    ## Exercise - destroy the helidrones
+    ## Exercise Karma CLI
 
-    Your helidrones have been destroyed by United Nations special forces.
+    Install Node and the Karma CLI following the instructions above. Now write a unit test to test the maths object.
 
-    The calculator app has a reset button which resets the inputs to zero. Write a test which calls the zero() function and checks that num1 and num2 have become zero.
+    Run it in a console. Whenever you save a file, all the tests should run.
