@@ -9,7 +9,7 @@ module.exports = {
 
 
     {
-      slug: 'di',
+      slug: 'di-and-services',
       title: 'Services and Dependency Injection (DI)',
       description: 'Dependency Injection allows us to require components simply be referring to them. Learn about DI and also split your code into sensible modules.',
       github: 'angular_di_demo'
@@ -24,7 +24,7 @@ module.exports = {
       slug: 'karma-cli',
       title: 'Karma CLI - testing on the command line',
       description: 'Tests are only useful when they run all the time. The Karma CLI is a background test runner that will execute all tests on save.',
-      github: 'angular_karma_intro_demo'
+      github: 'angular_karma_cli_demo'
     },
     {
       slug: 'karma-services',
@@ -36,7 +36,7 @@ module.exports = {
       slug: 'karma-controllers',
       title: 'Testing a Controller with Karma',
       description: 'Here we see how to use Karma to automate controller tests.',
-      github: 'angular_karma_demo'
+      github: 'angular_karma_controller_demo'
     },
     // {
     //   slug: 'custom-filters',
