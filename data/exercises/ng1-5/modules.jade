@@ -2,9 +2,13 @@
 
 section
   :markdown
-    Thus far we have put all our code into a single module, which we have called 'app'. This is fine for smaller apps, but when things start to get larger, we will want some more organisation.
+    Thus far we have put all our code into a single module, which we have called 'app'.
 
+    ```
     angular.module('app', [])
+    ```
+
+    This is fine for smaller apps, but when things start to get larger, we will want some more organisation.
 
     We may also wish to include third party code. It would be useful if we could simply include other modules into our app module.
 
@@ -67,13 +71,17 @@ section
 
     You can then inject using the longhand square brace injector syntax like this:
 
+    ```
     angular.module('app', ['cats'])
       .controller('appController', [
         'Myapp.Cats.Service',
         function(cats) {
           // make use of the cats service here
         }
-      ])
+      ]);
+    ```
+
+  !=resources(exercise)
 
 section.exercise
   :markdown
@@ -93,15 +101,15 @@ section.exercise
 
     ```
     angular.module('app', ['ngDialog'])
-    ```html
+    ```
 
     ## Inject into your controller.
 
     Create a little controller and use the ng-controller directive to hook it to the DOM.
 
-    ```
-    <div ng-controller="myController">
     ```html
+    <div ng-controller="myController">
+    ```
 
     Inject the ngDialog service into your controller.
 
@@ -109,23 +117,22 @@ section.exercise
     .controller('myController', function($scope, ngDialog) {
 
     })
-    ```html
+    ```
 
     You now have access to ngDialog.open. Call this according to the documentation to create a dialog box when the page loads: <https://github.com/likeastore/ngDialog#api>
 
     e.g.
 
-    ```
+    ```html
     ngDialog.open({
       template: '<p>my template</p>',
       className: 'ngdialog-theme-plain',
       plain: true
     });
-    ```html
+    ```
 
 section.exercise
   :markdown
-
     ## Exercise - Extension
 
     Create a form. Create a method on scope that opens the dialog. Call the method when the button is pressed.

@@ -34,20 +34,6 @@ module.exports = {
       github: '',
       learnings: []
     },
-    {
-      title: 'Inline Templates and ngIf',
-      slug: 'inline-templates',
-      description: '',
-      github: '',
-      learnings: []
-    },
-    {
-      title: 'Repeat and Filter',
-      slug: 'ng-for',
-      description: '',
-      github: '',
-      learnings: []
-    },
   ],
   outline: [
     'Flux and one-way binding',

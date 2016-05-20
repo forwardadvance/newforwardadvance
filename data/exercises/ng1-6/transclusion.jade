@@ -1,39 +1,22 @@
----
-title: "Directive Transclusion - AngularJS Exercise"
-section: "angular"
-exercise: "transclusion"
-layout: "exercise"
----
-
-%section
+section
   :markdown
-    # Transclusion
-
     Transclusion allows you to take content that is already in the element and modify it in some way. Say you have a div like this:
 
-  :ruby
-    code = <<-CODE
+    ```html
     <div my-directive>
       World of Wonder
     </div>
-    CODE
-  =code(code, :html)
-
-  :markdown
+    ```
 
     Now you apply a directive which includes a template.
 
-  :ruby
-    code = <<-CODE
+    ```
     .directive('myDirective', function() {
       return {
         template: "<div>World of Template</div>"
       }
-    });
-    CODE
-  =code(code)
-
-  :markdown
+    })
+        ```
 
     The innerHtml is set on the div and "World of Wonder" is no more. Sad. This is where transclusion comes in.
 
@@ -59,8 +42,7 @@ layout: "exercise"
 
     If we tell our directive to transclude, the content that was originally in the element will still be available to us via the transclude directive in our template, like so:
 
-  :ruby
-    code = <<-CODE
+    ```
 
     myApp.directive('transclusionDirective', function() {
       return {
@@ -68,11 +50,7 @@ layout: "exercise"
         template: "Here is the transcluded content: <span ng-transclude></span> Nice huh?"
       }
     });
-
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     ### 2. Use the transclude function in the link function
 
@@ -80,8 +58,7 @@ layout: "exercise"
 
     This will allow you to compile the transcluded content against the isolate scope. Beware, this might surprise your user as you will have broken the $scope inheritance tree in your HTML. Do this only occasionally and with proper thought.
 
-  :ruby
-    code = <<-CODE
+    ```
 
     myApp.directive('transclusionDirective', function($compile) {
       return {
@@ -93,20 +70,17 @@ layout: "exercise"
         }
       }
     });
+    ```
 
-    CODE
-  =code(code)
-
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - A transcluded header directive
 
     Create a directive that will add a header and footer to any element. You can do this entirely using the a template and the ng-transclude directive.
 
 
-%section.exercise
+section.exercise
   :markdown
-
     ## Exercise - repeater
 
     Implement a really dumb little directive that simply repeats the content 5 times.
@@ -119,18 +93,16 @@ layout: "exercise"
 
     Call it like this:
 
-  :ruby
-    code = <<-CODE
+    ```html
     <div repeat='5'>
       Hey there!
     </div>
-    CODE
-  =code(code, :html)
+    ```
 
   :markdown
 
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - ng-if
 
@@ -140,18 +112,16 @@ layout: "exercise"
 
     Call it like this:
 
-  :ruby
-    code = <<-CODE
+    ```html
     <input ng-model="val" type='checkbox' />
     <div if='val'>
       Hey there!
     </div>
-    CODE
-  =code(code, :html)
+    ```
 
 
 
 
-%section.downloads
+section.downloads
   :markdown
     [Sample code](https://www.dropbox.com/sh/580ajhjqcvlzr54/AABa-gSujYVuIADWooujk4T0a?dl=1)

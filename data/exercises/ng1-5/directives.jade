@@ -2,6 +2,12 @@ section
   :markdown
     Angular is a DOM compiler. It receives an HTML template, and compiles it into an app. Directives allow us to extend the capabilities of the compiler. We can recognize new elements, new attributes, even classes.
 
+    ## Components
+
+    Directives can have their own templates, and their own 'isolate $scope' separate from the main parent. This allows us to create sub applications within our main application with clear input and output. We refer to a directive with it's own template and $scope as a component.
+
+    Components make a large app much easier to think about, since we only need to be aware of the specific component we are working on.
+
     ## Directives let us touch the DOM
 
     Directives are the places where Angular is wired into the DOM. In a directive, we get full access a particular DOM node including the element, element children and attributes.
@@ -77,6 +83,8 @@ section
 
     See the section on Gulp if you'd like to know more on this.
 
+
+  !=resources(exercise)
 
 section.exercise
   :markdown

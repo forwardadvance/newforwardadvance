@@ -1,14 +1,5 @@
----
-title: "UI-Router - AngularJS Exercise"
-section: "angular"
-exercise: "ui-router"
-layout: "exercise"
----
-
-%section
+section
   :markdown
-    # UI-Router
-
     The default Angular router lets us define URLs and describe how the router should respond, which template it should pull in, and which controller it should use.
 
     UI Router comes from a different angle. Instead of defining URLs, we define named states, then define the URL, controller and templates associated with that state.
@@ -38,16 +29,12 @@ layout: "exercise"
 
     We can create a default route using otherwise:
 
-  :ruby
-    code = <<-CODE
+    ```
     angular.module('app', ['ui.router'])
       .config(function($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/");
       });
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     Any unmatched route will redirect to '/'
 
@@ -55,8 +42,7 @@ layout: "exercise"
 
     We define a state like this:
 
-  :ruby
-    code = <<-CODE
+    ```
     angular.module('app', ['ui.router'])
       .config(function($stateProvider, $urlRouterProvider) {
 
@@ -68,15 +54,11 @@ layout: "exercise"
             templateUrl: "home.html"
           })
       });
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     We use the ui-sref directive to generate hyperlinks based on the state names. We use the ui-view directive to locate our template.
 
-  :ruby
-    code = <<-CODE
+    ```html
     <!DOCTYPE html>
     <html>
       <head>
@@ -91,16 +73,12 @@ layout: "exercise"
         <div ui-view></div>
       </body>
     </html>
-    CODE
-  =code(code, :html)
-
-  :markdown
+    ```
 
     The state has a name, a URL and a template URL. It can also optionally have a controller.
 
-%section.exercise
+section.exercise
   :markdown
-
     ## Exercise - Add a route to your CRUD
 
     Add a router to your CRUD application that can show a particular article based on the URL.

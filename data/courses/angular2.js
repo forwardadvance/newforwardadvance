@@ -8,8 +8,8 @@ module.exports = {
     require('../modules/ng2-2'),
     require('../modules/typescript'),
     require('../modules/ng2-3'),
-    require('../modules/webpack'),
-    require('../modules/ng2-4')
+    require('../modules/ng2-4'),
+    require('../modules/ng2-5')
     // require("../modules/es6")
   ],
   optionalModules: ['webpack', 'gulp']

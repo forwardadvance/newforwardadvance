@@ -1,11 +1,12 @@
 section
   :markdown
+    When we create a directive we often (but not always) want it to act like it's own little application, separate from its parent. A component.
 
-    # Isolate Scopes
+    In short, we want it to have its own $scope.
 
-    When we create a directive we often (but not always) want it to act like it's own little application, separate from its parent. In short, we want it to have its own $scope.
+    Components act as mini applications inside the main application. They have well defined, explicit input and output. This means when we write them, we only need to think about the component we are working on and not the whole application. In a larger project, this helps maintain velocity and prevent code fatigue.
 
-    Angular allows us to do this. We can create a directive which has an isolate scope. We can optionally pass parameters to the child scope, seeding it, and we can also optionally bind values from the document scope, so that when the document scope updates, those parameters in the child scope also update.
+    Angular allows us to create a directive which has an isolate scope. We can optionally pass parameters to the child scope, seeding it, and we can also optionally bind values from the document scope, so that when the document scope updates, those parameters in the child scope also update.
 
     ## Creating an isolate $scope
 
@@ -19,40 +20,98 @@ section
     })
     ```
 
-  :markdown
+    This will create a little application completely divorced from its parent. No matter what is on the parent $scope, the isolate $scope will be completely empty
 
-    This will create a little application completely divorced from its parent.
-
-    ## Passing parameters to an isolate $scope with @
+    ## Passing static parameters to an isolate $scope with @ (input)
 
     We can parameterise our directive using @. We can tell our directive to take an initial value from an attribute of the directive element, like so:
 
     ```
-    .directive('myDirective', function() {
+    .directive('streetMap', function() {
       return {
-        scope: {cheese: '@'},
-        template: "<input ng-model='cheese' />{{cheese}}"
+        scope: {
+          lat: '@',
+          lng: '@'
+        },
+        template: "<div class="map"></div>"
       }
     })
     ```
 
-  :markdown
-
-    The isolate $scope will be seeded with the cheese attribute from the directive element.
+    The @ stands for Attribute. We pass static data in via an attribute.
 
     ```html
-    <div my-directive cheese="Wensleydale"></div>
+    <street-map lat="12" lng="14"></street-map>
     ```
 
-  :markdown
+    We may also evaluate an expression and pass in the result if we wish:
+
+    ```html
+    <street-map lat="{{user.lat}}" lng="{{user.lng}}"></street-map>
+    ```
+
+    Passing expressions like this though is a slightly hacky way to send data into our scope. In most circumstances it is better to use 2 way binding:
+
 
     ## Two-way isolate $scope binding with =
 
-    @ will allow you to pass a variable into your isolate scope.
+    @ will allow you to pass a static value into your isolate scope. = on the other hand will allow you to bind an attribute of the isolate scope to a attribute of the parent $scope.
 
-    = will allow you to bind a value in the isolate scope to a value outside of the isolate scope.
+    This works using simple watchers. Watchers are created to monitor the values on both $scopes. When one changes, the watcher will update the other.
 
-    This works using simple watchers. Watchers are created to monitor the values on both $scopes. When one changes, the watcher will update the other and vice versa.
+    This can be used for input and output. If the value changes in the isolate $scope it is changed in the parent $scope, and vice versa.
+
+
+    ```
+    .directive('userProfile', function() {
+      return {
+        scope: {
+          user: '='
+        },
+        template: "<h2>{{user.name}}</h2>"
+      }
+    })
+    ```
+
+    ```html
+    <div ng-repeat="user in users">
+      <user-profile user="user"></user-profile>
+    </div>
+    ```
+
+    ## Output with &
+
+    We can achieve output from our component by calling functions on the parent $scope. We do this with an &.
+
+
+    ```
+    .directive('likeButton', function() {
+      return {
+        scope: {
+          onLiked: '&'
+        },
+        template: `
+          <button ng-click='like()'>
+            Like
+          </button>
+        `,
+        controller: function() {
+          $scope.like = () => {
+            $scope.liked = !$scope.liked;
+            $scope.onLiked({status: $scope.liked})
+          }
+        }
+      }
+    })
+    ```
+
+    We might use this directive like this:
+
+    ```html
+    <like-button on-liked="handleLike(status)"></like-button>
+    ```
+
+    The controller will shell out to the onLiked function on the parent $scope.
 
     ## When to use isolate scopes
 
@@ -60,15 +119,16 @@ section
 
     Use an isolate scope when you have created a reusable component that you might want to use in multiple places, for example, a map, or a login form component.
 
-    While isolate scopes give us portability they do this at the expense of some flexibility.
+    Don't use an isolate $scope when you just want to change the appearance or behaviour of an existing element, for example, an ng-if or an ng-class.
 
     ## Isolate scopes with transclusion
 
     Isolate scopes will typically be used with a template to work properly. Only template code will gain access to the isolate scope. Transcluded content (content nested in the directive) will still use the parent scope.
 
+  !=resources(exercise)
+
 section.exercise
   :markdown
-
     ## Exercise - Isolate the Flickr app
 
     Give your Flickr app an isolate scope. It should be able to receive a tag from its parent scope.
@@ -80,4 +140,20 @@ section.exercise
     <flickr tag="search"></flickr>
     ```
 
+    you'll need to use two way = binding to do this.
+
+section.exercise
   :markdown
+    ## Harder Exercise - Feed back to the parent template
+
+    Make your flickr app receive callback functions from the parent tempalte, so we can, for example, show a spinner. You'll need to use & binding to do this.
+
+    I want to be able to call it like this:
+
+    ```html
+    <input ng-model="search" />
+    <flickr
+      tag="search"
+      on-loading="showSpinner()"
+      on-loading-complete="hideSpinner()"></flickr>
+    ```

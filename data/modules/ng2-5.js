@@ -1,7 +1,7 @@
 module.exports = {
-  title: 'Client / Server interaction with Angular 2',
+  title: 'Angular 2 Additional Topics',
   duration: 0.5,
-  slug: 'ng2-4',
+  slug: 'ng2-5',
   price: 2250,
   description: '',
   exercises: [
@@ -29,6 +29,27 @@ module.exports = {
     {
       title: 'Service Objects',
       slug: 'services',
+      description: '',
+      github: '',
+      learnings: []
+    },
+    {
+      title: 'services-with-typescript',
+      slug: 'typescript-services',
+      description: '',
+      github: '',
+      learnings: []
+    },
+    {
+      title: 'components-with-typescript',
+      slug: 'components-with-typescript',
+      description: '',
+      github: '',
+      learnings: []
+    },
+    {
+      title: 'hierarchical-injectors',
+      slug: 'hierarchical-injectors',
       description: '',
       github: '',
       learnings: []

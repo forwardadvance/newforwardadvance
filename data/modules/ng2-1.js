@@ -47,13 +47,6 @@ module.exports = {
       github: '',
       learnings: []
     },
-    {
-      title: 'custom-pipes',
-      slug: 'custom-pipes',
-      description: '',
-      github: '',
-      learnings: []
-    },
   ],
   outline: [
     'Flux and one-way binding',

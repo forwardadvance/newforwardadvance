@@ -27,7 +27,7 @@ module.exports = {
       slug: 'browserify',
       title: 'Breaking code into files with Browserify',
       description: 'Putting code all in one file in not cool. Let\'s fix that problem',
-      github: 'angular_modules_demo'
+      github: 'angular_browserify_demo'
     },
     {
       slug: 'homework-2',

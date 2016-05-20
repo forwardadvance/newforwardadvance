@@ -1,8 +1,5 @@
-
-%section
+section
   :markdown
-    # An Introduction to TypeScript
-
     TypeScript is was first released by MicroSoft in 2012, so it's relatively new. It is a superset of JavaScript. All legal JavaScript is also legal TypeScript, so knowing TypeScript doesn't excuse you from knowing JavaScript.
 
     however, if you are used to a classical, class based environment with type safety and decorators, TypeScript might be the tool for you.
@@ -21,39 +18,27 @@
 
     Let's start with a class. Here's a Toaster:
 
-  :ruby
-    code = <<-CODE
+    ```
     class Toaster {}
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     This compiles to a little JavaScript IIFE which generates the newable function and returns it:
 
-  :ruby
-    code = <<-CODE
+    ```
     var Toaster = (function () {
       function Toaster() {
       }
       return Toaster;
     }());
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     We use the `new` keyword to make a new object using the Toaster constructor, like so:
 
-  :ruby
-    code = <<-CODE
+    ```
     var myToaster = new Toaster();
-    CODE
-  =code(code)
+    ```
 
-  :markdown
-
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Create a class
 
@@ -63,7 +48,7 @@
 
     Now create a your own simple class. Take a look at the code that is generated. Use `new` to make a new object.
 
-%section
+section
   :markdown
     ## Attributes
 
@@ -71,15 +56,11 @@
 
     Say we do this:
 
-  :ruby
-    code = <<-CODE
+    ```
     class Toaster {}
     var myToaster = new Toaster();
     myToaster.bread = "Artisan rye splashed with swan's breath"
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     We get an error. `Property bread does not exist on type Toaster.`
 
@@ -87,26 +68,22 @@
 
     We tell the compiler to expect a bread attribute like so:
 
-  :ruby
-    code = <<-CODE
+    ```
     class Toaster {
       bread
     }
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     The error is now gone.
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Attributes
 
     Give your new object an attribute. Create an instance using the new keyword. Check out the intellisense.
 
 
-%section
+section
   :markdown
     ## Constructors
 
@@ -114,8 +91,7 @@
 
     Note that we need to declare the bread attribute:
 
-  :ruby
-    code = <<-CODE
+    ```
     class Toaster {
       bread
       constructor(bread) {
@@ -123,15 +99,11 @@
         console.log('Toast was made with bread', bread)
       }
     }
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     This compiles to the following. The constructor becomes the newable function returned from the IIFE:
 
-  :ruby
-    code = <<-CODE
+    ```
     var Toaster = (function () {
       function Toaster(bread) {
         this.bread = bread;
@@ -139,10 +111,7 @@
       }
       return Toaster;
     }());
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
 
     We also have a shorthand for creating public parameters. We can set the paramter to public, and it will create the attribute for us.
@@ -151,7 +120,7 @@
       constructor(public bread) {}
     }
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Constructors
 
@@ -165,35 +134,27 @@
 
     Use new to create an object. Notice the intellisense as you interact with your new object.
 
-%section
+section
   :markdown
     ## Strong Typing
 
     TypeScript gives us optional Strong Typing, like so:
 
-  :ruby
-    code = <<-CODE
+    ```
     class Toaster {
       constructor(public bread:Bread) {}
     }
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     Our Toaster will now only receive bread. If we try to pass it something else, the compiler will complain (though of course the generated code will still run.)
 
     To make this work, we now need to declare Bread:
 
-  :ruby
-    code = <<-CODE
+    ```
     class Bread {}
-    CODE
-  =code(code)
+    ```
 
-  :markdown
-
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Strong Typing
 

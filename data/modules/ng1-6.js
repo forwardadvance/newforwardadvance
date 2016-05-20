@@ -8,7 +8,7 @@ module.exports = {
 
     {
       slug: 'directive-compilation',
-      title: 'Directive Compilation',
+      title: 'Directive Compilation and the link function',
       description: 'We look at how the Angular compiler traverses the DOM, order of compilation, and when to use the compile, link and controller functions.',
       github: 'angular_directive_compilation_demo'
     },

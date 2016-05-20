@@ -1,8 +1,6 @@
 
-%section
+section
   :markdown
-    # Building TypeScript
-
     TypeScript gives us many significant advantages when working in larger teams. We get better integration with an IDE. We get compile time errors. We get strong typing.
 
     In order to build TypeScript we will need quite a few tools. In this section we will use the tsc compiler to build our TypeScript.
@@ -21,8 +19,7 @@
 
     Create a file called package.json, and pop the following into it. It's a list of dependencies that will let us run compile TypeScript into Angular modules:
 
-  :ruby
-    code = <<-CODE
+    ```json
     {
       "scripts": {
         "tsc": "tsc -w",
@@ -43,10 +40,8 @@
         "typings": "^0.6.8"
       }
     }
-    CODE
-  =code(code)
+    ```
 
-  :markdown
 
     Run `npm install` to grab all the dependencies.
 
@@ -56,27 +51,21 @@
 
     We create a typings.json file like this:
 
-  :ruby
-    code = <<-CODE
+    ```json
     {
       "ambientDependencies": {
         "es6-shim": "github:DefinitelyTyped/DefinitelyTyped/es6-shim/es6-shim.d.ts#6697d6f7dadbf5773cb40ecda35a76027e0783b2"
       }
     }
-    CODE
-  =code(code)
+    ```
 
-  :markdown
 
     Now we use typings to get those dependencies. Run:
 
-  :ruby
-    code = <<-CODE
+    ```bash
     npm run typings install
-    CODE
-  =code(code)
+    ```
 
-  :markdown
 
     to install the es6 typings.
 
@@ -88,8 +77,7 @@
 
     Create a tsconfig.json file now:
 
-  :ruby
-    code = <<-CODE
+    ```json
     {
       "compilerOptions": {
         "target": "es5",
@@ -107,10 +95,8 @@
         "typings/main.d.ts"
       ]
     }
-    CODE
-  =code(code)
+    ```
 
-  :markdown
 
     ## Building TypeScript
 
@@ -120,17 +106,14 @@
 
     To start compiling, run:
 
-  :ruby
-    code = <<-CODE
+    ```bash
     npm run tsc
-    CODE
-  =code(code)
+    ```
 
-  :markdown
     Each time you save app.ts, app.js will be updated.
 
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Build TypeScript
 
@@ -139,7 +122,7 @@
     Have a play with some TypeScript, see if it does what you expect.
 
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Visual Studio
 
@@ -154,7 +137,7 @@
     * <https://code.visualstudio.com/Docs/languages/typescript>
 
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Atom
 
