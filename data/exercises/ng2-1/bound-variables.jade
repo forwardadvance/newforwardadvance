@@ -1,18 +1,26 @@
 section
   :markdown
-    Any attributes of our component are available in the component template. These are plain old attributes of the component.
+    **tl;dr: Any attributes of our component are available in the component template. These are plain old attributes of the component. Bindings are live, so whenever an attribute of the component updates, the template will be automatically updated to match.**
 
-    Bindings are live, so whenever an attribute of the component updates, the template will be updated to match.
+    ## What Was Wrong with Binding in Angular 1?
 
-    ## Binding in Angular 1 vs. Angular 2
+    In Angular 1 we had an object called $scope which we used to pass variables to and from the front end. Anything we wrote to $scope would be available in the template. Bound variables were available in a $scope and any child $scopes.
 
-    In Angular 1 we used a $scope object to pass variables to and from the front end. Anything we wrote to $scope would be available in the template. We could $watch $scope, and make things happen in response to changes. Bound variables were available in a $scope and any child $scopes.
+    For small apps this was wonderful. Our data was always just magically *available* to us. However, as we started building larger apps $scope started to become a problem. Because the $scope tree spanned the whole application, it became difficult to think about small components of our app. This could lead to code overwhelm and cause a project to stall.
 
-    In Angular 2, our components themselves hold our bind variables. We write to `this` in our constructor. Bound variables are only available to the current component, not child components.
+    We began to address this issue with isolate $scope, controllerAs and components, trying to give each component clear input/output.
+
+    ## Binding in Angular 2
+
+    Angular 2 completes this transformation. $scope is no more (sad but necessary). Instead, our components themselves hold bound variables as attributes. Any attributes of our component will be bound.
+
+    This means we always write to `this` in our constructor.
+
+    Bound variables are only available to the current component, not child components. If we want to access a variable in a child component, we have to explicitly pass it in. This makes Angular 2 much less *magical*, and much more strict, which is a good thing when dealing with a non-trivial app.
 
     ## We bind with curlies {{}}
 
-    We have a range of binding options in Angular 2, the simplest uses the curly brace syntax, like so:
+    We have a range of template binding options in Angular 2, the simplest uses the curly brace syntax, like so:
 
     ```html
     <div>Hello {{dinosaurName}}</div>
@@ -50,6 +58,9 @@ section
     <div>{{"Hello " + "World"}}</div>
     ```
 
+
+  !=resources(exercise)
+
 section.exercise
   :markdown
     ## Exercise - seconds in a day
@@ -59,62 +70,86 @@ section.exercise
 
     You can either generate these values in the component, or directly into the template.
 
+
 section
   :markdown
-    ## Live binding
+    ## Calling Functions in a binding
 
-    If we change the value of an attribute of the component in any asynchronous way we can think of, the template will also update.
-
-    This includes:
-
-    * setTimeout
-    * setInterval
-    * Ajax load events
-
-    Here we change the value using setInterval. In this instance the template will update every 500ms with a new number.
-
-    This magic is achieved using a piece of kit called Zone.js which is integrated into Angular. If we open up setInterval in a console, we will find that it has been overridden with a custom setTimeout. This does the same thing, with the addition that it will fire an event that we can subscribe to.
+    We can call functions from our binding, provided they are assigned as attributes of the component.
 
     ```
     var AppComponent = ng.core
       .Component({
-        selector: 'app',
-        template: '<h1>{{count}}</h1>'
+        selector: "app",
+        template: `
+          Has Pet?: {{hasPet()}}
+        `
       })
       .Class({
         constructor: function() {
-          var vm = this;
-          setInterval(function() {
-            vm.count ++;
-          }, 500);
-          this.count = 1;
+          this.dog = true;
+          this.false = false;
+          this.hasPet = function() {
+            return this.dog || this.cat
+          };
         }
       });
-
-
-    document.addEventListener('DOMContentLoaded', function() {
-      ng.platform.browser.bootstrap(AppComponent);
-    });
     ```
+
+    ## Side effects are not allowed
+
+    A function called from a template cannot have side effects. This means you can't update other attributes of the component.
+
+    **Why not?**
+
+    Angular 2's change detection works in a single pass. If you call a function from the template that changes a value that is referred to elsewhere, you may end up with an inconsistent result, and Angular will throw an error.
+
+    For example:
+
+    ```
+    var AppComponent = ng.core
+      .Component({
+        selector: "app",
+        template: `
+          toast level: {{toast}}
+          Eat toast: {{eatToast(true)}}
+        `
+      })
+      .Class({
+        constructor: function() {
+          this.toastLevel = 6;
+          this.eatToast = function() {
+            this.toast --;
+            return this.toast;
+          };
+        }
+      });
+    ```
+
+    The value of toast is set, then later the value of toast is updated. The first value is now incorrect. Angular will cleverly notice that you have done this, and will complain.
+
+    ## This is different to Angular 1
+
+    Angular 1 had a multipass digest. It would loop over and over, recompiling templates until the $scope hierarchy was clean. This gave guaranteed consistency at the expense of a *lot* of speed.
+
+    Angular 2 does away with this. Binding in Angular 2 is one-way. This means it goes in a single pass depth-first down the component tree.
+
 
 section.exercise
   :markdown
-    ## Exercise - A clock
+    ## Exercise - Cats in the world
 
-    Use setTimeout to build a little clock that shows the time of the day. You can make it as fancy as you like.
+    * Assume the universe contains exactly one cat.
+    * Assume also that a cat can produce an average of 6 kittens a year, and that all kittens are female.
+    * Assume that cats weight 1kg each.
+    * Assume that all cats are immortal (because they should be).
 
-    Create a clock component. In a timeout, set values for vm.hours, vm.minutes and vm.seconds.
+    Now write a component that has a function which can calculates the number of years until our combined cats outweigh a value. You will probably need a while loop for this.
 
-    Note that this can also be achieved using pipes. More on this later.
+    * The Empire State building weighs 331,122,430 kg.
+    * The Earth weighs 5,972,000,000,000,000,000,000,000 kg
 
-
-section
-  :markdown
-    ## Calling Functions - Side effects
-
-    We can also call functions in a binding, but if we do this we need to be careful. Angular 2's change detection works in a single pass. If you call a function from the template that changes a value that is referred to elsewhere, you will end up with an inconsistent result, and Angular will throw an error.
-
-//- TODO: Example
+    Write a template which tells us the number of years until the cats weigh more that the Empire State building and the Earth.
 
 section
   :markdown

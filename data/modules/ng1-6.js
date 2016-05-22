@@ -2,7 +2,7 @@ module.exports = {
   title: "Advanced Directives Content",
   duration: 0.5,
   slug: 'ng1-6',
-  price: 1100,
+  price: 750,
   description: "What's new in Edge Angular.",
   exercises: [
 

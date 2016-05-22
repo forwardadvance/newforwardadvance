@@ -1,21 +1,22 @@
 module.exports = {
-  title: 'Angular 2 Foundations (part 1)',
+  title: 'Angular 2 Foundations - Components, Templates & Data Binding',
   duration: 0.5,
   slug: 'ng2-1',
   price: 2250,
-  description: 'Angular 2 is a brand new iteration of Angular sporting components from the ground up.',
+  description: 'Introducing components, templates and bound data.',
+  outcome: 'By the end of this module you\'ll be able to create a simple component based app that responds to events and outputs data',
   exercises: [
     {
       title: 'Welcome to the Angular 2 course',
       slug: 'angular2-intro',
-      description: '',
+      description: 'A high level summary of Angular 2',
       github: '',
       learnings: []
     },
     {
       title: 'Angular 1 to Angular 2',
       slug: 'summary-of-differences',
-      description: '',
+      description: 'Coming from Angular 1, Angular 2 may confuse you. Many features are you may have come to rely on are missing, or have been changed. Here we summarise the differences.',
       github: '',
       learnings: []
     },
@@ -23,12 +24,19 @@ module.exports = {
       title: 'Component Based Hello World',
       slug: 'components',
       description: '',
-      github: '',
+      github: 'angular2_hello_world_demo',
       learnings: []
     },
     {
       title: 'Bound Variables',
       slug: 'bound-variables',
+      description: '',
+      github: 'angular2_bound_variables_demo',
+      learnings: []
+    },
+    {
+      title: 'Live Binding with Zone.js',
+      slug: 'live-binding',
       description: '',
       github: '',
       learnings: []
@@ -36,13 +44,6 @@ module.exports = {
     {
       title: 'Dealing with Browser Events',
       slug: 'events',
-      description: '',
-      github: '',
-      learnings: []
-    },
-    {
-      title: 'Nesting Components',
-      slug: 'nested-components',
       description: '',
       github: '',
       learnings: []

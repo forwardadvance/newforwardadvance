@@ -1,0 +1,71 @@
+section
+  :markdown
+
+section
+  :markdown
+    We have seen that attributes of the component can be bound to the component template. This is fun and useful. You may not realise that these bindings are live. If an attribute of the component is updated in some way, the template will automatically redraw itself to reflect the change.
+
+    ## Live Binding in Angular 1 (The $digest)
+
+    In Angular 1, when we changed the value of a bound variable, the template would automatically re-render. However, this only worked if we were careful to stay *"inside the Angular world"*. If we wanted to do AJAX we needed to use Angular's $http service. If we wanted a timeout, we needed to use $interval.
+
+    This was the case because Angular needed to know that something might have changed. Interacting with the Angular 1 core services would trigger a $digest, which would update the front end.
+
+    This made Angular into a ghetto. If you wanted to use `fetch` for AJAX, you couldn't. If you wanted a library that would use a plain old setTimeout, you would have to write a wrapper.
+
+    ## Live binding with Angular 2 is magical
+
+    Angular 2 takes a different, more magical approach. Angular 2 allows asynchronous changes to attributes of the component from any source. This means that Angular is now compatible with pretty much any third party JavaScript you can think of.
+
+    If we change the value of an attribute of the component in any asynchronous way we can think of, a $digest will trigger and the template will update.
+
+    We are free to use (among others)
+
+    * setTimeout
+    * setInterval
+    * Ajax load events such as `fetch()`
+    * JQuery's `$.ajax(url)`
+    * Core JavaScript AJAX: `new XMLHttpRequest().open("GET", url).send();`
+
+    ## A Clock
+
+    Here we change the value using setInterval. In this instance the template will update every 500ms with a new number.
+
+    ```
+    var AppComponent = ng.core
+      .Component({
+        selector: 'app',
+        template: '<h1>{{count}}</h1>'
+      })
+      .Class({
+        constructor: function() {
+          var vm = this;
+          setInterval(function() {
+            vm.count ++;
+          }, 500);
+          this.count = 1;
+        }
+      });
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+      ng.platform.browser.bootstrap(AppComponent);
+    });
+    ```
+
+    ## How it works (zone.js)
+
+    This magic is achieved using a piece of kit called Zone.js which is integrated into Angular 2. Zone.js is a core JavaScript polyfill for asynchronous events. It makes all asynchronous core JavaScript return an Observable which we can subscribe to.
+
+    If we open up setInterval in a console, we will find that it has been overridden with a custom setTimeout.
+
+section.exercise
+  :markdown
+    ## Exercise - A clock
+
+    Use setTimeout to build a little clock that shows the time of the day. You can make it as fancy as you like.
+
+    Create a clock component. In a timeout, set values for vm.hours, vm.minutes and vm.seconds.
+
+    Note that this can also be achieved using pipes. More on this later.
+

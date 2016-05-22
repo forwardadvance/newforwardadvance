@@ -1,15 +1,15 @@
 module.exports = {
-  title: 'Angular 2 Foundations (part 2)',
+  title: 'Angular 2 Foundations - Component Hierarchies and Communication',
   duration: 0.5,
   slug: 'ng2-2',
   price: 2250,
-  description: 'More on templates, and allowing components to talk to one another.',
+  description: 'Nesting components, and component communication.',
   exercises: [
 
     {
-      title: 'Binding to DOM properties',
-      slug: 'property-binding',
-      description: 'Angular brings back the DOM',
+      title: 'Nesting Components',
+      slug: 'nested-components',
+      description: '',
       github: '',
       learnings: []
     },
@@ -24,6 +24,13 @@ module.exports = {
       title: 'Event Emitters (Outputs)',
       slug: 'event-emitters',
       description: '',
+      github: '',
+      learnings: []
+    },
+    {
+      title: 'Binding to DOM properties',
+      slug: 'property-binding',
+      description: 'Angular brings back the DOM',
       github: '',
       learnings: []
     },

@@ -67,7 +67,7 @@ section
 
     We can show or hide elements by setting the hidden property on an element.
 
-    ```
+    ```html
     <a on-click="iAmHidden=true" />
     <div [hidden]="iAmHidden">Hey!</div>
     ```
@@ -97,12 +97,13 @@ section.exercise
     <div>Panel 1</div>
     <div>Panel 2</div>
     <div>Panel 3</div>
+    ```
 
     When you click on Tab 1, Panel 1 is displayed, and Panels 2 and 3 are hidden.
 
-    Start out by adding click handlers to the tabs. Something like this: on-click="currentTab=1"
+    Start out by adding click handlers to the tabs. Something like this: `on-click="currentTab=1"`
 
-    Now bind the hidden attribute to the panels, something like this: [hidden]="currentTab!=1"
+    Now bind the hidden attribute to the panels, something like this: `[hidden]="currentTab!=1"`
 
     ## Extension
 

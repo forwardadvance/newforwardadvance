@@ -2,7 +2,7 @@ module.exports = {
   title: 'Components and Code Organisation',
   duration: 0.5,
   slug: 'ng1-5',
-  price: 1100,
+  price: 750,
   description: 'Components bundle templates and controllers together.',
   exercises: [
     {
