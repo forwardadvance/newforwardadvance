@@ -1,0 +1,47 @@
+// -# TODO var i = index
+// TODO: Filter?
+
+section
+  :markdown
+    NgFor is a directive that allows you to show a list of things. Say we have an array of cheese declared in out component:
+
+    vm.cheeses = ['manchego', 'dolchelatte', 'fingers']
+
+    We can render it like so:
+
+    ```html
+    <ul>
+      <li *ngFor='var cheese of cheeses'>
+        {{ cheese }}
+      </li>
+    </ul>
+    ```
+
+    ## Template variable
+
+    We have a shorthand syntax for the template variable. We can also write:
+
+    The * signals that the li should be used as a template. `var cheese of cheeses` signals that we should create a *template variable* a value that exists only in the context of the template. This will contain each of the cheeses in order.
+
+    ```html
+    <ul>
+      <li *ngFor='#cheese of cheeses'>
+        {{ cheese }}
+      </li>
+    </ul>
+    ```
+
+
+  !=resources(exercise)
+
+section.exercise
+  :markdown
+    ## Exercise - Generate Tabs from an Array
+
+    We are going to use an array to generate the tabs for our tab component.
+
+    First of all, generate an array containing the tabs that you would like to display. Add it to VM.
+
+    Now pass that array in as a property to the tabs component.
+
+    Use an ngFor to iterate over the array and output each of the tabs in turn.

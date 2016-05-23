@@ -1,0 +1,153 @@
+
+section
+  :markdown
+    TypeScript gives us many significant advantages when working in larger teams. We get better integration with an IDE. We get compile time errors. We get strong typing.
+
+    In order to build TypeScript. In this section we will use the tsc compiler to build our TypeScript.
+
+    ## NodeJS
+
+    First up, TypeScript is built using NodeJS. If you don't have it, you'll need to install it.
+
+    Go here and download the correct flavour for your system: <https://nodejs.org>
+
+    NodeJS is a JavaScript engine that runs in your console. Open a console and type `node`. You should drop into command line JavaScript.
+
+    ## NPM
+
+    Node has a package manager called NPM. We can use this to download our develoment dependencies.
+
+    Create a file called package.json, and pop the following into it. It's a list of dependencies that will let us run compile TypeScript into Angular modules:
+
+    ```json
+    {
+      "scripts": {
+        "tsc": "tsc -w",
+        "typings": "typings"
+      },
+      "dependencies": {
+        "angular2": "2.0.0-beta.6",
+        "systemjs": "0.19.20",
+        "es6-promise": "^3.0.2",
+        "es6-shim": "^0.33.3",
+        "reflect-metadata": "0.1.2",
+        "rxjs": "5.0.0-beta.0",
+        "zone.js": "0.5.14"
+      },
+      "devDependencies": {
+        "gulp-typescript": "^2.12.0",
+        "typescript": "^1.7.5",
+        "typings": "^0.6.8"
+      }
+    }
+    ```
+
+
+    Run `npm install` to grab all the dependencies.
+
+    ## Typings
+
+    TypeScript is strongly typed, so it needs to know about types that are allowed to avoid throwing errors when it compiles. Common type definitions are contained in d.ts files.
+
+    ### Definitely Typed
+
+    The Definitely Typed project contains type definition files for a great many common libraries and apis. You can find it here:
+
+    <a href="https://github.com/DefinitelyTyped/DefinitelyTyped" target="_blank">https://github.com/DefinitelyTyped/DefinitelyTyped</a>
+
+    We configure the typings that our project will need using the typings.json file, like this:
+
+    ```json
+    {
+      "ambientDependencies": {
+        "es6-shim": "github:DefinitelyTyped/DefinitelyTyped/es6-shim/es6-shim.d.ts#6697d6f7dadbf5773cb40ecda35a76027e0783b2"
+      }
+    }
+    ```
+
+
+    Now we use typings to get those dependencies. Run:
+
+    ```bash
+    npm run typings install
+    ```
+
+    to install the es6 typings.
+
+    ## TS Config
+
+    Finally we need a tsconfig file. This tells TypeScript how to build.
+
+    Of particular importance are the decorators flags. These allow Angular to compile decorators, and to use them for automatic DI.
+
+    Create a tsconfig.json file now:
+
+    ```json
+    {
+      "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "removeComments": false,
+        "noImplicitAny": false
+      },
+      "exclude": [
+        "node_modules",
+        "typings/main",
+        "typings/main.d.ts"
+      ]
+    }
+    ```
+
+
+    ## Building TypeScript
+
+    This is sufficient to allow us to start building TypeScript.
+
+    Create an app folder and place a file inside it called app.ts. Now write any TypeScript inside.
+
+    To start compiling, run:
+
+    ```bash
+    npm run tsc
+    ```
+
+    Each time you save app.ts, app.js will be updated.
+
+
+section.exercise
+  :markdown
+    ## Exercise - Build TypeScript
+
+    Set up the above for automatic TypeScript compilation. Once you've done it one time, it will become easy. You can now use any editor to write your code.
+
+    Have a play with some TypeScript, see if it does what you expect.
+
+
+section.exercise
+  :markdown
+    ## Exercise - Visual Studio
+
+    Alternatively, if you don't want the hassle of working with NPM and the command line, set up visual studio to compile your TypeScript.
+
+    You will still need the tssonfig.js from above. Instructions can be found here:
+
+    * <http://dotnetspeak.com/2015/06/angular-2-in-visual-studio-2015-with-typescript>
+
+    Or For Visual Studio Code
+
+    * <https://code.visualstudio.com/Docs/languages/typescript>
+
+
+section.exercise
+  :markdown
+    ## Exercise - Atom
+
+    Atom is an editor that has been getting some traction lately. It has an excellent typescript plugin with intellisense, and syntax highighting, and has been described as "faster than visual studio".
+
+    If you'd like to have a try, you can get the typescript package here:
+
+    * <https://atom.io/packages/atom-typescript>

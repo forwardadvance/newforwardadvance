@@ -57,9 +57,9 @@ section
       constructor: function() {
         var vm = this;
         vm.liked = new ng.core.EventEmitter();
-        vm.handleClick =  => {
+        vm.handleClick = () => {
           console.log('clicked');
-          vm.liked.next();
+          vm.liked.emit();
         }
       }
     })

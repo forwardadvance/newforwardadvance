@@ -1,0 +1,87 @@
+section
+  :markdown
+    To build TypeScript with Webpack we need a typescript loader. Loaders are little adapters that hook into the Webpack compiler and transform the files in some way.
+
+    There are many loaders. We can transform SASS, we can pack jpegs, we can inline templates. The one we will use here is the ts-loader which can compile TypeScript.
+
+    First we install the TypeScript loader, like so:
+
+    ```bash
+    npm init
+    npm install webpack -g
+    npm install typescript --save-dev
+    npm install ts-loader --save-dev
+    ```
+
+    This will make the loader available to webpack.
+
+    ## Webpack.config.js
+
+    The next thing we must do is create a webpack.config.js file to tell webpack how to build. Create the file, and put the following into it:
+
+    ```
+    module.exports = {
+      entry: './source/app.ts',
+      output: {
+        filename: 'build/app.js'
+      },
+      resolve: {
+        extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
+      },
+      module: {
+        loaders: [
+          { test: /\.ts$/, loader: 'ts-loader' }
+        ]
+      }
+    }
+    ```
+
+    You may need to update entry and output to match your files.
+
+    ## Building
+
+    Now we can build. At a command line type webpack. The source/app.ts file will be converted into build/app.js
+
+section.exercise
+  :markdown
+    ## Exercise - build the app.
+
+    Set up webpack following the instructions above. Create an app.ts file that will console.log "Hello Webpack"
+
+    Now build it using webpack.
+
+    Create an index.html file that includes build/app.js. open it in a console, and verify it does indeed do the console.log.
+
+
+section
+  :markdown
+    ## TypeScript imports and exports
+
+    TypeScript gives us import and export statements that Webpack can compile down to plain old commonJS modules.
+
+    To export a class from a cat.js file, use:
+
+    ```
+    export class Cat {}
+    ```
+
+    Now to import the Cat class into another file, use:
+
+    ```
+    import { Cat } from './cat.js';
+    ```
+
+
+section.exercise
+  :markdown
+    ## Exercise - Create a cat class
+
+    Create a simple Cat class in a file called source/cat.ts that has a miow function. Now export it.
+
+    In your source/app.ts file, import the cat. Now call it and try to make it miow.
+
+section
+  :markdown
+    ## Further Reading
+
+    * http://www.jbrantly.com/typescript-and-webpack/

@@ -1,0 +1,204 @@
+section
+  :markdown
+    Pretty much every major language in the world has a module system.  Modules are just bits of stuff that can be pulled in and used.
+
+    Every major language that is, apart from the three we use most: JavaScript, HTML and CSS. This is probably more of an issue than you have ever realised. If you've never used modules, you might be wondering why you need them. To this, I'd answer that you'll have to trust me on this for now. Give it 5 minutes, and then see how you feel.
+
+    ## Webpack lets you define your assets as modules, and choose how to build them
+
+    Webpack allows you to define all your front end assets as modules. It also allows you to build these assets from precursor languages. Want to write SASS instead of CSS? Webkit can compile that for you. Need JSX, or TypeScript, of CoffeeScript? Webkit has you covered.
+
+    ## Installation
+
+    Installation is via npm:
+
+    ```
+    npm install webpack -g
+    ```
+
+    ## Compiling JavaScript
+
+    Give Webpack an entry point and an output file:
+
+    ```
+    webpack ./app.js app.bundle.js
+    ```
+
+    ## Creating a JavaScript module
+
+    We can define modules in JavaScript using the CommonJS syntax, as for Node. Any file can export an object or funtion by writing to module.exports, like so:
+
+    **cats.js**
+
+    ```
+    var cats = ['dave', 'henry', 'martha'];
+    module.exports = cats;
+    ```
+
+    Any other file can then require that code from the file, by specifying an absolute path to the file:
+
+    **app.js**
+
+    ```
+    cats = require('./cats.js');
+    console.log(cats);
+    ```
+
+    ## Requiring node modules
+
+    We can also require any other node module from npm. Rather than a path, we give the name of the module, like so:
+
+    ```
+    var ng = require('angular2');
+    ```
+
+    We must have first installed angular2 into our node modules directory using:
+
+    ```bash
+    npm install angular2
+    ```
+
+    We now have a local copy of Angular in a local variable.
+
+section.exercise
+  :markdown
+    ## Exercise - Get Webpack Running
+
+    In this exercise, I would like you to simply get some webpack running.
+
+    Create an app.js file in a folder called source. Put a simple console.log into it. Now run:
+
+    ```bash
+    webpack source/app.js build/app.js
+    ```
+
+    Check inside the build folder. You should see a nice little file called app.js that contains the same code as the source.
+
+    ## Extension - watching
+
+    Run Wepback with the -w flag like so. You are now watching for changes. If app.js or any of its dependencies update, the file will be rebuilt.
+
+    ```bash
+    webpack source/app.js build/app.js -w
+    ```
+
+    Create an index.html file. Now include a script tag in the header:
+
+    ```html
+    <script src="build/app.js"></script>
+    ```
+
+    Update your source/app.js and save it. Now refresh the browser. Verify that the file has been rebuilt and you are seeing the new code.
+
+    ## Further Extension - imports
+
+    Make another file called source/cat.js. Export a function from this file that just alerts the word miow. Do this by writing the function to module.exports.
+
+    Now require the function in source/app.js. Call the function. Verify it works.
+
+
+section.exercise
+  :markdown
+    ## Exercise - Build some Angular
+
+    Now we can do the basics, let's use webpack to modularise our Angular 2 code.
+
+    There are quite a lot of dependencies. We can get them from NPM. Create a package.json file and put the following in it:
+
+    ```json
+    {
+      "name": "webpack_demo",
+      "version": "1.0.0",
+      "description": "",
+      "main": "index.js",
+      "scripts": {},
+      "author": "",
+      "license": "ISC",
+      "devDependencies": {
+        "@angular/common":  "2.0.0-rc.1",
+        "@angular/compiler":  "2.0.0-rc.1",
+        "@angular/core":  "2.0.0-rc.1",
+        "@angular/http":  "2.0.0-rc.1",
+        "@angular/platform-browser":  "2.0.0-rc.1",
+        "@angular/platform-browser-dynamic":  "2.0.0-rc.1",
+        "@angular/router":  "2.0.0-rc.1",
+        "@angular/router-deprecated":  "2.0.0-rc.1",
+        "@angular/upgrade":  "2.0.0-rc.1",
+        "systemjs": "0.19.27",
+        "core-js": "^2.4.0",
+        "reflect-metadata": "^0.1.3",
+        "rxjs": "5.0.0-beta.6",
+        "zone.js": "^0.6.12"
+      }
+    }
+    ```
+
+    Now npm install to get them all.
+
+    We can now make use of the dependencies in our code.
+
+    in build/app.js, do something like this:
+
+    ```
+    require('reflect-metadata');
+    require('rxjs');
+    require('zone.js');
+    var platform = require('@angular/platform-browser-dynamic');
+    var AppComponent = require('./app.component')
+
+    document.addEventListener('DOMContentLoaded', function() {
+      platform.bootstrap(AppComponent);
+    });
+    ```
+
+    Now we need to create the component. Make a file called source/app.component.js and put the following into it:
+
+    ```
+    var core = require('@angular/core');
+
+    module.exports = core.Component({
+      selector: "app",
+      template:
+      `
+        Hello Webpack!
+      `
+    })
+    .Class({
+      constructor: function() {
+        this.isHidden = true;
+        this.x = 'test';
+        this.color = 'blue';
+      }
+    })
+    ```
+
+    Build with webpack.
+
+    Now we just need some html:
+
+    ```html
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title></title>
+        <script src="build/build.js"></script>
+      </head>
+      <body>
+        <app></app>
+      </body>
+    </html>
+    ```
+
+    Notice that the only script dependency is app.js. This is because we are requiring everything else into app.js.
+
+    ## Extension
+
+    Take your user select exercise from yesterday and attempt to rebuild it using webpack.
+
+
+section
+  :markdown
+    ## Further Reading
+
+    * <http://webpack.github.io/docs/installation.html>
+    * [Webpack your bags](http://blog.madewithlove.be/post/webpack-your-bags/) ) - a very good introduction on how to setup a real-world project using Webpack.

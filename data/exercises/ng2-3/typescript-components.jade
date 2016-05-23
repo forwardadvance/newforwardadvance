@@ -1,0 +1,70 @@
+//- TODO Written late at night. Refactor please. In Particu;ar, explain what the files are called and where they go
+
+
+
+section
+  :markdown
+    Now that we can compile TypeScript, it's time to build an app.
+
+    First up we'll need some HTML. We can import everything explicitly, or we can use webpack to bundle all our dependencies.
+
+    ```
+    <html>
+      <head>
+        <title>Hello World</title>
+        <script src="lib/es6-shim.min.js"></script>
+        <script src="lib/angular2-polyfills.js"></script>
+        <script src="lib/Rx.umd.js"></script>
+        <script src='app/app.js'></script>
+      </head>
+      <body>
+        <app></app>
+      </body>
+    </html>
+    ```
+
+    ## app.ts
+
+    Next we need our bootstrapper object that will start the whole thing. This will look something like this:
+
+    ```
+    import {bootstrap} from 'angular2/platform/browser'
+    import {AppComponent} from './app.component'
+
+    bootstrap(AppComponent);
+    ```
+
+    If you have your compiler running you will notice that it fails at this point because it can't find app.component. We'll make this now.
+
+    ## app.component.ts
+
+    App.component looks like this. Notice how, instead of ng.core.component, we use the @component decorator. Instead of .Class, we export an actual class.
+
+    Apart from this, all else is the same. We can still do inputs and events. We still have directives.
+
+    ```
+    import {Component} from 'angular2/core';
+
+    @Component({
+        selector: 'app',
+        template: `
+          <h1>Hello World</h1>
+        `
+    })
+    export class AppComponent { }
+    ```
+
+
+
+section.exercise
+  :markdown
+    ## Exercise - Implement the hello world above
+
+    Try to get the simple hello world running in a browser. IF you manage this. Try to implement the small app with the header, footer and cat we made yesterday.
+
+
+section.exercise
+  :markdown
+    ## Harder Exercise - Tab Pane
+
+    Have a go at implementing your tab pane using TypeScript. Use the Hello World as a jumping off point, then rewrite the Tab Pane js files into TypeScript.
