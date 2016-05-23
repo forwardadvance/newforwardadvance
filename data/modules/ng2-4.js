@@ -1,13 +1,44 @@
 module.exports = {
-  title: 'Client / Server interaction with Angular 2',
+  title: 'Angular Client Server Interaction',
   duration: 0.5,
   slug: 'ng2-4',
   price: 2250,
-  description: '',
+  description: 'We build an app based on the Flickr API, split it into services, and convert it to TypeScript. Introducing Karma and Jasmine',
   exercises: [
+
     {
       title: 'ajax',
       slug: 'ajax',
+      description: '',
+      github: '',
+      learnings: []
+    },
+
+
+    {
+      title: 'Inline Templates and ngIf',
+      slug: 'inline-templates',
+      description: '',
+      github: '',
+      learnings: []
+    },
+    {
+      title: 'custom-pipes',
+      slug: 'custom-pipes',
+      description: '',
+      github: '',
+      learnings: []
+    },
+    {
+      title: 'shadow-dom',
+      slug: 'shadow-dom',
+      description: '',
+      github: '',
+      learnings: []
+    },
+    {
+      title: 'form-validation',
+      slug: 'form-validation',
       description: '',
       github: '',
       learnings: []
@@ -19,16 +50,10 @@ module.exports = {
       github: '',
       learnings: []
     },
+
     {
-      title: 'di',
-      slug: 'di',
-      description: '',
-      github: '',
-      learnings: []
-    },
-    {
-      title: 'Service Objects',
-      slug: 'services',
+      title: 'Two-Way-Binding Forms in Angular 2',
+      slug: 'two-way-binding',
       description: '',
       github: '',
       learnings: []

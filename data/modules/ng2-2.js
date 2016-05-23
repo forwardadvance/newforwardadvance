@@ -10,37 +10,39 @@ module.exports = {
       title: 'Nesting Components',
       slug: 'nested-components',
       description: '',
-      github: '',
+      github: 'angular2_nested_components_demo',
       learnings: []
     },
     {
       title: 'Making Angular 2 Components Receive Values (inputs)',
-      slug: 'inputs',
+      slug: 'component-inputs',
       description: '',
-      github: '',
+      github: 'angular2_component_inputs_demo',
       learnings: []
     },
     {
       title: 'Event Emitters (Outputs)',
       slug: 'event-emitters',
       description: '',
-      github: '',
+      github: 'angular2_component_event_emitters_demo',
       learnings: []
     },
     {
       title: 'Binding to DOM properties',
       slug: 'property-binding',
       description: 'Angular brings back the DOM',
-      github: '',
+      github: 'angular2_dom_properties_demo',
       learnings: []
     },
+
     {
-      title: 'Two-Way-Binding Forms in Angular 2',
-      slug: 'two-way-binding',
+      title: 'Repeating with ng-for',
+      slug: 'ng-for',
       description: '',
-      github: '',
+      github: 'angular2_ng_for_demo',
       learnings: []
     },
+
   ],
   outline: [
     'Flux and one-way binding',

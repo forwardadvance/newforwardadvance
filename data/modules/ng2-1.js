@@ -38,14 +38,14 @@ module.exports = {
       title: 'Live Binding with Zone.js',
       slug: 'live-binding',
       description: '',
-      github: '',
+      github: 'angular2_live_binding_demo',
       learnings: []
     },
     {
       title: 'Dealing with Browser Events',
       slug: 'events',
       description: '',
-      github: '',
+      github: 'angular2_browser_events_demo',
       learnings: []
     },
   ],
