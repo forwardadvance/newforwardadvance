@@ -166,14 +166,39 @@ section
   :markdown
     ## Building TypeScript
 
-    So we can build TypeScript in a REPL, but this isn't going to get us very far if we actually want to deploy our code.
+    So we can type TypeScript in a REPL, but this isn't going to get us very far if we actually want to deploy our code.
 
     To build TypeScript for real, we use `tsc` that's the TypeScript Compiler. First of all, install TypeScript using NPM:
 
+    ```bash
     npm install typescript --save-dev
+    ```
 
     You should now have access to the `tsc` command.
 
     At a command line, navigate to an app.ts file and type `tsc app.ts`
 
     The file will be built and a js file output in it's place.
+
+
+section.exercise
+  :markdown
+    ## Exercise - Building TypeScript
+
+    Install the TypeScript compiler using npm. Now compile your TypeScript file into a JavaScript file.
+
+    ```
+    tsc app.ts
+    ```
+
+    Harness it into an index.html file and verify that your code works.
+
+    ## Extension
+
+    You can have TypeScript watch for changes in your source file. Use the -w flag to watch for save events:
+
+    ```
+    tsc -w app.ts
+    ```
+
+    Now update your file save it, and check the result in the browser.

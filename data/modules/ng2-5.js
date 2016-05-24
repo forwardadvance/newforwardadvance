@@ -2,7 +2,7 @@ module.exports = {
   title: 'Angular 2 Client Server Interaction',//'Angular 2 Additional Topics',
   duration: 0.5,
   slug: 'ng2-5',
-  price: 2250,
+  price: 750,
   description: '',
   exercises: [
 
@@ -21,20 +21,6 @@ module.exports = {
       learnings: []
     },
     {
-      title: 'custom-pipes',
-      slug: 'custom-pipes',
-      description: '',
-      github: '',
-      learnings: []
-    },
-    {
-      title: 'shadow-dom',
-      slug: 'shadow-dom',
-      description: '',
-      github: '',
-      learnings: []
-    },
-    {
       title: 'form-validation',
       slug: 'form-validation',
       description: '',
@@ -48,31 +34,9 @@ module.exports = {
       github: '',
       learnings: []
     },
-
-    {
-      title: 'Two-Way-Binding Forms in Angular 2',
-      slug: 'two-way-binding',
-      description: '',
-      github: '',
-      learnings: []
-    },
     {
       title: 'observables',
       slug: 'observables',
-      description: '',
-      github: '',
-      learnings: []
-    },
-    {
-      title: 'di',
-      slug: 'di',
-      description: '',
-      github: '',
-      learnings: []
-    },
-    {
-      title: 'Service Objects',
-      slug: 'services',
       description: '',
       github: '',
       learnings: []

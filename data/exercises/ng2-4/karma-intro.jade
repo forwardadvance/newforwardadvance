@@ -1,73 +1,97 @@
 section
   :markdown
-    Unit testing is a process where we test individual parts of an application individually to make sure they actually do what we think they ought to do. Writing unit tests is important for many reasons:
+    Karma is a unit testing framework that works especially nicely with Angular. A unit test will test a single tiny piece of our app. We might write a test for a single controller for example. Unit tests generally don't care about the template, they only test the code. We can write unit tests for template code, but this is generally a little more complex.
 
-    1. It gives us confidence that we have done our jobs properly. We can go to bed happy in the knowledge of a job well done.
-    2. It helps us when it comes time to refactor.
-    3. It helps us upgrade libraries, so we're not stuck on an ancient version of Angular forever.
-    4. It acts as documentation for other developers
-    5. It helps us become better coders.
+    ## What about Jasmine?
 
-    ## Unit testing makes us into better coders
+    Jasmine is a unit testing syntax. It allows us to write tests using an English like syntax. Karma is most commonly written using Jasmine syntax, but can also be written using QUnit, and several other syntaxes.
 
-    This might sound strange, but it is true. Untestable code tends to look like this:
+    If you don't know which syntax to choose, choose Jasmine because it's the most popular, and is the syntax that Angular itself is tested with.
 
-    * Long, complicated functions that do a lot of things
-    * Deep, convoluted dependencies
-    * Poorly thought through APIs
-    * Unparameterised functions with no clear input and output
+    ## Karma CLI
 
-    This is also coincidentally what bad code looks like.
+    Unit tests are only useful if we run them all the time. It would be nice if all our tests could run automatically on save. The Karma CLI gives us this facility. Our tests run in a command line, and will turn green or red depending on the outcome.
 
-    Testable code on the other hand looks like:
+    We can install additional reporters, for example the Nyan cat reporter. The cat will die if a unit test fails.
 
-    * Short, single purpose, well named functions that do one thing.
-    * Flat, injected dependencies.
-    * Well thought through, logical APIs
-    * Parameterised functions that receive input, and do something.
+    ## Installation
 
-    Unit testing forces us to use our code as we go. If we can't test a piece of code, it's a strong sign that we need to go home and have a rethink.
+    First up we need to install Karma. Karma is a NodeJS module, and Node is a JavaScript runtime that runs in your command line. We will need to have Node installed to run Karma. If you don't have it, you can grab it from here:
 
-    ## Karma
+    <http://nodejs.org/>
 
-    Karma is a unit testing framework favoured by the Angular core team. It has excellent integration with Angular, for example you can import Angular modules, and you can mock out AJAX. It contains code to automatically run tests whenever a file is saved.
+    test your installation by typing `node` at a command line.
 
-    We'll be using Karma throughout the duration of this course.
+    ## NPM
 
-    ## Jasmine
+    Once you have Node, you will we use NPM (Node Package Manager) to install a few Karma packages, like so:
 
-    Jasmine is an English-like syntax for writing unit tests. Karma supports several syntaxes, but most people use Jasmine style syntax. Jasmine looks like this:
+    ```bash
+    npm init
+    npm install karma --save-dev
+    npm install -g karma-cli
+    npm install jasmine-core --save-dev
+    npm install karma-jasmine --save-dev
+    npm install karma-chrome-launcher --save-dev
+    ```
+
+    Depending on your exact version of Node and Karma, NPM may complain about missing dependencies. If you see any red error messages, go and get those dependencies too.
+
+    When installing node modules, Don't worry about warnings and occasional errors, these are normal, and npm will usually work around them. You only need to worry if an npm install ends with an error.
+
+    Once Karma is installed, you should be able to type `karma` at a command line and see a helpful message.
+
+    ## Initialise Karma
+
+    Karma needs a karma.conf.js file in the root of your project directory to tell it how to work. Use the command line to navigate to the folder in which you want to work. Now type `karma init`. You will be taken through a wizard which will create the karma.conf.js file. Keep all the defaults for now.
+
+    ```bash
+    karma init
+    ```
+
+    We can now start the Karma runner using:
+
+    ```bash
+    karma start
+    ```
+
+    ## Specifying files
+
+    Karma may be running, but until we give it some files to test, nothing will happen. We need to tell it where to find our JavaScript. Open up the karma.conf.js file, look for the `files` attribute, and change it like so:
 
     ```
-    it( 'should add one and one', () => {
-      expect( 1 + 1 ).toEqual( 2 )
+    files: [
+      'js/*.js',
+      'specs/*.js'
+    ]
+    ```
+
+    This is a list of file paths to look at in order. Karma will use this to include our JavaScript files in order. Put your JavaScripts in the js folder. Put your tests in the specs folder. This will ensure that the JavaScripts are always included before the tests that run them.
+
+    ## Writing a test
+
+    A Karma test contains one or more describe blocks, which can be nested. These define groups of functionality. Inside these are our tests, which are defined using the `it` function. These tests contain numerous expectations.
+
+    If a test fails, the strings in the describe and it blocks will be used to create an error message.
+
+    ```
+    describe('Maths in the universe', function() {
+
+      it('should be the case that 1 plus 1 is 2', function() {
+        expect( 1 + 1 ).toEqual( 2 );
+      })
+
     });
     ```
 
-    In theory, Jasmine tests can be read and understood by a layperson. Jasmine tests should be simple, legible, standard. A new coder should be able to join a team and start reading and writing tests straight away.
-
-    Don't go over-complicating your tests with anything surprising or you have defeated the point of testing. Sensible, well named helper functions are allowed.
 
 
   !=resources(exercise)
 
 section.exercise
   :markdown
-    ## Exercise - Check that basic maths works
+    ## Exercise Karma CLI
 
-    In this exercise, we're going to set up and run some tests in a simple, browser based test harness. In the next section we will automate these tests so they run automatically.
+    Install Node and the Karma CLI following the instructions above. Now write a unit test to test the maths object.
 
-    Download the test harness from the Github repository. Open it in a browser. You should see a space where you can put your tests.
-
-    ## Let's play with Jasmine
-
-    You'll find in your exercise folder a test harness with an index file which you can open in your browser, and a piece of code called maths.js. This exposes a global object called maths. We can run code like `maths.sum(2, 2)` and it will return the result.
-
-    This code is broken. It's down to you to fix it.
-
-    Write code to test and debug maths.sum, maths.power and maths.div. Remember to test edge cases, particularly test with bad data.
-
-    Now use tests to develop subtract and exponent functions. Remember to test edge cases.
-
-    You can view the Jasmine documentation here: <http://jasmine.github.io/2.1/introduction.html>
-
+    Run it in a console. Whenever you save a file, all the tests should run.

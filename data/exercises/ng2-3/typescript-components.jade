@@ -58,11 +58,29 @@ section.exercise
   :markdown
     ## Exercise - Implement the hello world above
 
-    Try to get the simple hello world running in a browser. IF you manage this. Try to implement the small app with the header, footer and cat we made yesterday.
+    Try to get the simple hello world running in a browser. If you manage this. Try to implement the small app with the header, footer and cat we made yesterday.
+
+    Be sure to create separate files for each item component. Use the naming scheme:
+
+    ```
+    cat.component.ts
+    ```
 
 
 section.exercise
   :markdown
-    ## Harder Exercise - Tab Pane
+    ## Harder Exercise - Cat Choice
 
-    Have a go at implementing your tab pane using TypeScript. Use the Hello World as a jumping off point, then rewrite the Tab Pane js files into TypeScript.
+    Use TypeScript to create a cat selector app. Create cat select components which have templates something like:
+
+    ```
+    <a (click)="tab=1">Cat 1</a>
+    ```
+
+    Store the currently selected cat in your app. There can only be one cat selected.
+
+    Now create cat components, passing in the cat and whether or not it is selected.
+
+    bind style.background to set the background colour of the selected cat.
+
+    Build the above using TypeScript components.

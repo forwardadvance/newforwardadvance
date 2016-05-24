@@ -12,13 +12,13 @@ module.exports = {
       github: '',
       learnings: []
     },
-    {
-      title: 'Karma',
-      slug: 'karma-intro',
-      description: '',
-      github: '',
-      learnings: []
-    },
+    // {
+    //   title: 'Karma',
+    //   slug: 'karma-intro',
+    //   description: '',
+    //   github: '',
+    //   learnings: []
+    // },
     {
       title: 'Services and Dependency Injection with ES5',
       slug: 'es5-di',
