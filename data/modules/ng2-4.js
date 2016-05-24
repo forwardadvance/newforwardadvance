@@ -9,7 +9,7 @@ module.exports = {
       title: 'Introducing Jasmine and Unit testing',
       slug: 'jasmine-intro',
       description: '',
-      github: '',
+      github: 'angular2_jasmine_demo',
       learnings: []
     },
     // {
