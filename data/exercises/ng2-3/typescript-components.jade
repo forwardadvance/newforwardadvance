@@ -1,6 +1,4 @@
-//- TODO Written late at night. Refactor please. In Particu;ar, explain what the files are called and where they go
-
-
+//- TODO Bundle the shimps and polyfills into the imports.
 
 section
   :markdown
@@ -8,14 +6,14 @@ section
 
     First up we'll need some HTML. We can import everything explicitly, or we can use webpack to bundle all our dependencies.
 
-    ```
+    ```html
     <html>
       <head>
         <title>Hello World</title>
         <script src="lib/es6-shim.min.js"></script>
         <script src="lib/angular2-polyfills.js"></script>
         <script src="lib/Rx.umd.js"></script>
-        <script src='app/app.js'></script>
+        <script src='build/app.js'></script>
       </head>
       <body>
         <app></app>

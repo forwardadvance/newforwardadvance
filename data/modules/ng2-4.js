@@ -26,7 +26,13 @@ module.exports = {
       github: '',
       learnings: []
     },
-
+    {
+      title: 'Repeating with ng-for',
+      slug: 'ng-for',
+      description: '',
+      github: 'angular2_ng_for_demo',
+      learnings: []
+    },
     {
       title: 'Services and Dependency Injection with TypeScript',
       slug: 'services',
@@ -34,6 +40,7 @@ module.exports = {
       github: '',
       learnings: []
     },
+
   ],
   outline: [
     'Flux and one-way binding',

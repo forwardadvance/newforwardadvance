@@ -77,20 +77,6 @@ module.exports = {
       github: '',
       learnings: []
     },
-    {
-      title: 'services-with-typescript',
-      slug: 'typescript-services',
-      description: '',
-      github: '',
-      learnings: []
-    },
-    {
-      title: 'components-with-typescript',
-      slug: 'components-with-typescript',
-      description: '',
-      github: '',
-      learnings: []
-    },
   ],
   outline: [
     'Flux and one-way binding',
