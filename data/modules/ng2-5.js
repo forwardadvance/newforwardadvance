@@ -7,10 +7,17 @@ module.exports = {
   exercises: [
 
     {
-      title: 'ajax',
+      title: 'AJAX - Talking to a Server',
       slug: 'ajax',
       description: '',
-      github: '',
+      github: 'angular2_ajax_demo',
+      learnings: []
+    },
+    {
+      title: 'AJAX - with a Service',
+      slug: 'ajax-typescript-service',
+      description: '',
+      github: 'angular2_ajax_demo',
       learnings: []
     },
     {
@@ -23,13 +30,6 @@ module.exports = {
     {
       title: 'form-validation',
       slug: 'form-validation',
-      description: '',
-      github: '',
-      learnings: []
-    },
-    {
-      title: 'observables',
-      slug: 'observables',
       description: '',
       github: '',
       learnings: []

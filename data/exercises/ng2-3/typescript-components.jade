@@ -4,19 +4,16 @@ section
   :markdown
     Now that we can compile TypeScript, it's time to build an app.
 
-    First up we'll need some HTML. We can import everything explicitly, or we can use webpack to bundle all our dependencies.
+    We're going to use webpack to bundle all our dependencies, so this can be tiny.
 
     ```html
     <html>
       <head>
         <title>Hello World</title>
-        <script src="lib/es6-shim.min.js"></script>
-        <script src="lib/angular2-polyfills.js"></script>
-        <script src="lib/Rx.umd.js"></script>
-        <script src='build/app.js'></script>
       </head>
       <body>
         <app></app>
+        <script src='build/app.js'></script>
       </body>
     </html>
     ```
@@ -26,17 +23,13 @@ section
     Next we need our bootstrapper object that will start the whole thing. This will look something like this:
 
     ```
-    import 'reflect-metadata';
-    import 'rxjs';
-    import 'zone.js';
-
+    import 'core-js/client/shim'
+    import 'zone.js/dist/zone-node.js'
+    import 'reflect-metadata'
     import { bootstrap }    from '@angular/platform-browser-dynamic';
+    import { AppComponent } from './app.component';
+    bootstrap(AppComponent);
 
-    import {AppComponent} from './app.component'
-
-    document.addEventListener('DOMContentLoaded', function() {
-      bootstrap(AppComponent);
-    });
 
     ```
 
@@ -45,8 +38,6 @@ section
     ## app.component.ts
 
     App.component looks like this. Notice how, instead of ng.core.component, we use the @component decorator. Instead of .Class, we export an actual class.
-
-    Apart from this, all else is the same. We can still do inputs and events. We still have directives.
 
     ```
     import {Component} from '@angular/core';
@@ -62,7 +53,7 @@ section
 
     ## tsconfig.json
 
-    We also need a tsconfig.json file to tell TypeScript how to build. Put this in your root directory.
+    Now we need to set some Angular specific options for the TypeScript compiler. We use a file called tsconfig.json file to tell TypeScript how to build. Put this in your root directory.
 
     ```json
     {
@@ -87,51 +78,65 @@ section
 
     ## Package.json
 
+    Finally we need a package.json file to get out dependencies. Do an `npm install` to download these
+
     ```json
     {
-      "name": "components_demo",
+      "name": "angular2-components",
       "version": "1.0.0",
       "scripts": {
-        "tsc": "tsc -w",
+        "start": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+        "postinstall": "typings install",
+        "tsc": "tsc",
+        "tsc:w": "tsc -w",
         "typings": "typings"
       },
       "license": "ISC",
       "dependencies": {
-      },
-      "devDependencies": {
-
-        "@angular/common":  "2.0.0-rc.1",
-        "@angular/compiler":  "2.0.0-rc.1",
-        "@angular/core":  "2.0.0-rc.1",
-        "@angular/http":  "2.0.0-rc.1",
-        "@angular/platform-browser":  "2.0.0-rc.1",
-        "@angular/platform-browser-dynamic":  "2.0.0-rc.1",
-        "@angular/router":  "2.0.0-rc.1",
-        "@angular/router-deprecated":  "2.0.0-rc.1",
-        "@angular/upgrade":  "2.0.0-rc.1",
+        "@angular/common": "2.0.0-rc.1",
+        "@angular/compiler": "2.0.0-rc.1",
+        "@angular/core": "2.0.0-rc.1",
+        "@angular/http": "2.0.0-rc.1",
+        "@angular/platform-browser": "2.0.0-rc.1",
+        "@angular/platform-browser-dynamic": "2.0.0-rc.1",
+        "@angular/router": "2.0.0-rc.1",
+        "@angular/router-deprecated": "2.0.0-rc.1",
+        "@angular/upgrade": "2.0.0-rc.1",
+        "systemjs": "0.19.27",
         "core-js": "^2.4.0",
         "reflect-metadata": "^0.1.3",
         "rxjs": "5.0.0-beta.6",
         "zone.js": "^0.6.12",
-        "ts-loader": "^0.8.2",
-        "typescript": "^1.7.5",
-        "typings": "^0.6.8"
+        "angular2-in-memory-web-api": "0.0.9",
+        "bootstrap": "^3.3.6"
+      },
+      "devDependencies": {
+        "concurrently": "^2.0.0",
+        "typescript": "^1.8.10",
+        "typings": "^0.8.1",
+        "webpack": "^1.13.1"
       }
     }
+
     ```
+
+
+  !=resources(exercise)
+
 
 
 section.exercise
   :markdown
     ## Exercise - Implement the hello world above
 
-    Try to get the simple hello world running in a browser. If you manage this. Try to implement the small app with the header, footer and cat we made yesterday.
+    1. You'll find a typescript starter in the github repo. Doenload this from the link above.
+    2. Now grab your dependencies. Run `npm install` and all the dependencies defined in `package.json` will be downloaded.
+    3. Now build with by typing `webpack` at the command line.
+    4. You can now open up the index.html file. All being well, you should have a nice hello world.
 
-    Be sure to create separate files for each item component. Use the naming scheme:
+    ## Extension
 
-    ```
-    cat.component.ts
-    ```
+    If you manage this. Try to implement a cat component. Create a new component called `cat.component.ts`. Import it into app.component.js, then try to embed it as a child component of the app.component.
 
 
 section.exercise
@@ -148,6 +153,4 @@ section.exercise
 
     Now create cat components, passing in the cat and whether or not it is selected.
 
-    bind style.background to set the background colour of the selected cat.
-
-    Build the above using TypeScript components.
+    Bind style.background to set the background colour of the selected cat.

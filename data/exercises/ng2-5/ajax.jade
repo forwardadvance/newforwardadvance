@@ -1,36 +1,31 @@
--# TODO Written in a morning before a class. Ouch. Jesus is lord!
+// -# TODO Written in a morning before a class. Ouch. Jesus is lord!
 
-%section
+section
   :markdown
-    # AJAX
+    AJAX is a technology that allows us to talk directly from JavaScript to a server. we can update the page with live data without reloading the page.
 
+    AJAX stands for
 
-    AJAX is a technology that allows us to talk to a server directly from JavaScript without reloading the page.
-
-
-
-
+    * Asynchronous (because it happens in the background)
+    * JavaScript
+    * &
+    * XML (although commonly we use JSON nowadays)
 
     ## JSONP
 
-    JSONP is a hack that allows us to make cross domain requests to a server that doesn't support CORS. It works by injecting a script tag into the page that has the same URL as the site we're trying to access.
+    JSONP is a hack that allows us to make cross domain requests to a server that doesn't support CORS. It works by injecting a script tag into the page that has the same URL as the site we're trying to access. It's superficially
 
     To use it, First we must configure our injector to find the JSONP_PROVIDERS. This is a list of injectable dependencies that will let us do JSONP.
 
-  :ruby
-    code = <<-CODE
+    ```
     document.addEventListener('DOMContentLoaded', function() {
       ng.platform.browser.bootstrap(AppComponent, [ng.http.JSONP_PROVIDERS])
     });
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     Now we can inject it into our constructor, like so:
 
-  :ruby
-    code = <<-CODE
+    ```
     .Class({
         constructor: [ng.http.Jsonp, function(jsonp) {
           var vm = this;
@@ -44,15 +39,12 @@
             })
         }]
       })
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     Notice the JSONP_CALLBACK in the url. This is a magic parameter. Angular will do a find and replace for this value in the string, and will add an actual callback fuction which it wil maintain.
 
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Flickr
 
@@ -77,14 +69,13 @@
     The URL has a tag parameter embedded in it. Create a search field with a button. When the user clicks search, trigger a JSONP request that will perform the search.
 
 
-%section.exercise
+section.exercise
   :markdown
     ## Harder Exercise - Extract the AJAX into a service
 
     Having AJAX in our component is not so pretty. Better to extract it into a service. We can create a service that will receive injectables using ng.core.Class, like so:
 
-  :ruby
-    code = <<-CODE
+    ```
     ng.core.Class({
       constructor: [ng.http.Jsonp, function(jsonp) {
         this.getFeed = function() {
@@ -92,15 +83,12 @@
         }
       }]
     })
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     Build a class like this, and put your call into it. Have it make the AJAX call for you, and return a Promise. In your component you can call getFeed, and have it return the promise, which you can then chain onto.
 
 
-%section
+section
   :markdown
     ## Dropbox Link:
 

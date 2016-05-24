@@ -30,7 +30,7 @@ module.exports = {
       title: 'Angular Components with TypeScript',
       slug: 'typescript-components',
       description: '',
-      github: '',
+      github: 'angular2_typescript_component_demo',
       learnings: []
     },
   ],
