@@ -2,10 +2,8 @@
 //- TODO: Oh help, I'm tired now. Please refactor
 //- PLEASE link to CDN instead of Node Modules
 
-%section
+section
   :markdown
-    # AJAX and TypeScript
-
     In this section, we will use TypeScript to compose an AJAX service.
 
     ## Creating the connection service
@@ -24,73 +22,43 @@
 
     Your HTML will look like this:
 
-  :ruby
-    code = <<-CODE
+    ```html
     <html>
       <head>
         <title>AJAX</title>
-
-        <script src="node_modules/es6-shim/es6-shim.min.js"></script>
-        <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
-        <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
-        <script src="node_modules/systemjs/dist/system.src.js"></script>
-        <script src="node_modules/rxjs/bundles/Rx.js"></script>
-        <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
-        <script src="node_modules/angular2/bundles/http.dev.js"></script>
-
-        <script>
-          System.config({
-            packages: {
-              app: {
-                format: 'register',
-                defaultExtension: 'js'
-              }
-            }
-          });
-          System.import('app/app')
-                .then(null, console.error.bind(console));
-        </script>
-
-
       </head>
       <body>
         <app></app>
+        <script src="app"></script>
       </body>
     </html>
-    CODE
-  =code(code, :html)
+    ```
 
   :markdown
-
     ## Configuring the injector
 
     I would like to make JSONP available globally, so I configure the injector in my **app.ts** file, like so:
 
-  :ruby
-    code = <<-CODE
-    import {bootstrap}    from 'angular2/platform/browser'
+    ```
+    import {bootstrap}    from '@angular/platform-browser-dynamic'
     import {AppComponent} from './app.component'
-    import {JSONP_PROVIDERS} from 'angular2/http'
+    import {JSONP_PROVIDERS} from '@angular/http'
 
     bootstrap(AppComponent, [JSONP_PROVIDERS]);
 
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     ## Creating the Service and Making it Injectable
 
     Now we can create our service. Here is a weather.service.ts
 
-  :ruby
-    code = <<-CODE
-    import {Injectable} from 'angular2/core';
-    import {Jsonp} from 'angular2/http';
+    ```
+    import {Injectable} from '@angular/core';
+    import {Jsonp} from '@angular/http';
 
     @Injectable()
     export class WeatherService {
-      cats
+      url
       constructor(jsonp: Jsonp) {
         this.url = "http://www.myweather.com/getweather" // Note this is not a real weather URL!
         this.jsonp = jsonp;
@@ -99,10 +67,8 @@
           return jsonp.get(this.url)
       }
     }
-    CODE
-  =code(code)
+    ```
 
-  :markdown
     Notice the @Injectable decorator. This is essentially an empty decorator.
 
     TypeScript will only emit typing metadata if there is a decorator that might depend on it. Using this decorator forces TypeScript to emit the metadata, which allows Angular to determine the types for injection.
@@ -111,9 +77,10 @@
 
     Now we have our service, we can inject it into a weather component (`weather.component.ts`).
 
-  :ruby
-    code = <<-CODE
-    import {Component} from 'angular2/core';
+    We add it to the list of Providers. This makes it injectable. Then we
+
+    ```
+    import {Component} from '@angular/core';
     import {WeatherService} from './weather.service';
 
     @Component({
@@ -134,13 +101,9 @@
           })
       }
     }
-    CODE
-  =code(code)
+    ```
 
-
-
-
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Flickr
 

@@ -1,37 +1,59 @@
 module.exports = {
   title: 'Angular 2 Additional Topics',
   duration: 0.5,
-  slug: 'ng2-5',
+  slug: 'ng2-6',
   price: 750,
   description: '',
   exercises: [
 
     {
-      title: 'hierarchical-injectors',
-      slug: 'hierarchical-injectors',
-      description: '',
-      github: '',
-      learnings: []
-    },
-    {
       title: 'Two-Way-Binding Forms in Angular 2',
       slug: 'two-way-binding',
       description: '',
-      github: '',
+      github: 'angular2_two_way_binding_demo',
       learnings: []
     },
     {
-      title: 'custom-pipes',
+      title: 'Custom Pipes',
       slug: 'custom-pipes',
       description: '',
-      github: '',
+      github: 'angular2_custom_pipes_demo',
+      learnings: []
+    },
+    // {
+    //   title: 'Form Validation',
+    //   slug: 'form-validation',
+    //   description: '',
+    //   github: '',
+    //   learnings: []
+    // },
+    // {
+    //   title: 'Observables',
+    //   slug: 'observables',
+    //   description: '',
+    //   github: '',
+    //   learnings: []
+    // },
+
+    {
+      title: 'Hierarchical Injectors',
+      slug: 'hierarchical-injectors',
+      description: '',
+      github: 'angular2_hierarcical_injectors_demo',
       learnings: []
     },
     {
-      title: 'shadow-dom',
+      title: 'Inline Templates and ngIf',
+      slug: 'inline-templates',
+      description: '',
+      github: 'angular2_inline_templates_demo',
+      learnings: []
+    },
+    {
+      title: 'Styling Components with the Shadow DOM',
       slug: 'shadow-dom',
       description: '',
-      github: '',
+      github: 'angular2_shadow_dom_demo',
       learnings: []
     },
   ],

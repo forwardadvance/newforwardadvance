@@ -32,8 +32,7 @@ section
           vm.cats = [];
           var url = "http://my-server.com/cats.json?callback=JSONP_CALLBACK"
           jsonp.get(url)
-            .toPromise()
-            .then(function(response) {
+            .subscribe(function(response) {
               console.log(response.json());
               vm.cats = response.json()
             })

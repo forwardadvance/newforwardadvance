@@ -1,6 +1,8 @@
 section
   :markdown
-    A TypeScript service is just an exported TypeScript class. We define it in a file, then export it:
+    A TypeScript service is just a plain old TypeScript class, which ultimately is a newable. In Angular 1, services needed to be special Angular objects because Angular 1 had it's own module system and string based DI.
+
+    In Angular 2, and class or newable function can be a service.
 
     ```
     @Injectable()
@@ -13,6 +15,7 @@ section
 
     The @injectable decorator at the top is a blank decorator. It's only purpose is to trick TypeScript into storing type data about the object. The presence of a decorator means that type info might be required, so Angular holds onto it using Reflect.Metadata.
 
+    ## Import the service
 
     We can then import this into a component like this:
 
@@ -39,20 +42,23 @@ section
 
     Our Component receives a CatService, and yet we never manually made one. Angular has made one for us. We call this Dependency Injection.
 
-    Notice the providers attribute of the component. This tells Angular to create an injector for this component, so the component can receive a CatService.
+    Notice the providers attribute of the component. This tells Angular to create an injector for this component, so the component can receive a CatService. Angular will take care of making it for us.
 
     Now notice the class constructor. It receives a catService of type CatService. This is enough for Angular to know that it must make a CatService and pass it in.
+
+  !=resources(exercise)
 
 section.exercise
   :markdown
     ## Exercise - A Service
 
-    Extend your ng-for exercise from earlier such that we pull the cat data from a service. Use ng-for to iterate over the list and output the cats.
+    In your exercise folder you'll find an app that renders a list of cats using ng-for. The cats are currently hardcoded into the component.
 
-section.exercise
-  :markdown
-    ## Exercise - testing
+    To build this application:
 
-    Finally, we would like to be able to test our service. The Angular core team have put together a full and up-to-date guide on this. Follow the instructions here to set up a Karma test to run on it.
+    1. First download the dependencies with `npm install`.
+    2. Can compile this application by typing: `webpack -w`.
 
-    <https://angular.io/docs/ts/latest/guide/webpack.html>
+    Convert this to use a service instead, so that the list of cats comes from a service.
+
+    I would like the component to receive `cats:Cats` in the constructor, and then call `this.cats = cats.get()` to get the cats`

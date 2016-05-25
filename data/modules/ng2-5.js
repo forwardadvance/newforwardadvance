@@ -7,6 +7,20 @@ module.exports = {
   exercises: [
 
     {
+      title: 'Services and Dependency Injection with TypeScript',
+      slug: 'services',
+      description: '',
+      github: 'angular2_services_demo',
+      learnings: []
+    },
+    {
+      title: 'Unit Testing Services with Karma and TypeScript',
+      slug: 'unit-testing-services',
+      description: '',
+      github: 'angular2_service_testing_demo',
+      learnings: []
+    },
+    {
       title: 'AJAX - Talking to a Server',
       slug: 'ajax',
       description: '',
@@ -18,27 +32,6 @@ module.exports = {
       slug: 'ajax-typescript-service',
       description: '',
       github: 'angular2_ajax_demo',
-      learnings: []
-    },
-    {
-      title: 'Inline Templates and ngIf',
-      slug: 'inline-templates',
-      description: '',
-      github: '',
-      learnings: []
-    },
-    {
-      title: 'form-validation',
-      slug: 'form-validation',
-      description: '',
-      github: '',
-      learnings: []
-    },
-    {
-      title: 'observables',
-      slug: 'observables',
-      description: '',
-      github: '',
       learnings: []
     },
   ],

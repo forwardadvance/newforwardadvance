@@ -1,8 +1,5 @@
-
-%section
+section
   :markdown
-    # Styling Components with the Shadow DOM
-
     First up, the Shadow DOM is not real - yet. Unless you want to restrict yourself to Chrome and Android Browser, we can't use it at time of writing. However, Angular does a reasonable job of polyfilling some of the features to give us a taste of what it might be like.
 
     The Shadow DOM is a proposed future browser feature that will allow us to create separate regions of a webpage that work like separate documents embedded in the main document. It's being pushed by Google, but has precisely zero traction in other browsers at time of writing
@@ -23,8 +20,7 @@
 
     We add styles to our component by passing a styles attribute to our component's constructor or decorator.
 
-  :ruby
-    code = <<-CODE
+    ```
     var AppComponent = ng.core
       .Component({
         selector: "app",
@@ -45,49 +41,37 @@
     document.addEventListener('DOMContentLoaded', function() {
       ng.platform.browser.bootstrap(AppComponent, [])
     });
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     ## This generates namespaced styles
 
     If we look inside the head section of our generated DOM, we see a new style tag like this:
 
-  :ruby
-    code = <<-CODE
+    ```html
     <style>
       div[_ngcontent-frc-1] {
         background:red;
       }
     </style>
-    CODE
-  =code(code, :html)
-
-  :markdown
+    ```
 
     The key thing is this: `[_ngcontent-frc-1]`. This is a CSS2 attribute selector. It will select only elements that have an _ngcontent-frc-1 attribute. If we look inside our DOM at the component, we'll find a matching attribute has been appended to our template:
 
-  :ruby
-    code = <<-CODE
+    ```html
     <app _nghost-frc-1>
       <div _ngcontent-frc-1>hello from the shadow DOM</div>
     </app>
-    CODE
-  =code(code, :html)
-
-  :markdown
+    ```
 
     Angular is using random generated attributes to namespace portions of the DOM, so the styles only apply to those components. This gives us much of the functionality of the shadow DOM in non-supporting browsers.
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Shadow Dom
 
     In this exercise, we are are going to add styling to this little user tab bar component:
 
-  :ruby
-    code = <<-CODE
+    ```
     ng.core.Component({
       ...
       template:
@@ -106,15 +90,11 @@
       `
       ...
     });
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     Your styles might look something like this:
 
-  :ruby
-    code = <<-CODE
+    ```css
     ul, li {
       margin:0;
       padding:0;
@@ -129,10 +109,7 @@
       background:#f88;
       border-radius:10px 10px 0 0;
     }
-    CODE
-  =code(code, :css)
-
-  :markdown
+    ```
 
     ## Extension, custom styles
 
@@ -140,28 +117,20 @@
 
     You can add a class to an element by binding to the class property, like so:
 
-  :ruby
-    code = <<-CODE
+    ```
     [class.selected]="tab=='edit'">
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     This will add a class of selected if the expression evaluates to true.
 
     Add in the class binding, and apply some styling like this:
 
-  :ruby
-    code = <<-CODE
+    ```
     .selected a {
       background:#f00;
       color:%fff;
     }
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     Now you should have a tab that changes colour when it is selected.
 
@@ -171,10 +140,8 @@
 
     Make it so that your tab bar emits a tabSelected event when one of the tabs is clicked. Now add three divs beneath the pane that are hidden until the corresponding tab is clicked.
 
-
-%section
+section
   :markdown
-
     ## Disabling or going native
 
     If we are only targeting Chrome or Android: perhaps we are building an mobile app for example, we can turn on full native shadow DOM support.
@@ -183,8 +150,7 @@
 
     It looks like this:
 
-  :ruby
-    code = <<-CODE
+    ```
     var AppComponent = ng.core
       .Component({
         selector: "app",
@@ -201,16 +167,11 @@
       .Class({
         constructor: function() {}
       })
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     Now our DOM looks like this:
 
-  :ruby
-    code = <<-CODE
-
+    ```html
     <app>
       #shadow-root
         <style>
@@ -221,14 +182,10 @@
         <div>hello from the shadow DOM</div>
       /#shadow-root
     </app>
-    CODE
-  =code(code, :html)
-
-  :markdown
+    ```
 
     That #shadow-root specifies a new shadow DOM. You can see the styles are nested inside that shadow root.
-
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Enable the shadow DOM
 

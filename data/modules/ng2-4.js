@@ -33,13 +33,6 @@ module.exports = {
       github: 'angular2_ng_for_demo',
       learnings: []
     },
-    {
-      title: 'Services and Dependency Injection with TypeScript',
-      slug: 'services',
-      description: '',
-      github: '',
-      learnings: []
-    },
 
   ],
   outline: [

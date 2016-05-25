@@ -1,0 +1,33 @@
+section
+  :markdown
+    Services are one of the easiest parts of Angular to test. We simply require them in our test, instantiate them, and
+
+    The tricky part is setting up the test harness. The currently recommended way to run unit tests in Angular is in the browser. We can use live-server to refresh the browser each time a file is saved. We use webpack to automatically build a specs.ts file into a js file suitable for the browser.
+
+    All we need to do then is write tests that require our code, and then include those tests in our harness.
+
+    In the github exercise folder you will find one such harness, adapted from the official Angular 2 guidelines. Take a look and have a poke around, then attempt the exercise to get it running.
+
+  !=resources(exercise)
+
+section.exercise
+  :markdown
+    ## Exercise - Testing the Cat Service
+
+    In the exercise folder in the Github repo you will find a TypeScript application which displays a list of cats.
+
+    1. First download the dependencies with `npm install`
+    2. You can compile this application by typing: `webpack -w`
+    3. Open the test folder with `npm run test`
+
+    You should see a simple test that demonstrates that true is indeed true. Edit the `source/cats.service.spec.ts` file to add in a real test. Create a new instance of the service, call cats.get() on it, and check that it does indeed give you cats.
+
+    ## Extension
+
+    Add methods to the cat service I would like to be able to:
+
+    * add a cat
+    * remove a cat
+    * count the cats.
+
+    Build the service methods against tests, and then for bonus points optionally integrate the new methods into your app.
