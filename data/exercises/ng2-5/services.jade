@@ -8,7 +8,7 @@ section
     @Injectable()
     export class CatService {
       getCats() {
-        ['Manny', 'Francis', 'Terry Wogan'];
+        return ['Manny', 'Francis', 'Terry Wogan'];
       }
     }
     ```
@@ -31,9 +31,9 @@ section
       providers: [CatService]
     })
     export class AppComponent implements OnInit {
-      constructor(private catService: CatService) { }
+      constructor(private cats: CatService) { }
       ngOnInit() {
-        this.cats = this.catService.getCats();
+        this.cats = cats.getCats();
       }
     }
     ```
