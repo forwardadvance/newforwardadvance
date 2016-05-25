@@ -31,7 +31,7 @@ module.exports = {
       title: 'AJAX - with a Service',
       slug: 'ajax-typescript-service',
       description: '',
-      github: 'angular2_ajax_demo',
+      github: 'angular2_ajax_sevice_demo',
       learnings: []
     },
   ],
