@@ -12,31 +12,50 @@ module.exports = {
       slug: 'di-and-services',
       title: 'Services and Dependency Injection (DI)',
       description: 'Dependency Injection allows us to require components simply be referring to them. Learn about DI and also split your code into sensible modules.',
-      github: 'angular_di_demo'
+      github: 'angular_di_demo',
+      learnings: [
+        'Dependency Injection (DI)',
+        'Services, Factories, Values and Constants'
+      ]
     },
     {
       slug: 'karma-intro',
       title: 'Intoduction to Unit Testing',
       description: 'All good developers write unit tests. This is ongoing through the rest of the course.',
-      github: 'angular_karma_intro_demo'
+      github: 'angular_karma_intro_demo',
+      learnings: [
+        'Reasons for writing unit tests',
+        'Karma & Jasmine',
+        'Jasmine Syntax'
+      ]
     },
-    {
-      slug: 'karma-cli',
-      title: 'Karma CLI - testing on the command line',
-      description: 'Tests are only useful when they run all the time. The Karma CLI is a background test runner that will execute all tests on save.',
-      github: 'angular_karma_cli_demo'
-    },
+    // {
+    //   slug: 'karma-cli',
+    //   title: 'Karma CLI - testing on the command line',
+    //   description: 'Tests are only useful when they run all the time. The Karma CLI is a background test runner that will execute all tests on save.',
+    //   github: 'angular_karma_cli_demo'
+    // },
     {
       slug: 'karma-services',
       title: 'Testing a Service with Karma',
       description: 'Here we see how to use Karma to automate service tests.',
-      github: 'angular_karma_service_demo'
+      github: 'angular_karma_service_demo',
+      learnings: [
+        '',
+        '',
+        ''
+      ]
     },
     {
       slug: 'karma-controllers',
       title: 'Testing a Controller with Karma',
       description: 'Here we see how to use Karma to automate controller tests.',
-      github: 'angular_karma_controller_demo'
+      github: 'angular_karma_controller_demo',
+      learnings: [
+        '',
+        '',
+        ''
+      ]
     },
     // {
     //   slug: 'custom-filters',

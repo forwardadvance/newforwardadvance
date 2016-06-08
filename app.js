@@ -169,6 +169,7 @@ app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userControl
   */
 app.get('/courses', courseController.index);
 app.get('/course/:courseSlug', getCourse, courseController.show);
+app.get('/course/:courseSlug/book', getCourse, courseController.book);
 app.get('/course/:courseSlug/:moduleSlug/:exerciseSlug', getCourse, getCourseModule, getExercise, exerciseController.show);
 
 /**

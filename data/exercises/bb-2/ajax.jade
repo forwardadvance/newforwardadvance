@@ -1,0 +1,39 @@
+# Persistence
+
+Backbone gives us a simple built in persistence layer that works with a fairly standard REST API. We are also free to over-ride this and use whatever tools we like to access our backend.
+
+We can call fetch on a collection or a model, and a URL will be composed for us. Alternately we can write out own code to pull the data.
+
+
+
+## Exercise
+
+You have IIS installed on your machine, allowing you to access localhost.
+
+Create a JSON object representing a cat. Use fetch to pull it from the server. When you start up your app, your model should be prepopulated with data from your "server".
+
+Now do the same for a cats collection.
+
+<http://backbonejs.org/#Collection-parse>
+
+
+
+## JSONP exercise: Pull your Facebook profile
+
+You can use the following URL to get your Facebook id.
+
+<http://findmyfacebookid.com/>
+
+Now access the graph API to pull your Facebook details. Save them in a model, and render them in a view.
+
+<http://graph.facebook.com/539828178>
+
+
+
+## Further exercise: The weather
+
+You can use open weather map to get the current weather.
+
+<http://openweathermap.org/current>
+
+Pull a feed, and use it to create a weather object. Optionally give your cats a temperature preference. If it's too cold outside, exclude them from the list.

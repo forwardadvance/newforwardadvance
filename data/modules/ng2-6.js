@@ -35,13 +35,13 @@ module.exports = {
     //   learnings: []
     // },
 
-    {
-      title: 'Hierarchical Injectors',
-      slug: 'hierarchical-injectors',
-      description: '',
-      github: 'angular2_hierarcical_injectors_demo',
-      learnings: []
-    },
+    // {
+    //   title: 'Hierarchical Injectors',
+    //   slug: 'hierarchical-injectors',
+    //   description: '',
+    //   github: 'angular2_hierarcical_injectors_demo',
+    //   learnings: []
+    // },
     {
       title: 'Inline Templates and ngIf',
       slug: 'inline-templates',

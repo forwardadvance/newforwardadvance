@@ -4,7 +4,7 @@ $print-border-color: #aaa;
 
 
 @media print {
-  header,footer, nav.top_nav, #disqus_thread, aside.sidenote {
+  header,footer, nav.top_nav, #disqus_thread, aside.sidenote, nav.sharing {
     display:none;
   }
 

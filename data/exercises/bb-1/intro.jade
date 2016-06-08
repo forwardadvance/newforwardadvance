@@ -1,0 +1,180 @@
+:markdown
+  Backbone is a the grand-daddy of all the JavaScript MVC frameworks. It's the progenitor of frameworks like Ember, Angular, even Meteor. It's a sensibly put together library full of tools to help you organise your web application, a toolkit for tidy JavaScript.
+
+  Backbone is a toolkit for tidy JavaScript.
+
+  You can use it to enhance your existing site, to add interactivity to a form for example, or you can go all out and create a single page app (SPA), where the entire site is generated clientside using JavaScript.
+
+  Backbone comes packaged as a single JavaScript file which you link in the header of your page. It's purely clientside, and says very little about your server. Your server should ideally expose a restful JSON API, but this is not a requirement.
+
+  Backbone engages in no magic, is very readable, and doesn't try to do too much for you.
+
+  # Architecture
+
+  Backbone provides you with a Model View (MV) architecture. Unlike other JavaScript frameworks, there are no controllers. The view works a little like a controller.
+
+  ## Models
+
+  Your model is where you store your data. If you have an app for tracking sharks in the ocean, you might have a Shark model which would store the location and name of a shark.
+
+  Models fire off events when they change. If your shark eats a swimmer and gains 10 notoriety points, it will fire an event to that effect.
+
+  ## Views
+
+  A view in Backbone is a region on the page into which Backbone will output some data. A view might be a form, or a map of sharks in the sea. Your page will be built up of one or more views.
+
+  Views can listen to model events and redraw themselves when the model they are attached to changes.
+
+  ## Collections
+
+  A Backbone collection is an array of models. If you have 100 sharks, you would store those in a collection. If you tag a new shark, you might add it to the collection.
+
+  Collections can also fire events. A view can listen to a collection.
+
+  ## Router
+
+  The Backbone Router uses JavaScript pushstate to change the URL in the address bar, allowing you to create an entire website clientside without hitting the server.
+
+aside.box
+  :markdown
+    ## Backbone is a library, not a framework
+
+    * A library is a set of functions and objects which you make use of in your code.
+    * A framework wires your code together and calls it for you.
+
+    Backbone is a library.
+
+    You can use any of the Backbone components in any way you see fit, but it's up to you write the wiring code.
+
+:markdown
+  # Getting started
+
+  Backbone depends on:
+
+  ## Underscore
+
+  an excellent library of useful JavaScript functions, including functions for functional style array and object manipulation, plus genuinely useful utility methods.
+
+  Download here: <http://underscorejs.org/>
+
+  ##JQuery
+
+  Everyone's favourite DOM mainpulation tool. Choose 1.x if you want to support legacy browsers. Choose 2.x if you want a smaller faster codebase.
+
+  Download here: <http://jquery.com/>
+
+aside.sidenote Backbone depends on JQuery & Underscore
+
+:markdown
+  ## Boilerplate
+
+  A super stripped down Backbone boilerplate for local development might look something like this:
+
+  ```html
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title></title>
+      <script src="underscore.js"></script>
+      <script src="jquery.js"></script>
+      <script src="backbone.js"></script>
+      <!-- your code goes in app.js -->
+      <script src="app.js"></script>
+    </head>
+    <body>
+    </body>
+  </html>
+  ```
+
+  ## Content Delivery Network (CDN)
+
+  You might also serve the libraries directly from a Content Delivery Network (CDN). Here are some options:
+
+  * <http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js>
+  * <http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js>
+  * <http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js>
+
+  If you serve from a CDN you will need to be connected to the internet to work on your site.
+
+
+
+
+
+
+
+
+
+
+
+  ## Course Outline
+
+  * Models
+  * Views
+  * JQuery review
+  * Events (plus avoiding memory leaks)
+  * Building a simple App
+  * Collections
+  * Building a better App
+
+  ## Further work
+
+  * Routing
+  * Persistence (local and remote)
+  * Testing (With Sinon or QUnit)
+  * Marionette
+
+  # How this course will run
+
+  * Dropbox for code sharing - don't download the whole folder!
+  * Demo and exercise files - updated as we go
+  * Plain text editor
+  * Live code demos
+  * Exercises with Components
+  * Progressing to actual apps, as soon as we have enough components
+
+  # What is backbone?
+
+  * Is it a **library** or a **framework**?
+  * About 1000 of JavaScript
+  * Runs well on IE8
+
+  ## Components
+
+  * Model
+  * View
+  * Collection
+  * Routes
+  * JQuery
+  * Underscore / LoDash
+
+  # Setup
+
+  ## Grab the boilerplate
+
+  Download and unzip the boilerplate.zip code from this directory. We're going to use this as an ultra-simple base for our future coding efforts.
+
+  ## Create a directory for your code
+
+  You're going to need a directory to work in. Create one, perhaps on the desktop.
+
+  ## Choose an editor
+
+  You'll need a text editor. You should have Sublime text 3 and Notepad++ to choose from. If the settings allow, please feel free to install an editor of your choice and use that instead.
+
+  For the purposes of this course, please choose a plain text editor. An IDE can turn into a crutch and stop you learning.
+
+  ## Open your code directory as a project
+
+  If you're using Sublime, open your code directory as a project in the sidebar by dragging the directory onto the sublime icon (Mac), or by choosing file -> open as project (Win).
+
+  ## Open the boilerplate index file in Chrome
+
+  Open the boilerplate index.html file in Chrome by double clicking it in the finder or explorer window, or by choosing file -> open from the Chrome menu.
+
+  Alternately use Firefox.
+
+  ## Developer tools
+
+  Open up the Chrome developer tools by clicking View -> Developer -> Developer Tools, (Mac: cmd alt i)
+
+  Alternately use Firebug.

@@ -2,23 +2,7 @@ extends ./layouts/home_layout
 
 block content
 
-  nav.technology_banner
-
-    h1 Developer Focused Training for the Modern Internet
-
-    ul
-      li
-        a( href='/course/angular2' )
-          img( src='/images/logos/angular2.svg' )
-      li
-        a( href='/course/angular' )
-          img( src='/images/logos/angular.svg' )
-      li
-        a( href='/course/javascript' )
-          img( src='/images/logos/javascript.svg' )
-      li
-        a( href='/course/html5' )
-          img( src='/images/logos/html5-light.svg' )
+  include partials/technology_banner
 
   .wrap
     article

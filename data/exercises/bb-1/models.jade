@@ -1,0 +1,158 @@
+:markdown
+  A model in Backbone is where we store our data. We create our model by inheriting from (extending) Backbone.Model.
+
+  Extend is an underscore function that simply creates a new object using the provided object as a prototype.
+
+
+  ```
+  Shark = Backbone.Model.extend();
+  var shark = new Shark();
+  ```
+
+  ## Initialising the model
+
+  We can initialise our model with some values by passing in a JSON object, like so:
+
+
+  ```
+  var shark = new Shark({
+    latitude: 45,
+    longitude:38,
+    name: 'Theophilus T. Shark'
+  });
+  ```
+
+  ## Setting attributes on the model
+
+  We can set attributes on our model using the set function.
+
+
+  ```
+  shark.set('name', 'Lennie');
+  ```
+
+  We can also set multiple attributes at the same time:
+
+
+  ```
+  shark.set({
+    name: 'Lennie',
+    age: 9.5
+  });
+  ```
+
+  ## Getting values from the model
+
+  We can get values back out of the model using the get function:
+
+  ```
+  shark.get('name');
+  ```
+
+
+  ## Why Do We Need .set & .get Functions?
+
+  We typically set and get attributes on a JavaScript object using the dot notation, like this:
+
+  ```
+  shark.name = 'Lennie';
+  console.log(shark.name); // Outputs 'Lennie'
+  ```
+
+  With Backbone we set and get attributes using .set and .get, like this.
+
+  ```
+  shark.set('name', 'Lennie');
+  console.log(shark.get('name')); // Outputs 'Lennie'
+  ```
+
+  So why use these functions? The set function does 3 things:
+
+  1. It sets the value as an attribute of the attributes object in your model, avoiding namespace collisions with functions defined by the Model prototype.
+  2. It triggers a 'change' event on the model. Our views can listen out for the change event and optionally redraw themselves.
+  3. It triggers a 'change' event on any collection that the model is part of. Again, any Views listening to the collection will be notified.
+
+  Using .set allows us to trigger events and wire our app together using listeners. This prevents spaghettification.
+
+  Using .get allows us to pull attributes from the shark.attributes object without our code explicitly referencing it.
+
+
+  # More with Models
+
+  When we first define our shark, we can pass in an object which will define it. For example:
+
+  ## Setting defaults
+
+  We can set default values for our shark by passing in a defaults object:
+
+
+  ```
+  var Shark = Backbone.Model.extend({
+    defaults: {
+      name: 'Mr Shark',
+      age: 0
+    }
+  });
+  var shark = new Shark();
+  alert(shark.get('name')); // Outputs "Mr Shark"
+  ```
+
+
+
+
+
+
+section.exercise
+  :markdown
+    ## Choose a domain
+
+    Choose a real world object you might like to represent, for example a death ray, a kitten or a piece of toast.
+
+    This will form the basis of your app. Don't worry too much, it will be easy to change your mind later.
+
+    Whatever you choose, it should have attributes (eg name, age, color, weight, etc) and abilities, eg. miow, moveNorth, or explode.
+
+    **Note. Throughout these exercises I will assume your model is a Cat. Don't do a Cat, use your imagination instead, you'll learn more.**
+
+
+    ## Create a model
+
+    Create a Backbone model to represent your object.
+
+    Instantiate your model using 'new' to create an instance of your model.
+
+
+    ## Setting and getting values
+
+    Use the .set method to set a value on your model. Use the .get method to pull the value back out again and alert it. (optionally do this in the console).
+
+    Try setting and getting more than one attribute at once by passing a JSON object.
+
+    Check out the cid.
+
+
+    ## Initializing
+
+    Give your model an .initialize method that alerts "hello model" to the screen.
+
+
+    ## Defaults
+
+    Give your model some sensible defaults, an empty string for name, 0 for age, etc.
+
+    ## Underscore
+
+    Check out the underscore methods:
+
+    * keys
+    * values
+    * pairs
+    * has
+    * clone
+
+
+    ## Reading
+
+    Read up on Backbone models here
+    <http://backbonejs.org/#Model>
+

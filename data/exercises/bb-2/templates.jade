@@ -1,0 +1,148 @@
+:markdown
+  Packing your render methods full of jQuery rapidly becomes yawnsome. Templates are a way of helping you to write less HTML generation code by compiling strings.
+
+  Backbone does not come with a templating language of it's own, but is designed to work well with underscore templates.
+
+  ## Generating a template
+
+  We can generate a template by passing a string to the _.template function. This will return a function which we can call to generate an HTML string, like so:
+
+  ```
+  var template = _.template("<p>Hello!</p>");
+  template();
+  // outputs "<p>Hello!</p>"
+  ```
+
+:markdown
+  Let's use our template to generate a view:
+
+  ```
+  $(function () {
+
+    var template = _.template("<p>Hello World!</p>");
+
+    var SharkTankView = Backbone.View.extend({
+      initialize: function () {
+        this.render();
+      },
+      render: function () {
+        this.$el.html(template);
+      }
+    });
+
+    new SharkTankView({
+      el: $('#tank'),
+    });
+  });
+  ```
+
+:markdown
+  Note that we don't need to call the template. If this.$el.html receives a function instead of a string, it will call the function for us.
+
+  ## Template includes
+
+  We can include variables in our templates using erb style syntax. We can then generate a string by calling the template function and passing an object, like so:
+
+  ```
+  var template = _.template("<p>Hello <%= name %>!</p>");
+  template({name: "Wavy Davey"})
+  // generates the string "<p>Hello Wavy Davey!</p>"
+  ```
+
+  You need to make sure you pass through all attributes or you will get an error.
+
+aside.box
+  :markdown
+    ## Using {{Mustache}} style syntax
+
+    If you're not a big fan of erb <%= => syntax, you can use Mustache style curly brace syntax instead by modifying the _.templateSettings variable, like so:
+
+    ```
+    _.templateSettings = {interpolate: /\{\{(.+?)\}\}/g};
+    ```
+
+    Your template can now look like this:
+
+    ```
+    template("<p>Hello {{ name }}</p>");
+    ```
+
+:markdown
+  ## Further reading
+
+  Read more about underscore templates here:
+
+  <http://underscorejs.org/#template>
+
+
+  # Extracting Templates from your HTML
+
+  Creating templates as strings in JavaScript is OK, provided our templates are very small, but what if they become larger? It would be much nicer if we could define templates directly in our HTML, and of course we can.
+
+  We compose the template into our HTML page, then we just use jQuery to pull it out as a string which we can then pass to _.template.
+
+:markdown
+  The convention is to put the template in a script tag with type="text/template". Content between script tags will not be rendered to the page, but can still be accessed using jQuery.
+
+  See below:
+
+  ```html
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Hello</title>
+      <script src="../../underscore.js"></script>
+      <script src="../../jquery.js"></script>
+      <script src="../../backbone.js"></script>
+      <script src="hello.js"></script>
+    </head>
+    <body>
+      <div id="tank"></div>
+
+      <!-- And here is the template -->
+      <script type="text/template" id="tank-template">
+        <p>Swim Away <%= name  %></p>
+      </script>
+
+    </body>
+  </html>
+
+  ```
+
+
+  We then pull this content as a string using a simple jQuery selector, and store it as a template function in the tankTemplate attribute.
+
+  Then in our render function we can simply call the template, passing in any expected values.
+
+  ```
+  var SharkTankView = Backbone.View.extend({
+    initialize: function () {
+      this.render();
+    },
+    tankTemplate: _.template(
+      $('#tank-template').html()
+    ),
+    render: function () {
+      this.$el.html(this.tankTemplate({
+        name: "Danger Mouse McGree"
+      }));
+    }
+  });
+  ```
+
+
+section.exercise
+  :markdown
+    # Templates
+
+    Angular uses Underscore templates by default. Underscore templates are brilliantly simple. Pass them a string, and you will get a function back. call the function with an object and you will get a string back with the values from the template embedded in it.
+
+    ## Exercise
+
+    Refactor the last exercise to use a template.
+
+    ## Further reading
+
+    Have a look through the underscore template documentation here. It's pretty short:
+
+    <http://underscorejs.org/#template>

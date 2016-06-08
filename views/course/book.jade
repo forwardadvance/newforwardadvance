@@ -1,0 +1,12 @@
+extends ../layouts/page_layout
+
+block content
+  .liquid_wrap
+
+    each courseModule in course.courseModules
+      each exercise in courseModule.exercises
+
+        article.center.eight_col
+          h1= exercise.title
+
+          !=renderExercise(courseModule, exercise)

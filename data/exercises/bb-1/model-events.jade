@@ -1,0 +1,123 @@
+:markdown
+  We can wire up our model to listen to change events and respond. We can pass in an initialize function, and wire our events up here:
+
+
+  ```
+  var Shark = Backbone.Model.extend({
+    initialize: function () {
+      this.on("change:name", function (model) {
+        alert("Shark is now called " + model.get("name"));
+      });
+    }
+  });
+
+  var shark = new Shark();
+  shark.set('name', 'Davey'); // alerts "Shark is now called Davey"
+  ```
+
+
+  Here we have told our model to listen to itself. When it's name is changed, it calls a function which alerts the new name. More commonly models would listen to other models, or views would listen to models.
+
+  ## Events are identified by a String
+
+  Just like jQuery, Events are identified by a unique string. In the example above we were listening for: "change:name". Our model can fire lots of different types of events.
+
+  ## Change Event
+
+  The change event is fired whenever any of the model's attributes change. This is useful if we just want to detect any change in the model's attributes.
+
+  ```
+  shark.on('change', function() {
+    alert("attribute changed")
+  })
+  ```
+
+
+  ## Change:[attribute] Event
+
+  This event is fired whenever a specific attribute change, for example "change:name" or "change:age". Use this if you want to listen to a specific attribute.
+
+  ```
+  shark.on('change:name', function() {
+    alert("name changed")
+  })
+  ```
+
+  ## All
+
+  The all event is always fired whenever any other event is fired. This could be a network event, the model could be added or removed from a collection, an attribute could have been changed, anything. If we are interested in any type of event on our model, we can just listen for the all event.
+
+  ```
+  shark.on('all', function() {
+    alert("some event occurred to shark")
+  })
+  ```
+
+  ## Further reading
+
+  You can view the complete list here:
+
+  <http://backbonejs.org/#Events-catalog>
+
+
+
+
+
+
+
+
+
+
+
+  Backbone objects talk to each other using events. As much as possible, Backbone objects are fully decoupled from one another.
+
+  JavaScript events generally need to be tied to DOM nodes. Backbone implements it's own event handling system. It does not use native JavaScript event handling.
+
+  Backbone objects extend Backbone.Events. Backbone.Events maintains an array of event handlers on the object that will be called when a given event fires. It's decentralised, there is no central events repository.
+
+  ## Model Events
+
+  Models emit events when their values are updated. This is why we need to use getter and setter functions, rather than just updating attributes directly, so that the event can be triggered.
+
+  ## Reading
+
+  Have a look at the Backbone events catalog:
+
+  <http://backbonejs.org/#Events-catalog>
+
+  ## Exercise
+
+  Add a function to your model to get it to say it's name in an alert box.
+
+  Wire up your model so that it calls this method whenever the model 'change' event fires.
+
+  Inspect your model's events attribute, see how the event has been added to the array.
+
+  Add another method to alert the model's age.
+
+  Change your initialize method so the sayName method is called when the name changes, and the sayAge method is called when the age changes.
+
+  ## Off
+
+  Use off to remove the event. Inspect the model's events attribute, notice how the event has been removed from the array.
+
+  ## Previous Exercise
+
+  Extend your sayName function to alert the previous value. <http://backbonejs.org/#Model-previous>
+
+  ## Previous Attributes
+
+  Create a sayChanged method Use the previousAttributes method <http://backbonejs.org/#Model-previousAttributes> to output the name and age as was
+
+  ## Reading:
+
+  Read the section on Events:
+
+  <http://backbonejs.org/#Events>
+
+
+  ## Further Reading
+
+  If you're interested, check out the Events Annotated source:
+
+  <http://backbonejs.org/docs/backbone.html#backbone-events>

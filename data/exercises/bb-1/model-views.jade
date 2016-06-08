@@ -1,0 +1,82 @@
+:markdown
+  We can wire up our model to listen to change events and respond. We can pass in an initialize function, and wire our events up here:
+
+  ```
+  var Shark = Backbone.Model.extend({
+    initialize: function () {
+      this.on("change:name", function (model) {
+        alert("Shark is now called " + model.get("name"));
+      });
+    }
+  });
+
+  var shark = new Shark();
+  shark.set('name', 'Davey'); // alerts "Shark is now called Davey"
+  ```
+
+  Here we have told our model to listen to itself. When it's name is changed, it calls a function which alerts the new name. More commonly models would listen to other models, or views would listen to models.
+
+  ## Events are identified by a String
+
+  Just like jQuery, Events are identified by a unique string. In the example above we were listening for: "change:name". Our model can fire lots of different types of events.
+
+  ## Change Event
+
+  The change event is fired whenever any of the model's attributes change. This is useful if we just want to detect any change in the model's attributes.
+
+  ```
+  shark.on('change', function() {
+    alert("attribute changed")
+  })
+  ```
+
+  ## Change:[attribute] Event
+
+  This event is fired whenever a specific attribute change, for example "change:name" or "change:age". Use this if you want to listen to a specific attribute.
+
+  ```
+  shark.on('change:name', function() {
+    alert("name changed")
+  })
+  ```
+  ## All
+
+  The all event is always fired whenever any other event is fired. This could be a network event, the model could be added or removed from a collection, an attribute could have been changed, anything. If we are interested in any type of event on our model, we can just listen for the all event.
+
+  ```
+  shark.on('all', function() {
+    alert("some event occurred to shark")
+  })
+  ```
+  ## Further reading
+
+  You can view the complete list here:
+
+  <http://backbonejs.org/#Events-catalog>
+
+
+
+
+section.exercise
+  :markdown
+    Views are little objects that manage a region of the DOM. They can either manage some existing HTML, or they can create a new set of elements.
+
+    ## Exercise
+
+    * Create a new CatView object to show a cat. If you don't like cats, choose a different domain.
+    * Add a render method to the view, have it call $el.html() and pass it in a string.
+    * Add an initialize method to your view. Have it call render.
+    * Create an instance of your view, passing in a jQuery selector as an el attribute. refer to the demo if you can't remember how.
+
+    ## Reading
+
+    Have a flick through <http://backbonejs.org/#View>
+
+    ## Further exercise
+
+    Find out the answers to the following:
+
+    1. What is el?
+    2. What is $el?
+    3. What is $?
+    4. What is this.$? How is it different to plain old $?

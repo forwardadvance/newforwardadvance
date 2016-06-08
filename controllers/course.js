@@ -39,3 +39,21 @@ exports.show = function(req, res) {
     })
   });
 };
+
+
+/**
+ * GET /courses/all
+ * Course Docs page.
+ */
+exports.book = function(req, res) {
+  var jade = require('jade');
+  var renderExercise = require('../helpers/render_exercise');
+  var course = req.course;
+
+  res.render('course/book', {
+    title: course.name,
+    course: course,
+    renderExercise: renderExercise
+  });
+};
+

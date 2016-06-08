@@ -12,41 +12,60 @@ module.exports = {
       slug: 'controllers',
       title: 'Controllers',
       description: 'Controllers glue the scope to the template.',
-      github: 'angular_controllers_demo'
+      github: 'angular_controllers_demo',
+      learnings: [
+        'ngController',
+        'Controllers for instantiating $scope',
+        'Using the Controller as a data store'
+      ]
     },
     {
       slug: 'repeat-and-filter',
       title: 'Repeat and Filter',
       description: 'The show-off feature of Angular. This stuff makes clients really happy.',
-      github: 'angular_ngrepeat_demo'
+      github: 'angular_ngrepeat_demo',
+      learnings: [
+        'Creating a list',
+        'Storing arrays in the controller',
+        'Introducing Filters',
+        'ngRepeat, ngFilter, ngOrderBy'
+      ]
     },
     {
       slug: 'scope',
       title: '$Scope and the $scope tree',
       description: '$scope is an object in which you can store your models',
-      github: 'angular_scope_demo'
+      github: 'angular_scope_demo',
+      learnings: [
+        "$scope inheritance and the $scope tree",
+        "Dangers of $scope inheritance",
+        "$rootScope"
+      ]
     },
     {
       slug: 'controller-as',
       title: 'Controller As',
       description: 'We can use the controller itself as a model store.',
-      github: 'angular_controller_as_demo'
+      github: 'angular_controller_as_demo',
+      learnings: [
+        "Using the controller as a data store",
+        "ngController as syntax",
+        'Advantages of binding to the controller'
+      ]
     },
     {
       slug: 'watch',
       title: 'Watch and the $digest cycle',
       description: 'Here we delve into the workings of the digest cycle and discover the logic behind Angular data binding.',
-      github: 'angular_watch_demo'
+      github: 'angular_watch_demo',
+      learnings: [
+        'Understanding $digest and $apply',
+        'Manually creating $watchers',
+        'How data binding actually works'
+      ]
     },
   ],
   outline: [
-    'Testing with Karma (this is ongoing through the rest of the course)',
-    'Client Server Architecture (AJAX)',
-    'ControllerAs',
-    'REST',
-    'JSONP, CORS and the same domain policy',
-    'Writing modular code with services and factories',
-    'Writing custom filters',
-    'Beginning directives'
+
   ]
 };

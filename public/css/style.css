@@ -686,6 +686,8 @@ nav.technology_banner {
     display: inline-block;
     width: 100px;
     margin: 20px; }
+  nav.technology_banner a {
+    color: #fff; }
 
 section.exercise {
   border: 1px solid black;

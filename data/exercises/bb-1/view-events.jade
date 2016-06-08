@@ -1,0 +1,106 @@
+:markdown
+  Views are responsible for listening out for events that happen in the region of the DOM they control.
+
+  Events are specified in a JSON object, and are written in the form: {"event selector": "callback"}
+
+  Selectors are scoped to the DOM node controlled by the view, so if you have a lot of shark tanks on the page, you don't have to worry about them conflicting with each other.
+
+
+  ```
+  $(function () {
+
+    var SharkTankView = Backbone.View.extend({
+      initialize: function () {
+        this.render();
+      },
+      events: {
+        "click button": "dunk"
+      },
+      dunk: function () {
+        alert('Oh dear, my legs have been bitten off.');
+      }
+    });
+
+    var sharkTankView = new SharkTankView({
+      el: $('#tank'),
+    });
+  });
+  ```
+
+:markdown
+  and the html
+
+  ```html
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>Hello</title>
+    <script type="text/javascript" src="underscore.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="backbone.js"></script>
+    <script type="text/javascript" src="hello.js"></script>
+  </head>
+  <body>
+    <button>This button does nothing</button>
+    <div id="tank">
+      <button>Click to Dunk</button>
+    </div>
+
+  </body>
+  </html>
+  ```
+
+  Notice that the first button does nothing because it it outside of the tank element. Backbone will only look for elements within the view's el.
+
+  ## The events attribute is just a shorthand
+
+  Using the events attribute to set up our view events is just a convenient shorthand. We can just as well set up events in the initialize function, like so:
+
+
+  ```
+  var SharkTankView = Backbone.View.extend({
+    initialize: function () {
+      this.$('button').click(this.dunk);
+    },
+    dunk: function () {
+      alert('Oh dear, my legs have been bitten off.');
+    }
+  });
+  ```
+
+
+  This is acceptable, but arguably less readable. You should favour the events attribute for listening to the DOM.
+
+aside.box
+  :markdown
+    ## What is this.$?
+
+    This.$ is a convenience attribute of a backbone view. It contains a reference to jQuery scoped to the current view.
+
+    If you call this.$('p') for example it will get all the paragraphs in the current el.
+
+    this.$el is by contrast is the current el attribute packaged as a jQuery object. You could get the same effect by calling this.$el.find('p')
+
+
+
+:markdown
+  DOM events are different from BackBone events. Backbone has it's own events handling mechanism but events fired by the DOM are usually handled by jQuery.
+
+
+  ## Exercise
+
+  Create a view that adds a form to the page containing an input element and a button. Use the events attribute to add a listener such that on submit the value in the input element is alerted to the screen.
+
+  Use $('input').value() to get the value of the input.
+
+  Remember you will need to call event.preventDefault() in your handler.
+
+  ## Extension
+
+  Add more than one form to the page. Be as clever as you like about this.
+
+  ## Reading
+
+  Check out View delegateEvents. This is the method that handles your events object.
+
+  <http://backbonejs.org/#View-delegateEvents>

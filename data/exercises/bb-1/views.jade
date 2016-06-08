@@ -1,0 +1,58 @@
+:markdown
+  A Backbone View is an object which controls a part of your web page. It's linked to a DOM node which can either be on the page, or a fragment, not connected to the page.
+
+  Your backbone view will typically have a render method which will redraw the view. You can call this method yourself, or you can set up listeners to track a model and call render when it changes.
+
+  A simple view looks like this:
+
+
+  ```
+  var SharkTankView = Backbone.View.extend({
+    initialize: function () {
+      this.render();
+    },
+    render: function () {
+      this.$el.append('sharks!');
+    }
+  });
+  ```
+
+  This sets up a SharkTankView prototype, effectively a class which you can inherit from to create SharkTankView objects. The render function simply uses jQuery to append the string 'Sharks!' to the $el object, which is a jQuery object. The initialize function simply calls render.
+
+  In order to use your SharkTank, you need to create an object that inherits from it:
+
+
+  ```
+  $(function () {
+    var sharkTankView = new SharkTankView({
+      el: $('#tank')
+    });
+  });
+  ```
+
+  You would then need to hook this up to a HTML page with an element where id="tank", like this. **Your code will go in app.js**
+
+
+  ```
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Hello</title>
+      <script type="text/javascript" src="underscore.js"></script>
+      <script type="text/javascript" src="jquery.js"></script>
+      <script type="text/javascript" src="backbone.js"></script>
+      <script type="text/javascript" src="app.js"></script>
+    </head>
+    <body>
+      <div id="tank"></div>
+    </body>
+  </html>
+  ```
+
+aside.box
+  :markdown
+    ## What are el and $el
+
+    The el attribute of your view is the DOM node your view attaches to. You specify this when you create the view, or you can specify it in the view prototype. If you don't specify el, it will be set for you as an empty div.
+
+    The $el attribute of your view is a jQuery version of your el. This is created for you by Backbone.
