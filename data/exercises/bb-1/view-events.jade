@@ -1,7 +1,7 @@
 :markdown
   Views are responsible for listening out for events that happen in the region of the DOM they control.
 
-  Events are specified in a JSON object, and are written in the form: {"event selector": "callback"}
+  Events are specified in a JSON object, and are written in the form: `{"event selector": "callback"}`
 
   Selectors are scoped to the DOM node controlled by the view, so if you have a lot of shark tanks on the page, you don't have to worry about them conflicting with each other.
 
@@ -87,20 +87,27 @@ aside.box
   DOM events are different from BackBone events. Backbone has it's own events handling mechanism but events fired by the DOM are usually handled by jQuery.
 
 
-  ## Exercise
+section.exercise
+  :markdown
+    ##
 
-  Create a view that adds a form to the page containing an input element and a button. Use the events attribute to add a listener such that on submit the value in the input element is alerted to the screen.
 
-  Use $('input').value() to get the value of the input.
+section.exercise
+  :markdown
+    ## Exercise
 
-  Remember you will need to call event.preventDefault() in your handler.
+    Create a view that adds a form to the page containing an input element and a button. Use the events attribute to add a listener such that on submit the value in the input element is alerted to the screen.
 
-  ## Extension
+    Use `$('input').value()` to get the value of the input.
 
-  Add more than one form to the page. Be as clever as you like about this.
+    Remember you will need to call `event.preventDefault()` in your handler.
 
-  ## Reading
+    ## Extension
 
-  Check out View delegateEvents. This is the method that handles your events object.
+    Add more than one form to the page. Be as clever as you like about this.
 
-  <http://backbonejs.org/#View-delegateEvents>
+    ## Reading
+
+    Check out View delegateEvents. This is the method that handles your events object.
+
+    <http://backbonejs.org/#View-delegateEvents>

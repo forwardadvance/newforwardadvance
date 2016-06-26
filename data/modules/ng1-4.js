@@ -13,9 +13,9 @@ module.exports = {
       description: 'Drop JSON into your $scope and it will automatically bind it to the template.',
       github: 'angular_ajax_demo',
       learnings: [
-        '',
-        '',
-        ''
+        'REST',
+        '$http',
+        'JSONP'
       ]
     },
     {
@@ -24,9 +24,10 @@ module.exports = {
       description: 'Talking to the template cache directly can make your app feel more responsive. Learn how.',
       github: 'angular_template_cache_demo',
       learnings: [
-        '',
-        '',
-        ''
+        'Splitting an app into templates',
+        'Writing directly to the $templateCache',
+        'Using an HTML precursor such as Jade',
+        'Automatically in-lining external templates'
       ]
     },
     {
@@ -35,9 +36,7 @@ module.exports = {
       description: 'The Controller is not the right place for business logic. Here we create a Service to pick up the load.',
       github: 'angular_services_demo',
       learnings: [
-        '',
-        '',
-        ''
+        'Services as AJAX access objects',
       ]
     },
     // {

@@ -17,6 +17,30 @@ module.exports = {
       ]
     },
     {
+      slug: 'views',
+      title: 'Views',
+      description: '',
+      learnings: [
+        ''
+      ]
+    },
+    {
+      slug: 'templates',
+      title: 'Templates',
+      description: '',
+      learnings: [
+        ''
+      ]
+    },
+    {
+      slug: 'view-events',
+      title: 'View Events',
+      description: '',
+      learnings: [
+        ''
+      ]
+    },
+    {
       slug: 'models',
       title: 'Backbone Models',
       description: '',
@@ -27,22 +51,6 @@ module.exports = {
     {
       slug: 'model-events',
       title: 'Model Events',
-      description: '',
-      learnings: [
-        ''
-      ]
-    },
-    {
-      slug: 'views',
-      title: 'Views',
-      description: '',
-      learnings: [
-        ''
-      ]
-    },
-    {
-      slug: 'view-events',
-      title: 'View Events',
       description: '',
       learnings: [
         ''

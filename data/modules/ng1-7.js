@@ -6,36 +6,48 @@ module.exports = {
   outcome: 'You will have a full and deep understanding of directives and the angular compiler, and will be able to confidently build a scalable Angular app.',
   exercises: [
 
+    // {
+    //   slug: 'custom-filters',
+    //   title: 'Writing Custom Filters',
+    //   description: 'A filter is a function for modifying and presenting data. We learn to write and use our own.',
+    //   github: 'angular_custom_filters_demo'
+    // },
+    // {
+    //   slug: 'karma-filters',
+    //   title: 'Testing a Filter with Karma',
+    //   description: 'Now let\'s expand our Karma knowledge by writing a test for our filter.',
+    //   github: ''
+    // },
+
+    {
+      slug: 'directive-compilation',
+      title: 'Directive Compilation and the link function',
+      description: 'We look at how the Angular compiler traverses the DOM, order of compilation, and when to use the compile, link and controller functions.',
+      github: 'angular_directive_compilation_demo',
+      learnings: [
+        'Order of compilation',
+        'compile, pre-link and post-link'
+      ]
+    },
+    {
+      slug: 'transclusion',
+      title: 'Directive Transclusion',
+      description: 'Transclusion allows us to pass template content to a directive as an attribute. This is a lot more useful than it sounds. Here we see why.',
+      github: 'angular_directive_transclusion_demo',
+      learnings: [
+        'ng-transclude',
+        'Manual transclusion against a $scope'
+      ]
+    },
     {
       slug: 'parse',
       title: 'Parsing attributes against $scope',
-      description: 'How to make our directives receive an expression.',
-      github: 'angular_parse_demo'
+      description: '',
+      github: 'angular_parse_demo',
+      learnings: [
+        'Parsing an Angular expression'
+      ]
     },
-    {
-      slug: 'testing-directives',
-      title: 'Unit testing directives using Karma',
-      description: 'Unit testing is for directives too.',
-      github: 'angular_testing_directives_demo'
-    },
-    {
-      slug: 'crud',
-      title: 'Create, Read, Update, Delete',
-      description: 'We put it together and talk to a real RESTful API to build a little content driven app',
-      github: 'angular_crud_demo'
-    },
-    {
-      slug: 'webapi',
-      title: 'Build a back end with WebAPI (Optional, assumes familiarity with C#)',
-      description: 'Build a simple API with WebAPI, then integrate from it.',
-      github: 'angular_webapi_demo'
-    },
-    {
-      slug: 'resource',
-      title: 'Resource',
-      description: 'Resource is an ORM for REST. Powerful and terse AJAX.',
-      github: 'angular_resource_demo'
-    }
   ],
   outline: [
     'Further Directives',

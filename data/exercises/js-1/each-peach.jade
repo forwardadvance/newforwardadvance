@@ -1,16 +1,5 @@
----
-title: "Functional Loops"
-section: "javascript"
-course: "javascript-for-programmers"
-exercise: "each-peach"
-layout: "exercise"
----
-
-%section
+section
   :markdown
-
-    # Each Peach
-
     JavaScript comes with all the looping constructs you would expect, for, while, etc. The work as you would hope, and I'm not going to go into these here.
 
     ## Functional loops
@@ -23,29 +12,21 @@ layout: "exercise"
 
     JQuery selectors return an array of DOM nodes. This means that with a single selector, you can pull out all the paragraphs on the page, or all the hyperlinks with a particular class. When we apply methods to a jQuery object, we are generally working on all of the DOM nodes at the same time. This is part of the power of jQuery. For example.
 
-  :ruby
-    code = <<-CODE
+    ```
     $('p').hide();
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     ...will hide every single paragraph on the page without exception. It applies hide to all paragraphs. The selector returns all the paragraphs as an array of DOM nodes, then the hide method iterates over all of the paragraphs, hiding them.
 
     A selector may return just one DOM node, and this is fine, but it will still return it in an array with just one item:
 
-  :ruby
-    code = <<-CODE
+    ```
     $('.page_header h1')
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     ...will likely only match one item on the page, but it is still returned in an array. This common interface makes things very simple for us, provided we want to do exactly the same thing to every matched DOM node, but what if things aren't so simple.
 
-    ## Iterating with Each ##
+    ## Each Peach ##
 
     What if we want to treat each element as a special case. What if we want to do a different thing to each element.
 
@@ -55,8 +36,7 @@ layout: "exercise"
 
     __HTML__
 
-  :ruby
-    code = <<-CODE
+      ```html
     <!DOCTYPE html>
     <html>
       <head>
@@ -70,17 +50,13 @@ layout: "exercise"
         <img src="lemur.gif" alt="lemur" />
       </body>
     </html>
-    CODE
-  =code(code, :html)
-
-  :markdown
+    ```
 
     This HTML file contains three images, each of which has an alt attribute. For each image, we're going to pull out the alt attribute, pop it in a span, and put that after the image.
 
     ### JavaScript - each.js
 
-  :ruby
-    code = <<-CODE
+    ```
     $(function() {
       $("img").each(function() {
         var img = $(this);
@@ -88,10 +64,7 @@ layout: "exercise"
         img.after("<span>" + alt_text + "</span>");
       });
     });
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     Here we select every image on the page, then iterate over the resulting array using each. Each receives a function, and the function has access to the DOM node via the "this" variable. We convert "this" into a jQuery object, pull out the alt text, then append the alt text after the image.
 
@@ -99,34 +72,26 @@ layout: "exercise"
 
     We use the each to iterate over a jQuery object, performing an action on each one in turn. Lets try that now
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - A big mess
 
     You can generate a random integer between 0 and 500 using the following code:
 
-  :ruby
-    code = <<-CODE
+    ```
     Math.random() * 500
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     You can generate a jQuery object that contains everything on the page inside the body element like so:
 
-  :ruby
-    code = <<-CODE
+    ```
     $('body *');
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     Write a jQuery function that iterates over everything on the page using each, makes them all position:absolute, and assigns random top and left values. You need to use each here to give them all different random values.
 
 
-%section.exercise
+section.exercise
   :markdown
     ## Further Exercise
 
@@ -134,22 +99,14 @@ layout: "exercise"
 
     Rather than write your email as a link like this:
 
-  :ruby
-    code = <<-CODE
+    ```html
     <a href="mailto:hello@example.com">hello@example.com</a>
-    CODE
-  =code(code, :html)
-
-  :markdown
+    ```
     You instead choose to obfuscate it like this:
 
-  :ruby
-    code = <<-CODE
+    ```html
     <span class="email">hello at example dot com</span>
-    CODE
-  =code(code, :html)
-
-  :markdown
+    ```
 
     Use your knowledge of JQuery to rewrite the span as a clickable mailto hyperlink.
 

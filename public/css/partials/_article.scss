@@ -1,6 +1,6 @@
 article {
   // width:$desktop;
-  margin:0 auto;
+  margin:0 auto $gutter*2 0;
   padding:0 $gutter;
   img {
     width:100%;

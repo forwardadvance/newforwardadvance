@@ -42,8 +42,8 @@ exports.show = function(req, res) {
 
 
 /**
- * GET /courses/all
- * Course Docs page.
+ * GET /course/:courseId/book
+ * Course Book page.
  */
 exports.book = function(req, res) {
   var jade = require('jade');
@@ -54,6 +54,24 @@ exports.book = function(req, res) {
     title: course.name,
     course: course,
     renderExercise: renderExercise
+  });
+};
+
+/**
+ * GET /courses/:courseId/outline
+ * Course Outline page.
+ */
+exports.outline = function(req, res) {
+  var jade = require('jade');
+  var dayHeading = require('../helpers/day_heading');
+  var md = require('../helpers/render_markdown');
+  var course = req.course;
+
+  res.render('course/outline', {
+    title: course.name,
+    course: course,
+    dayHeading: dayHeading,
+    md: md
   });
 };
 

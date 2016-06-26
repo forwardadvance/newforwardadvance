@@ -1,7 +1,7 @@
 module.exports = {
-  "title": "React",
-  "duration": 1,
-  "price": 1100,
+  "title": "React Fundamentals",
+  "duration": 0.5,
+  "price": 750,
   "description": "A complete introduction to Facebook's React view rendering library. Learn the concepts of one-way binding and the component tree, and get up and running the React way.",
   "outcome": "You will be able to build a front end, data backed, interactive application using React components, and you will understand how such an application should be wired together.",
   "exercises": {
@@ -41,29 +41,5 @@ module.exports = {
       "title": "Introducing JSX",
       "description": ""
     },
-    "state": {
-      "title": "Stateful Components",
-      "description": "In which we learn how a component can maintain it's own state, and build a simple clock."
-    },
-    "events": {
-      "title": "Handling Events (onClick) a counter",
-      "description": ""
-    },
-    "state-immutability": {
-      "title": "Immutable state and the immutability helpers",
-      "description": "Immutable state makes for difficult JavaScript. React provides a Mongo like helper for updating state atomically."
-    },
-    "integration": {
-      "title": "Integration Exercise - Todos",
-      "description": ""
-    },
-    "ajax": {
-      "title": "AJAX (with fetch and componentDidMount)",
-      "description": ""
-    },
-    "children": {
-      "title": "Children",
-      "description": ""
-    }
   }
 }

@@ -1,5 +1,5 @@
 module.exports = {
-  'title': 'Karma and Unit Testing',
+  'title': 'Karma, Jasmine and Unit Testing',
   duration: 0.5,
   slug: 'ng1-3',
   price: 1100,
@@ -20,7 +20,7 @@ module.exports = {
     },
     {
       slug: 'karma-intro',
-      title: 'Intoduction to Unit Testing',
+      title: 'Introduction to Unit Testing',
       description: 'All good developers write unit tests. This is ongoing through the rest of the course.',
       github: 'angular_karma_intro_demo',
       learnings: [
@@ -40,46 +40,15 @@ module.exports = {
       title: 'Testing a Service with Karma',
       description: 'Here we see how to use Karma to automate service tests.',
       github: 'angular_karma_service_demo',
-      learnings: [
-        '',
-        '',
-        ''
-      ]
+      learnings: []
     },
     {
       slug: 'karma-controllers',
       title: 'Testing a Controller with Karma',
       description: 'Here we see how to use Karma to automate controller tests.',
       github: 'angular_karma_controller_demo',
-      learnings: [
-        '',
-        '',
-        ''
-      ]
+      learnings: []
     },
-    // {
-    //   slug: 'custom-filters',
-    //   title: 'Writing Custom Filters',
-    //   description: 'A filter is a function for modifying and presenting data. We learn to write and use our own.',
-    //   github: 'angular_custom_filters_demo'
-    // },
-    // {
-    //   slug: 'karma-filters',
-    //   title: 'Testing a Filter with Karma',
-    //   description: 'Now let\'s expand our Karma knowledge by writing a test for our filter.',
-    //   github: ''
-    // },
-    // {
-    //   slug: 'protractor',
-    //   title: 'Protractor',
-    //   description: 'End to end integration testing.',
-    //   github: 'angular_protractor_demo'
-    // },
-    // {
-    //   slug: 'homework',
-    //   title: 'Homework',
-    //   description: 'Fun and simple homework. It\'s like school'
-    // },
   ],
   'outline': [
     'Further Directives',

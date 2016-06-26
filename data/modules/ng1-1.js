@@ -9,13 +9,12 @@ module.exports = {
   `,
   outcome: 'You will be able to create simple data driven forms and lists.',
   exercises:[
-    // TODO: REinstate Angular Intro
+    // TODO: Reinstate Angular Intro
     {
       slug: 'intro',
       title: 'Introducing Angular - Theory and Architecture',
       description: 'Here we learn, at a high level, what angular is, how it works, and how we should think about it.',
       learnings: [
-        'General architecture of an Angular app',
         'How Angular compiles an app',
         'Angular is template driven',
         'Directives and components',
@@ -35,11 +34,10 @@ module.exports = {
     },
     {
       slug: 'binding',
-      title: 'Binding',
+      title: 'Data Binding',
       description: 'We discover the spooky magic that is Angular data binding (of course it\'s not magic really, as we shall very soon see).',
       github: 'angular_binding_demo',
       learnings: [
-        'Binding the template to a model',
         'ng-model',
         'ng-bind'
       ]

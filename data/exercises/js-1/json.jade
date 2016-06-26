@@ -1,22 +1,5 @@
----
-title: "JSON"
-section: "javascript"
-course: "javascript-for-programmers"
-exercise: "json"
-layout: "exercise"
----
-
-%section#json
+section
   :markdown
-
-    # Object Orientation with JSON and Mario Exercise #
-
-    ## Downloads
-
-    * [Code from the board](https://www.dropbox.com/sh/8wnw4q0kwxldqys/AACioz3HSXV_EPqIGFJf4jkna?dl=1)
-
-    ## Welcome to JSON
-
     There are several different syntaxes for declaring objects in JavaScript. Of these, the cleanest and most commonly used is JavaScript Object Notation (JSON), pronounced Jason.
 
     Packaging our code up into JSON gives us several significant advantages:
@@ -29,8 +12,7 @@ layout: "exercise"
 
     JSON looks like this:
 
-  :ruby
-    code = <<-CODE
+    ```
     var mario = {
       description:"Small and jumpy. Likes princesses.",
       height: 10,
@@ -44,44 +26,29 @@ layout: "exercise"
       weight: 6,
       speed: 4
     }
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     Here we have defined two objects, one called mario and on called bowser. As you can see, they consist of a series of name value pairs. We can access the values like so:
 
-  :ruby
-    code = <<-CODE
+    ```
     alert(mario.description);
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     We can modify values like so:
 
-  :ruby
-    code = <<-CODE
+    ```
     mario.description = "Big and smashy, having eaten a mushroom"
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     We can even add new attributes like so:
 
-  :ruby
-    code = <<-CODE
+    ```
     mario.can_fly = true;
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     Objects are useful for keeping things neat and tidy. We have encapsulated all the information about Mario in a single place so it's easy to get at and understand.
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - canFly
 
@@ -92,14 +59,13 @@ layout: "exercise"
     5. Create an entry for Luigi. He's a bit thinner that Mario, but slightly taller, and he wears a green outfit.
 
 
-%section
+section
   :markdown
     ## A Rather Dull Mario Game ##
 
     If we wanted we could write a little Mario game using these objects. Lets create a little function to see who wins in a boss battle:
 
-  :ruby
-    code = <<-CODE
+    ```
     var boss_battle = function() {
       if (mario.speed > bowser.speed) {
         alert("Mario has escaped and saved Peach");
@@ -109,17 +75,13 @@ layout: "exercise"
     }
 
     boss_battle();
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     As we can see, Mario wins. Let's swing the odds a little in Bowser's favour. Bowser can go into a powered up mode where he swoops from side to side on the screen. We'll call this Bowser Boost.
 
     Let's extend our game a little to add Bowser Boost:
 
-  :ruby
-    code = <<-CODE
+    ```
     var mario = {
       description:"Small and jumpy. Likes princesses.",
       height: 10,
@@ -148,19 +110,17 @@ layout: "exercise"
     bowser.boost = 20
 
     boss_battle();
-    CODE
-  =code(code)
+    ```
 
-%section.exercise
+section.exercise
   :markdown
-
     ## Exercise Invincible
 
     1. Enter the above code and get it to run. Who wins?
     2. Give Mario an invincibility attribute. If invincibility is true, Mario always wins. Unfair I know.
-%section
-  :markdown
 
+section
+  :markdown
     Don't worry, we are going somewhere with this. Next!
 
     ## Lets clean this code up a little ##
@@ -175,8 +135,7 @@ layout: "exercise"
 
     Let's see if we can improve things.
 
-  :ruby
-    code = <<-CODE
+    ```
     var mario_world = {
       mario: {
         name:"Mario",
@@ -213,10 +172,7 @@ layout: "exercise"
     }
 
     mario_world.boss_battle(mario_world.mario, mario_world.bowser);
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     Ah, that's better. As you can see, this entire program is encapsulated within a single object called mario_world. The mario_world object is the only object in the global namespace. the boss_battle function is now an attribute of mario_world, and each contestant has an attack_power function that works out his strength in a battle. The boss_battle function is parameterised, so you can battle any contestant against any other.
 
@@ -231,7 +187,7 @@ layout: "exercise"
     This is a troublesome keyword that trips up even quite advanced JavaScript developers all the time. "this" refers to the context in which the code is currently operating in. In this case, the context is mario (or bowser) and so this refers to these variables. That's because the attack_power function is an attribute of mario. This points to the object the current object is a member of. Your knowledge of JavaScript will be measured by your understanding of scope, and the "this" keyword, so we'll come back to this, but for now, let's make a real game...
 
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Princess Peach
 
@@ -241,9 +197,8 @@ layout: "exercise"
     4. Add a toggle_dash function to peach. Calling it should activate or deactivate her dash attribute.
     5. Just for kicks, change the boss battle function so instead of outputting alerts, it returns a string. Now we have an API.
 
-%section.exercise
+section.exercise
   :markdown
-
     ## But what about the User Interface? ##
 
     Having defined our API, it's now time to hook it up to a user interface. This is where jQuery comes into it's own.
@@ -251,7 +206,7 @@ layout: "exercise"
     1. Extend your HTML page. Create a form. Add two dropdowns, containing the names of the available characters. Ideally populate these dropdowns by querying the API. You may need to adjust your JSON to do this.
     2. Add a "Fight" button that will make those two characters battle.
 
-%section.exercise
+section.exercise
   :markdown
     ## Further Challenge ##
 
@@ -264,9 +219,3 @@ layout: "exercise"
     5. Grab images for each character. Store the URL of the image in the JSON. Draw an arena and put the characters in it when they are selected.
     6. Destroy the losing character with an appropriate animation.
     7. When the fight button is clicked, animate a fight briefly before destroying the loser.
-
-%section
-  :markdown
-    ## Downloads and sample answers
-
-    You can find sample answers in the Dropbox here.

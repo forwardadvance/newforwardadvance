@@ -1,15 +1,5 @@
----
-title: "This"
-section: "javascript"
-course: "javascript-for-programmers"
-exercise: "lodash-templates"
-layout: "exercise"
----
-
-%section
+section
   :markdown
-    # Lodash Templates
-
     We can improve our front end using templates. Templates are strings, potentially take from the DOM, which can be compiled against an object to produce a new DOM node
 
     LoDash (a fast implementation of underscore) provides one such implementation.
@@ -18,15 +8,11 @@ layout: "exercise"
 
     Then we create a template as a string and compile it against an object
 
-  :ruby
-    code = <<-CODE
+    ```
     var template = _.template("Hello {{ name }}!");
     var compiledTemplate = template({name: "World"});
     // Outputs: "Hello World"
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
 
     ## Pulling the template from the DOM
@@ -35,35 +21,30 @@ layout: "exercise"
 
     We set a type of text/template to prevent the browser from trying to execute the template as JavaScript. We set an id attribute to allow us to find the template.
 
-  :ruby
-    code = <<-CODE
+    ```html
     <script type="text/template" id="helloTemplate">
       "Hello {{ name }}!"
     </script>
-    CODE
-  =code(code, :html)
+    ```
 
-  :markdown
     We can then write some JavaScript:
 
-  :ruby
-    code = <<-CODE
+    ```
     $(function() {
       var templateStr = $('#helloTemplate').html();
       var template = _.template(templateStr);
       var compiledTemplate = template({name: "World"});
     })
-    CODE
-  =code(code)
+    ```
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Mario
 
     Extract your Mario UI into a template.
 
 
-%section.exercise
+section.exercise
   :markdown
     ## Harder Exercise - A Flickr feed
 

@@ -1,22 +1,12 @@
 module.exports = {
-  "title": "React Advanced",
-  "duration": 1,
-  "price": 1500,
+  "title": "React Client Server interaction and Testing",
+  "duration": 0.5,
+  "price": 750,
   "description": "Further React - Modules with Webpack, automated testing, AJAX, routing.",
   "exercises": {},
   "outcome": "Part one taught the fundamentals, here we learn how to wire together a real world app. You will be able to build a Single Page App (SPA).",
 
   "exercises": {
-    "testing": {
-      "title": "Automated Testing of React",
-      "description": "We use Jest and the React Test Utilities to test a React application. Testing matters, so this is ongoing for the rest of the course.",
-      "learnings": [
-        "Why testing matters",
-        "Unit testing vs. integration testing",
-        "Jest",
-        "Test helpers"
-      ]
-    },
     "ajax": {
       "title": "AJAX (with fetch and componentDidMount)",
       "description": "",
@@ -25,6 +15,20 @@ module.exports = {
         "Same domain policy",
         "componentDidMount",
         "ES6 fetch API and polyfills"
+      ]
+    },
+    "children": {
+      "title": "Children",
+      "description": ""
+    },
+    "testing": {
+      "title": "Automated Testing of React",
+      "description": "We use Jest and the React Test Utilities to test a React application. Testing matters, so this is ongoing for the rest of the course.",
+      "learnings": [
+        "Why testing matters",
+        "Unit testing vs. integration testing",
+        "Jest",
+        "Test helpers"
       ]
     },
     "children": {

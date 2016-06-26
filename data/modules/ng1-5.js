@@ -10,11 +10,7 @@ module.exports = {
       title: 'Writing Directives and Components',
       description: 'Directives tell the Angular compiler how to transform the DOM. They are the guts of Angular. You will learn all about them.',
       github: 'angular_directives_demo',
-      learnings: [
-        '',
-        '',
-        ''
-      ]
+      learnings: []
     },
     {
       slug: 'isolate-scope',
@@ -22,9 +18,9 @@ module.exports = {
       description: 'One of the most misunderstood features of directives. We learn, in detail, how to control the scope hierarchy.',
       github: 'angular_directive_isolate_scopes_demo',
       learnings: [
-        '',
-        '',
-        ''
+        'Passing Expressions (@)',
+        'Two way binding (=)',
+        'Handling Events (&)'
       ]
     },
     {
@@ -33,31 +29,29 @@ module.exports = {
       description: 'Angular comes with it\'s own Module system.',
       github: 'angular_modules_demo',
       learnings: [
-        '',
-        '',
-        ''
+        'Creating Modules',
+        'Using 3rd party modules'
       ]
     },
     {
       slug: 'browserify',
-      title: 'Breaking code into files with Browserify',
+      title: 'Breaking code into files with Browserify (optional)',
       description: 'Putting code all in one file in not cool. Let\'s fix that problem',
       github: 'angular_browserify_demo',
       learnings: [
-        '',
-        '',
-        ''
+        'NodeJS',
+        'Package Manifest',
       ]
     },
     {
       slug: 'webpack',
-      title: 'Using Webpack for Modularity',
+      title: 'Using Webpack for Modularity (optional)',
       description: 'Automatically build your code and run your tests, all with one script.',
       github: 'angular_webpack_demo',
       learnings: [
-        '',
-        '',
-        ''
+        'Jasmine Testing with Webpack',
+        'Compiling ES7',
+        'Brief look at TypeScript',
       ]
     },
     {

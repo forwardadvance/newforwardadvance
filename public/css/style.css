@@ -265,7 +265,7 @@ a.light {
     font-size: 26.56px; } }
 
 article {
-  margin: 0 auto;
+  margin: 0 auto 40px 0;
   padding: 0 20px; }
   article img {
     width: 100%; }
@@ -658,6 +658,9 @@ nav.sharing {
 .subtitle {
   font-size: 26.56px;
   text-align: center; }
+
+img.video {
+  border: 1px solid black; }
 
 .testimonials img {
   width: 10%;

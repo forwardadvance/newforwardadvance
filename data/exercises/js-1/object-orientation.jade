@@ -1,15 +1,5 @@
----
-title: "Object Orientation"
-section: "javascript"
-course: "javascript-for-programmers"
-exercise: "object-orientation"
-layout: "exercise"
----
-
-%section
+section
   :markdown
-    # Object Orientation
-
     You may have noticed JavaScript doesn't have classes. In fact, as we have seen with JSON JavaScript doesn't need any of that to make an object, but without classes we do lose a few pieces of functionality, specifically:
 
     * Constructor functions
@@ -24,31 +14,22 @@ layout: "exercise"
 
     Constructor functions are just regular functions. By convention we capitalise them, like this:
 
-  :ruby
-    code = <<-CODE
+    ```
     var Toaster = function() {};
     var CheeseDip = function() {};
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     We then create a new object using this function with the new keyword:
 
-  :ruby
-    code = <<-CODE
+    ```
     var myToaster = new Toaster();
     var myCheeseDip = new CheeseDip();
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     In our Toaster function we can initialise the toaster by writing to the 'this' variable, which in the context of a constructor will be set to point to the object under construction's prototype.
 
 
-  :ruby
-    code = <<-CODE
+    ```
     var Toaster = function() {
       this.goPing = function() {
         alert('ping');
@@ -58,12 +39,9 @@ layout: "exercise"
 
     var myToaster = new Toaster();
     myToaster.goPing();
-    CODE
-  =code(code)
+    ```
 
-  :markdown
-
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Constructor Functions
 
@@ -71,7 +49,7 @@ layout: "exercise"
 
     Now go for a drive.
 
-%section
+section
   :markdown
     ## Prototypical inheritance
 
@@ -81,24 +59,19 @@ layout: "exercise"
 
     Here's a cut down example, we're just inheriting from a humble JSON object called x.
 
-  :ruby
-    code = <<-CODE
+    ```
     var x = {y:'z'}
     var A = function() {}
     A.prototype = x;
     a = new A();
     a.y; // 'z'
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     Here's a more practical example. This time our Toaster inherits from an instance of Appliance.
 
     Notice we inherit from an object, not from the constructor function.
 
-  :ruby
-    code = <<-CODE
+    ```
     var Appliance = function() {
       this.goPop = function() {
         alert('pop');
@@ -115,12 +88,11 @@ layout: "exercise"
 
     var myToaster = new Toaster();
     myToaster.goPing();
-    CODE
-  =code(code)
+    ```
 
 
 
-%section.exercise
+section.exercise
   :markdown
     ## Prototypical inheritance Exercise
 
@@ -132,14 +104,13 @@ layout: "exercise"
 
     Now make a bike object which also inherits from Vehicle and instantiate it. Very nice.
 
-%section
+section
   :markdown
     ## Object.create
 
     ES5 gave us a new Object prototype method designed to make inheritance easier.
 
-  :ruby
-    code = <<-CODE
+    ```
     var appliance = {
       goPop: function() {
         alert('pop');
@@ -151,28 +122,23 @@ layout: "exercise"
     }
     toaster.goPop();
     toaster.goPing();
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     Object.create lets us create a child of any other object. The prototype chain can be as long as you like.
 
-%section.exercise
+section.exercise
   :markdown
-
     ## Exercise - Object.create
 
     Re-implement your car using object.create. Be sure to keep you old version around somewhere.
 
-%section
+section
   :markdown
     ## Composition
 
     Because objects in JavaScript are just associative arrays, we can compose an object from parts of another object without using inheritance just by copying attributes from one to another.
 
-  :ruby
-    code = <<-CODE
+    ```
     var toaster =  {
       goPing: function() {
         alert('ping');
@@ -183,15 +149,11 @@ layout: "exercise"
       goPing: toaster.goPing
     }
     cheeseWhizMachine.goPing()
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     We can use this to implement a decorator pattern:
 
-  :ruby
-    code = <<-CODE
+    ```
     var pingDecorator = {
       decorate: function(obj) {
         obj.goPing = function() {
@@ -202,19 +164,16 @@ layout: "exercise"
     var cheeseWhizMachine = {};
     pingDecorator.decorate(cheeseWhizMachine);
     cheeseWhizMachine.goPing();
-    CODE
-  =code(code)
+    ```
 
-  :markdown
-
-%section.exercise
+section.exercise
   :markdown
     ## Composition Exercise
 
     Create a navigation decorator that will decorate any object with goNorth, goSouth, etc methods.
 
 
-%section.exercise
+section.exercise
   :markdown
     ## Optional Extra JQuery Exercise
 
@@ -222,9 +181,8 @@ layout: "exercise"
 
     There should be 4 buttons, up, down, left and right. Use JQuery to draw the car on the screen and wire up the buttons. Use CSS to absolutely position it. Use the buttons to update its top and left values.
 
-%section
+section
   :markdown
-
     ## Further Reading
 
     The MDN developer docs have a good write up of all of this here: [Inheritance and the prototype chain](https://developer.mozilla.org/en/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)

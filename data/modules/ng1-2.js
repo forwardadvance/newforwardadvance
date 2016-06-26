@@ -37,8 +37,8 @@ module.exports = {
       description: '$scope is an object in which you can store your models',
       github: 'angular_scope_demo',
       learnings: [
-        "$scope inheritance and the $scope tree",
-        "Dangers of $scope inheritance",
+        "Prototypical $scope inheritance",
+        "Dangers and how to avoid them",
         "$rootScope"
       ]
     },
@@ -48,9 +48,7 @@ module.exports = {
       description: 'We can use the controller itself as a model store.',
       github: 'angular_controller_as_demo',
       learnings: [
-        "Using the controller as a data store",
-        "ngController as syntax",
-        'Advantages of binding to the controller'
+        "ngController as syntax"
       ]
     },
     {

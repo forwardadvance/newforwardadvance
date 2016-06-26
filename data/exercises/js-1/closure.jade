@@ -1,15 +1,5 @@
----
-title: "JavaScript Closure"
-section: "javascript"
-course: "javascript-for-programmers"
-exercise: "closure"
-layout: "exercise"
----
-
-%section
+section
   :markdown
-    # Closure
-
     Closure can be a tricky concept to get one's head around. It works like this:
 
     1. Functions are objects and can be declared anywhere.
@@ -21,8 +11,7 @@ layout: "exercise"
     This is closure in a nutshell. Here's an example:
 
 
-  :ruby
-    code = <<-CODE
+    ```
     var outer = function() {
       var a = "A Local variable"
       var inner = function() {
@@ -32,22 +21,18 @@ layout: "exercise"
     }
     outer();
     fnc();
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     When we call outer, we define inner and assign it as an attribute of window (in other words, a global variable) inner persists after outer has exited, so the local variable a is still in scope, and still accessible to inner.
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Try it out
 
     1. Enter the above code and verify it works.
 
-%section
+section
   :markdown
-
     ## Self Executing Functions
 
     It seems a bit superfluous to have to call outer to create inner. Outer only exists here to define inner, there's no need for it once inner has been made.
@@ -56,8 +41,7 @@ layout: "exercise"
 
      Here we have a self executing function. The function is in braces,  and there are braces at the end. We are declaring an unnamed function, then running it straight away, dispensing with the need for outer.
 
-  :ruby
-    code = <<-CODE
+     ```
     (function() {
       var a = "A Local variable"
       var inner = function() {
@@ -67,48 +51,37 @@ layout: "exercise"
     })()
 
     fnc();
-    CODE
-  =code(code)
+    ```
 
 
-%section.exercise
+section.exercise
   :markdown
-
     ## Exercise - Guess the output
 
     For each of the following, try to work out what the output will be. Run the code to check your answer.
 
     ### 1.
 
-  :ruby
-    code = <<-CODE
+    ```
     var a = 12;
     (function() {
       alert(a);
     })();
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     ### 2.
 
-  :ruby
-    code = <<-CODE
+    ```
     var a = 5;
     (function() {
       var a = 12;
       alert(a);
     })();
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     ### 3.
 
-  :ruby
-    code = <<-CODE
+    ```
     var a = 10;
     var x = (function() {
       var a = 12;
@@ -118,15 +91,11 @@ layout: "exercise"
     })();
 
     x();
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     ### 4.
 
-  :ruby
-    code = <<-CODE
+    ```
     var a = 10;
     var x = (function() {
       var y = function() {
@@ -138,16 +107,12 @@ layout: "exercise"
     })();
 
     x();
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
 
     ### 5.
 
-  :ruby
-    code = <<-CODE
+    ```
     var a = 10;
     var x = (function() {
       (function() {
@@ -159,15 +124,11 @@ layout: "exercise"
     })();
 
     x();
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     ### 6.
 
-  :ruby
-    code = <<-CODE
+    ```
     var a = 10;
     (function() {
       var a = 15;
@@ -177,21 +138,15 @@ layout: "exercise"
     })();
 
     x();
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     ## Further Reading
 
     [Read my post on "What is a closure" on Stack Overflow](http://stackoverflow.com/a/7464475/687677)
 
 
-%article
-
-%section.exercise
+section.exercise
   :markdown
-
     ## Exercise - Closure and the Sandwich Calculator
 
     Mrs Potts the school dinner lady is tired of all the global sandwich variables getting under her feet and tripping her up all the time. She needs help cleaning her kitchen. Will you help her?
@@ -202,15 +157,11 @@ layout: "exercise"
 
     like this:
 
-  :ruby
-    code = <<-CODE
+    ```
     (function() {
 
     })();
-    CODE
-  =code(code)
-
-  :markdown
+    ```
 
     This will be our closure and will hold the sandwich machine, keeping all it's parts nicely together.
 
@@ -232,7 +183,7 @@ layout: "exercise"
 
     You can now call makeSandwich from outside the closure. Because you've used onDomReady, you'll need to call it onDomReady.
 
-    If you've succeeded well done! This is super close to #{Time.now.year} best practice JavaScript!
+    If you've succeeded well done! This is super close to #{new Date().getFullYear()} best practice JavaScript!
 
     ### Exercise Extension
 

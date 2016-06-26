@@ -9,14 +9,6 @@ module.exports = {
   outcome: '',
   exercises:[
     {
-      slug: 'templates',
-      title: 'Templates',
-      description: '',
-      learnings: [
-        ''
-      ]
-    },
-    {
       slug: 'wiring-an-app',
       title: 'Wiring An App Together',
       description: '',

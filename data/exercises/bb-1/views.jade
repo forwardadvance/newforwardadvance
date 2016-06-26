@@ -1,37 +1,44 @@
 :markdown
   A Backbone View is an object which controls a part of your web page. It's linked to a DOM node which can either be on the page, or a fragment, not connected to the page.
 
-  Your backbone view will typically have a render method which will redraw the view. You can call this method yourself, or you can set up listeners to track a model and call render when it changes.
+  Your backbone view will typically have a render method which will redraw the view. You can call this method yourself, or (as we'll see later) you can set up listeners to track a model and call render when it changes.
 
   A simple view looks like this:
 
 
   ```
   var SharkTankView = Backbone.View.extend({
-    initialize: function () {
-      this.render();
-    },
     render: function () {
-      this.$el.append('sharks!');
+      this.$el.html("Ouch, my legs!");
     }
   });
   ```
 
-  This sets up a SharkTankView prototype, effectively a class which you can inherit from to create SharkTankView objects. The render function simply uses jQuery to append the string 'Sharks!' to the $el object, which is a jQuery object. The initialize function simply calls render.
+  This sets up a SharkTankView object, effectively a class which you can inherit from to create SharkTankView objects. The render function simply uses jQuery to append the string 'Sharks!' to the $el object, which is a jQuery object. The initialize function simply calls render.
 
-  In order to use your SharkTank, you need to create an object that inherits from it:
+  ## Instantiating the view
 
+  In order to use your SharkTank, you need to create an object that inherits from it. We give is a CSS selector that will pick an element from the page:
 
   ```
-  $(function () {
-    var sharkTankView = new SharkTankView({
-      el: $('#tank')
-    });
+  var view = new SharkTankView({
+    el: '#tank'
   });
   ```
 
-  You would then need to hook this up to a HTML page with an element where id="tank", like this. **Your code will go in app.js**
+  We then call render on our new view:
 
+  ```
+  view.render();
+  ```
+
+  You would then need to hook this up to a HTML page with an element which matches the selector:
+
+  ```
+  <div id="tank"></div>
+  ```
+
+  The Full HTML page might look like this:
 
   ```
   <!DOCTYPE html>
@@ -41,10 +48,10 @@
       <script type="text/javascript" src="underscore.js"></script>
       <script type="text/javascript" src="jquery.js"></script>
       <script type="text/javascript" src="backbone.js"></script>
-      <script type="text/javascript" src="app.js"></script>
     </head>
     <body>
       <div id="tank"></div>
+      <script type="text/javascript" src="app.js"></script>
     </body>
   </html>
   ```
@@ -53,6 +60,106 @@ aside.box
   :markdown
     ## What are el and $el
 
-    The el attribute of your view is the DOM node your view attaches to. You specify this when you create the view, or you can specify it in the view prototype. If you don't specify el, it will be set for you as an empty div.
+    The el attribute of the view initialisation object is the DOM node your view attaches to, or else a CSS string that can be used to select that DOM node. You specify this when you create the view, or you can specify it in the view prototype. If you don't specify el, it will be set for you as an empty div.
 
     The $el attribute of your view is a jQuery version of your el. This is created for you by Backbone.
+
+:markdown
+  ## Initialising the view
+
+  You may wish to run some code when your view object is instantiated. You can do this by giving the view configuration object an initialize function. Typically, you will want to render in this function, but you might want to set attributes on your view which are then accessible in the render function.
+
+  ```
+
+  var SharkTankView = Backbone.View.extend({
+    initialize: function () {
+      this.sharkCount = 45;
+      this.render();
+    },
+    render: function () {
+      this.$el.html(this.sharkCount + " sharks detected!");
+    }
+  });
+
+  var view = new SharkTankView({
+    el: '#tank'
+  });
+  ```
+
+section.exercise
+  :markdown
+    ## Exercise - Boilerplate
+
+    In this exercise, we're going to get set for coding. We're going to use this as an ultra-simple base for our future coding efforts.
+
+    ### 1. Create a directory for your code
+
+    You're going to need a directory to work in. Create one, perhaps on the desktop, on the C drive (if you're no Windows) or in your home folder.
+
+    ### 2. Choose an editor
+
+    You'll need a text editor. An editor, like a toothbrush, is a personal choice. You might choose from:
+
+    * Sublime Text (my favourite)
+    * Atom (my second favourite)
+    * Microsoft Visual Studio
+    * Microsoft Visual Studio Code
+    * Adobe Brackets
+    * Notepad++
+
+    There are thousands of other options. As long as you can edit plain text, you will be fine. Don't use Dreamweaver, it's deprecated, and will hold you back.
+
+    ### Open your code directory as a project
+
+    If you're using Sublime, open your code directory as a project in the sidebar by dragging the directory onto the sublime icon (Mac), or by choosing file -> open as project (Win).
+
+    ### Open the boilerplate index.html file in Chrome
+
+    Open the boilerplate index.html file in Chrome by double clicking it in the finder or explorer window, or by choosing file -> open from the Chrome menu.
+
+    ### Developer tools
+
+    Open up the Chrome developer tools by clicking View -> Developer -> Developer Tools, (Mac: cmd alt i)
+
+    ### Hello World!
+
+    Once you have the boiler plate loaded, modify it to show "Hello World!"
+
+
+section.exercise
+  :markdown
+    ## Exercise - Starting with Views
+
+    Views are little objects that manage a region of the DOM. They can either manage some existing HTML, or they can create a new set of elements.
+
+    Adapt the hello world boilerplate code.
+
+    * Create a new CatView object to show a cat. If you don't like cats, choose a different domain.
+    * Add a render method to the view, have it call $el.html('Hello Cats').
+    * Add an initialize method to your view. Have it call render.
+    * Create an instance of your view, passing in a jQuery selector as an el attribute. refer to the demo if you can't remember how.
+
+    ### Extension
+
+    In your render method, create values for `this.catName` and `this.catAge`.
+
+    Now update your view such that it shows the cat name and cat age.
+
+
+section.exercise
+  :markdown
+    ## Exercise - Questions
+
+    Find out the answers to the following:
+
+    1. What is el?
+    2. What is $el?
+    3. What is $?
+    4. What is this.$? How is it different to plain old $?
+
+sextion.exercise
+  :markdown
+
+    ## Reading
+
+    Have a flick through <http://backbonejs.org/#View>

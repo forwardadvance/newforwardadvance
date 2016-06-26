@@ -1,17 +1,15 @@
 :markdown
-  Backbone is a the grand-daddy of all the JavaScript MVC frameworks. It's the progenitor of frameworks like Ember, Angular, even Meteor. It's a sensibly put together library full of tools to help you organise your web application, a toolkit for tidy JavaScript.
+  Backbone is a the grand-daddy of all the JavaScript MVC frameworks. It's the progenitor of frameworks like Ember, Angular, even Meteor. It's a sensibly put together library full of tools to help you organise your web application into models and views, a toolkit for tidy JavaScript.
 
-  Backbone is a toolkit for tidy JavaScript.
+  You can use it to enhance your existing site: to add interactivity to a form for example; or you can go all out and create a single page app (SPA), where the entire site is generated client-side using JavaScript.
 
-  You can use it to enhance your existing site, to add interactivity to a form for example, or you can go all out and create a single page app (SPA), where the entire site is generated clientside using JavaScript.
+  Backbone comes packaged as a single JavaScript file which you link in the header of your page. It lives in the browser, and says very little about your server. Your server should ideally expose a restful JSON API, but this is not a requirement.
 
-  Backbone comes packaged as a single JavaScript file which you link in the header of your page. It's purely clientside, and says very little about your server. Your server should ideally expose a restful JSON API, but this is not a requirement.
+  Backbone engages in no magic, is very readable, and doesn't try to do too much for you. You can learn everything there is to know about it in a couple of days.
 
-  Backbone engages in no magic, is very readable, and doesn't try to do too much for you.
+  ## Architecture (MV*)
 
-  # Architecture
-
-  Backbone provides you with a Model View (MV) architecture. Unlike other JavaScript frameworks, there are no controllers. The view works a little like a controller.
+  Backbone provides you with a Model View (MV*) architecture. Unlike other JavaScript frameworks, there are no controllers. The view works a little like a controller.
 
   ## Models
 
@@ -46,26 +44,53 @@ aside.box
 
     You can use any of the Backbone components in any way you see fit, but it's up to you write the wiring code.
 
+
 :markdown
-  # Getting started
+  ## Backbone Vs JQuery -
 
-  Backbone depends on:
+  A typical JQuery app has us wiring up buttons and forms, and then making DOM changes when the user interacts with them. This means that a JQery app is self referential.
 
-  ## Underscore
+  ## JQuery is Self Referential
 
-  an excellent library of useful JavaScript functions, including functions for functional style array and object manipulation, plus genuinely useful utility methods.
+
+  One of the big issues with writing complex apps using jQuery alone is that the view operates on itself. We write code that listens to the html page, perhaps button clicks, or hover events, and then, makes changes to the view.
+
+  Because the view modifies itself, we create cycles, like this. When the app moves beyond the trivial, these cycles turn into tangles, and we end up with a big mess:
+
+img.video( src="/images/backbone/jquery-mess.svg" alt="" )
+
+:markdown
+  ## Backbone is not self referential
+
+  Backbone gives us models and views to allow us to separate our view logic from our business logic.
+
+  Used properly, this can help to straighten out the tangles. We get models that hold our logic, and we get views to control the display. We can wire up a view, such that when we interact with it, a model is updated, then we can tell the view to watch the model, and change itself when the model is changed.
+
+  We can have as many models and views as we like. We keep our business logic in our models, and we keep our display logic in our views. In theory it then becomes simple to add additional views, we just wire them in.
+
+img.video( src="/images/backbone/backbone-tidy.svg" alt="" )
+
+
+
+:markdown
+  ## Getting started
+
+  Backbone has a hard dependency on Underscore (_), and a soft depends on JQuery.
+
+  ### Underscore is
+
+  ...an excellent little library of useful JavaScript utility methods, including functional style array and object manipulation, plus genuinely useful utility methods.
+
+  Many of these methods (such as map and filter) are gradually being incorporated into core JavaScript.
 
   Download here: <http://underscorejs.org/>
 
   ##JQuery
 
-  Everyone's favourite DOM mainpulation tool. Choose 1.x if you want to support legacy browsers. Choose 2.x if you want a smaller faster codebase.
+  Everyone's favourite DOM manipulation tool. It allows you to select portions of the page using CSS selectors, and then make arbitrary changes. Choose 1.x if you want to support legacy browsers. Choose 2.x if you want a smaller faster codebase.
 
   Download here: <http://jquery.com/>
 
-aside.sidenote Backbone depends on JQuery & Underscore
-
-:markdown
   ## Boilerplate
 
   A super stripped down Backbone boilerplate for local development might look something like this:
@@ -78,7 +103,6 @@ aside.sidenote Backbone depends on JQuery & Underscore
       <script src="underscore.js"></script>
       <script src="jquery.js"></script>
       <script src="backbone.js"></script>
-      <!-- your code goes in app.js -->
       <script src="app.js"></script>
     </head>
     <body>
@@ -86,95 +110,4 @@ aside.sidenote Backbone depends on JQuery & Underscore
   </html>
   ```
 
-  ## Content Delivery Network (CDN)
-
-  You might also serve the libraries directly from a Content Delivery Network (CDN). Here are some options:
-
-  * <http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js>
-  * <http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js>
-  * <http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js>
-
-  If you serve from a CDN you will need to be connected to the internet to work on your site.
-
-
-
-
-
-
-
-
-
-
-
-  ## Course Outline
-
-  * Models
-  * Views
-  * JQuery review
-  * Events (plus avoiding memory leaks)
-  * Building a simple App
-  * Collections
-  * Building a better App
-
-  ## Further work
-
-  * Routing
-  * Persistence (local and remote)
-  * Testing (With Sinon or QUnit)
-  * Marionette
-
-  # How this course will run
-
-  * Dropbox for code sharing - don't download the whole folder!
-  * Demo and exercise files - updated as we go
-  * Plain text editor
-  * Live code demos
-  * Exercises with Components
-  * Progressing to actual apps, as soon as we have enough components
-
-  # What is backbone?
-
-  * Is it a **library** or a **framework**?
-  * About 1000 of JavaScript
-  * Runs well on IE8
-
-  ## Components
-
-  * Model
-  * View
-  * Collection
-  * Routes
-  * JQuery
-  * Underscore / LoDash
-
-  # Setup
-
-  ## Grab the boilerplate
-
-  Download and unzip the boilerplate.zip code from this directory. We're going to use this as an ultra-simple base for our future coding efforts.
-
-  ## Create a directory for your code
-
-  You're going to need a directory to work in. Create one, perhaps on the desktop.
-
-  ## Choose an editor
-
-  You'll need a text editor. You should have Sublime text 3 and Notepad++ to choose from. If the settings allow, please feel free to install an editor of your choice and use that instead.
-
-  For the purposes of this course, please choose a plain text editor. An IDE can turn into a crutch and stop you learning.
-
-  ## Open your code directory as a project
-
-  If you're using Sublime, open your code directory as a project in the sidebar by dragging the directory onto the sublime icon (Mac), or by choosing file -> open as project (Win).
-
-  ## Open the boilerplate index file in Chrome
-
-  Open the boilerplate index.html file in Chrome by double clicking it in the finder or explorer window, or by choosing file -> open from the Chrome menu.
-
-  Alternately use Firefox.
-
-  ## Developer tools
-
-  Open up the Chrome developer tools by clicking View -> Developer -> Developer Tools, (Mac: cmd alt i)
-
-  Alternately use Firebug.
+  Underscore and JQUery are included first, Then we pull in Backbone. Finally our code lives in app.js.

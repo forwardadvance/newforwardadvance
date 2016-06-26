@@ -1,0 +1,37 @@
+extends ../layouts/page_layout
+
+block content
+  .liquid_wrap
+
+    article.center.eight_col
+
+      h1=course.title
+
+      !=md(course.description)
+
+      h2 Topics Covered
+      -day = 0
+      each courseModule in course.courseModules
+        !=dayHeading(day, courseModule.title)
+        -day += courseModule.duration
+        ul
+          each exercise in courseModule.exercises
+            li= exercise.title
+              ul
+                if exercise.learnings
+                  each learning in exercise.learnings
+                    li=learning
+
+
+
+      h2 Who should attend
+
+      !=md(course.prerequisites)
+
+      h2 Instructor
+
+      !=md(course.instructor)
+
+      h2 Other Information
+
+      !=md(course.information)
