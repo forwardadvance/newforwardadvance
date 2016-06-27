@@ -1,7 +1,6 @@
 :markdown
   We can wire up our model to listen to change events and respond. We can pass in an initialize function, and wire our events up here:
 
-
   ```
   var Shark = Backbone.Model.extend({
     initialize: function () {
@@ -59,16 +58,6 @@
 
   <http://backbonejs.org/#Events-catalog>
 
-
-
-
-
-
-
-
-
-
-
   Backbone objects talk to each other using events. As much as possible, Backbone objects are fully decoupled from one another.
 
   JavaScript events generally need to be tied to DOM nodes. Backbone implements it's own event handling system. It does not use native JavaScript event handling.
@@ -85,39 +74,44 @@
 
   <http://backbonejs.org/#Events-catalog>
 
-  ## Exercise
+section.exercise
+  :markdown
+    ## Exercise - Model Events
 
-  Add a function to your model to get it to say it's name in an alert box.
+    Add a function to your model to get it to say it's name in an alert box.
 
-  Wire up your model so that it calls this method whenever the model 'change' event fires.
+    Wire up your model so that it calls this method whenever the model 'change' event fires.
 
-  Inspect your model's events attribute, see how the event has been added to the array.
+    Inspect your model's events attribute, see how the event has been added to the array.
 
-  Add another method to alert the model's age.
+    Add another method to alert the model's age.
 
-  Change your initialize method so the sayName method is called when the name changes, and the sayAge method is called when the age changes.
+    Change your initialize method so the sayName method is called when the name changes, and the sayAge method is called when the age changes.
 
-  ## Off
+    Now drop into the console and create an instance of the model. call set('name', 'Davey'); on it, and test theat the method is triggered.
 
-  Use off to remove the event. Inspect the model's events attribute, notice how the event has been removed from the array.
+    ## Off
 
-  ## Previous Exercise
+    Use off to remove the event. Inspect the model's events attribute, notice how the event has been removed from the array.
 
-  Extend your sayName function to alert the previous value. <http://backbonejs.org/#Model-previous>
+    ## Exercise Extension - Previous
 
-  ## Previous Attributes
+    Read this section: <http://backbonejs.org/#Model-previous>
 
-  Create a sayChanged method Use the previousAttributes method <http://backbonejs.org/#Model-previousAttributes> to output the name and age as was
-
-  ## Reading:
-
-  Read the section on Events:
-
-  <http://backbonejs.org/#Events>
+    Now extend your sayName function to also alert the previous value (i.e. tghe value before the update took place).
 
 
-  ## Further Reading
+section.exercise
+  :markdown
+    ## Reading:
 
-  If you're interested, check out the Events Annotated source:
+    Read the section on Events:
 
-  <http://backbonejs.org/docs/backbone.html#backbone-events>
+    <http://backbonejs.org/#Events>
+
+
+    ## Further Reading
+
+    If you're interested, check out the Events Annotated source:
+
+    <http://backbonejs.org/docs/backbone.html#backbone-events>

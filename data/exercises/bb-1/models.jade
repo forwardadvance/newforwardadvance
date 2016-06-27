@@ -1,8 +1,7 @@
 :markdown
   A model in Backbone is where we store our data. We create our model by inheriting from (extending) Backbone.Model.
 
-  Extend is an underscore function that simply creates a new object using the provided object as a prototype.
-
+  Extend is an underscore function that simply creates a new object using the provided object as a prototype. If JavaScript was a classical language, we'd be creating an instance of the BAckbone.Model class.
 
   ```
   Shark = Backbone.Model.extend();
@@ -66,7 +65,7 @@
   console.log(shark.get('name')); // Outputs 'Lennie'
   ```
 
-  So why use these functions? The set function does 3 things:
+  The set function does 3 things:
 
   1. It sets the value as an attribute of the attributes object in your model, avoiding namespace collisions with functions defined by the Model prototype.
   2. It triggers a 'change' event on the model. Our views can listen out for the change event and optionally redraw themselves.
@@ -77,14 +76,13 @@
   Using .get allows us to pull attributes from the shark.attributes object without our code explicitly referencing it.
 
 
-  # More with Models
+  ## Initializing Models
 
   When we first define our shark, we can pass in an object which will define it. For example:
 
   ## Setting defaults
 
   We can set default values for our shark by passing in a defaults object:
-
 
   ```
   var Shark = Backbone.Model.extend({
@@ -104,7 +102,7 @@
 
 section.exercise
   :markdown
-    ## Choose a domain
+    ## Exercise - Make a Model
 
     Choose a real world object you might like to represent, for example a death ray, a kitten or a piece of toast.
 
@@ -112,35 +110,35 @@ section.exercise
 
     Whatever you choose, it should have attributes (eg name, age, color, weight, etc) and abilities, eg. miow, moveNorth, or explode.
 
-    **Note. Throughout these exercises I will assume your model is a Cat. Don't do a Cat, use your imagination instead, you'll learn more.**
+    Note. Throughout these exercises I will assume your model is a Cat. Don't do a Cat, use your imagination instead, you'll learn more.
 
 
-    ## Create a model
+    ### Create a model
 
     Create a Backbone model to represent your object.
 
     Instantiate your model using 'new' to create an instance of your model.
 
 
-    ## Setting and getting values
+    ### Setting and getting values
 
-    Use the .set method to set a value on your model. Use the .get method to pull the value back out again and alert it. (optionally do this in the console).
+    Use the .set method to set a value on your model. Use the .get method to pull the value back out again and alert it (optionally do this in the console).
 
     Try setting and getting more than one attribute at once by passing a JSON object.
 
     Check out the cid.
 
 
-    ## Initializing
+    ### Initializing
 
     Give your model an .initialize method that alerts "hello model" to the screen.
 
 
-    ## Defaults
+    ### Defaults
 
     Give your model some sensible defaults, an empty string for name, 0 for age, etc.
 
-    ## Underscore
+    ### Underscore
 
     Check out the underscore methods:
 
@@ -151,6 +149,8 @@ section.exercise
     * clone
 
 
+section.exercise
+  :markdown
     ## Reading
 
     Read up on Backbone models here

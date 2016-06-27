@@ -86,10 +86,25 @@ aside.box
 :markdown
   DOM events are different from BackBone events. Backbone has it's own events handling mechanism but events fired by the DOM are usually handled by jQuery.
 
+!=resources(exercise)
 
 section.exercise
   :markdown
-    ##
+    ## Exercise - Hello cats
+
+    Extend your cats exercise from before (you can find this in the repository if you didn't manage to complete it). Add a Miow button. When you click the button, alert the word Miow onto the screen.
+
+    For bonus points, set `this.miowed = true` and write the word "miow" to the dom on render, if this value is true.
+
+section.exercise
+  :markdown
+    ## Exercise - Counter
+
+    Create a little view that contains a button and a number. Make it so that when you click the button, the number is incremented. Increase the number on click and call render.
+
+    ### Extension
+
+    Add a downvote button, so you have a voting component. You can upvote and downvote.
 
 
 section.exercise

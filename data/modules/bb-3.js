@@ -9,30 +9,6 @@ module.exports = {
   outcome: '',
   exercises:[
     {
-      slug: 'webpack',
-      title: 'Webpack for Backbone',
-      description: '',
-      learnings: [
-        ''
-      ]
-    },
-    {
-      slug: 'jasmine',
-      title: 'Introduction to Testing with Jasmine',
-      description: '',
-      learnings: [
-        ''
-      ]
-    },
-    {
-      slug: 'automatic-testing',
-      title: 'Automatic Testing with Backbone',
-      description: '',
-      learnings: [
-        ''
-      ]
-    },
-    {
       slug: '',
       title: '',
       description: '',

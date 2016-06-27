@@ -68,14 +68,7 @@ aside.box
     ```
 
 :markdown
-  ## Further reading
-
-  Read more about underscore templates here:
-
-  <http://underscorejs.org/#template>
-
-
-  # Extracting Templates from your HTML
+  ## Extracting Templates from your HTML
 
   Creating templates as strings in JavaScript is OK, provided our templates are very small, but what if they become larger? It would be much nicer if we could define templates directly in our HTML, and of course we can.
 
@@ -131,16 +124,51 @@ aside.box
   ```
 
 
+  ## Executing code in our templates
+
+  We can execute arbitrary code in our templates. They become, in many ways, rather like PHP templates. For example, say we have an array, we might use a regular forEach function to iterate over it:
+
+  ```html
+  <script type="text/template" id="hello-template">
+    <ul>
+    <% names.forEach((name) => { %>
+      <li>
+        <%= name %>
+      </li>
+    <% }) %>
+    </ul>
+  </script>
+  ```
+
+
+!=resources(exercise)
+
 section.exercise
   :markdown
-    # Templates
+    ## Exercise - Templates
 
     Angular uses Underscore templates by default. Underscore templates are brilliantly simple. Pass them a string, and you will get a function back. call the function with an object and you will get a string back with the values from the template embedded in it.
 
-    ## Exercise
+    Create a Hello World using a template.
 
-    Refactor the last exercise to use a template.
+section.exercise
+  :markdown
+    Let's make a little object to represent a cat, something like this:
 
+    ```
+    {
+      name: 'Tiddles the Mighty',
+      age: 47
+    }
+
+    Now create a template that can render this cat nicely on the page.
+
+    ## Extension
+
+    Make that an array of cats. Now output them all as a list.
+
+section.exercise
+  :markdown
     ## Further reading
 
     Have a look through the underscore template documentation here. It's pretty short:

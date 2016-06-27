@@ -1,0 +1,122 @@
+:markdown
+  Given that views and models can listen to events, it should be apparent how we can wire these together, simply by having them listen to each other.
+
+  The first thing to do is to set up the view, such that it renders itself whenever the model updates:
+
+  ```
+  app.CatView = Backbone.View.extend({
+    el: "app",
+    initialize: function() {
+      this.render();
+      this.listenTo(app.cat, 'change:name', this.render);
+    },
+    render: function() {
+      this.$el.html(this.model.get('name'));
+    }
+  });
+  ```
+
+  We'll then need a model to save our data on:
+
+  ```
+  app.Cat = Backbone.Model.extend({});
+
+  app.cat = new app.Cat({
+    name: "Fluffy"
+  });
+  ```
+
+  Having done this, we must now set up the view to listen for an event. We can do this most easily using the events object:
+
+  ```
+    events: {
+      'click button': "setName"
+    },
+    setName: function() {
+      app.cat.set('name', 'Mikey');
+    }
+  ```
+
+  Our full application thus looks like this:
+
+  ```
+ var app = app || {} ;
+
+  $(function() {
+    app.Cat = Backbone.Model.extend({});
+
+    app.CatView = Backbone.View.extend({
+      el: $('app'),
+      initialize: function() {
+        this.render();
+        this.listenTo(app.cat, 'change:name', this.render);
+      },
+      events: {
+        'click button': "setName"
+      },
+      render: function() {
+        this.$el.html(this.model.get('name') + "<button>Click</button>");
+      },
+      setName: function() {
+        app.cat.set('name', 'Mikey');
+      }
+    });
+
+    app.cat = new app.Cat({
+      name: "Fluffy"
+    });
+
+    app.catView = new app.CatView({
+      model: app.cat
+    });
+
+  });
+  ```
+
+section.exercise
+  :markdown
+    ## Exercise - A simple app.
+
+    We are going to create a simple, but fully functional app containing one model and two views:
+
+    1. Create a model
+    2. Create a view to display your model.
+    3. Tell your view to listen to the change event on your model and render itself.
+
+    Now in the console, you can call `cat.set('name', 'Terrance');` or similar to trigger your view to render.
+
+    ## Extension - Add a button
+
+    Now we need a way to tell the model to update. Create a button, and wire it up in the view events object. In the callback, call `cat.set('name', 'Terry Wogan');`. Now when you click the button the cat name will update.
+
+    ## Extension - Add an input
+
+    You can get the value of an input element using `$('input').value();`
+
+    Use this to allow the user to type a new cat name.
+
+    ## Extension - keyup
+
+    Use the keyup event on the input elements in the form, to call updateModel, so the modelView updates as you type.
+
+    ## Extension - keyup
+
+    ## Further Extension
+
+    Create a metadataView which shows when the view was last updated. You can get the current time using Date()
+
+    ## Reading
+
+    Why Backbone is a good intro to why you might learn to love Backbone
+
+    <http://backbonejs.org/#FAQ-why-backbone>
+
+    Also read "There's more than one way to do it" for advice on structuring your code.
+
+    <http://backbonejs.org/#FAQ-tim-toady>
+
+section.exercise
+  :markdown
+    ## Exercise - Cat Votes
+
+    I'd like to be able to vote for cats. Add a score attribute to the cat, and then add in a upvote method on the view that updates the cat by incrementing the score.

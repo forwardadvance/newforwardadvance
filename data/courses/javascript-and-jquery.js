@@ -15,7 +15,7 @@ module.exports = {
   `,
   courseModules: [
     require('../modules/js-1'),
-    // require('../modules/js-2')
+    require('../modules/js-2')
   ],
   optionalModules: ['js2', 'browserify', 'gulp']
 };

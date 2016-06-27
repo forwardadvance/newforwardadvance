@@ -9,8 +9,24 @@ module.exports = {
   outcome: '',
   exercises:[
     {
-      slug: 'wiring-an-app',
-      title: 'Wiring An App Together',
+      slug: 'webpack',
+      title: 'Webpack for Backbone',
+      description: '',
+      learnings: [
+        ''
+      ]
+    },
+    {
+      slug: 'jasmine',
+      title: 'Introduction to Testing with Jasmine',
+      description: '',
+      learnings: [
+        ''
+      ]
+    },
+    {
+      slug: 'automatic-testing',
+      title: 'Automatic Testing with Backbone',
       description: '',
       learnings: [
         ''
