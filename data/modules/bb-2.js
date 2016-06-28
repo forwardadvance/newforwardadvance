@@ -12,6 +12,7 @@ module.exports = {
       slug: 'webpack',
       title: 'Webpack for Backbone',
       description: '',
+      github: 'backbone_webpack_demo',
       learnings: [
         ''
       ]
@@ -20,14 +21,16 @@ module.exports = {
       slug: 'jasmine',
       title: 'Introduction to Testing with Jasmine',
       description: '',
+      github: 'backbone_jasmine_demo',
       learnings: [
         ''
       ]
     },
     {
-      slug: 'automatic-testing',
-      title: 'Automatic Testing with Backbone',
+      slug: 'automated-testing',
+      title: 'Automated Testing with Backbone',
       description: '',
+      github: 'backbone_automated_testing_demo',
       learnings: [
         ''
       ]
@@ -36,14 +39,16 @@ module.exports = {
       slug: 'collections',
       title: 'Collections',
       description: '',
+      github: 'backbone_collections_demo',
       learnings: [
         ''
       ]
     },
     {
-      slug: 'todo',
-      title: 'A TODO App',
+      slug: 'routing',
+      title: 'Routing',
       description: '',
+      github: 'backbone_routing_demo',
       learnings: [
         ''
       ]

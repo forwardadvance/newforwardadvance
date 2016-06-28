@@ -1,54 +1,117 @@
 :markdown
   Collections are lists of models. You can sort them, iterate over them, push and pop. They spit out events when you change them, just as you would hope.
 
+  Make a collection like this:
 
-  ## Reading
+  ```
+  var CatCollection = Backbone.Collection.extend({
+    model: Cat,
+  });
+  var catCollection = new CatCollection();
+  ```
 
-  Review the events catalog here: <http://backbonejs.org/#Events-catalog>. Specifically check out the events relating to collections.
+  You can push models into it like this:
 
-  ## Exercise
+  ```
+  catCollection.add(new Cat({name: "Mister Whiskers", age: 12}))
+  ```
 
-  1. Create a collection to hold your models. If you have a Cat model, create a CatCollection. Refer to the reading if you are stuck.
-  2. Make sure you set the model attribute on your collection to tell it what type of model it contains.
-  3. Create a CatList view (assuming you have a cat model)
-  4 The catList View instance should have a collection attribute that points to the cat collection
-  5. The CatList view should have a render method which uses forEach to iterate over the collection adding the model name attribute to a string.
-  6. In the render method, use $el.html() to put the string you have composed in the DOM.
-  7. Use view.listenTo(collection, 'all', functionName) to have your CatList view listen to the collection and call render when it changes.
+  We can also initialize it with an array:
 
-  Test your app. Use the console to create Cats, and push them into the collection. Your DOM should update automagically.
+  ```
+  var catCollection = new CatCollection([cat1, cat2, cat3]);
+  ```
+
+  ## Listening to collections
+
+  Collections will throw events when they are updated. We can listen to these events and update the DOM:
+
+  ```
+  catCollection.on('change', () => {catView.render()})
+  ```
+
+  ## Retrieving from a collection
+
+  We can pull a specific item from a collection using collection.at. This will pull a specific item from a collection.
+
+  ```
+  catCollection.at(2);
+  ```
+
+  You can also get an item by the cid of the model using collection.get
+
+  ```
+  catCollection.get('cat2');
+  ```
+
+!=resources(exercise)
 
 
-  ## Extensions
+section.exercise
+  :markdown
+    ## Exercise
 
-  Add a metadata view which shows the total number of cats in the collection, and when the collection was last updated.
+    Set up Jasmine and Webpack, so you are building and testing as you go along.
 
-  Define a comparator to sort alphabetically by name
+    1. Create a collection to hold your models. If you have a Cat model, create a CatCollection. Refer to the reading if you are stuck.
+    2. Make sure you set the model attribute on your collection to tell it what type of model it contains.
+    3. Create a CatList view (assuming you have a cat model)
+    4 The catList View instance should have a collection attribute that points to the cat collection
+    5. The CatList view should have a render method which uses forEach to iterate over the collection adding the model name attribute to a string.
+    6. In the render method, use $el.html() to put the string you have composed in the DOM. Extend your app to use a template instead.
+    7. Use view.listenTo(collection, 'all', functionName) to have your CatList view listen to the collection and call render when it changes.
 
-  Add buttons to sort your collection by name and age using the sortBy method.
-
-  Add a search button to filter models that have a specific name.
-
-
-  ## Reading
-
-  Read about Backbone collections here
-
-  <http://backbonejs.org/#Collection>
+    Test your app. Use the console to create Cats, and push them into the collection. Your DOM should update automagically.
 
 
-  ## Further reading
+section.exercise
+  :markdown
+    ## Exercise Extension
 
-  Backbone collections gain access to the full might of the Underscore collections library, providing modern, functional style array and collection handling. Have a skim through the methods available to you.
 
-  <http://underscorejs.org/#collections>
+    ### Part one: adding cats
 
-  Pay special attention to:
+    Create a little form in your app. When you click the button, grab the values from the form and use them to create a new cat. The catListView should automatically render() if it is watching the catCollection.
 
-  * each (forEach): <http://underscorejs.org/#each>
-  * map: <http://underscorejs.org/#map>
-  * find: <http://underscorejs.org/#find>
-  * sortBy: <http://underscorejs.org/#sortBy>
-  * filter: <http://underscorejs.org/#filter>
+    ### Part two: deleting cats
 
-  If you're not used to functional programming, some of these ideas may be new to you.
+    Add a little x link to the CatView template. When you click the x, the cat is removed from the collection.
+
+    ### Part three: searching cats
+
+    Add an input field. When you type in it, call search on the collection and re-render with the results.
+
+    ### Part four (optional): editing cats
+
+    1. Add an edit button to the CatView template.
+    2. When you click the cat, call cat.set('editable', true)
+    3. In the catView render method, check the status of editable, and draw a formTemplate if it is true.
+    4. Wire up the submit button on the form so that it modifies the cat.
+
+section.exercise
+  :markdown
+    ## Reading
+
+    Read about Backbone collections here
+
+    <http://backbonejs.org/#Collection>
+
+
+    ## Further reading
+
+    Backbone collections gain access to the full might of the Underscore collections library, providing modern, functional style array and collection handling. Have a skim through the methods available to you.
+
+    <http://underscorejs.org/#collections>
+
+    Pay special attention to:
+
+    * each (forEach): <http://underscorejs.org/#each>
+    * map: <http://underscorejs.org/#map>
+    * find: <http://underscorejs.org/#find>
+    * sortBy: <http://underscorejs.org/#sortBy>
+    * filter: <http://underscorejs.org/#filter>
+
+    If you're not used to functional programming, some of these ideas may be new to you.
+
+
+    You may also wish to review the events catalog here: <http://backbonejs.org/#Events-catalog>. Specifically check out the events relating to collections.

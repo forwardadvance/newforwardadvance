@@ -1,19 +1,86 @@
-# Routing
+:markdown
+  Backbone Routing allows you to hook nicely into the address bar at the top of your browser. When the URL changes, Backbone events are fired that we can hook into.
 
-It's very possible to write a Backbone app that make no use of routing at all. Using Routing gives you some useful features though, specifically:
+  We create a router like this:
 
-* Bookmarking
-* A functional back button.
+  ```
+  var AppRouter = Backbone.Router.extend({
+    routes: {
+      "": "home",
+      "about": "about"
+    }
+  });
+  var router = new AppRouter();
+  ```
 
-## Exercise
+  We can then listen to the routers events:
 
-Update your cat app so that when you search, the URL is updated. Visiting that URL again brings up the same search.
+  ```
+  router.on('route:home', () => {
+    // do things here
+  });
+  ```
 
-## Reading
 
-Read the router docs here: <http://backbonejs.org/#Router>
+  We can also pass parameters through to our routes:
 
-## Further reading
+  ```
+  var AppRouter = Backbone.Router.extend({
+    routes: {
+      "posts/:id": "getPost",
+    }
+  });
+  var router = new AppRouter();
 
-If you're interested in PushState, which is the future of web applications, read the
-Router and History sections in the backbone source: <http://backbonejs.org/docs/backbone.html#backbone-router>
+  app_router.on('route:getPost', function( id ){
+      // use the id to deal with the request
+  });
+  ```
+
+
+
+
+
+!=resources(exercise)
+
+section.exercise
+  :markdown
+    ## Exercise - Hello / Goodbye
+
+    Create a view that will show either the word Hello, or the word Goodbye.
+
+    Add two hyperlinks to the top of the page for /#hello and /#goodbye. Make it so when I click the links, the view displays hello or goodbye.
+
+
+section.exercise
+  :markdown
+    ## Exercise - Sorting
+
+    Create /#cats/by-name and #cats/by-age routes and add hyperlinks so you can visit them.
+
+    Now Make it so that when you click one or the other of them, the catsList is sorted either by name or by age.
+
+section.exercise
+  :markdown
+    ## Exercise - Update the URL
+
+    Update your cat app so that when you search, the URL is updated. Visiting that URL again brings up the same search.
+
+    ## Reading
+
+    Read the router docs here: <http://backbonejs.org/#Router>
+
+    ## Further reading
+
+    If you're interested in PushState, which is the future of web applications, read the
+    Router and History sections in the backbone source: <http://backbonejs.org/docs/backbone.html#backbone-router>
+
+
+
+//- // Start Backbone history a necessary step for bookmarkable URL's
+//- Backbone.history.start();
+
+//- It's very possible to write a Backbone app that make no use of routing at all. Using Routing gives you some useful features though, specifically:
+
+//- * Bookmarking
+//- * A functional back button.

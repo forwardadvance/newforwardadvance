@@ -1,6 +1,7 @@
 module.exports = {
   title: 'JavaScript for Programmers',
-  duration: 1,
+  duration: 0.5,
+  slug: 'js-2',
   price: 1000,
   description: 'Further JavaScript, object orientation, this and Promises',
   outcome: 'You will be understand object orientation and inheritance in JavaScript.',

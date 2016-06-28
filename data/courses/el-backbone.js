@@ -6,9 +6,9 @@ module.exports = {
   courseModules: [
     require('../modules/bb-1'),
     require('../modules/js-1'),
-    require('../modules/bb-2'),
     require('../modules/js-2'),
-    require('../modules/ng1-1'),
-    require('../modules/ng1-2'),
+    require('../modules/bb-2'),
+    require('../modules/ng2-1'),
+    require('../modules/ng2-2'),
   ]
 };

@@ -1,12 +1,12 @@
 section
   :markdown
-    Pretty much every major language in the world has a module system.  Modules are just bits of stuff that can be pulled in and used.
+    Pretty much every major language in the world has a module system. Modules are just bits of stuff that can be pulled in from other files and used.
 
     Every major language that is, apart from the three we use most: JavaScript, HTML and CSS. This is probably more of an issue than you have ever realised. If you've never used modules, you might be wondering why you need them. To this, I'd answer that you'll have to trust me on this for now. Give it 5 minutes, and then see how you feel.
 
     ## Webpack lets you define your assets as modules, and choose how to build them
 
-    Webpack allows you to define all your front end assets as modules. It also allows you to build these assets from precursor languages. Want to write SASS instead of CSS? Webkit can compile that for you. Need JSX, or TypeScript, of CoffeeScript? Webkit has you covered.
+    Webpack allows you to define all your front end assets as modules. It also allows you to build these assets from precursor languages. Want to write SASS instead of CSS? Webkit can compile that for you. Need ESNext, or JSX, or TypeScript, of CoffeeScript? Webkit has you covered.
 
     ## Installation
 
@@ -18,7 +18,7 @@ section
 
     ## Compiling JavaScript
 
-    Give Webpack an entry point and an output file:
+    To compile a simple JavaScript file, give Webpack an entry point and an output file:
 
     ```
     webpack ./app.js app.bundle.js
@@ -26,7 +26,7 @@ section
 
     ## Creating a JavaScript module
 
-    We can define modules in JavaScript using the CommonJS syntax, as for Node. Any file can export an object or funtion by writing to module.exports, like so:
+    We can define modules in JavaScript using the CommonJS syntax, just like we do with NodeJS. Any file can export an object or function by writing to module.exports, like so:
 
     **cats.js**
 
@@ -49,16 +49,18 @@ section
     We can also require any other node module from npm. Rather than a path, we give the name of the module, like so:
 
     ```
-    var ng = require('backbone');
+    var $ = require('jquery');
     ```
 
-    We must have first installed angular2 into our node modules directory using:
+    We must have first installed jquery into our node modules directory using:
 
     ```bash
-    npm install backbone
+    npm install jquery
     ```
 
-    We now have a local copy of Angular in a local variable.
+    We now have a local copy of JQuery in a local variable.
+
+!=resources(exercise)
 
 section.exercise
   :markdown
@@ -96,6 +98,57 @@ section.exercise
 
     Now require the function in source/app.js. Call the function. Verify it works.
 
+:markdown
+  ## Webpack.config.js
+
+  We can set standard options for Webpack by creating a file called `webpack.config.js`. We can set options for input and output:
+
+  ```
+  module.exports = {
+    entry: "./source/app.js",
+    output: {
+      filename: "./build/app.js",
+    },
+    resolve: {
+      extensions: ['', '.js']
+    }
+  }
+  ```
+
+  If we create a webpack file, it is sufficient to just type `webpack` at the command line, and webpack will run.
+
+  ## Transpiling
+
+  We can integrate a transpiler into Webpack, to convert the code from one form into another. For example, you can use Babel to convert ES6 down to ES5 suitable for older browsers.
+
+  We need to install a transpiler first:
+
+  ```bash
+  npm install babel -- save-dev
+  npm install babel-core -- save-dev
+  npm install babel-loader -- save-dev
+  ```
+
+  Now we update the `webpack.config.js` to include the loader:
+
+  ```
+  module.exports = {
+    entry: "./source/app.js",
+    output: {
+      filename: "./build/app.js",
+    },
+    sourceMap: true,
+    resolve: {
+      extensions: ['', '.ts', '.js']
+    },
+    module: {
+      loaders: [
+        { test: /\.js$/, loader: 'babel-loader' }
+      ]
+    }
+  }
+  ```
+
 
 section.exercise
   :markdown
@@ -107,22 +160,24 @@ section.exercise
 
     ```json
     {
-      "name": "webpack_demo",
+      "name": "backbone_webpack_demo",
       "version": "1.0.0",
-      "description": "",
-      "main": "index.js",
-      "scripts": {},
-      "author": "",
+      "scripts": {
+      },
       "license": "ISC",
+      "dependencies": {},
       "devDependencies": {
-        "backbone",
-        "systemjs": "0.19.27",
-        "core-js": "^2.4.0",
-        "reflect-metadata": "^0.1.3",
-        "rxjs": "5.0.0-beta.6",
-        "zone.js": "^0.6.12"
+        "babel": "^6.5.2",
+        "babel-core": "^6.10.4",
+        "babel-loader": "^6.2.4",
+        "backbone": "^1.3.3",
+        "jasmine-core": "^2.4.1",
+        "jquery": "^3.0.0",
+        "underscore": "^1.8.3",
+        "webpack": "^1.13.1"
       }
     }
+
     ```
 
     Now `npm install` to get them all.
@@ -132,36 +187,40 @@ section.exercise
     in build/app.js, do something like this:
 
     ```
-    require('underscore');
-    require('jquery');
+    var _ = require('underscore');
+    var $ = require('jquery');
     require('backbone');
+
     var AppView = require('./app.view')
 
-    document.addEventListener('DOMContentLoaded', function() {
 
+    $(function() {
       var view = new AppView({
         el: 'app'
       });
-      AppView.render();
     });
     ```
 
     Now we need to create the view. Make a file called source/app.view.js and put the following into it:
 
     ```
-    module.exports = Backbone.View.extend({
-        initialize: function () {},
-        render: function () {
-          this.$el.html("Hello Webpack!");
-        }
-      });
+    var {View} = require('backbone');
+
+    module.exports = View.extend({
+      initialize: function() {
+        this.render();
+      },
+      render: function() {
+        this.$el.html('Hello Backbone');
+      }
+    });
+
     ```
 
-    We can now build this with Webpack: webpack app.
-
+    We can now build this with Webpack:
 
     ```
-    webpack ./app.js app.bundle.js
+    webpack -wd
     ```
 
     Now we just need some html:
