@@ -13,11 +13,16 @@
   var router = new AppRouter();
   ```
 
-  We can then listen to the routers events:
+  We can then configure to the router:
 
   ```
-  router.on('route:home', () => {
-    // do things here
+  var AppRouter = Backbone.Router.extend({
+    routes: {
+      "cats": "catsRoute",
+    },
+    catsRoute: function() {
+      app.view.render("cats route");
+    }
   });
   ```
 
@@ -25,16 +30,15 @@
   We can also pass parameters through to our routes:
 
   ```
-  var AppRouter = Backbone.Router.extend({
+  app.Router = Backbone.Router.extend({
     routes: {
-      "posts/:id": "getPost",
+      "cat/:id": "catRoute"
+    },
+    catRoute: function(id) {
+      app.view.render("cat: " + id);
     }
   });
-  var router = new AppRouter();
 
-  app_router.on('route:getPost', function( id ){
-      // use the id to deal with the request
-  });
   ```
 
 

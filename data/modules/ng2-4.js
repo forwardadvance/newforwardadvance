@@ -26,13 +26,6 @@ module.exports = {
       github: '',
       learnings: []
     },
-    {
-      title: 'Repeating with ng-for',
-      slug: 'ng-for',
-      description: '',
-      github: 'angular2_ng_for_demo',
-      learnings: []
-    },
 
   ],
   outline: [

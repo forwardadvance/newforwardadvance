@@ -40,8 +40,7 @@ section
     ```
     .Class({
       constructor: function() {
-        var vm = this;
-        vm.liked = new ng.core.EventEmitter();
+        this.liked = new ng.core.EventEmitter();
       }
     })
     ```
@@ -55,11 +54,10 @@ section
     ```
     .Class({
       constructor: function() {
-        var vm = this;
-        vm.liked = new ng.core.EventEmitter();
-        vm.handleClick = () => {
+        this.liked = new ng.core.EventEmitter();
+        this.handleClick = () => {
           console.log('clicked');
-          vm.liked.emit();
+          this.liked.emit();
         }
       }
     })
@@ -83,11 +81,10 @@ section
       })
       .Class({
         constructor: function() {
-          var vm = this;
-          vm.liked = new ng.core.EventEmitter();
-          vm.handleClick = function() {
+          this.liked = new ng.core.EventEmitter();
+          this.handleClick = function() {
             console.log('clicked');
-            vm.liked.next();
+            this.liked.emit();
           }
         }
       });
@@ -112,7 +109,6 @@ section
       })
       .Class({
         constructor: function() {
-          var vm = this;
           this.handleLike = function() {
             this.message = "Thanks for liking us"
           }
@@ -149,7 +145,7 @@ section
     We can return data from our EventEmitter, just by passing it as a parameter. We might like to return a JSON object:
 
     ```
-    vm.liked.next({
+    this.liked.emit({
       name: 'davey',
       age: 47
     });
@@ -171,14 +167,13 @@ section
       })
       .Class({
         constructor: function() {
-          var vm = this;
-          vm.cat = {
+          this.cat = {
             name: 'davey',
             age: 47
           }
-          vm.liked = new ng.core.EventEmitter();
-          vm.handleClick = function() {
-            vm.liked.next(vm.cat);
+          this.liked = new ng.core.EventEmitter();
+          this.handleClick = function() {
+            this.liked.emit(this.cat);
           }
         }
       });

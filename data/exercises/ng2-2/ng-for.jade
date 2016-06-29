@@ -5,7 +5,9 @@ section
   :markdown
     NgFor is a directive that allows you to show a list of things. Say we have an array of cheese declared in out component:
 
-    vm.cheeses = ['manchego', 'dolchelatte', 'fingers']
+    ```
+    this.cheeses = ['manchego', 'dolchelatte', 'fingers'];
+    ```
 
     We can render it like so:
 
@@ -36,11 +38,33 @@ section
 
 section.exercise
   :markdown
+    ## Exercise - Output a list of cats
+
+    We are going to create a list of cats. In our component, make an array of cat objects, like this:
+
+    ```
+    this.cats = [
+      {
+        name: "Hercule",
+        age: 4
+      },
+      {
+        name: "Claudette",
+        age: 9
+      }
+    ]
+    ```
+
+    Now iterate over the list, outputting the values.
+
+
+section.exercise
+  :markdown
     ## Exercise - Generate Tabs from an Array
 
     We are going to use an array to generate the tabs for our tab component.
 
-    First of all, generate an array containing the tabs that you would like to display. Add it to VM.
+    First of all, generate an array containing the tabs that you would like to display. Add it to this.
 
     Now pass that array in as a property to the tabs component.
 

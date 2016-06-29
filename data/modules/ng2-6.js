@@ -7,13 +7,6 @@ module.exports = {
   exercises: [
 
     {
-      title: 'Two-Way-Binding Forms in Angular 2',
-      slug: 'two-way-binding',
-      description: '',
-      github: 'angular2_two_way_binding_demo',
-      learnings: []
-    },
-    {
       title: 'Custom Pipes',
       slug: 'custom-pipes',
       description: '',
@@ -47,13 +40,6 @@ module.exports = {
       slug: 'inline-templates',
       description: '',
       github: 'angular2_inline_templates_demo',
-      learnings: []
-    },
-    {
-      title: 'Styling Components with the Shadow DOM',
-      slug: 'shadow-dom',
-      description: '',
-      github: 'angular2_shadow_dom_demo',
       learnings: []
     },
   ],

@@ -10,5 +10,6 @@ module.exports = {
     require('../modules/bb-2'),
     require('../modules/ng2-1'),
     require('../modules/ng2-2'),
+    require('../modules/ng2-3'),
   ]
 };

@@ -39,9 +39,8 @@ section
       })
       .Class({
         constructor: function() {
-          var vm = this;
-          setInterval(function() {
-            vm.count ++;
+          setInterval(() => {
+            this.count ++;
           }, 500);
           this.count = 1;
         }
@@ -67,9 +66,9 @@ section.exercise
   :markdown
     ## Exercise - A clock
 
-    Use setTimeout to build a little clock that shows the time of the day. You can make it as fancy as you like.
+    Use setInterval to build a little clock that shows the time of the day. You can make it as fancy as you like.
 
-    Create a clock component. In a timeout, set values for vm.hours, vm.minutes and vm.seconds.
+    Create a clock component. In a timeout, set values for `this.hours`, `this.minutes` and `this.seconds`.
 
     Note that this can also be achieved using pipes. More on this later.
 

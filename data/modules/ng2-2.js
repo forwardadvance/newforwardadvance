@@ -34,6 +34,27 @@ module.exports = {
       github: 'angular2_dom_properties_demo',
       learnings: []
     },
+    {
+      title: 'Repeating with ng-for',
+      slug: 'ng-for',
+      description: '',
+      github: 'angular2_ng_for_demo',
+      learnings: []
+    },
+    {
+      title: 'Styling Components with the Shadow DOM',
+      slug: 'shadow-dom',
+      description: '',
+      github: 'angular2_shadow_dom_demo',
+      learnings: []
+    },
+    {
+      title: 'Two-Way-Binding Forms in Angular 2',
+      slug: 'two-way-binding',
+      description: '',
+      github: 'angular2_two_way_binding_demo',
+      learnings: []
+    },
 
 
   ],
