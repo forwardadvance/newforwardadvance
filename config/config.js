@@ -12,7 +12,8 @@ var config = {
       name: 'forwardadvance'
     },
     port: 3000,
-    mongoUrl: process.env.MONGODB,
+    mongoUrl: 'mongodb://localhost:27017/test',
+    sessionSecret: 'dummy_secret',
     prettyHtml: true
   },
 
@@ -24,6 +25,7 @@ var config = {
     },
     port: process.env.PORT || 5000,
     mongoUrl: process.env.MONGOLAB_URI,
+    sessionSecret: process.env.SESSION_SECRET,
     prettyHtml: false
   }
 };
