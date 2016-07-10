@@ -2,13 +2,15 @@ section
   :markdown
     CSS selectors allow us to chain selectors together. If we write:
 
+    ```css
     .homepage article {
       padding:10px;
     }
+    ```
 
-    ...this will match any article inside an element wit ha class of *homepage*.
+    ...this will match any article inside an element with a class of *homepage*.
 
-    This is trmemndously useful, but quickly becomes painful to write. Consider the following CSS:
+    This is tremendously useful, but quickly becomes painful to write. Consider the following CSS:
 
     ```css
     aside.sidebar nav li {
@@ -19,7 +21,7 @@ section
     }
     ```
 
-    Imagine we had 100 rules to apply to our aside.sidebar nav. We would get bored pretty quickly.
+    Imagine we had 100 rules to apply to our aside.sidebar nav. We would get bored or repeatedly namespacing everything pretty quickly.
 
     ## Nesting SASS for fun and glory
 
@@ -38,13 +40,143 @@ section
     }
     ```
 
-    This will compile down to the SASS above
+    This will compile down to the CSS above.
 
+    ## Namespacing
+
+    This is very useful for namespacing. We might create a class for rendering a user profile, like so:
+
+    ```html
+    <div class="standard_user_profile">
+      Stuff in here
+    </div>
+    ```
+
+    We can then namespace our SASS:
+
+    ```scss
+    .standard_user_profile {
+      // further style rules
+    }
+    ```
+
+    We might apply a style to the body tag, then namespace everything on a particular page, so that we can combine all our CSS into a single download.
+
+  !=resources(exercise)
 
 section.exercise
   :markdown
     ## Exercise - Nested Sass
 
-    Write nested queries to style the header with a horizontal nav bar, nicely positioned h1, and pretty background colour.
+    Grab the exercise start point. Write nested queries to style the header with a horizontal nav bar, nicely positioned h1, and pretty background colour.
 
 
+section
+  :markdown
+    ## &
+
+    Sometimes we want to append styles to the current style. For this we have the ampersand (&) selector.
+
+    Say we want a hover state. If we wrote this:
+
+    ```scss
+    a {
+      color:red;
+      :hover {
+        color: blue;
+      }
+    }
+    ```
+
+    the generated CSS would look like this
+
+    ```css
+    a :hover {
+      color: blue
+    }
+    ```
+
+    Notice the space. This would match an anchor containing a hovered item, rather than matching a hovered anchor. To fix this we use the & parent selector, like so:
+
+    ```scss
+    a {
+      color:red;
+      &:hover {
+        color: blue;
+      }
+    }
+    ```
+
+    This will give us this:
+
+    ```css
+    a:hover {
+      color: blue
+    }
+    ```
+
+section.exercise
+  :markdown
+    ## Exercise - Hover states
+
+    Add hover states to the sidebar and header navigations.
+
+
+
+section
+  :markdown
+    ## Responsive design
+
+    We can use nesting to create a responsive design.
+
+    Say we want our user component to respond at a particular width. We might define set widths:
+
+    ```scss
+    $desktop: 1000px
+    $tablet: 780px;
+    $iphone: 480px;
+    ```
+
+    Then we can apply style rules to specific parts of our page at specific widths:
+
+    ```scss
+    .standard_user_profile {
+      background: red;
+      @media (max-width: $mobile) {
+        background: blue;
+      }
+    }
+    ```
+
+section.exercise
+  :markdown
+    ## Exercise - Responsive Design
+
+    Create a two column float layout by floating the aside left with a width, and the article right, with a width, like this:
+
+    ```css
+    aside {
+      float:left;
+      width: $desktop * 0.25 - 100;
+    }
+    article {
+      float:right;
+      width: $desktop * 0.75 - 100;
+    }
+    footer {
+      clear:both;
+    }
+    ```
+
+    Now add style so that when the width drops to tablet width, the widths of the aside and article adjust accordingly.
+
+    Add a further rule so that, when the page drops below iPhone width, the article and aside become:
+
+    ```css
+    width:auto;
+    float:none;
+    ```
+
+    ## Further Exercise
+
+    Style the header, so that it responds nicely to the page width.

@@ -62,12 +62,23 @@ section
     }
     ```
 
+
+  !=resources(exercise)
+
 section.exercise
   :markdown
     ## Exercise - Colours and padding
 
-    Download the exercise start point. Add common margins on the header, article and footer.
+    Download the exercise start point. You'll find an HTML file with a header an article, and a footer.
+
+    Add common margins and padding on the header, article and footer.
 
     Create a dark grey colour for the body text, and a slightly lighter grey colour for the headings.
 
-    Set a max-width of 1000px. Parameterise this as $desktop_width.
+    Create a $desktop_width variable:
+
+    ```scss
+    $desktop_width: 1000px;
+    ```
+
+    Set a max-width on the body, so the content will stretch to 1000px, then stop.

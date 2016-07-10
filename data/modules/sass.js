@@ -29,7 +29,7 @@ module.exports = {
       slug: 'variables',
       title: 'Variables',
       description: '',
-      github: '',
+      github: 'sass_variables_demo',
       learnings: [
         ''
       ]
@@ -38,7 +38,7 @@ module.exports = {
       slug: 'maths',
       title: 'Maths',
       description: '',
-      github: '',
+      github: 'sass_maths_demo',
       learnings: [
         ''
       ]
@@ -47,16 +47,25 @@ module.exports = {
       slug: 'nesting',
       title: 'Nesting',
       description: '',
-      github: '',
+      github: 'sass_nesting_demo',
       learnings: [
         ''
       ]
     },
     {
-      slug: 'functions',
-      title: 'Fuctions',
+      slug: 'mixins',
+      title: 'Mixins & Includes',
       description: '',
-      github: '',
+      github: 'sass_mixins_demo',
+      learnings: [
+        ''
+      ]
+    },
+    {
+      slug: 'inheritance',
+      title: 'Inheritance',
+      description: '',
+      github: 'sass_mixins_demo',
       learnings: [
         ''
       ]

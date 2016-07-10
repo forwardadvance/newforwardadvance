@@ -1,6 +1,95 @@
+section
+  :markdown
+    Mixins allow us to share common functionality around the place. We can write a single mixin, then include it in multiple places.
+
+    Here is a clearfix mixin. It adds code to tell a block to clear its contained floats:
+
+    ```scss
+    @mixin clearfix {
+      &:after {
+        content:'';
+        clear:both;
+        display:table;
+      }
+    }
+    ```
+
+    We can include it wherever we like:
+
+    ```scss
+    .my_container {
+      @include clearfix;
+    }
+    ```
+
+    ## Parameterised Mixins
+
+    Mixins can receive parameters, like so:
+
+
+    ```scss
+    @mixin cols(num) {
+      width: $desktop / 12 * num
+    }
+    ```
+
+    then:
+
+    ```scss
+    article {
+      @include cols(6);
+    }
+    ```
 
 section.exercise
   :markdown
-    ## Further Exercise - Mixins
+    ## Exercise - Mixins
 
     Create a button mixin which sets a width, a height, a background-color, a padding and display:inline-block. Apply it to input type="submit", button, and a class="button"
+
+section
+  :markdown
+    ## Functions
+
+    A function is like a mixin, except it returns a variable rather than a set of CSS rules.
+
+    SASS comes with a set of built in functions transform variables, like so:
+
+    ```scss
+    $red: #f00;
+    a {
+      color:darken($red, 30%);
+    }
+    a:hover {
+      color:lighten($red, 30%);
+    }
+    ```
+
+    We can define our own functions, as with mixins:
+
+
+    ```scss
+    @mixin col_width(num) {
+      @return $desktop / 12 * num
+    }
+    ```
+
+    then:
+
+    ```scss
+    article {
+      width col_width(6);
+    }
+    ```
+
+section
+  :markdown
+    ## Imports
+
+    We can split our code across more than one file, then import it. The output file will contain the imports.
+
+    ```scss
+    @import 'variables/colours';
+    ```
+
+    We use this to split out common sections of functionality.
