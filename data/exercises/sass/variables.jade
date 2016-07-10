@@ -1,0 +1,41 @@
+section
+  :markdown
+
+
+    ## Variables
+
+    We can define variables in sass, like so:
+
+    If we have CSS like this:
+
+    ```scss
+    a {
+      color:#f00;
+    }
+    ```
+
+    We can write this:
+
+    ```scss
+    $red: #f00;
+    a {
+      color:$red;
+    }
+    ```
+
+    This lets us create standard colour variables, and reuse them everywhere:
+
+    ```scss
+    $dark_grey: #444;
+    $light_grey: #bbb;
+
+    $keyline_color: $light_grey;
+
+    header {
+      border-bottom: 1px solid $keyline_color;
+    }
+    sidebar {
+      border-right: 1px solid $keyline_color;
+    }
+    ```
+

@@ -1,0 +1,65 @@
+
+  :markdown
+
+    ## Nesting
+
+    We can nest our sass like so:
+
+    ```scss
+    article {
+      a {
+        color: red;
+      }
+      strong {
+        font-weight: normal;
+      }
+    }
+    ```
+
+  :markdown
+
+    This will generate something like the following:
+
+    ```scss
+    article a {
+      color: red;
+    }
+
+    article strong {
+      font-weight: normal;
+    }
+    ```
+
+  :markdown
+
+
+%section.exercise
+  :markdown
+
+    ## Exercise - Gulp-sass
+
+    Use gulp-sass to compile sass. Have a look at the gulp-sass project and try to create a sass task to compile your sass. You may wish to concat it first.
+
+%section.exercise
+  :markdown
+
+    ## Exercise - Nested Sass
+
+    Write nested queries to style the header with a horizontal nav bar, nicely positioned h1, and pretty background colour.
+
+
+
+%section.exercise
+  :markdown
+
+    ## Further Exercise - Mixins
+
+    Create a button mixin which sets a width, a height, a background-color, a padding and display:inline-block. Apply it to input type="submit", button, and a class="button"
+
+%section
+  :markdown
+
+    ## Downloads
+
+    [Example - Dropbox](https://www.dropbox.com/sh/ocanl6b1x20u7iy/AAAqouBsGIZ5xUbeM_5WCAFta?dl=1)
+

@@ -7,6 +7,7 @@ module.exports = [
   require('./backbone.js'),
   require('./el-backbone.js'),
   require('./javascript-and-jquery.js'),
+  require('./sass.js'),
   // Custom Courses
-  require('./ucas-angular2.js'),
+  // require('./ucas-angular2.js'),
 ]

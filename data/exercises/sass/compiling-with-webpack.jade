@@ -1,0 +1,55 @@
+section
+  :markdown
+    SASS doesn't work natively in the browser (though features of SASS are bing rolled in to edge browsers), so we use client side tooling to compile our SASS into optimised CSS. Most client side tooling options are based on NodeJS.
+
+    Options include:
+
+    * Grunt (old but still good config based task runner)
+    * Gulp (newer pipeline based file processor)
+    * Webpack (Blazing fast front end packing tool)
+
+    You will also find that some IDEs come with SASS build tools, though if you use an IDE, you have then tied your entire team into that IDE, and you may sacrifice flexibility.
+
+    In this course we will use Webpack, which is rapidly becoming a standard.
+
+    ## Getting Node
+
+    To run our webpack tooling we will need NodeJS. If you have Node installed, you can skip this part. If not, go to (nodejs.org)[http://nodejs.org] and download the build for your platform.
+
+    Once you have installed it, open a terminal or command window, and type `node --version`. If you get a vrsion number, you have installed it correctly.
+
+    ## Getting Webpack
+
+    Having installed Node, we can now get Webpack. At a command line, type `npm install webpack -g`. The -g flag means global, so we can type the word webpack anywhere and the contents of that folder will be packed.
+
+    Once done, verify it works by typing `webpack --version` at a command line. You may need to close and reopen your console to recognise the new path. You should see a version string, followed by a list of options.
+
+    ## Getting the starter project
+
+    Download the starter project from the exercise github repository.
+
+    Files of note are:
+
+    * `package.json` - A short list of node dependencies and handy scripts.
+    * `webpack.config.js` - Webpack's configuration file which simply tells Webpack how to build SCCS files.
+    * `source/app.scss` - The SASS file we will compile
+    * `build/app.css` - The built CSS file (you won't have this until you compile)
+    * `index.html` - A web page that you can use to test your CSS in a browser.
+
+    ## Getting the dependencies
+
+    Once you have the starter project downloaded and unzipped in a folder, get the dependencies by typing `npm install`.
+
+    ## Building the SASS
+
+    We can compile our SASS file by typing `webpack` at the command line. If all has gone well, you should see a file called `build/app.js` pop up. If you open the index.html file in a browser, you'll see the built code.
+
+section.exercise
+  :markdown
+    ## Exercise - Build the SASS
+
+    Download the starter project. Grab the dependencies. Open the file in a browser. Have a god at making the page background red, and the header purple.
+
+section
+  :markdown
+

@@ -43,22 +43,22 @@ module.exports = {
         'Package Manifest',
       ]
     },
-    {
-      slug: 'webpack',
-      title: 'Using Webpack for Modularity (optional)',
-      description: 'Automatically build your code and run your tests, all with one script.',
-      github: 'angular_webpack_demo',
-      learnings: [
-        'Jasmine Testing with Webpack',
-        'Compiling ES7',
-        'Brief look at TypeScript',
-      ]
-    },
-    {
-      slug: 'homework-2',
-      title: 'Homework 2',
-      description: 'Again, like school, but better paid.'
-    },
+    // {
+    //   slug: 'webpack',
+    //   title: 'Using Webpack for Modularity (optional)',
+    //   description: 'Automatically build your code and run your tests, all with one script.',
+    //   github: 'angular_webpack_demo',
+    //   learnings: [
+    //     'Jasmine Testing with Webpack',
+    //     'Compiling ES7',
+    //     'Brief look at TypeScript',
+    //   ]
+    // },
+    // {
+    //   slug: 'homework-2',
+    //   title: 'Homework 2',
+    //   description: 'Again, like school, but better paid.'
+    // },
   ],
   outline: [
     'Components',

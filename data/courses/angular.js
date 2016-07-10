@@ -26,8 +26,8 @@ module.exports = {
     require('../modules/ng1-4'),
     require('../modules/ng1-5'),
     require('../modules/ng1-6'),
-    require('../modules/ng1-7'),
-    require('../modules/ng1-8')
+    // require('../modules/ng1-7'),
+    // require('../modules/ng1-8')
   ],
   optionalModules: ['js2', 'es6', 'webpack', 'browserify', 'gulp']
 };
