@@ -1,10 +1,23 @@
 section
   :markdown
+    We can define variables in SASS using a dollar, like so:
 
+    ```
+    $gutter: 100px;
+    ```
 
-    ## Variables
+    We can then make use of this standard variable anywhere we like:
 
-    We can define variables in sass, like so:
+    ```css
+    header {
+      margin: $gutter;
+      padding: $gutter;
+    }
+    ```
+
+    ## Colours
+
+    This is very useful for hex codes. We can share standard colours across an application.
 
     If we have CSS like this:
 
@@ -23,7 +36,17 @@ section
     }
     ```
 
-    This lets us create standard colour variables, and reuse them everywhere:
+    We might later change the value of $red:
+
+    ```scss
+    $red: #dd4455;
+    ```
+
+    Wherever we have used $red in our application, this hex code will be changed.
+
+    ## A bank of colours
+
+    We might create a set of standard colours, and reuse them. We can then create variables to represent certain common parts of our application, like dialog backgrounds or keylines:
 
     ```scss
     $dark_grey: #444;
@@ -39,3 +62,12 @@ section
     }
     ```
 
+section.exercise
+  :markdown
+    ## Exercise - Colours and padding
+
+    Download the exercise start point. Add common margins on the header, article and footer.
+
+    Create a dark grey colour for the body text, and a slightly lighter grey colour for the headings.
+
+    Set a max-width of 1000px. Parameterise this as $desktop_width.

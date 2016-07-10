@@ -26,8 +26,8 @@ module.exports = {
       ]
     },
     {
-      slug: 'templates',
-      title: 'Templates',
+      slug: 'variables',
+      title: 'Variables',
       description: '',
       github: '',
       learnings: [
@@ -35,42 +35,31 @@ module.exports = {
       ]
     },
     {
-      slug: 'view-events',
-      title: 'View Events',
+      slug: 'maths',
+      title: 'Maths',
       description: '',
-      github: 'backbone_view_events_demo',
+      github: '',
       learnings: [
         ''
       ]
     },
     {
-      slug: 'models',
-      title: 'Backbone Models',
+      slug: 'nesting',
+      title: 'Nesting',
       description: '',
-      github: 'backbone_models_demo',
+      github: '',
       learnings: [
         ''
       ]
     },
     {
-      slug: 'model-events',
-      title: 'Model Events',
+      slug: 'functions',
+      title: 'Fuctions',
       description: '',
-      github: 'backbone_model_events_demo',
+      github: '',
       learnings: [
         ''
       ]
-    },
-    {
-      slug: 'wiring-an-app',
-      title: 'Wiring An App Together',
-      description: '',
-      learnings: [
-        ''
-      ]
-    },
-  ],
-  'outline': [
-    ''
+    }
   ]
 };

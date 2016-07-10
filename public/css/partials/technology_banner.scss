@@ -20,10 +20,17 @@ nav.technology_banner {
   }
   li {
     display: inline-block;
-    width:100px;
-    margin:$gutter;
+    width:130px;
+    margin:$gutter $gutter*2;
   }
   a {
     color:$white;
+    font-size:$large;
+    &:after {
+      display:none;
+    }
+    &:hover span {
+      color: red;
+    }
   }
 }

@@ -1,8 +1,5 @@
-
+secion
   :markdown
-
-    ## Maths
-
     We can perform maths functions in our SASS to generate sizes. Here is a simple 2 column layout with a gutter.
 
     ```scss
@@ -65,14 +62,31 @@
 
 section.exercise
   :markdown
-
     ## Exercise - Typography
 
     One excellent use for SASS is typography. In this exercise, we will use some maths to create harmonious px sized typography across our site.
 
-    1. Create a $header_colour variable. Use it to set the background-color of your header.
-    2. Create a $font_size variable (12px) and a $font_scale variable (1.5).
-    3. Set the font-size to be the $font_size variable.
-    4. Set the h2 font-size to be $font_size * $font_scale
-    5. Set the h1 font-size to be $font_size * $font_scale ** 2
-    6. Adjust the $font_size. See how everything updates. Woot!
+    * Create a $font_size variable (12px) and a $font_scale variable (1.5).
+    * Set the body font-size to be the same as the $font_size variable. Be as smart about this as you like.
+    * Set the h2 font-size to be $font_size * $font_scale
+    * Set the h1 font-size to be $font_size * $font_scale ** 2
+    * Adjust the $font_size. See how everything updates. Woot!
+
+
+section.exercise
+  :markdown
+    ## Exercise - Floats
+
+    We can use SASS to create layouts.
+
+    Create a $desktop variable that contains the value 1000px.
+
+    ```scss
+    $desktop: 1000px;
+    ```
+
+    Float the article and aside left. Set widths on the article and aside, so that the article is 75% of the $desktop, and the aside is 25%. This will create a two colum float layout.
+
+    ## Extension
+
+    Add a header and footer.

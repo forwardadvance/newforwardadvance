@@ -687,10 +687,15 @@ nav.technology_banner {
     padding: 0 0 30px 0; }
   nav.technology_banner li {
     display: inline-block;
-    width: 100px;
-    margin: 20px; }
+    width: 130px;
+    margin: 20px 40px; }
   nav.technology_banner a {
-    color: #fff; }
+    color: #fff;
+    font-size: 26.56px; }
+    nav.technology_banner a:after {
+      display: none; }
+    nav.technology_banner a:hover span {
+      color: red; }
 
 section.exercise {
   border: 1px solid black;
