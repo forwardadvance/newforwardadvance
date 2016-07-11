@@ -45,7 +45,36 @@ section.exercise
   :markdown
     ## Exercise - Mixins
 
-    Create a button mixin which sets a width, a height, a background-color, a padding and display:inline-block. Apply it to input type="submit", button, and a class="button"
+    Create a button mixin which sets a width, a height, a background-color, a padding and display:inline-block. Apply it to the following:
+
+    * `<input type="submit">Click Me!</input>`
+    * `<button>Click me!</button>`
+    * `<a class="button">Click Me!</a>`
+
+section
+  :markdown
+    ## Imports
+
+    We can split our code across more than one file, then import it. The output file will have access to all the imports.
+
+    Import filenames by convention start with an underscore, like so: `_my_mixin.scss`.
+
+    Import this with the @import statement like so:
+
+    ```scss
+    @import 'variables/colours';
+    ```
+
+    We use this to split out common sections of functionality.
+
+
+section.exercise
+  :markdown
+    ## Exercise - Imports
+
+    Extract your button mixin into a separate file, then import it. You may wish to create a folder called imports to contain your imports.
+
+    Break out the code for the header, sidebar and footer. Break out your variable declarations into sensibly named files (`_colours.scss`, `_typography.scss`, etc.) I expect the app.scss file to contain only imports.
 
 section
   :markdown
@@ -82,14 +111,22 @@ section
     }
     ```
 
-section
+
+section.exercise
   :markdown
-    ## Imports
+    ## Exercise - Functions
 
-    We can split our code across more than one file, then import it. The output file will contain the imports.
+    * Make use of the lighten function to create a harmonious colour scheme.
+    * Use `lighten($grey, 10%)` to create a gradient background for your page.
 
-    ```scss
-    @import 'variables/colours';
-    ```
 
-    We use this to split out common sections of functionality.
+section.exercise
+  :markdown
+    ## Further Exercise - Libraries
+
+    Because SASS lets you create functions, there are various user created libraries you can make use of. Here we will use mathsass to give us trigonometry.
+
+    Grab Mathsass from here <https://github.com/terkel/mathsass>. @import it.
+
+    Now try to put some text on a sin curve.
+

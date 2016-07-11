@@ -54,21 +54,21 @@ module.exports = {
     },
     {
       slug: 'mixins',
-      title: 'Mixins & Includes',
+      title: 'Mixins, Includes & Functions',
       description: '',
       github: 'sass_mixins_demo',
       learnings: [
         ''
       ]
     },
-    {
-      slug: 'inheritance',
-      title: 'Inheritance',
-      description: '',
-      github: 'sass_mixins_demo',
-      learnings: [
-        ''
-      ]
-    }
+    // {
+    //   slug: 'inheritance',
+    //   title: 'Inheritance',
+    //   description: '',
+    //   github: 'sass_inheritance_demo',
+    //   learnings: [
+    //     ''
+    //   ]
+    // }
   ]
 };
