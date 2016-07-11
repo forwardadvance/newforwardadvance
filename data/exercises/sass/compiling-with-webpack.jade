@@ -14,9 +14,9 @@ section
 
     ## Getting Node
 
-    To run our webpack tooling we will need NodeJS. If you have Node installed, you can skip this part. If not, go to (nodejs.org)[http://nodejs.org] and download the build for your platform.
+    To run our webpack tooling we will need NodeJS. If you have Node installed, you can skip this part. If not, go to [nodejs.org](http://nodejs.org) and download the build for your platform.
 
-    Once you have installed it, open a terminal or command window, and type `node --version`. If you get a vrsion number, you have installed it correctly.
+    Once you have installed it, open a terminal or command window, and type `node --version`. If you get a version number, you have installed it correctly.
 
     ## Getting Webpack
 
@@ -26,8 +26,11 @@ section
 
     ## Getting the starter project
 
-    Download the starter project from the exercise github repository.
+    Download the starter project from the exercise Github repository.
 
+  !=resources(exercise)
+
+  :markdown
     Files of note are:
 
     * `package.json` - A short list of node dependencies and handy scripts.
@@ -45,10 +48,11 @@ section
     We can compile our SASS file by typing `webpack` at the command line. If all has gone well, you should see a file called `build/app.js` pop up. If you open the index.html file in a browser, you'll see the built code.
 
 
-  !=resources(exercise)
 
 section.exercise
   :markdown
     ## Exercise - Build the SASS
 
     Download the starter project. Grab the dependencies. Open the file in a browser. Have a go at making the page background red, and the header purple.
+
+    run `npm run dev` to start the project with livereload.
