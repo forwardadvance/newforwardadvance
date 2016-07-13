@@ -119,9 +119,11 @@ section
 
     This code is not cool:
 
+    ```
     var getA = new Promise(function(resolve) {
       resolve();
     });
+    ```
 
     I've done this solely for the purpose of creating a promise object which I can chain from. We can create a promise which is already resolved like so:
 
