@@ -25,6 +25,8 @@ module.exports = {
       slug: 'event-emitters',
       description: '',
       github: 'angular2_component_event_emitters_demo',
+      date: new Date('July 18, 2016'),
+      homepage: true,
       learnings: []
     },
     {

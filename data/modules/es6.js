@@ -4,7 +4,7 @@ module.exports = {
   "price": 1000,
   "description": "",
   "outcome": "",
-  "exercises": {},
+  "exercises": [],
   "outline": [
     "Fat arrow functions =>",
     "ES6",

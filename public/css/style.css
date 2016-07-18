@@ -659,6 +659,10 @@ nav.sharing {
   font-size: 26.56px;
   text-align: center; }
 
+.date {
+  display: block;
+  text-style: italic; }
+
 img.video {
   border: 1px solid black; }
 
@@ -928,6 +932,9 @@ code .hljs-meta {
 .course_page .subtitle {
   font-size: 26.56px;
   text-align: center; }
+
+.course_page .date {
+  border: 1px solid red; }
 
 .exercise_page aside.resources {
   background: #888;

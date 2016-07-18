@@ -4,6 +4,10 @@ block content
   .liquid_wrap
     article.course_exercise.right.eight_col
       h1= exercise.title
+      if exercise.date
+        span.date
+          | Posted #{exercise.date.toDateString()}
+
 
       != exerciseContent
 

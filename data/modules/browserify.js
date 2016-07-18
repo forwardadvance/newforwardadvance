@@ -5,5 +5,5 @@ module.exports = {
   "description": "",
   "exercises": {},
   "outcome": "",
-  "exercises": {}
+  "exercises": []
 }
