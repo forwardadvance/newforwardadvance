@@ -20,18 +20,6 @@ module.exports = {
       ]
     },
     {
-      slug: 'repeat-and-filter',
-      title: 'Repeat and Filter',
-      description: 'The show-off feature of Angular. This stuff makes clients really happy.',
-      github: 'angular_ngrepeat_demo',
-      learnings: [
-        'Creating a list',
-        'Storing arrays in the controller',
-        'Introducing Filters',
-        'ngRepeat, ngFilter, ngOrderBy'
-      ]
-    },
-    {
       slug: 'scope',
       title: '$Scope and the $scope tree',
       description: '$scope is an object in which you can store your models',
@@ -60,6 +48,19 @@ module.exports = {
         'Understanding $digest and $apply',
         'Manually creating $watchers',
         'How data binding actually works'
+      ]
+    },
+
+    {
+      slug: 'repeat-and-filter',
+      title: 'Repeat and Filter',
+      description: 'The show-off feature of Angular. This stuff makes clients really happy.',
+      github: 'angular_ngrepeat_demo',
+      learnings: [
+        'Creating a list',
+        'Storing arrays in the controller',
+        'Introducing Filters',
+        'ngRepeat, ngFilter, ngOrderBy'
       ]
     },
   ],
