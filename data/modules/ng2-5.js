@@ -1,30 +1,36 @@
 module.exports = {
-  title: 'Angular 2 Client Server Interaction',//'Angular 2 Additional Topics',
+  title: 'TypeScript',
   duration: 0.5,
   slug: 'ng2-5',
   price: 750,
   description: '',
   exercises: [
-
+    {
+      title: 'Welcome to Typescript',
+      slug: 'typescript-intro',
+      description: '',
+      github: '',
+      learnings: []
+    },
+    {
+      title: 'TypeScript plus Webpack',
+      slug: 'typescript-webpack',
+      description: '',
+      github: '',
+      learnings: []
+    },
+    {
+      title: 'Angular Components with TypeScript',
+      slug: 'typescript-components',
+      description: '',
+      github: 'angular2_typescript_component_demo',
+      learnings: []
+    },
     {
       title: 'Services and Dependency Injection with TypeScript',
       slug: 'services',
       description: '',
       github: 'angular2_services_demo',
-      learnings: []
-    },
-    {
-      title: 'Unit Testing Services with Karma and TypeScript',
-      slug: 'unit-testing-services',
-      description: '',
-      github: 'angular2_service_testing_demo',
-      learnings: []
-    },
-    {
-      title: 'AJAX - Talking to a Server',
-      slug: 'ajax',
-      description: '',
-      github: 'angular2_ajax_demo',
       learnings: []
     },
     {

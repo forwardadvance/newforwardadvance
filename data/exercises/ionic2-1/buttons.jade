@@ -1,0 +1,89 @@
+buttons.jade
+  :markdown
+    Buttons are one of the primary ways you'll want your users to interact with your app. In Ionic we make them using the native html5 `<button>` element.
+
+    A simple button looks like this:
+
+    ```html
+    <button>
+      Click Me!!
+    </button>
+    ```
+
+    Buttons render differently depending on where you put them, so a button in the header bar will render differently to a button in the main app body.
+
+    ## Ionicons
+
+    We can add icons to buttons very easily using the `ion-icon` component. Here's an add button.
+
+    ```html
+    <button>
+      <ion-icon name="add"></ion-icon>
+    </button>
+    ```
+
+    Find a list of all the available icons here: <http://ionicframework.com/docs/v2/ionicons/>
+
+    ### Combining ionicons with text
+
+    We can put icons and text on the same button, like so:
+
+    ```html
+    <button>
+      <ion-icon name="add"></ion-icon>
+      add
+    </button>
+    ```
+
+    We can choose to have the text first, or the icon first.
+
+    ```html
+    <button>
+      <ion-icon name="add"></ion-icon>
+      add
+    </button>
+    ```
+
+    ## Button styles
+
+    Ionic comes with a short list of button styles that you can choose.
+
+    ### Button purpose (sets the colour)
+
+    By default buttons are blue, but you can change this.
+
+    * light - (grey)
+    * secondary - (green)
+    * danger - (red)
+    * dark - (black)
+
+    ### Button border
+
+    Buttons are solid by default. You can also pick:
+
+    * clear - (no border is drawn)
+    * outline - (only the outline is drawn)
+
+    ## Connecting a button to an action
+
+    We wire a button up using a regular on-click attribute
+
+    ```html
+    <button outline on-click="handleClick()">
+      Button
+    </button>
+    ```
+
+    We then handle this in the component:
+
+
+    @Component({
+      templateUrl: 'build/pages/home/home.html'
+    })
+    export class HomePage {
+      handleClick() {
+        // do something here
+      }
+      constructor(private navCtrl: NavController) {}
+    }
+

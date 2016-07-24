@@ -33,25 +33,61 @@ nav.course_sidebar {
     background: $light_grey;
     border:1px solid $light_grey;
     border-radius:5px;
-    h2 {
+    position:relative;
+    header {
       background: $dark_grey;
-      color:$white;
-      margin-top:0;
-      padding:$gutter/2;
-      .number {
-        margin-right:1em;
+      cursor: pointer;
+      padding:0;
+      transition:0.5s;
+      h2 {
+        margin:0;
+        padding:$gutter / 2;
+        padding-right:30px;
+        color:$white;
+        .number {
+          margin-right:1em;
+        }
+      }
+      .arrow {
+        position:absolute;
+        right:$gutter/2;
+        top:$gutter/2;
+        color:$white;
+        transform: rotate(-90deg);
+        transition:0.5s;
       }
     }
-    ul, li {
-      margin:0;
-      padding:0;
-      list-style:none;
-    }
     ul {
+      &.exercise_list, li {
+        margin:0;
+        padding:0;
+        list-style:none;
+      }
+    }
+    ul.exercise_list {
       padding: $gutter / 2;
     }
     li {
       border-top: 1px solid $mid_grey;
+    }
+    .module_resources {
+      padding:0;
+      margin:$gutter/2;
+      ul, li {
+        margin:0;
+        padding:0;
+      }
+    }
+    &.inactive {
+      header {
+        background: $mid_grey;
+        .arrow {
+          transform: rotate(90deg);
+        }
+      }
+      ul, p, h3 {
+        display:none;
+      }
     }
   }
   // li ul {

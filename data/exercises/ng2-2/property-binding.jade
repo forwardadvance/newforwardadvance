@@ -86,36 +86,36 @@ section.exercise
 
     When you click it again, it becomes a read less link, so you can hide the content again.
 
-section.exercise
-  :markdown
-    ## Exercise - Tabs
+//- section.exercise
+//-   :markdown
+//-     ## Exercise - Tabs
 
-    In this section we are going to create a tabbed pane. This will have a row of links at the top, and a set of panels below. Clicking the links at the top will toggle visibility on the panels.
+//-     In this section we are going to create a tabbed pane. This will have a row of links at the top, and a set of panels below. Clicking the links at the top will toggle visibility on the panels.
 
-    The HTML will look something like this:
+//-     The HTML will look something like this:
 
-    ```html
-    <a>Tab 1</a>
-    <a>Tab 2</a>
-    <a>Tab 3</a>
-    <div>Panel 1</div>
-    <div>Panel 2</div>
-    <div>Panel 3</div>
-    ```
+//-     ```html
+//-     <a>Tab 1</a>
+//-     <a>Tab 2</a>
+//-     <a>Tab 3</a>
+//-     <div>Panel 1</div>
+//-     <div>Panel 2</div>
+//-     <div>Panel 3</div>
+//-     ```
 
-    When you click on Tab 1, Panel 1 is displayed, and Panels 2 and 3 are hidden.
+//-     When you click on Tab 1, Panel 1 is displayed, and Panels 2 and 3 are hidden.
 
-    Start out by adding click handlers to the tabs. Something like this: `on-click="currentTab=1"`
+//-     Start out by adding click handlers to the tabs. Something like this: `on-click="currentTab=1"`
 
-    Now bind the hidden attribute to the panels, something like this: `[hidden]="currentTab!=1"`
+//-     Now bind the hidden attribute to the panels, something like this: `[hidden]="currentTab!=1"`
 
-    ## Extension
+//-     ## Extension
 
-    Extract this into a component and integrate it with your user app (with the header and footer) from the previous section.
+//-     Extract this into a component and integrate it with your user app (with the header and footer) from the previous section.
 
-    ## Coming up
+//-     ## Coming up
 
-    Later we will see how we can extract the tabs themselves into a child component. We will also see another way of doing this using routing.
+//-     Later we will see how we can extract the tabs themselves into a child component. We will also see another way of doing this using routing.
 
 section
   :markdown

@@ -63,9 +63,11 @@
     "yui": "^3.18.1"
   },
   "devDependencies": {
+    "angular": "^1.5.8",
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
-    "supertest": "^1.2.0"
+    "supertest": "^1.2.0",
+    "webpack": "^1.13.1"
   },
   "license": "MIT"
 }

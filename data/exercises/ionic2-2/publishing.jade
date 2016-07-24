@@ -1,0 +1,71 @@
+section
+  :markdown
+    ## Deploying to a Simulator
+
+    Running in the browser is great for trying out the UI, and for testing out your components. However there are some big limitations with `ionic serve` that will start to affect you later on in development.
+
+    ## Modules
+
+    The main issue is modules. Many of these are written in C, or another language other than JavaScript. These may or may not work in a browser, so to test certain features of your app, you may need a simulator or real device.
+
+    ## Android Simulator
+
+    The best simulator for Android (at time of writing) is Genymotion, available here [www.genymotion.com](https://www.genymotion.com/)
+
+    It isn't free to use, but there is a free unlimited trial available.
+
+    Once installed, you can launch your app in it from a command line using:
+
+    ```
+    ionic emulate android
+    ```
+
+    ## Running in an Android device
+
+    To deploy to a real Android device, you're going to need a few things
+
+    ### SDK
+
+    First up, you'll need the Android SDK. This can be downloaded separately (though this is no longer supported), or for an easy install, just grab the Android Studio which contains everything you will need:
+
+    (developer.android.com/studio/install.html)[https://developer.android.com/studio/install.html]
+
+    ### Drivers
+
+    You will need drivers for your specific device. If you have a Motorola Nexus 6 for example, download the official drivers for it from the Motorola site. Each manufacturer provides drivers in a different format.
+
+    ### Possible problems
+
+    If you get the error:
+
+    ```
+    Error: Android SDK not found. Make sure that it is installed. If it is not at the default location, set the ANDROID_HOME environment variable.
+    ```
+
+    you may need to set the path. Either modify your PATH, or create an environment variable called ANDROID_HOME that points to the SDK you downloaded.
+
+    To find the location of the SDK, open up the developer studio and go to System Settings > Android SDK.
+
+    My path variable looks like this: ANDROID_HOME='/Users/nicholas/Library/Android/sdk/tools'
+
+    Once you have it, you can use it to install a platform you can call:
+
+    ```
+    ionic run android
+    ```
+
+    ...and your app will be deployed to your device.
+
+    ## iOS simulator
+
+    The iOS simulator is XCode. It's a big download (about 1Gb), so you might want to allow some time to get hold of it.
+
+    XCode only runs on a Mac. If you are developing for iOS you will probably want to get hold of one of these for this portion of your development.
+
+    Run
+
+    ```
+    ionic emulate ios
+    ```
+
+    to deploy to the simulator

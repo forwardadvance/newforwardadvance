@@ -1,0 +1,40 @@
+section
+  :markdown
+    When working with the browser, we need to deal with asynchronous events. For example:
+
+    * User actions (e.g. clicks, key-presses, mouse movements, etc.)
+    * Browser events (e.g. DOMReady, setTimeout, setInterval)
+    * Network events (e.g. load events and AJAX)
+
+    Our code is constantly waiting for these events.
+
+    There are currently 3 good ways to deal with this. From oldest to youngest:
+
+    1. Callbacks - we pass our function a callback function, which it will call when it completes
+    2. Promises - we create a *thennable* object that we can chain callbacks onto. This reduces nesting.
+
+    ## Callback Architecture
+
+    If you have been using JavaScript for any length of time, you will certainly be familiar with callbacks. A callback looks like this (from jQuery):
+
+    ```
+    $('button').click(
+      () => {
+        // do something here
+      }
+    )
+    ```
+
+    The function will be called when the button is clicked. The downside of this way of writing code is that if we have synchronous code, we have to nest callbacks.
+
+    Say we want to:
+
+    1. Wait for the DOM to load.
+    2. Then attach a click handler to a button.
+    3. Then do AJAX when the button is pressed.
+    4. Then display the results.
+
+    We now need four nested callbacks. This can create what we call a Callback Christmas-Tree where we get deeply nested code which becomes progressively harder to understand.
+
+
+

@@ -1,5 +1,5 @@
 module.exports = function(req, res, next) {
-  var courses = require('../data/courses/all');
+  var courses = require('../data/courses');
 
   req.assert('courseSlug', 'Course not found').isIn(courses.map((course) => course.slug));
   var errors = req.validationErrors();

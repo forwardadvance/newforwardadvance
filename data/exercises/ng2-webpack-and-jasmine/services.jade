@@ -1,0 +1,158 @@
+section
+  :markdown
+    In this section we will look at what Dependency Injection is, how it worked in Angular 1, and how it works now in Angular 2.
+
+    ## DI is a pattern
+
+    Dependency injection is a pattern in which a components dependencies are passed in from the outside by the framework.
+
+    If a toaster needs bread, rather than constructing its own bread, the person requiring toast inserts the bread.
+
+    ## Pretend Code
+
+    Let's invent some code. Here's a toaster:
+
+    ```
+    var Toaster = function(bread) {
+      this.toast = makeToastOutOf( bread )
+    };
+    ```
+
+    And here's a pretend dependency injector that will take care of making a toaster and filling it with bread:
+
+    ```
+    var magicalInjector = new MagicalInjector()
+    magicalInjector.knowsHowToMakeA( Toaster ).with( Bread )
+    var myToaster = magicalInjector.pleaseGiveMeA( Toaster );
+    ```
+
+    Our pretend magicalInjector knows the toaster needs bread. It creates bread and uses it to initialise the toaster. The Bread may itself have an injector.
+
+    A more practical example might be an API accessor. We isolate the API code into an object, then inject it where it is needed.
+
+    This isolates our components one from another, and allows us to substitute mock components for real ones for testing.
+
+    ## DI in Angular 1 (how it used to be)
+
+    In Angular 1, dependency injection was magical. Every component had a unique string name. You simply wrote a function that would receive parameters, named them appropriately, and Angular would automatically inject the correct components from it's registry of 'Angular magic stuff'.
+
+    We might simply write:
+
+    ```
+    angular.module('app', [])
+      .controller('appController', function(pageService){});
+    ```
+
+    Angular would automagically take care of instantiating pageService and passing it to the appController.
+
+    This was done by using toString to convert the function body into a string, then using a regular expression to determine the names of the components, which could then be pulled from Angular's list of 'stuff'. [More on this here.](/angular1/course/exercises/di)
+
+    ## DI in Angular 2
+
+    Angular now uses objects for tokens rather than strings.
+
+    This means any object is potentially injectable. If the object you inject is newable, Angular will take care of ensuring it is a singleton.
+
+
+    ## Create the injectable
+
+    Let's start out by creating a service. This is just a function that returns an object. I've just made this as a global here. I'm not using any requirejs or systemjs module magic.
+
+    ```
+    var CheeseService = function() {
+      this.get = function() {
+        return ['Manchego', 'Camberzola', 'Stinky Bishop'];
+      }
+    }
+    ```
+
+    Notice there's nothing special about this at all. It's just a factory function. The injector is going to call this function to get the object.
+
+    ## Create a component to receive the injectable
+
+    Now lets make an app component. This is just a regular component. We would like it to have access to the InjectedService instance
+
+    ```
+    var CheeseComponent = ng.core
+      .Component({
+        selector: "cat",
+        template:
+        `
+          <div *ngFor="#cheese of cheeses">
+            {{cheese}}
+          </div>
+        `
+      })
+      .Class({
+        constructor: [CheeseService, function(cheese) {
+          // console.log(service)
+          this.cheeses = cheese.get();
+        }]
+      });
+    ```
+
+    Notice that the constructor now contains an array. We choose what we would like to inject, and the Angular takes care of business.
+
+    Finally we bootstrap the app. When we bootstrap, we can declare the components that our app will depend on. This sets up the global injector. We will see shortly how to set up child injectors.
+
+    ```
+    document.addEventListener('DOMContentLoaded', function() {
+      ng.platform.browser.bootstrap(AppComponent, [InjectedService]);
+    });
+    ```
+
+    We see that any object we can make can be an injectable, not just the core Angular components. This gives us freedom, at the expense of some verbosity.
+
+section.exercise
+  :markdown
+    ## Exercise - User Service
+
+    Create a service that has a method that will return a list of users. It should have a get method that returns those users. This is our data source.
+
+    Now create a userListComponent that will inject this service, and render the list of users.
+
+
+// -# TODO Beef this up?
+
+section
+  :markdown
+    ## Further Reading
+
+    * <https://angular.io/docs/js/latest/guide/cheatsheet.html>
+
+
+section
+  :markdown
+    Services are one of the easiest parts of Angular to test. We simply require them in our test, instantiate them, and
+
+    The tricky part is setting up the test harness. The currently recommended way to run unit tests in Angular is in the browser. We can use live-server to refresh the browser each time a file is saved. We use webpack to automatically build a specs.js file into a js file suitable for the browser.
+
+    All we need to do then is write tests that require our code, and then include those tests in our harness.
+
+    In the github exercise folder you will find one such harness, adapted from the official Angular 2 guidelines. Take a look and have a poke around, then attempt the exercise to get it running.
+
+  !=resources(exercise)
+
+section.exercise
+  :markdown
+    TODO: This is a stub
+
+    ## Exercise - Testing the Cat Service
+
+    In the exercise folder in the Github repo you will find a TypeScript application which displays a list of cats.
+
+    1. First download the dependencies with `npm install`
+    2. You can compile this application by typing: `webpack -w`
+    3. Open the test folder with `npm run test`
+
+    You should see a simple test that demonstrates that true is indeed true. Edit the `source/cats.service.spec.ts` file to add in a real test. Create a new instance of the service, call cats.get() on it, and check that it does indeed give you cats.
+
+    ## Extension
+
+    Add methods to the cat service I would like to be able to:
+
+    * add a cat
+    * remove a cat
+    * count the cats.
+
+    Build the service methods against tests, and then for bonus points optionally integrate the new methods into your app.

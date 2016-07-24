@@ -1,3 +1,5 @@
+-currentCourseModule = courseModule;
+
 nav.course_sidebar
 
   .course
@@ -8,10 +10,14 @@ nav.course_sidebar
       | Duration: #{course.duration} days
 
   each courseModule, index in course.courseModules
-    .course_module
-      h2
-        span.number #{index+1}.
-        =courseModule.title
+    .course_module.inactive( toggle=((currentCourseModule == courseModule) ? 'true' : 'false') )
+      header( ng-click="vm.toggle()" )
+        h2
+          span.number #{index+1}.
+          =courseModule.title
+        .arrow
+          | &raquo;
+
       p.description
         strong description:
         =  courseModule.description
@@ -21,7 +27,7 @@ nav.course_sidebar
       p.duration
         strong duration:
         |  #{courseModule.duration} days
-      ul
+      ul.exercise_list
         each exercise in courseModule.exercises
           li
             if current_exercise && current_exercise.slug == exercise.slug
@@ -29,4 +35,22 @@ nav.course_sidebar
             else
               a( href=['/course', course.slug, courseModule.slug, exercise.slug].join('/') )
                 =exercise.title
+
+      if courseModule.github
+        .module_resources
+          h3 Resources & Downloads
+          ul
+            li
+              a( href="https://github.com/forwardadvance/+courseModule.github+" rel="external" target="_blank" )
+                | Github repository (exercise start points and solutions)
+            li
+              a( href="https://github.com/forwardadvance/+courseModule.github+/archive/master.zip" rel="external" )
+                | Download repository as a zip
+            li
+              a( href="github-mac://openRepo/https://github.com/forwardadvance/+courseModule.github+" rel="external" )
+                | Clone repository in Github app
+
+
+
+
 

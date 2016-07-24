@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var logger = require('morgan');
 var errorHandler = require('errorhandler');
 var lusca = require('lusca');
-// var dotenv = require('dotenv');
+var dotenv = require('dotenv');
 var MongoStore = require('connect-mongo/es5')(session);
 var flash = require('express-flash');
 var path = require('path');
@@ -24,7 +24,9 @@ var upload = multer({ dest: path.join(__dirname, 'uploads') });
  *
  * Default path: .env (You can remove the path argument entirely, after renaming `.env.example` to `.env`)
  */
-// dotenv.load({ path: '.env' });
+if (process.env.NODE_ENV != 'production') {
+  dotenv.load({ path: '.env' });
+}
 
 /**
  * Config
@@ -176,39 +178,39 @@ app.get('/course/:courseSlug/:moduleSlug/:exerciseSlug', getCourse, getCourseMod
 /**
  * API examples routes.
  */
-app.get('/api', apiController.getApi);
-app.get('/api/lastfm', apiController.getLastfm);
-app.get('/api/nyt', apiController.getNewYorkTimes);
-app.get('/api/aviary', apiController.getAviary);
-app.get('/api/steam', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getSteam);
-app.get('/api/stripe', apiController.getStripe);
-app.post('/api/stripe', apiController.postStripe);
-app.get('/api/scraping', apiController.getScraping);
-app.get('/api/twilio', apiController.getTwilio);
-app.post('/api/twilio', apiController.postTwilio);
-app.get('/api/clockwork', apiController.getClockwork);
-app.post('/api/clockwork', apiController.postClockwork);
-app.get('/api/foursquare', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getFoursquare);
-app.get('/api/tumblr', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getTumblr);
-app.get('/api/facebook', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getFacebook);
-app.get('/api/github', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getGithub);
-app.get('/api/twitter', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getTwitter);
-app.post('/api/twitter', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.postTwitter);
-app.get('/api/venmo', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getVenmo);
-app.post('/api/venmo', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.postVenmo);
-app.get('/api/linkedin', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getLinkedin);
-app.get('/api/instagram', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getInstagram);
-app.get('/api/yahoo', apiController.getYahoo);
-app.get('/api/paypal', apiController.getPayPal);
-app.get('/api/paypal/success', apiController.getPayPalSuccess);
-app.get('/api/paypal/cancel', apiController.getPayPalCancel);
-app.get('/api/lob', apiController.getLob);
-app.get('/api/bitgo', apiController.getBitGo);
-app.post('/api/bitgo', apiController.postBitGo);
-app.get('/api/upload', apiController.getFileUpload);
-app.post('/api/upload', upload.single('myFile'), apiController.postFileUpload);
-app.get('/api/pinterest', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getPinterest);
-app.post('/api/pinterest', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.postPinterest);
+// app.get('/api', apiController.getApi);
+// app.get('/api/lastfm', apiController.getLastfm);
+// app.get('/api/nyt', apiController.getNewYorkTimes);
+// app.get('/api/aviary', apiController.getAviary);
+// app.get('/api/steam', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getSteam);
+// app.get('/api/stripe', apiController.getStripe);
+// app.post('/api/stripe', apiController.postStripe);
+// app.get('/api/scraping', apiController.getScraping);
+// app.get('/api/twilio', apiController.getTwilio);
+// app.post('/api/twilio', apiController.postTwilio);
+// app.get('/api/clockwork', apiController.getClockwork);
+// app.post('/api/clockwork', apiController.postClockwork);
+// app.get('/api/foursquare', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getFoursquare);
+// app.get('/api/tumblr', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getTumblr);
+// app.get('/api/facebook', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getFacebook);
+// app.get('/api/github', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getGithub);
+// app.get('/api/twitter', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getTwitter);
+// app.post('/api/twitter', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.postTwitter);
+// app.get('/api/venmo', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getVenmo);
+// app.post('/api/venmo', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.postVenmo);
+// app.get('/api/linkedin', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getLinkedin);
+// app.get('/api/instagram', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getInstagram);
+// app.get('/api/yahoo', apiController.getYahoo);
+// app.get('/api/paypal', apiController.getPayPal);
+// app.get('/api/paypal/success', apiController.getPayPalSuccess);
+// app.get('/api/paypal/cancel', apiController.getPayPalCancel);
+// app.get('/api/lob', apiController.getLob);
+// app.get('/api/bitgo', apiController.getBitGo);
+// app.post('/api/bitgo', apiController.postBitGo);
+// app.get('/api/upload', apiController.getFileUpload);
+// app.post('/api/upload', upload.single('myFile'), apiController.postFileUpload);
+// app.get('/api/pinterest', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.getPinterest);
+// app.post('/api/pinterest', passportConfig.isAuthenticated, passportConfig.isAuthorized, apiController.postPinterest);
 
 /**
  * OAuth authentication routes. (Sign in)

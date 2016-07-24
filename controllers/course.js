@@ -4,7 +4,7 @@
  * Course Index page.
  */
 exports.index = function(req, res) {
-  var courses = require('../data/courses/all.js');
+  var courses = require('../data/courses');
   res.render('course/index', {
     title: 'Courses',
     courses: courses

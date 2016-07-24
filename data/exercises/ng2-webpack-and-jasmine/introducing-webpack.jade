@@ -1,0 +1,145 @@
+section
+  :markdown
+    Pretty much every major language in the world has a module system.  Modules are just bits of stuff that can be pulled in and used.
+
+    Every major language that is, apart from the three we use most: JavaScript, HTML and CSS. This is probably more of an issue than you have ever realised. If you've never used modules, you might be wondering why you need them. To this, I'd answer that you'll have to trust me on this for now. Give it 5 minutes, and then see how you feel.
+
+    ## Webpack lets you define your assets as modules, and choose how to build them
+
+    Webpack allows you to define all your front end assets as modules. It also allows you to build these assets from precursor languages. Want to write SASS instead of CSS? Webkit can compile that for you. Need JSX, or TypeScript, of CoffeeScript? Webkit has you covered.
+
+    ## Installation
+
+    Installation is via npm:
+
+    ```
+    npm install webpack -g
+    ```
+
+    ## Compiling JavaScript
+
+    Give Webpack an entry point and an output file:
+
+    ```
+    webpack ./app.js app.bundle.js
+    ```
+
+    ## Creating a JavaScript module
+
+    We can define modules in JavaScript using the CommonJS syntax, as for Node. Any file can export an object or funtion by writing to module.exports, like so:
+
+    **cats.js**
+
+    ```
+    var cats = ['dave', 'henry', 'martha'];
+    module.exports = cats;
+    ```
+
+    Any other file can then require that code from the file, by specifying an absolute path to the file:
+
+    **app.js**
+
+    ```
+    cats = require('./cats.js');
+    console.log(cats);
+    ```
+
+    ## Requiring node modules
+
+    We can also require any other node module from npm. Rather than a path, we give the name of the module, like so:
+
+    ```
+    var ng = require('angular2');
+    ```
+
+    We must have first installed angular2 into our node modules directory using:
+
+    ```bash
+    npm install angular2
+    ```
+
+    We now have a local copy of Angular in a local variable.
+
+section.exercise
+  :markdown
+    ## Exercise - Building a Test
+
+    In this exercise, we are going to build a simple Jasmine test using Webpack.
+
+    The cool thing about making tests this way, is that we can just require JavaScript modules right into our tests, and then test them.
+
+    Open up the Webpack exercise_1 start point. You'll find a simple Maths app. The maths object is now a module, and you can require it.
+
+    * In specs.js require maths/maths.specs
+    * In specs/maths.specs.js require specs/maths
+    * Write specs for the maths object.
+
+    Once you've done it, build the app with:
+
+
+    ```bash
+    webpack specs.js specs.build.js
+    ```
+
+    ## Extension
+
+    Modify maths.js so it looks like this:
+
+    ```
+    module.exports = {
+      sum: require('./maths.sum'),
+      power: require('./maths.power'),
+      div: require('./maths.div'),
+    }
+    ```
+
+    Break the functions out into separate files and require them.
+
+    Make sure you write specs.
+
+    ## Further Extension
+
+
+
+
+//- section.exercise
+//-   :markdown
+//-     Create an app.js file in a folder called source. Put a simple console.log into it. Now run:
+
+//-     ```bash
+//-     webpack source/app.js build/app.js
+//-     ```
+
+//-     Check inside the build folder. You should see a nice little file called app.js that contains the same code as the source.
+
+//-     ## Extension - watching
+
+//-     Run Wepback with the -w flag like so. You are now watching for changes. If app.js or any of its dependencies update, the file will be rebuilt.
+
+//-     ```bash
+//-     webpack source/app.js build/app.js -w
+//-     ```
+
+//-     Create an index.html file. Now include a script tag in the header:
+
+//-     ```html
+//-     <script src="build/app.js"></script>
+//-     ```
+
+//-     Update your source/app.js and save it. Now refresh the browser. Verify that the file has been rebuilt and you are seeing the new code.
+
+//-     ## Further Extension - imports
+
+//-     Make another file called source/cat.js. Export a function from this file that just alerts the word miow. Do this by writing the function to module.exports.
+
+//-     Now require the function in source/app.js. Call the function. Verify it works.
+
+
+
+
+section
+  :markdown
+    ## Further Reading
+
+    * <http://webpack.github.io/docs/installation.html>
+    * [Webpack your bags](http://blog.madewithlove.be/post/webpack-your-bags/) ) - a very good introduction on how to setup a real-world project using Webpack.

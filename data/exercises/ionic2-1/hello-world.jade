@@ -1,0 +1,77 @@
+section
+  :markdown
+    We use
+
+
+    ## Installing Ionic
+
+    Installation is via NPM. If you haven't got it already, you'll need Node. Download it from nodejs.org. It's a double click install.
+
+    Now we have Node, we can install Ionic. This is via NPM (Node Package Manager). At a command line, type the following:
+
+    ```bash
+    npm install -g ionic@beta
+    ```
+
+    ## Starting a project
+
+    Ionic gives us a command line tool that we can use to create a project. Enter the following to create a new hello world project using the blank template:
+
+    ```bash
+    ionic start hello_world blank --v2
+    ```
+
+    You'll need to make sure you have WiFi when you do this. Wait a minute or two, and you should see a folder called `hello_world appear in your current directory. This is your new project.
+
+    ## The Ionic Project
+
+    cd into the hello_world directory ionic just created for you. `cd hello_world`. You'll find a few files and folders:
+
+
+
+    ## Starting the Server
+
+    Ionic comes with it's own built in live-reload server that we can use develop our app. To start the server, run:
+
+    ```bash
+    ionic serve
+    ```
+
+    Ionic will automatically open your default web browser, and start running your app in it. When you make changes to your code, the app will automatically refresh the browser.
+
+    Developing in the browser like this is great for rapid UI iterations.
+
+    ## The App Directory
+
+    Your code lives in a folder called app. This contains HTML, TypeScript and SASS files, which compile to JavaScript and CSS for deployment. When you make changes to files inside this directory, you'll find the app will automatically recompile itself.
+
+section.exercise
+  :markdown
+    ## Exercise - Hello World
+
+    We age going to create a hello world.
+
+    * Create a new hello_world app with: `ionic start hello_world blank --v2` Wait for it to download all the dependencies.
+    * Start the server with `ionic start`
+    * Open up the `/app/pages/home/home.html` file.
+    * Delete the contents and insert the words `Hello World`.
+    * View the result on a web browser.
+
+section
+  :markdown
+    ## Templates
+
+    We started this project with a blank template. Ionic comes with a bunch of standard templates, and you can make your own.
+
+    List all the available starter templates with:
+
+    ```bash
+    ionic start -l
+    ```
+
+
+section.exercise
+  :markdown
+    ## Exercise - Templates
+
+    Have a go at creating a project with a different template. You might pick the tabs template for example.

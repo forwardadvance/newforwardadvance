@@ -5,7 +5,13 @@ module.exports = {
   price: 2250,
   description: 'Nesting components, and component communication.',
   exercises: [
-
+    {
+      title: 'Binding to DOM properties',
+      slug: 'property-binding',
+      description: 'Angular brings back the DOM',
+      github: 'angular2_dom_properties_demo',
+      learnings: []
+    },
     {
       title: 'Nesting Components',
       slug: 'nested-components',
@@ -30,17 +36,10 @@ module.exports = {
       learnings: []
     },
     {
-      title: 'Binding to DOM properties',
-      slug: 'property-binding',
-      description: 'Angular brings back the DOM',
-      github: 'angular2_dom_properties_demo',
-      learnings: []
-    },
-    {
-      title: 'Repeating with ng-for',
-      slug: 'ng-for',
+      title: 'Two-Way-Binding Forms in Angular 2',
+      slug: 'two-way-binding',
       description: '',
-      github: 'angular2_ng_for_demo',
+      github: 'angular2_two_way_binding_demo',
       learnings: []
     },
     {
@@ -50,15 +49,6 @@ module.exports = {
       github: 'angular2_shadow_dom_demo',
       learnings: []
     },
-    {
-      title: 'Two-Way-Binding Forms in Angular 2',
-      slug: 'two-way-binding',
-      description: '',
-      github: 'angular2_two_way_binding_demo',
-      learnings: []
-    },
-
-
   ],
   outline: [
     'Flux and one-way binding',

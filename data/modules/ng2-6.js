@@ -20,13 +20,6 @@ module.exports = {
     //   github: '',
     //   learnings: []
     // },
-    // {
-    //   title: 'Observables',
-    //   slug: 'observables',
-    //   description: '',
-    //   github: '',
-    //   learnings: []
-    // },
 
     // {
     //   title: 'Hierarchical Injectors',
