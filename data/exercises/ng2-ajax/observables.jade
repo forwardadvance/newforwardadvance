@@ -1,21 +1,24 @@
 section
   :markdown
-    When working with the browser, we need to deal with asynchronous events. For example:
+    When working with the browser, we need to deal with asynchronous events, such as:
 
-    * User actions (e.g. clicks, key-presses, mouse movements, etc.)
-    * Browser events (e.g. DOMReady, setTimeout, setInterval)
-    * Network events (e.g. load events and AJAX)
+    * User actions - clicks, key-presses, mouse movements, etc.
+    * Browser events - DOMReady, setTimeout, setInterval, etc.
+    * Network events - load, AJAX, etc.
 
-    Our code is constantly waiting for these events.
+    You code will most likely spend most of its time waiting around for these events to fire.
 
-    There are currently 3 good ways to deal with this. From oldest to youngest:
+    There are three main ways to deal with this. From oldest to youngest:
 
-    1. Callbacks - we pass our function a callback function, which it will call when it completes
-    2. Promises - we create a *thennable* object that we can chain callbacks onto. This reduces nesting.
+    1. Callbacks - we pass our slow running function a callback function, which it will call when it completes.
+    2. Promises - we create a *thennable* object that we can chain callbacks onto. When the Promise is fulfulled, all chained functions will be executed.
+    3. Observables - a representation of a transformable stream of events.
 
-    ## Callback Architecture
+    Let's look at these now...
 
-    If you have been using JavaScript for any length of time, you will certainly be familiar with callbacks. A callback looks like this (from jQuery):
+    ## Callbacks
+
+    If you have been using JavaScript for any length of time, you will certainly be familiar with callbacks. Here's a jQuery click handler, with a callback.
 
     ```
     $('button').click(
@@ -25,7 +28,7 @@ section
     )
     ```
 
-    The function will be called when the button is clicked. The downside of this way of writing code is that if we have synchronous code, we have to nest callbacks.
+    When we click the button, the function is called. The downside of this way of writing code is that if we have lots of things that need to happen in order, we have to nest callbacks.
 
     Say we want to:
 
@@ -34,7 +37,58 @@ section
     3. Then do AJAX when the button is pressed.
     4. Then display the results.
 
-    We now need four nested callbacks. This can create what we call a Callback Christmas-Tree where we get deeply nested code which becomes progressively harder to understand.
+    We now need four nested callbacks, and eight levels of indentation. This can create what we call a *Callback Christmas-Tree* where we get deeply nested code which becomes progressively harder to understand.
 
+    ## Promises
+
+    Promises solve the nesting problem. A Promise is a promise of future data. It's a standardised way of chaining callbacks. A promise can be either pending, fulfilled or failed. If it fulfills, all the chained functions that are waiting on it will be called.
+
+    Here's an example:
+
+    ```
+    Promise.resolve()
+      .then(() => {console.log('do the first thing') })
+      .then(() => {console.log('do the second thing') })
+      .then(() => {console.log('do the third thing') })
+    ```
+
+    Each call to .then returns a new Promise, which we can chain further .thens off. At each stage we can manipulate the data and pass it onto the next stage. There's also some funky stuff we can do with error handling, and parallel events, the subject for another post.
+
+    Promises are fun to work with, but they have some (deliberate) limitations. They can only fire once. They have a restricted API, to make them simpler.
+
+    ## Enter Observables!
+
+    An Observable represents a stream of data. Like a Promise, we can chain methods onto it to produce new observables with different behaviour. Unlike a promise, it can emit as many events as you like.
+
+    You can build a whole app out of Observables if you like. We call this Reactive coding.
+
+    Observables have a rich API. We create an Observable, and can then manipulate it in a variety of interesting ways. We treat the Observable as a stream of data. Events come in, and events go out, but the events that are fired do not have to be the same as the events which went in.
+
+    RXJS is the Underscore to the Observer pattern. It is a library of utility functions that help us deal with
+
+    We can:
+
+    * debounce - so multiple events in a timeframe are condensed into a single emitted event.
+    *
+
+
+    ## Creating an Observable from a DOM event
+
+    We can create an Observable from a DOM event. Once we have our observable, we can listen to it:
+
+    ```
+    // We might find a button
+    var button = document.getElementById('myButton');
+
+    // then create an observable from the click event
+    var clickStream = Rx.Observable.fromEvent(button, 'click');
+
+    // We can then listen for clicks
+    clickStream.subscribe(() => {console.log('click!')})
+    ```
+
+    ## Debouncing
+
+    The user might
 
 
