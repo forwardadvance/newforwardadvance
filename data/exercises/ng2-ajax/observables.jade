@@ -58,23 +58,21 @@ section
 
     ## Enter Observables!
 
-    An Observable represents a stream of data. Like a Promise, we can chain methods onto it to produce new observables with different behaviour. Unlike a promise, it can emit as many events as you like.
+    An Observable represents a stream of data. Like a Promise, we can chain methods onto it to produce new Observables with different behaviour. Unlike a Promise, it can emit as many times as you like.
 
     You can build a whole app out of Observables if you like. We call this Reactive coding.
 
-    Observables have a rich API. We create an Observable, and can then manipulate it in a variety of interesting ways. We treat the Observable as a stream of data. Events come in, and events go out, but the events that are fired do not have to be the same as the events which went in.
-
-    RXJS is the Underscore to the Observer pattern. It is a library of utility functions that help us deal with
+    We treat the Observable as a stream of data. Events come in, and events go out, but the events that are fired do not have to be the same as the events which went in.
 
     We can:
 
     * debounce - so multiple events in a timeframe are condensed into a single emitted event.
-    *
+    * filter - only events that match the filter are emitted.
 
 
     ## Creating an Observable from a DOM event
 
-    We can create an Observable from a DOM event. Once we have our observable, we can listen to it:
+    In order to make use of Observables in our code, we need an adapter, that can take events and present them as an Observable.
 
     ```
     // We might find a button
@@ -87,8 +85,8 @@ section
     clickStream.subscribe(() => {console.log('click!')})
     ```
 
-    ## Debouncing
+    //- ## Debouncing
 
-    The user might
+    //- Say our user
 
 
