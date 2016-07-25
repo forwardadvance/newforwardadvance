@@ -1,3 +1,37 @@
 section
   :markdown
-    TODO: This
+    Ionic gives us a component to handle pull-to-refresh. We add it to the top of the page.
+
+    ```html
+    <ion-content>
+
+      <ion-refresher (ionRefresh)="handleRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+
+    </ion-content>
+    ```
+
+    It will fire an event when the refresh event occurs. We can listen to the event and handle it in our controller:
+
+    import {Component} from '@angular/core';
+
+    @Component({
+      templateUrl: 'build/pages/home/home.html'
+    })
+    export class HomePage {
+      handleRefresh(refresh) {
+        // refreshing
+        setTimeout(() => {
+          // Call this to mark the refresh as complete
+          refresh.complete()
+        }, 2000);
+      }
+      constructor() {}
+    }
+
+section.exercise
+  :markdown
+    ## Exercise - Pull to refresh
+
+    Create a D6 Dice thrower, suitable for
