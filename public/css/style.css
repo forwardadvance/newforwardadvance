@@ -750,7 +750,8 @@ nav.course_sidebar {
         top: 10px;
         color: #fff;
         transform: rotate(-90deg);
-        transition: 0.5s; }
+        transition: 0.5s;
+        text-align: center; }
     nav.course_sidebar .course_module ul.exercise_list, nav.course_sidebar .course_module ul li {
       margin: 0;
       padding: 0;
