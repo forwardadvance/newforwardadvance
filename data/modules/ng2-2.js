@@ -3,6 +3,7 @@ module.exports = {
   duration: 0.5,
   slug: 'ng2-2',
   price: 2250,
+  github: 'angular2_fundamentals_part_2',
   description: 'Nesting components, and component communication.',
   exercises: [
     {

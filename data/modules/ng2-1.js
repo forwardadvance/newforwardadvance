@@ -3,6 +3,7 @@ module.exports = {
   duration: 0.5,
   slug: 'ng2-1',
   price: 2250,
+  github: 'angular2_fundamentals_part_1',
   description: 'Introducing components, templates and bound data.',
   outcome: 'By the end of this module you\'ll be able to create a simple component based app that responds to events and outputs data',
   exercises: [
