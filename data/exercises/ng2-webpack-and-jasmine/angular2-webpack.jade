@@ -96,6 +96,12 @@ section.exercise
 
     We're going to use the Maths code from earlier to build a simple little calculator app.
 
-    * Create an app component
-    * Create a calculator component
-    *
+    Create an app component. Create a calculator component in a separate file, then require it into app.js.
+
+    Add in two input fields and bind them. Now add three buttons for `add`, `subtract` and `power`.
+
+    require `maths` in your calculator component, then hook up the buttons to `maths.sum`, `maths.subtract`, and `maths.pow`
+
+    When you click the buttons, your Angular code calls the relevent functions, passing the values from the input elements, and outputs the result.
+
+    For bonus points, have the caluculator emit the result, and display it in the app module.
