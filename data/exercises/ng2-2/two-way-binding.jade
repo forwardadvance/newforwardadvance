@@ -21,46 +21,33 @@ section
 
     ## The input event
 
-    The most interesting of these is the input event. This fires whenever the value attribute changes.
+    The most interesting of these is the input event. This fires whenever the value attribute changes. Let's save the value in the catName attribute of the component:
 
     ```html
-    <input on-input="onInput($event)" />
+    <input (input)="catName=$event.target.value" />
     ```
 
-    We can deal with this event like so:
+    ## Two way binding
 
-    ```
-    .Class({
-      constructor: function() {
-        var vm = this;
-        vm.onInput = function(evt) {
-          this.catName = evt.target.value;
-        }
-        // this.username = new ng.common.Control('username')
-      }
-    });
-    ```
-
-    ## Initialising the value:
-
-    We might want to initialise the value of catName. We can do this in our template using simple property binding, like so:
+    We might want to set the value of catName based on the component. We can do this in our template by binding the value property, like so:
 
     ```html
-    <input [value]="catName" on-input="onInput($event)" />
+    <input [value]="catName" />
     ```
 
-    We might then output this value somewhere using curlies:
+    Put it together and you have two way binding:
 
-    ```
-    {{catName}}
+
+    ```html
+    <input [value]="catName" (input)="catName=$event.target.value" />
     ```
 
 
     ## NgModel
 
-    NgModel is a directive. We haven't seen any directives yet. A directive is just a component which doesn't have it's own template. Instead it modifies the template of the component or element it is applied to.
+    This is such a common thing to want to do that Angular gives us a shorthand.
 
-    We will build a directive of our own in a later exercise.
+    NgModel is a directive. We haven't seen any directives yet. A directive is just a component which doesn't have it's own template. Instead it modifies the template of the component or element it is applied to.
 
     The NgModel directive creates all of this data binding for us. It will bind a value and add an input listener.
 

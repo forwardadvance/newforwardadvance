@@ -136,7 +136,7 @@ renderer.code = function(code, lexer) {
   if (lexer == 'js') {lexer = 'javascript'}
   var result = highlight(lexer, code)
   return [
-    '<code class="code_block">',
+    '<code class="code_block" ng-non-bindable>',
     result.value.split('\n').map((row) => ['<div class="line">',row,'</div>'].join('')).join('\n'),
     '</code>'
   ].join('');

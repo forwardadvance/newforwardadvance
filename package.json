@@ -8,6 +8,7 @@
   "scripts": {
     "start": "node app.js",
     "test": "mocha --reporter spec --timeout 5000",
+    "buildjs": "webpack -wd",
     "dev": "nodemon app.js"
   },
   "dependencies": {

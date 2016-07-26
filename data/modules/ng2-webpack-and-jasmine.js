@@ -3,7 +3,7 @@ module.exports = {
   duration: 0.5,
   slug: 'ng2-webpack-and-jasmine',
   price: 2250,
-  github: 'angular2_webpack_and_jasmine_demo',
+  github: 'angular2_webpack_and_jasmine',
   description: 'We\'ll learn about webpack, and unit tests with Jasmine. We\'ll integrate a live reload server, then build a little calculator app using services, and test them',
   exercises: [
     {
@@ -34,13 +34,13 @@ module.exports = {
       github: '',
       learnings: []
     },
-    {
-      title: 'Testing Components',
-      slug: 'testing components',
-      description: '',
-      github: '',
-      learnings: []
-    },
+    // {
+    //   title: 'Testing Components',
+    //   slug: 'testing components',
+    //   description: '',
+    //   github: '',
+    //   learnings: []
+    // },
   ],
   outline: [
   ]
