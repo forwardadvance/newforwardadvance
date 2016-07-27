@@ -5,9 +5,8 @@ section
     In Angular 2, and class or newable function can be a service.
 
     ```
-    @Injectable()
     export class CatService {
-      getCats() {
+      get() {
         return ['Manny', 'Francis', 'Terry Wogan'];
       }
     }
@@ -20,7 +19,7 @@ section
     We can then import this into a component like this:
 
     ```
-    import { Component, OnInit } from '@angular/core';
+    import { Component } from '@angular/core';
     import { CatService } from './cats';
 
     @Component({
@@ -30,10 +29,9 @@ section
       `,
       providers: [CatService]
     })
-    export class AppComponent implements OnInit {
-      constructor(private cats: CatService) { }
-      ngOnInit() {
-        this.cats = cats.getCats();
+    export class AppComponent {
+      constructor(private cats: CatService) {
+        this.cats = cats.get();
       }
     }
     ```
