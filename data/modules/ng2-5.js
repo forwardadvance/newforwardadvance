@@ -3,6 +3,7 @@ module.exports = {
   duration: 0.5,
   slug: 'ng2-5',
   price: 750,
+  github: 'angular2_typescript_demo',
   description: '',
   exercises: [
     {
