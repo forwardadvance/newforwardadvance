@@ -30,7 +30,7 @@ section
       providers: [CatService]
     })
     export class AppComponent {
-      constructor(private cats: CatService) {
+      constructor(cats: CatService) {
         this.cats = cats.get();
       }
     }
