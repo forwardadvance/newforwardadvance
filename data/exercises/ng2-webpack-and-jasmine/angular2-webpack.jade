@@ -1,6 +1,8 @@
 section
   :markdown
-    We can use Webpack to modularise our Angular 2 code.
+    As we have seen, Webpack allows us to split out app across multiple files. We can also use it to manage dependencies. In this section we will use Webpack to modularise our Angular 2 code.
+
+    ## package.json
 
     There are quite a lot of dependencies. We can get them from NPM. Create a package.json file and put the following in it:
 
@@ -32,11 +34,11 @@ section
     }
     ```
 
-    Now npm install to get them all.
+    Now run `npm install` to get them all. Presto, we can now make use of the dependencies in our code.
 
-    We can now make use of the dependencies in our code.
+    ## app.js
 
-    in build/app.js, do something like this:
+    Create a file called `source/app.js`. This will be our entry file. In this file we want to require all aour Angular dependencies, and bootstrap the app component.
 
     ```
     require('reflect-metadata');
@@ -50,7 +52,9 @@ section
     });
     ```
 
-    Now we need to create the component. Make a file called source/app.component.js and put the following into it:
+    ## app.component.js
+
+    Now we need to create the actual app component. Make a file called source/app.component.js and put the following into it:
 
     ```
     var core = require('@angular/core');
@@ -63,15 +67,28 @@ section
       `
     })
     .Class({
-      constructor: function() {
-        this.isHidden = true;
-        this.x = 'test';
-        this.color = 'blue';
-      }
+      constructor: function() {}
     })
     ```
 
-    Build with webpack.
+    This is out actual component.
+
+    ## A note on naming conventions
+
+    It has become traditional in Angular to name components after their domain, subdomains, and type, going from least specific to most specific. This helps keep related files together. For example:
+
+    * app.component.js
+    * cat.component.js
+    * cat.service.js
+    * cat.admin.component.js
+
+    This makes it easy to
+
+    ## Build with webpack.
+
+    Run `webpack source/app.js build/app.js -dw` to begin building your app.
+
+    ## index.html
 
     Now we just need some html:
 
@@ -80,7 +97,7 @@ section
     <html>
       <head>
         <title></title>
-        <script src="build/build.js"></script>
+        <script src="build/app.js"></script>
       </head>
       <body>
         <app></app>
@@ -94,14 +111,23 @@ section.exercise
   :markdown
     ## Exercise - Build some Angular
 
-    We're going to use the Maths code from earlier to build a simple little calculator app.
+    We're going to use the Maths code from earlier to build a simple little calculator app with two components. We will build each component in a separate file, and require them.
 
-    Create an app component. Create a calculator component in a separate file, then require it into app.js.
+    First, create an app component. Create a calculator component in a separate file, then `require` it into `app.js`.
 
-    Add in two input fields and bind them. Now add three buttons for `add`, `subtract` and `power`.
+    ```
+    var CalculatorComponent = require('./calculator.component');
+    ```
 
-    require `maths` in your calculator component, then hook up the buttons to `maths.sum`, `maths.subtract`, and `maths.pow`
+    Give the calculator component two input fields and bind them to attributes using `[(ngModel)]`. Now add three buttons for `add`, `subtract` and `power`.
 
-    When you click the buttons, your Angular code calls the relevent functions, passing the values from the input elements, and outputs the result.
+    Require `maths` in your calculator component, then hook up the buttons to `maths.sum`, `maths.subtract`, and `maths.pow`
 
-    For bonus points, have the caluculator emit the result, and display it in the app module.
+    ```
+    var maths = require('./maths');
+
+    When you click the buttons, your Angular code calls the relevant function in the maths object, passing the values from the input elements. The calculator then outputs the result.
+
+    ## Extension
+
+    For bonus points, have the calculator emit the result, and display it in the app module.

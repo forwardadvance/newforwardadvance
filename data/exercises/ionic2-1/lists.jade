@@ -1,3 +1,43 @@
 section
   :markdown
-    Lists
+    Ionic allows us to create beautiful lists of items from a data source. We use an ng-for to repeat the list of items.
+
+    Here is a component that creates a list of cats:
+
+    ```
+    import {Component} from '@angular/core';
+
+    @Component({
+      templateUrl: 'build/pages/home/home.html'
+    })
+    export class HomePage {
+      cats: Array<any>;
+      constructor() {
+        this.cats = [
+          'Lemmy',
+          'Hammy',
+          'Fluff Star Alpha',
+          'Francis Chemungleton the fifth'
+        ]
+      }
+    }
+    ```
+
+
+    We then iterate over this list using the ion-list component and a regular old ng-for:
+
+    ```html
+    <ion-list>
+      <ion-item *ngFor="let cat of cats">
+        {{cat}}
+      </ion-item>
+    </ion-list>
+    ```
+
+    ## Styling Options
+
+    There are a series of CSS styling options available to us, to add icons, checkboxes or avatars to the list. Read more here: <http://ionicframework.com/docs/v2/components/#lists>
+
+section.exercise
+  :markdown
+

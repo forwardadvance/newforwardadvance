@@ -70,7 +70,7 @@ section
 
     ## Create a component to receive the injectable
 
-    Now lets make an app component. This is just a regular component. We would like it to have access to the InjectedService instance
+    Now lets make an app component. This is just a regular component. We would like it to have access to the InjectedService instance.
 
     ```
     var CheeseComponent = ng.core
@@ -105,14 +105,11 @@ section
 
 section.exercise
   :markdown
-    ## Exercise - User Service
+    ## Exercise - Maths service
 
-    Create a service that has a method that will return a list of users. It should have a get method that returns those users. This is our data source.
-
-    Now create a userListComponent that will inject this service, and render the list of users.
+    In the previous section you created a calculator. Re-imagine the maths object as a service. You should be able to inject it, either globally, or locally into a single component.
 
 
-// -# TODO Beef this up?
 
 section
   :markdown
@@ -133,26 +130,35 @@ section
 
   !=resources(exercise)
 
+
 section.exercise
   :markdown
-    TODO: This is a stub
+    ## Exercise - Testing the Maths service
 
-    ## Exercise - Testing the Cat Service
+    Modify your spec so that we can test the Mathe service you created in the last section.
 
-    In the exercise folder in the Github repo you will find a TypeScript application which displays a list of cats.
 
-    1. First download the dependencies with `npm install`
-    2. You can compile this application by typing: `webpack -w`
-    3. Open the test folder with `npm run test`
 
-    You should see a simple test that demonstrates that true is indeed true. Edit the `source/cats.service.spec.ts` file to add in a real test. Create a new instance of the service, call cats.get() on it, and check that it does indeed give you cats.
+//- section.exercise
+//-   :markdown
+//-     TODO: This is a stub
 
-    ## Extension
+//-     ## Exercise - Testing the Cat Service
 
-    Add methods to the cat service I would like to be able to:
+//-     In the exercise folder in the Github repo you will find a TypeScript application which displays a list of cats.
 
-    * add a cat
-    * remove a cat
-    * count the cats.
+//-     1. First download the dependencies with `npm install`
+//-     2. You can compile this application by typing: `webpack -w`
+//-     3. Open the test folder with `npm run test`
 
-    Build the service methods against tests, and then for bonus points optionally integrate the new methods into your app.
+//-     You should see a simple test that demonstrates that true is indeed true. Edit the `source/cats.service.spec.ts` file to add in a real test. Create a new instance of the service, call cats.get() on it, and check that it does indeed give you cats.
+
+//-     ## Extension
+
+//-     Add methods to the cat service I would like to be able to:
+
+//-     * add a cat
+//-     * remove a cat
+//-     * count the cats.
+
+//-     Build the service methods against tests, and then for bonus points optionally integrate the new methods into your app.
