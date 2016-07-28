@@ -1,8 +1,9 @@
 module.exports = {
-  title: 'Ionic Foundations',
+  title: 'Ionic',
   duration: 0.5,
   slug: 'ionic2-1',
   price: 745,
+  github: 'angular2_ionic_demo',
   description: 'Introducing Ionic.',
   outcome: '',
   exercises: [
@@ -28,6 +29,13 @@ module.exports = {
       ]
     },
     {
+      title: 'Buttons',
+      slug: 'buttons',
+      description: '',
+      github: '',
+      learnings: []
+    },
+    {
       title: 'Lists',
       slug: 'lists',
       description: '',
@@ -37,13 +45,6 @@ module.exports = {
     {
       title: 'Infinite Scroll',
       slug: 'infinite-scroll',
-      description: '',
-      github: '',
-      learnings: []
-    },
-    {
-      title: 'Ionicons',
-      slug: 'ionicons',
       description: '',
       github: '',
       learnings: []

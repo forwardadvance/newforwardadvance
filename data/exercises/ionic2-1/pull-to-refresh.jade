@@ -14,6 +14,7 @@ section
 
     It will fire an event when the refresh event occurs. We can listen to the event and handle it in our controller:
 
+    ```
     import {Component} from '@angular/core';
 
     @Component({
@@ -29,9 +30,14 @@ section
       }
       constructor() {}
     }
+    ```
 
 section.exercise
   :markdown
     ## Exercise - Pull to refresh
 
-    Create a D6 Dice thrower, suitable for playing games with. Make it so that when you pull down, the dice thrower rolls and shows a new number.
+    Revisit the Flickr app we made earlier. We're going to integrate that app into Ionic.
+
+    Use your service to get pictures of cats from the flickr service. Render them on the page as an attractive cat list.
+
+    Make it so that when you pull down, we refresh the feed and show the latest cat content.
