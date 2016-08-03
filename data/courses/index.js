@@ -7,6 +7,11 @@ module.exports = [
   require('./backbone.js'),
   require('./javascript-and-jquery.js'),
   require('./sass.js'),
+  require('./mongo.js'),
+  require('./ruby.js'),
+  require('./rails.js'),
+  require('./rails-plus-mongo.js'),
+
   // Custom Courses
   // require('./ucas-angular2.js'),
 ]

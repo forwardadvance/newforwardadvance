@@ -24,14 +24,15 @@ block content
 
 
 
-      h2 Who should attend
+      if course.prerequisites
+        h2 Who should attend
+        !=md(course.prerequisites)
 
-      !=md(course.prerequisites)
+      if course.instructor
+        h2 Instructor
+        !=md(course.instructor)
 
-      h2 Instructor
+      if course.information
+        h2 Other Information
 
-      !=md(course.instructor)
-
-      h2 Other Information
-
-      !=md(course.information)
+        !=md(course.information)

@@ -1,6 +1,6 @@
 module.exports = {
   slug: 'backbone',
-  title: 'BAckbone',
+  title: 'The Backbone Course',
   description: 'The Backbone Course',
   duration: 2,
   courseModules: [
