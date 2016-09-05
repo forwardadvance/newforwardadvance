@@ -1,10 +1,10 @@
 module.exports = {
-  'title': 'Karma, Jasmine and Unit Testing',
+  'title': 'Jasmine, Webpack and Unit Testing',
   duration: 0.5,
   slug: 'ng1-3',
   price: 1100,
   // 'description': 'Advanced use of directives and components. In this section we learn all the skills required to build a component based Single Page App (SPA)',
-  'outcome': 'You will understand Unit and Integration testing, and will be able to do test driven development.',
+  'outcome': 'You will understand Unit testing, and will be able to do test driven development.',
   'exercises': [
 
 
@@ -19,7 +19,7 @@ module.exports = {
       ]
     },
     {
-      slug: 'karma-intro',
+      slug: 'jasmine-intro',
       title: 'Introduction to Unit Testing',
       description: 'All good developers write unit tests. This is ongoing through the rest of the course.',
       github: 'angular_karma_intro_demo',
@@ -36,17 +36,24 @@ module.exports = {
     //   github: 'angular_karma_cli_demo'
     // },
     {
-      slug: 'karma-services',
-      title: 'Testing a Service with Karma',
-      description: 'Here we see how to use Karma to automate service tests.',
-      github: 'angular_karma_service_demo',
+      slug: 'jasmine-services',
+      title: 'Testing a Service with Jasmine',
+      description: 'Here we see how to use Jasmine to automate service tests.',
+      github: 'angular_jasmine_service_demo',
       learnings: []
     },
     {
-      slug: 'karma-controllers',
-      title: 'Testing a Controller with Karma',
-      description: 'Here we see how to use Karma to automate controller tests.',
-      github: 'angular_karma_controller_demo',
+      slug: 'jasmine-controllers',
+      title: 'Testing a Controller with Jasmine',
+      description: 'Here we see how to use Jasmine to automate controller tests.',
+      github: 'angular_jasmine_controller_demo',
+      learnings: []
+    },
+    {
+      title: 'Introducing Webpack',
+      slug: 'introducing-webpack',
+      description: '',
+      github: '',
       learnings: []
     },
   ],
