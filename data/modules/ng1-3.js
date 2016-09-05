@@ -49,13 +49,13 @@ module.exports = {
       github: 'angular_jasmine_controller_demo',
       learnings: []
     },
-    {
-      title: 'Introducing Webpack',
-      slug: 'introducing-webpack',
-      description: '',
-      github: '',
-      learnings: []
-    },
+    // {
+    //   title: 'Introducing Webpack',
+    //   slug: 'introducing-webpack',
+    //   description: '',
+    //   github: '',
+    //   learnings: []
+    // },
   ],
   'outline': [
     'Further Directives',
