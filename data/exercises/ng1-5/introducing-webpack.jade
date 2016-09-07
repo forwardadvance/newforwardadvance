@@ -49,55 +49,73 @@ section
     We can also require any other node module from npm. Rather than a path, we give the name of the module, like so:
 
     ```
-    var ng = require('angular2');
+    var ng = require('angular');
     ```
 
-    We must have first installed angular2 into our node modules directory using:
+    We must have first installed angular into our node modules directory using:
 
     ```bash
-    npm install angular2
+    npm install angular
     ```
 
     We now have a local copy of Angular in a local variable.
 
+    ## Building Angular
+
+    We can break an angular app up in several ways. The best way is to have one directory per component, then split the contents of that component across several files. For example. Say we have a cat app, hich can list cats, and show individual cats, we might have something like:
+
+    * app.js
+    * app.module.js
+    * *cat.component (directory)*
+      * cat.module.js
+      * cat.controller.js
+      * cat.component.js
+    * *catlist.component (directory)*
+      * catlist.module.js
+      * catlist.controller.js
+      * catlist.component.js
+
+    The cat module might look like this:
+
+    ```
+    var component = require('cat.component');
+    var controller = require('cat.controller');
+
+    module.exports = angular.module('cat', [])
+      .controller('catController', controller);
+      .component('cat', component)
+      .name;
+    ```
+
+    Notice how the module ultimately exports `name`, which will be the string `cat`. This means that in the app module, we can do this:
+
+    ```
+    angular.module('app',[
+      require('./cat.component/cat.module')
+    ]);
+    ```
+
+
 section.exercise
   :markdown
-    ## Exercise - Building a Test
+    ## Exercise - Building Angular app
 
-    In this exercise, we are going to build a simple Jasmine test using Webpack.
+    In this section we are going to rebuild the Flickr app using Webpack. Break your Flickr directive down into three pieces, the module, the controller, the directive, and the service. Put them in a directory called flickr.component.
 
-    The cool thing about making tests this way, is that we can just require JavaScript modules right into our tests, and then test them.
+    If you want true separation, you may optionally put the service in its own directory, with its own module.
 
-    Open up the Webpack exercise_1 start point. You'll find a simple Maths app. The maths object is now a module, and you can require it.
+    Build using Webpack. Very nice.
 
-    * In specs.js require maths/maths.specs
-    * In specs/maths.specs.js require specs/maths
-    * Write specs for the maths object.
+section.exercise
+  :markdown
+    ## Exercise - Build the Tests
 
-    Once you've done it, build the app with:
+    We can also build the test using webpack. The webpack.conf file can export an array or targets.
+
+    Build the tests, then run them in a browser.
 
 
-    ```bash
-    webpack specs.js specs.build.js
-    ```
-
-    ## Extension
-
-    Modify maths.js so it looks like this:
-
-    ```
-    module.exports = {
-      sum: require('./maths.sum'),
-      power: require('./maths.power'),
-      div: require('./maths.div'),
-    }
-    ```
-
-    Break the functions out into separate files and require them.
-
-    Make sure you write specs.
-
-    ## Further Extension
+//-    ## Further Extension
 
 
 

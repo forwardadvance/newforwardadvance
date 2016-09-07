@@ -34,6 +34,13 @@ module.exports = {
       ]
     },
     {
+      title: 'Introducing Webpack',
+      slug: 'introducing-webpack',
+      description: '',
+      github: '',
+      learnings: []
+    },
+    {
       slug: 'browserify',
       title: 'Breaking code into files with Browserify (optional)',
       description: 'Putting code all in one file in not cool. Let\'s fix that problem',

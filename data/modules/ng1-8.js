@@ -1,6 +1,7 @@
 module.exports = {
   title: 'End to End Protractor Testing and Angular2',
   duration: 0.5,
+  slug: 'ng1-8',
   price: 750,
   description: 'Learn how to black box test a running app, even a live app on a server. Learn how Angular 2 will affect you.',
   outcome: '',
@@ -39,16 +40,17 @@ module.exports = {
         'Black box testing on a server'
       ]
     },
-    {
-      slug: 'next-steps',
-      title: 'Next Steps',
-      description: 'Resource is an ORM for REST. Powerful and terse AJAX.',
-      github: 'angular_resource_demo',
-      learnings: [
-        'Thinking in Components',
-        'Prepping for Angular 2'
-      ]
-    },
+    // TODO: Not written.
+    // {
+    //   slug: 'next-steps',
+    //   title: 'Next Steps',
+    //   description: 'Resource is an ORM for REST. Powerful and terse AJAX.',
+    //   github: 'angular_resource_demo',
+    //   learnings: [
+    //     'Thinking in Components',
+    //     'Prepping for Angular 2'
+    //   ]
+    // },
     {
       slug: 'homework',
       title: 'Homework',

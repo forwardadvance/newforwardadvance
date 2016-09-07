@@ -1,6 +1,7 @@
 module.exports = {
   title: 'Advanced Directives',
   duration: 0.5,
+  slug: 'ng1-7',
   price: 750,
   description: 'Advanced use of directives and components. In this section we learn all the skills required to build a component based Single Page App (SPA)',
   outcome: 'You will have a full and deep understanding of directives and the angular compiler, and will be able to confidently build a scalable Angular app.',
@@ -39,15 +40,15 @@ module.exports = {
         'Manual transclusion against a $scope'
       ]
     },
-    {
-      slug: 'parse',
-      title: 'Parsing attributes against $scope',
-      description: '',
-      github: 'angular_parse_demo',
-      learnings: [
-        'Parsing an Angular expression'
-      ]
-    },
+    // {
+    //   slug: 'parse',
+    //   title: 'Parsing attributes against $scope',
+    //   description: '',
+    //   github: 'angular_parse_demo',
+    //   learnings: [
+    //     'Parsing an Angular expression'
+    //   ]
+    // },
   ],
   outline: [
     'Further Directives',
