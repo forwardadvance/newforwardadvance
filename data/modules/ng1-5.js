@@ -37,7 +37,7 @@ module.exports = {
       title: 'Introducing Webpack',
       slug: 'introducing-webpack',
       description: '',
-      github: '',
+      github: 'angular_webpack_demo',
       learnings: []
     },
     {
