@@ -23,6 +23,12 @@ module.exports = {
       description: 'Angular will inspect your CSS and modify it\'s behavior.',
       github: 'angular_animation_demo'
     },
+    {
+      slug: 'custom-filters',
+      title: 'Filters',
+      description: 'Angular lets you create custom filters to filter arrays and content.',
+      github: 'angular_filters_demo'
+    },
   ],
   outline: [
     "Components",

@@ -1,15 +1,6 @@
----
-title: "Protractor - AngularJS Exercise"
-section: "angular"
-exercise: "protractor"
-layout: "exercise"
----
 
-%section
+section
   :markdown
-
-    # Protractor
-
     Protractor is an end to end test framework for Angular. It gives you a JavaScript enabled web browser (Selenium) and a simple JavaScript SDK that lets you drive it. The tests themselves are typically written in Jasmine.
 
     Protractor is the standard test harness used by the Angular core team. You should consider making use of it in your projects.
@@ -24,26 +15,20 @@ layout: "exercise"
 
     Tell your browser to hit specific paths and URLs, like this:
 
-  :ruby
-    code = <<-CODE
+    ```
     browser.get('http://nicholasjohnson.com/');
-    CODE
-  =code(code)
+    ```
 
-  :markdown
     Your browser will literally navigate to this address.
 
     ## Element
 
     Select elements on the page, for example form fields, buttons and links. Call methods to interact with them. For example:
 
-  :ruby
-    code = <<-CODE
+    ```
     element(by.id('gobutton')).click();
-    CODE
-  =code(code)
+    ```
 
-  :markdown
 
     ## Installation
 
@@ -53,16 +38,13 @@ layout: "exercise"
 
     Now create a config file. Save it as protractor.conf.js in your project directory.
 
-  :ruby
-    code = <<-CODE
+    ```
     exports.config = {
       seleniumAddress: 'http://localhost:4444/wd/hub',
       specs: ['selenium_specs/*.js']
     };
-    CODE
-  =code(code)
+    ```
 
-  :markdown
 
     ## What to test
 
@@ -70,7 +52,7 @@ layout: "exercise"
 
 
 
-%section.exercise
+section.exercise
   :markdown
     ## Exercise - Create a Test
 
