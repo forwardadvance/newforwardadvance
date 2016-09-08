@@ -37,6 +37,14 @@ module.exports = {
       github: 'angular_directive_transclusion_demo',
       learnings: [
         'ng-transclude',
+      ]
+    },
+    {
+      slug: 'manual-transclusion',
+      title: 'Manual Transclusion in the Link Function',
+      description: 'The transclusion is available your link function, enabling some advanced usage.',
+      github: 'angular_directive_transclusion_demo',
+      learnings: [
         'Manual transclusion against a $scope'
       ]
     },

@@ -1,0 +1,64 @@
+section
+  :markdown
+    If you have specified transclude: true, The link function will receive a handy transclusion function as it's 5th parameter. Call this function to compile the transclusion. Optionally pass in a scope to compile it with a scope object.
+
+    This will allow you to compile the transcluded content against the isolate scope. Beware, this might surprise your user as you will have broken the $scope inheritance tree in your HTML. Do this only occasionally and with proper thought.
+
+    ```
+
+    myApp.directive('transclusionDirective', function($compile) {
+      return {
+        transclude:true,
+        link: function(scope, element, attrs, controller, transclusion) {
+          transclusion(scope, function(compiledTransclusion) {
+            element.prepend(compiledTransclusion);
+          });
+        }
+      }
+    });
+    ```
+
+
+  !=resources(exercise)
+
+section.exercise
+  :markdown
+    ## Exercise - repeater
+
+    Implement a really dumb little directive that simply repeats the content 5 times.
+
+    Bonus marks for making it configurable, so that we can repeat the content n times, using a value in scope. You would do this by inspecting the attrs array in the pre-link function.
+
+    Bonus points for using the $parse service to parse the transcluded template as Angular code.
+
+    Use the attr parameter in your link function to receive the value.
+
+    Call it like this:
+
+    ```html
+    <div repeat='5'>
+      Hey there!
+    </div>
+    ```
+
+  :markdown
+
+
+section.exercise
+  :markdown
+    ## Exercise - ng-if
+
+    Reimplement ng-if. The transcluded content is shown if the passed in expression evaluates to true. You will need to use [$parse](https://docs.angularjs.org/api/ng/service/$parse) to evaluate the passed in expression.
+
+    You will not need an isolate $scope here.
+
+    Call it like this:
+
+    ```html
+    <input ng-model="val" type='checkbox' />
+    <div if='val'>
+      Hey there!
+    </div>
+    ```
+
+

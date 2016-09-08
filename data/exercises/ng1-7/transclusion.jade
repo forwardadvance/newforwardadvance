@@ -36,9 +36,7 @@ section
 
     Consider carefully whether you need an isolate scope in this case.
 
-    ## Two ways to transclude
-
-    ### 1. the transclude directive
+    ## The transclude directive
 
     If we tell our directive to transclude, the content that was originally in the element will still be available to us via the transclude directive in our template, like so:
 
@@ -52,25 +50,7 @@ section
     });
     ```
 
-    ### 2. Use the transclude function in the link function
-
-    If you have specified transclude: true, The link function will receive a handy transclusion function as it's 5th parameter. Call this function to compile the transclusion. Optionally pass in a scope to compile it with a scope object.
-
-    This will allow you to compile the transcluded content against the isolate scope. Beware, this might surprise your user as you will have broken the $scope inheritance tree in your HTML. Do this only occasionally and with proper thought.
-
-    ```
-
-    myApp.directive('transclusionDirective', function($compile) {
-      return {
-        transclude:true,
-        link: function(scope, element, attrs, controller, transclusion) {
-          transclusion(scope, function(compiledTransclusion) {
-            element.prepend(compiledTransclusion);
-          });
-        }
-      }
-    });
-    ```
+  !=resources(exercise)
 
 section.exercise
   :markdown
@@ -78,50 +58,3 @@ section.exercise
 
     Create a directive that will add a header and footer to any element. You can do this entirely using the a template and the ng-transclude directive.
 
-
-section.exercise
-  :markdown
-    ## Exercise - repeater
-
-    Implement a really dumb little directive that simply repeats the content 5 times.
-
-    Bonus marks for making it configurable, so that we can repeat the content n times. You would do this by inspecting the attrs array in the pre-link function.
-
-    Bonus points for using the $parse service to parse the transcluded template as Angular code.
-
-    Use the attr parameter in your link function to receive the value.
-
-    Call it like this:
-
-    ```html
-    <div repeat='5'>
-      Hey there!
-    </div>
-    ```
-
-  :markdown
-
-
-section.exercise
-  :markdown
-    ## Exercise - ng-if
-
-    Reimplement ng-if. The transcluded content is shown if the passed in expression evaluates to true. You will need to use [$parse](https://docs.angularjs.org/api/ng/service/$parse) to evaluate the passed in expression.
-
-    You will not need an isolate $scope here.
-
-    Call it like this:
-
-    ```html
-    <input ng-model="val" type='checkbox' />
-    <div if='val'>
-      Hey there!
-    </div>
-    ```
-
-
-
-
-section.downloads
-  :markdown
-    [Sample code](https://www.dropbox.com/sh/580ajhjqcvlzr54/AABa-gSujYVuIADWooujk4T0a?dl=1)
