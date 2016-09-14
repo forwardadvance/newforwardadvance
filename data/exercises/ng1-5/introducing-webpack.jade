@@ -99,6 +99,32 @@ section
 
 section.exercise
   :markdown
+    ## Exercise - Webpack
+
+    Download the starter point.
+
+    Create a file called cats.js. Put something like the following into it:
+
+    ``
+    module.exports = function() {
+      console.log('cats!');
+    }
+    ``
+
+    Now in app.js, require cats.js
+
+    ``
+    var cats = require('./cats')
+    cats();
+    ``
+
+    Build using `webpack`.
+
+    Now add a dog module, require it, and make it work.
+
+
+section.exercise
+  :markdown
     ## Exercise - Building Angular app
 
     In this section we are going to rebuild the Flickr app using Webpack. Break your Flickr directive down into three pieces, the module, the controller, the directive, and the service. Put them in a directory called flickr.component.
