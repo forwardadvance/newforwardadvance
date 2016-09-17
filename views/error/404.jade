@@ -1,6 +1,9 @@
-dotenv.load({ path: '.env' });
+extends ../layouts/page_layout
 
 block content
   .wrap
     article
-      h1 404 Not Found
+      :markdown
+        # 404 Not Found
+
+        Sorry, that URL was not found on this site.

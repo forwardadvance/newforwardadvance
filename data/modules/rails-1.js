@@ -8,37 +8,40 @@ module.exports = {
   outcome: ``,
   exercises:[
     {
-      "title": "Hello World",
-      "slug": "hello-world",
-      "description": "Every project starts with a hello world",
-      "code": ""
+      title: "Hello World with Rails",
+      slug: "hello-world",
+      description: "Every decent code adventure starts with a hello world",
+      code: "",
+      path: "rails/hello-world"
+
     },
     {
-      "title": "Debugging Rails",
-      "slug": "debugging",
-      "description": "When things go wrong",
-      "code": ""
+      title: "Debugging Rails",
+      slug: "debugging",
+      description: "When things go wrong we need a nice debugger.",
+      code: "",
+      path: "rails/debugging"
     },
     {
-      "title": "Layouts and Partials",
-      "slug": "layouts-and-partials",
-      "description": "Breaking your views out into sensible pieces",
-      "code": ""
+      title: "Rails Layouts and Partials",
+      slug: "layouts-and-partials",
+      description: "Layouts and partials let you break your Rails views out into sensible pieces",
+      code: "",
+      path: "rails/layouts-and-partials"
     },
     {
-      "title": "The Params Hash",
-      "slug": "params",
-      "description": "Reading params from the URL",
-      "code": ""
+      title: "Accessing URL Parameters in the Params Hash",
+      slug: "params",
+      description: "Reading params from the URL",
+      code: "",
+      path: "rails/params"
     },
     {
-      "title": "Models and Talking to the Database",
-      "slug": "models",
-      "description": "The M in MVC",
-      "code": ""
+      title: "Models & Talking to the Database",
+      slug: "models",
+      description: "The M in MVC",
+      code: "",
+      path: "rails/models"
     },
-  ],
-  'outline': [
-    ''
   ]
 };

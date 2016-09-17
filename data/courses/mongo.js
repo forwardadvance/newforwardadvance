@@ -5,7 +5,7 @@ module.exports = {
   `
   MongoDB is a noSQL document store that allows you to save big data in a JSON like object. It scales beautifully by sharding your data across multiple commodity servers, so you can hold as much data as you like. Simple queries can be made using pattern matching, and complex data manipulations can be achieved using the aggregate pipeline, where a collection is passed through a series of transformation steps, allowing you to compose arbitrarily complex result sets that may bear little resemblance to the original data set.
 
-  This course is practical. You will be using ongo, and issueing queries against real data sets, such as the US postcode database and the human genome. We start with the fundamentals and move up through the aggregate pipeline and map-reduce. We will discuss the types of problems that Mongo is appropriate for.
+  This course is practical. You will be using mongo, and issueing queries against real data sets, such as the US postcode database and the human genome. We start with the fundamentals and move up through the aggregate pipeline and map-reduce. We will discuss the types of problems that Mongo is appropriate for.
   `,
   prerequisites: `
   This course is designed for people wishing to use MongoDB in their apps. It is suitable for software developers and DBAs. Non-technical people may attend, but may find the practical aspects of the course more difficult.

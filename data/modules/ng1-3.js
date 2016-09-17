@@ -1,13 +1,11 @@
 module.exports = {
-  'title': 'Jasmine, Webpack and Unit Testing',
+  'title': 'Jasmine and Unit Testing',
   duration: 0.5,
   slug: 'ng1-3',
   price: 1100,
   // 'description': 'Advanced use of directives and components. In this section we learn all the skills required to build a component based Single Page App (SPA)',
   'outcome': 'You will understand Unit testing, and will be able to do test driven development.',
   'exercises': [
-
-
     {
       slug: 'di-and-services',
       title: 'Services and Dependency Injection (DI)',

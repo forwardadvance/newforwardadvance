@@ -9,13 +9,20 @@ exports.show = function(req, res) {
   var course = req.course;
   var courseModule = req.courseModule;
   var exercise = req.exercise;
+var exercisePath
 
-
-  var exercisePath = [
-    './data/exercises',
-    courseModule.slug,
-    exercise.slug,
-  ].join('/')+'.jade';
+  if (exercise.path) {
+    exercisePath = [
+      './data/exercises',
+      exercise.path
+    ].join('/')+'.jade';
+  } else {
+    exercisePath = [
+      './data/exercises',
+      courseModule.slug,
+      exercise.slug,
+    ].join('/')+'.jade';
+  }
 
   res.render('exercise/show', {
     title: exercise.title,

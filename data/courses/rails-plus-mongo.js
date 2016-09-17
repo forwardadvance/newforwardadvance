@@ -19,7 +19,7 @@ module.exports = {
   information: `
   Attendees should bring their own laptops.
   `,
-  duration: 2,
+  duration: 4,
   courseModules: [
     require('../modules/mongo-fundamentals'),
     require('../modules/mongo-aggregation'),

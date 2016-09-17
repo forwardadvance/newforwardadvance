@@ -21,12 +21,20 @@ exports.show = function(req, res) {
   var course = req.course;
   var courseModule = course.courseModules[0];
   var exercise = courseModule.exercises[0];
+  var exercisePath
 
-  var exercisePath = [
-    './data/exercises',
-    courseModule.slug,
-    exercise.slug,
-  ].join('/')+'.jade';
+  if (exercise.path) {
+    exercisePath = [
+      './data/exercises',
+      exercise.path
+    ].join('/')+'.jade';
+  } else {
+    exercisePath = [
+      './data/exercises',
+      courseModule.slug,
+      exercise.slug,
+    ].join('/')+'.jade';
+  }
 
   res.render('course/show', {
     title: course.name,
