@@ -1,86 +1,91 @@
-article
-  section
-    :markdown
-      Find takes a second parameter which allows you to whitelist fields to pass into the output document. We call this projection.
 
-      You can choose fields to pass though, like so:
+section
+  :markdown
+    Find takes a second parameter which allows you to whitelist fields to pass into the output document. We call this projection.
 
-      ```
-      {
-        ham: 4,
-        eggs: 2
-      }
-      {
-        cheese: 6,
-        lime: 0.5
-      }
+    You can choose fields to pass though. If we have a collection containing two documents like so:
 
-      db.breakfast.find({}, {
-        eggs: true,
-        lime: true
-      })
-      ```
+    ```
+    {
+      ham: 4,
+      eggs: 2
+    }
 
-      This will yield
+    {
+      cheese: 6,
+      lime: 0.5
+    }
+    ```
 
-      ```
-      {
-        eggs: 2
-      },
-      {
-        lime: 0.5
-      }
-      ```
+    Then we write a finder like this:
 
-  section.exercise
-    :markdown
-      ## Exercise - Tidy up your output
+    ```
+    db.breakfast.find({}, {
+      eggs: true,
+      lime: true
+    })
+    ```
 
-      * Use projection to format your array of people. We want only the names.
-      * Output just the names of the people who are 99 years old
-      * Output only the cats, like this:
+    This will yield a collection like so:
 
-      ```
-      { "cat" : { "name" : "Fluffy Frank", "age" : 13 } }
-      ```
+    ```
+    {
+      eggs: 2
+    },
+    {
+      lime: 0.5
+    }
+    ```
 
-      *When you output the cats, you will need to find only people who have cats, where cats $exists, or you will have gaps in your data.*
+section.exercise
+  :markdown
+    ## Exercise - Tidy up your output
 
-  aside.box
-    :markdown
-      ## Aggregation
+    * Use projection to format your array of people. We want only the names.
+    * Output just the names of the people who are 99 years old
+    * Output only the cats, like this:
 
-      We can do much more complex projection, even creating new fields based on expressions using the aggregate pipeline. More on this in a bit.
+    ```
+    { "cat" : { "name" : "Fluffy Frank", "age" : 13 } }
+    ```
 
-  section
-    :markdown
-      ## Excluding the id field
+    *When you output the cats, you will need to find only people who have cats, where cats $exists, or you will have gaps in your data.*
 
-      You will notice that the ID field is always passed through project by default. This is often desirable, but you may wish to hide it, perhaps to conceal your implementation, or to keep your communication over the wire tight.
+aside.box
+  :markdown
+    ## Aggregation
 
-      You can do this easily by passing _id: false:
+    We can do much more complex projection, even creating new fields based on expressions using the aggregate pipeline. More on this in a bit.
+
+section
+  :markdown
+    ## Excluding the id field
+
+    You will notice that the ID field is always passed through project by default. This is often desirable, but you may wish to hide it, perhaps to conceal your implementation, or to keep your communication over the wire tight.
+
+    You can do this easily by passing _id: false:
 
 
-      ```
-      db.breakfast.find({}, {
-        eggs: true,
-        lime: true,
-        _id: false
-      })
-      ```
+    ```
+    db.breakfast.find({}, {
+      eggs: true,
+      lime: true,
+      _id: false
+    })
+    ```
 
-  section.exercise
-    :markdown
-      ## Exercise - remove the ids
+section.exercise
+  :markdown
+    ## Exercise - remove the ids
 
-      * List the cats. Remove the ids from the output.
+    * List the cats. Remove the ids from the output.
 
-  // -# section.exercise
-  // -#   :markdown
-  // -#     ## Exercise - Format the stocks
+// -# section.exercise
+// -#   :markdown
+// -#     ## Exercise - Format the stocks
 
-  // -#     * The stocks data is overwhelming. Use projection to limit the output. I only want to see the name, the sector and the profit.
-  // -#     * You are effectively composing an API response here. Show me only companies that achieved a profit higher than 0.5.
+// -#     * The stocks data is overwhelming. Use projection to limit the output. I only want to see the name, the sector and the profit.
+// -#     * You are effectively composing an API response here. Show me only companies that achieved a profit higher than 0.5.
 
 
 

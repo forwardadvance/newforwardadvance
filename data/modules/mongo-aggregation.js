@@ -7,10 +7,17 @@ module.exports = {
   exercises: [
     {
       slug: 'aggregation',
-      title: 'The Mongo Aggregation Framework plus $match',
+      title: 'The Mongo Aggregation Framework',
       description: 'In which we introduce the aggregation framework, and learn how to chain operations to generate more complex queries.',
       github: '',
       path: 'mongo/aggregation'
+    },
+    {
+      slug: 'aggregation-with-match',
+      title: 'Filtering the Aggregate Pipeline with $match',
+      description: 'In which we introduce the aggregation framework, and learn how to chain operations to generate more complex queries.',
+      github: '',
+      path: 'mongo/aggregation-with-match'
     },
     {
       slug: 'aggregation-project',
@@ -31,7 +38,7 @@ module.exports = {
       title: 'Grouping documents with $group',
       description: 'We can modify our pipeline by grouping documents according to criteria or expressions.',
       github: '',
-      path: 'mongo/aggregation'
+      path: 'mongo/aggregation-group'
     },
     {
       slug: 'aggregation-count',
