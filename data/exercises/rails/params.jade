@@ -9,6 +9,16 @@ section
 
     we would be able to call `params.catname` to get the catname
 
+    We can also create a route to match params. In our routes file, we might put something like:
+
+    `get 'cats/:id' => 'cats#show'`
+
+    We can then hit a URL like this:
+
+    /cats/123
+
+    In the params hash, we now have an id. We can do params.id to get the value passed in.
+
 section.exercise
   :markdown
     ## Exercise - Make a calculator
