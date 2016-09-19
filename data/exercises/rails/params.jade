@@ -1,7 +1,13 @@
 
 section
   :markdown
-    The params hash contains all the url and post parameters that were passed to your application.
+    The params hash contains all the url and post parameters that are passed to your application. We can hit it in out controller, and in our view to get values from the URL.
+
+    Say we hit a url like this:
+
+    `http://localhost:3000/cats?catname=fluffy&catage=12`
+
+    we would be able to call `params.catname` to get the catname
 
 section.exercise
   :markdown
