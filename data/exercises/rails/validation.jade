@@ -1,0 +1,61 @@
+section
+  :markdown
+    Before we save a model in the database, we can optionally validate that model to make sure it's good to go.
+
+    For example, for a person, we might validate that the person has an email address, password, first name, surname, etc.
+
+    We might also validate that their email address matches a particular regex, or that their age is a positive number.
+
+    Validation in rails takes place at the application tier. We add method calls to our models which cause them to validate.
+
+    ## Validating Numericality
+
+    Say we want to check the age is a number. We can do this:
+
+    ```
+    class Person < ActiveRecord::Base
+      validates :age, numericality: true
+    end
+    ```
+
+    ## Validating Existence
+
+    Say we want to check that the person has added first_name, surname and email fields, we can do this:
+
+    ```ruby
+    validates :first_name, :surname, :email, presence: true
+    ```
+
+    You can check the validity of your model using the `valid?` method:
+
+    ```ruby
+    @person.valid?
+    ```
+
+    Errors are stored in the `@person.errors` hash
+
+    You'll find your scaffold already contains a partial that outputs any errors.
+
+    You can find additional validations here:
+
+    <http://guides.rubyonrails.org/active_record_validations.html>
+
+section.exercise
+  :markdown
+    ## Exercise - Validation
+
+    We are going to put some validation onto our scaffold exercise from last time.
+
+    Open up your exercise from the last section. Add some sensible validations to your models. Use your CRUD interface to try and create a model that doesn't validate.
+
+    Now take a look at the result.
+
+    ## Further Exercise
+
+    Modify the errors partial so it looks a little less *default Rails*.
+
+
+
+//- Use validates_presence_of :title to validate that the blog_post has a title. It is now not possible to save a blog_post without a title. Add validation for the content.
+
+//- Try and create a blog post without a title, look at the error reporting. Do you see how it works?

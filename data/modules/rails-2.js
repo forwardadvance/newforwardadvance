@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Rails Intermediate',
   duration: 0.5,
-  slug: 'rails-1',
+  slug: 'rails-2',
   price: 745,
   description: `
   `,
@@ -9,47 +9,61 @@ module.exports = {
   exercises:[
 
     {
-      "title": "Scaffolding and CRUD",
-      "slug": "scaffolding",
-      "description": "",
-      "code": "Doing a lot of boilerplate stuff very quickly."
+      title: 'Scaffolding and CRUD',
+      slug: 'scaffolding',
+      description: 'Doing a lot of boilerplate stuff very quickly.',
+      code: '',
+      path: 'rails/scaffolding'
     },
     {
-      "title": "Associations",
-      "slug": "associations",
-      "description": "",
-      "code": "Associations between models."
+      title: 'Model Validation',
+      slug: 'validation',
+      description: '',
+      code: '',
+      path: 'rails/validation'
     },
     {
-      "title": "The Session Hash",
-      "slug": "sessions",
-      "description": "Persisting session data has never been so much fun.",
-      "code": ""
+      title: 'Associations Between Models',
+      slug: 'associations',
+      description: 'Associations between models.',
+      code: '',
+      path: 'rails/associations'
     },
     {
-      "title": "Assets",
-      "slug": "assets",
-      "description": "",
-      "code": "The Asset Pipeline is a powerful thing"
+      title: 'The Session Hash',
+      slug: 'sessions',
+      description: 'Persisting session data has never been so much fun.',
+      code: '',
+      path: 'rails/sessions'
     },
     {
-      "title": "Helpers",
-      "slug": "helpers",
-      "description": "",
-      "code": ""
+      title: 'Assets',
+      slug: 'assets',
+      description: 'The Asset Pipeline is a powerful thing',
+      code: '',
+      path: 'rails/assets'
     },
+    // {
+    //   title: 'Helpers',
+    //   slug: 'helpers',
+    //   description: '',
+    //   code: '',
+    //   path: 'rails/helpers'
+    // },
     {
-      "title": "Rspec Testing",
-      "slug": "rspec",
-      "description": "",
-      "code": ""
+      title: 'Rspec Testing',
+      slug: 'rspec',
+      description: '',
+      code: '',
+      path: 'rails/rspec'
     },
-    {
-      "title": "Routing",
-      "slug": "routing",
-      "description": "",
-      "code": ""
-    },
+    // {
+    //   title: 'Routing',
+    //   slug: 'routing',
+    //   description: '',
+    //   code: '',
+    //   path: 'rails/routing'
+    // },
   ],
   'outline': [
     ''
