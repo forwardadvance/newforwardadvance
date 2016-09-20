@@ -12,21 +12,21 @@ module.exports = {
       title: 'Scaffolding and CRUD',
       slug: 'scaffolding',
       description: 'Doing a lot of boilerplate stuff very quickly.',
-      code: '',
+      code: 'rails_scaffolding_demo',
       path: 'rails/scaffolding'
     },
     {
       title: 'Model Validation',
       slug: 'validation',
       description: '',
-      code: '',
+      code: 'rails_validations_demo',
       path: 'rails/validation'
     },
     {
       title: 'Associations Between Models',
       slug: 'associations',
       description: 'Associations between models.',
-      code: '',
+      code: 'rails_associations_demo',
       path: 'rails/associations'
     },
     {
