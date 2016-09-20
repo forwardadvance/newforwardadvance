@@ -21,13 +21,13 @@ module.exports = {
   `,
   duration: 4,
   courseModules: [
-    require('../modules/mongo-fundamentals'),
-    require('../modules/mongo-aggregation'),
     require('../modules/rb-1'),
     require('../modules/rails-1'),
-    require('../modules/rb-2'),
     require('../modules/rails-2'),
+    require('../modules/rb-2'),
+    require('../modules/mongo-fundamentals'),
     require('../modules/rb-3'),
+    require('../modules/mongo-aggregation'),
     require('../modules/rails-3'),
   ]
 };

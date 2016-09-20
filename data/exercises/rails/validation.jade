@@ -14,7 +14,7 @@ section
 
     ```
     class Person < ActiveRecord::Base
-      validates :age, numericality: true
+      validates_numericality_of :age
     end
     ```
 
@@ -23,7 +23,7 @@ section
     Say we want to check that the person has added first_name, surname and email fields, we can do this:
 
     ```ruby
-    validates :first_name, :surname, :email, presence: true
+    validates_presence_of :first_name, :surname, :email
     ```
 
     You can check the validity of your model using the `valid?` method:
@@ -38,7 +38,7 @@ section
 
     You can find additional validations here:
 
-    <http://guides.rubyonrails.org/active_record_validations.html>
+    <http://guides.rubyonrails.org/v2.3.11/activerecord_validations_callbacks.html>
 
 section.exercise
   :markdown
