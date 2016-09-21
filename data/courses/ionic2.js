@@ -12,7 +12,7 @@ module.exports = {
   Attendees should bring their own laptops.
   `,
   courseModules: [
-    require('../modules/ionic2-1'),
-    require('../modules/ionic2-2')
+    require('../modules/ionic2-1')
+    // require('../modules/ionic2-2')
   ]
 };

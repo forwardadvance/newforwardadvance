@@ -694,6 +694,9 @@ nav.technology_banner {
     display: inline-block;
     width: 130px;
     margin: 20px 40px; }
+    nav.technology_banner li img {
+      max-width: 130px;
+      max-height: 130px; }
   nav.technology_banner a {
     color: #fff;
     font-size: 26.56px; }

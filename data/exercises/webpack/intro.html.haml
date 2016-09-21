@@ -1,12 +1,21 @@
 :markdown
 
-  Pretty much every major language in the world has a module system.  Modules are just bits of stuff that can be pulled in and used.
+  Pretty much every major language in the world has a module system.  Modules are just bits of stuff (typically code, but sometimes strings or data) that can be pulled in and used.
 
-  Every major language that is, apart from the three we use most: JavaScript, HTML and CSS. This is probably more of an issue than you have ever realised. If you've never used modules, you might be wondering why you need them. To this, I'd answer that you'll have to trust me on this for now. Give it 5 minutes, and then see how you feel.
+  Every major language that is, apart from the three that front end developers use most: JavaScript, HTML and CSS. This is probably more of an issue than you have ever realised. If you've never used modules, you might be wondering why you need them. To this, I'd answer that you'll have to trust me on this for now. Give it 5 minutes, and then see how you feel.
 
-  ## Webpack lets you define your assets as modules, and choose how to build them
+  ## Webpack lets you define your assets as modules
 
-  Webpack allows you to define all your front end assets as modules. It also allows you to build these assets from precursor languages. Want to write SASS instead of CSS? Webkit can compile that for you. Need JSX, or TypeScript, of CoffeeScript? Webkit has you covered.
+  Webpack allows you to define all your front end assets as modules. A module is just a file with code or data in it. Webpack will bundle all your assets into a single file which you can include on your page.
+
+  Instead of putting all your JavaScript in one file, using dozens of script tags, or hand coding complex and fragile concatenation scripts with Gulp or Grunt, you can just create a file for each piece of your app, then require those files as modules and let Webpack take care of building your code for you.
+
+  All the required modules will be packed into a single file, typically called app.js.
+
+  ## Webpack lets you compile precursor languages down to plain old Javascript (ES5)
+
+  Webpack also allows you to build your assets from precursor languages. Want to write SASS instead of CSS? Webkit can compile that for you. Need ES6, ES2015, JSX, TypeScript, or CoffeeScript? Webkit has you covered.
+
 
   ## Installation
 
@@ -61,7 +70,3 @@
   Further reading:
 
   http://webpack.github.io/docs/installation.html
-
-  ## Bundling a JavaScript file
-
-

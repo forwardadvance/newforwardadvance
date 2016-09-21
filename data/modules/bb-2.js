@@ -15,7 +15,8 @@ module.exports = {
       github: 'backbone_webpack_demo',
       learnings: [
         ''
-      ]
+      ],
+      path: 'backbone/webpack'
     },
     {
       slug: 'jasmine',
@@ -24,7 +25,8 @@ module.exports = {
       github: 'backbone_jasmine_demo',
       learnings: [
         ''
-      ]
+      ],
+      path: 'backbone/jasmine'
     },
     {
       slug: 'automated-testing',
@@ -33,7 +35,8 @@ module.exports = {
       github: 'backbone_automated_testing_demo',
       learnings: [
         ''
-      ]
+      ],
+      path: 'backbone/automated-testing'
     },
     {
       slug: 'collections',
@@ -42,7 +45,8 @@ module.exports = {
       github: 'backbone_collections_demo',
       learnings: [
         ''
-      ]
+      ],
+      path: 'backbone/collections'
     },
     {
       slug: 'routing',
@@ -51,7 +55,8 @@ module.exports = {
       github: 'backbone_routing_demo',
       learnings: [
         ''
-      ]
+      ],
+      path: 'backbone/routing'
     },
   ],
   'outline': [

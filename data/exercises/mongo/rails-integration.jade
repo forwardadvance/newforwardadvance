@@ -1,0 +1,147 @@
+section
+  :markdown
+    In this optional section we will look at how to connect a Mongo database to a Rails app. Skip this if you don't plan on using Mongo with Rails.
+
+    The official Rails/Mongo integration is a gem called Mongoid. This gem sits alongside ActiveRecord, and allows you to talk to Mongo and get regular Ruby objects back.
+
+    ## What it gives you
+
+    * Generators, so you can make Mongo objects
+    * Application tier validation
+    * The lucid API for making simple queries
+    * Access to the aggregate framework
+    * Access to Map Reduce (though you still need to write JavaScript for this)
+
+    ## Installing Mongoid
+
+    First of all, create an application. Lets make a petstore:
+
+    ```
+    rails new pet_store
+    ```
+
+    Then add the Mongoid gem to the Gemfile
+
+    gem 'mongoid'
+
+    now bundle to get the new gem:
+
+    ```
+    bundle
+    ```
+
+    You don't need to remove your existing database gem, though you can if you wish. Mongo is happy to sit alongside ActiveRecord with SQLLite or Postgres.
+
+    At time of writing (September 2016) Mongoid is compatible with Rails 4 and 5, so choose your flavour.
+
+    One final step, you need a Mongoid configuration file. Make this by running:
+
+    ```bash
+    rake mongoid:config
+    ```
+
+    You now have a new config file called `config/mongoid.yml` where you can configure your production database URL.
+
+    That's it
+
+    ## Mongoid Generator
+
+    Your first step to mongoid integration is to make yourself a model. Mongoid overrides the default generators, so you can just create a model as you would normally:
+
+    ```bash
+    rails g model kitten name:string age:integer
+    ```
+
+    The model that gets generated looks like this:
+
+    ```ruby
+    class Kitten
+      include Mongoid::Document
+      field :name, type: String
+      field :age, type: Integer
+    end
+    ```
+
+    The Scaffold generator also works. You can run:
+
+
+    ```bash
+    rails g scaffold Hamster name:string fluffy_bits:integer
+    ```
+
+    ## CRUD actions.
+
+    You can do all the standard things you might expect, for example
+
+    Finding by id. The ID will be a Mongo ID string.
+
+    ```ruby
+    @toast = Toast.find(params[:id])
+    ```
+
+    Creating and saving:
+
+    ```ruby
+    @toast = Toast.new({jam:true})
+    @toast.save
+    ```
+
+    Updating:
+
+    ```ruby
+    @toast = @toast.update(toast_params)
+    ```
+
+    And destroying:
+
+    ```ruby
+    @toast.destroy
+    ```
+
+section.exercise
+  :markdown
+    ## Exercise - CRUD
+
+    Create a Rails project, and add the mongoid gem. Scaffold a resource. Now start the server and have a play with what you made.
+
+section
+  :markdown
+    ## Relations
+
+    Active record gives us relationships between models using a relational database. Mongo gives us similar features, but becasue it's a document storage engine, we use embedding.
+
+    ```ruby
+    class Address
+      include Mongoid::Document
+    end
+
+    class Kitten
+      include Mongoid::Document
+      embeds_many :addresses
+    end
+    ```
+
+    We can then set addresses:
+
+    ```ruby
+    kitten.addresses = [ address ]
+    ```
+
+    To get the addresses back, we call target on the relation:
+
+    ```ruby
+    kitten.addresses.target
+    ```
+
+
+section.exercise
+  :markdown
+    ## Exercise - relations
+
+    Extend your application. Scaffold a second resource. Embed your second resource in the first.
+
+    Create a simple UI that allows you to create your nested resource inside your parent resource.
+
+    If you get stuck, refer to the documentation here:
+
+    <https://docs.mongodb.com/ruby-driver/master/mongoid-tutorials/>

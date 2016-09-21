@@ -22,6 +22,10 @@ nav.technology_banner {
     display: inline-block;
     width:130px;
     margin:$gutter $gutter*2;
+    img {
+      max-width:130px;
+      max-height:130px;
+    }
   }
   a {
     color:$white;

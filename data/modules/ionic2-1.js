@@ -15,7 +15,8 @@ module.exports = {
       learnings: [
         'Hybrid apps',
         'Ionic and Cordova'
-      ]
+      ],
+      path: 'ionic2/ionic-intro'
     },
     {
       title: 'Ionic Hello World',
@@ -26,35 +27,52 @@ module.exports = {
         'The Ionic CLI',
         'Android',
         'iOS'
-      ]
+      ],
+      path: 'ionic2/hello-world'
     },
     {
       title: 'Buttons',
       slug: 'buttons',
       description: '',
       github: '',
-      learnings: []
+      learnings: [],
+      path: 'ionic2/buttons'
     },
     {
       title: 'Lists',
       slug: 'lists',
       description: '',
       github: '',
-      learnings: []
+      learnings: [],
+      path: 'ionic2/lists'
     },
     {
       title: 'Infinite Scroll',
       slug: 'infinite-scroll',
       description: '',
       github: '',
-      learnings: []
+      learnings: [],
+      path: 'ionic2/infinite-scroll'
     },
     {
       title: 'Pull-to-refresh',
       slug: 'pull-to-refresh',
       description: '',
       github: '',
-      learnings: []
+      learnings: [],
+      path: 'ionic2/pull-to-refresh'
+    },
+    {
+      title: 'Releasing and Publishing',
+      slug: 'publishing',
+      description: '',
+      github: '',
+      learnings: [
+        "Splash Screen",
+        "Google Play",
+        "The App Store"
+      ],
+      path: 'ionic2/publishing'
     },
   ],
 };

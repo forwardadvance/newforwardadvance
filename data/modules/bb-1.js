@@ -14,7 +14,8 @@ module.exports = {
       description: '',
       learnings: [
         ''
-      ]
+      ],
+      path: 'backbone/intro'
     },
     {
       slug: 'views',
@@ -23,7 +24,8 @@ module.exports = {
       github: 'backbone_views_demo',
       learnings: [
         ''
-      ]
+      ],
+      path: 'backbone/views'
     },
     {
       slug: 'templates',
@@ -32,7 +34,8 @@ module.exports = {
       github: 'backbone_templates_demo',
       learnings: [
         ''
-      ]
+      ],
+      path: 'backbone/templates'
     },
     {
       slug: 'view-events',
@@ -41,7 +44,8 @@ module.exports = {
       github: 'backbone_view_events_demo',
       learnings: [
         ''
-      ]
+      ],
+      path: 'backbone/view-events'
     },
     {
       slug: 'models',
@@ -50,7 +54,8 @@ module.exports = {
       github: 'backbone_models_demo',
       learnings: [
         ''
-      ]
+      ],
+      path: 'backbone/models'
     },
     {
       slug: 'model-events',
@@ -59,7 +64,8 @@ module.exports = {
       github: 'backbone_model_events_demo',
       learnings: [
         ''
-      ]
+      ],
+      path: 'backbone/model-events'
     },
     {
       slug: 'wiring-an-app',
@@ -67,8 +73,9 @@ module.exports = {
       description: '',
       learnings: [
         ''
-      ]
-    },
+      ],
+      path: 'backbone/wiring-an-app'
+    }
   ],
   'outline': [
     ''

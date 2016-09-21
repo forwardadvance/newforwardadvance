@@ -47,17 +47,6 @@ module.exports = {
         'Building a release',
         "Setting an Icon"
       ]
-    },
-    {
-      title: 'Releasing and Publishing',
-      slug: 'publishing',
-      description: '',
-      github: '',
-      learnings: [
-        "Splash Screen",
-        "Google Play",
-        "The App Store"
-      ]
-    },
+    }
   ],
 };
