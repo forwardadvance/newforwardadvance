@@ -106,9 +106,41 @@ section.exercise
 
 section
   :markdown
+    ## Validation
+
+    Mongoid uses the same validators as ActiveRecord, we can write things like:
+
+    ```ruby
+    validates_presence_of :name
+    validates_uniqueness_of :email
+    validates_numericality_of :age
+    ```
+
+    We also get the generic `validate` method that will accept the name of a function.
+
+    ```ruby
+    validate :person_is_older_than_cat
+
+    def person_is_older_than_cat
+      this.age > this.cat_age
+    end
+    ```
+
+section.exercise
+  :markdown
+    ## Exercise - Validation
+
+    Add a sensible validation to your scaffolded model.
+
+section
+  :markdown
     ## Relations
 
-    Active record gives us relationships between models using a relational database. Mongo gives us similar features, but becasue it's a document storage engine, we use embedding.
+    Active record gives us relationships between models using a relational database. Mongo gives us similar features, but because it's a document storage engine, we use embedding.
+
+    We embed using embeds_many, or embeds_one.
+
+    Embeds many will give you an array that you can write to.
 
     ```ruby
     class Address
@@ -124,13 +156,13 @@ section
     We can then set addresses:
 
     ```ruby
-    kitten.addresses = [ address ]
+    kitten.addresses = [ Address.new() ]
     ```
 
-    To get the addresses back, we call target on the relation:
+    To get the addresses back, we can just call:
 
     ```ruby
-    kitten.addresses.target
+    kitten.addresses
     ```
 
 
@@ -145,3 +177,33 @@ section.exercise
     If you get stuck, refer to the documentation here:
 
     <https://docs.mongodb.com/ruby-driver/master/mongoid-tutorials/>
+
+section
+  :markdown
+    ## Queries
+
+    We can get all the items in the collection with the `all` method:
+
+    ```
+    Kitten.all
+    ```
+
+    We can query the relation by passing a Hash
+
+    For example:
+
+    ```ruby
+    Kitten.where( name: 'Mittens' );
+    ```
+
+    We compose more complex queries by modifying the hash key:
+
+    Kitten.where( :age.lt => 2 )
+
+section.exercise
+  :markdown
+    ## Exercise - Queries
+
+    Create a controller and a view that allows you to search for by some criteria that will be passed in in the URL.
+
+    This will give you a list of
