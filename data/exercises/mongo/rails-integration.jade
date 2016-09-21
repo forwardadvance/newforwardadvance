@@ -198,7 +198,9 @@ section
 
     We compose more complex queries by modifying the hash key:
 
+    ```ruby
     Kitten.where( :age.lt => 2 )
+    ```
 
 section.exercise
   :markdown
@@ -206,4 +208,4 @@ section.exercise
 
     Create a controller and a view that allows you to search for by some criteria that will be passed in in the URL.
 
-    This will give you a list of
+    This will give you a list of matched items.
