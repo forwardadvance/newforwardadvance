@@ -46,6 +46,15 @@ section.exercise
     mongoimport --db holidays --collection holidays --file holidays.json
     ```
 
+    The holidays dataset date field will be a string, so iterate over the cursor like so:
+
+    ```
+    db.holidays.find().forEach(function(holiday) {
+      holiday.date = new Date(holiday.date);
+      db.holidays.save(holiday);
+    })
+    ```
+
   :markdown
     * Group the data by year, month and dayOfMonth. Be aware that not every holiday has a date. You may generate the dynamic fields with $project, or directly in $group _id.
     * $push the holiday name into the result set.
