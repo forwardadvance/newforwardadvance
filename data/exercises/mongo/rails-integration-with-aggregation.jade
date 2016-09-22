@@ -4,7 +4,7 @@ section
 
     ```ruby
     Kitten.collection.aggregate([
-      {"$project" =>
+      { "$project" =>
         {
           "name" => 1,
           "year"    => { "$year" => "$birthday"},
@@ -12,6 +12,24 @@ section
       }
     ]);
     ```
+
+    ## Cursors
+
+    This will give us a Cursor object back, which we can interact with, perhaps iterating over it with each:
+
+    ```ruby
+    Kitten.collection.aggregate( [
+      { "$project" =>
+        {
+          "name"=> true
+        }
+      }
+    ]).each { | doc | puts doc }
+    ```
+
+    Each time round we'll get a BSON object, which will have the fields we need.
+
+    ## Multi stage aggregation
 
     If we wanted to group by year, to get the number of kittens born each year, we could chain a group operator:
 
@@ -32,7 +50,7 @@ section
     ]);
     ```
 
-    The syntax is very similar to the aggregation we have been doing in the console.
+    The syntax is almost identical to the aggregation we have been using in the console.
 
 section.exercise
   :markdown
