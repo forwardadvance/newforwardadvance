@@ -60,6 +60,12 @@ section.exercise
 
     Extend your Rails app. Create a model that has a birth date. Create a controller that uses aggregation to group these on date. Create a view that outputs this data, showing the most popular year and month.
 
-  //- ## Optional Extension
+section.exercise
+  :markdown
+    ## Optional Extension
 
-  //- Pick one of the
+    Drop into your rails console. Pick The stocks data. Use $project to format it in a way that a Rails app can understand (lower case keys, no nesting.) Now us the $out: 'collection_name' pipeline stage to output the cleaned data into a new collection. Docs here:
+
+    <https://docs.mongodb.com/manual/reference/operator/aggregation/out/>
+
+    No write a Ruby model that can understand the data. Write a Rails controller and view that aggregate the data to show the most popular stocks, based on the data.
