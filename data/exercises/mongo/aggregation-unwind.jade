@@ -112,21 +112,22 @@ section.exercise
   :markdown
     First we have to prep the data. Unless you've already converted it, The date will be stored as a string. We would ideally like to convert it to an actual date.
 
-    We can split the data using a script like this one. See if you can see what it is doing:
+  //- We can split the data using a script like this one. See if you can see what it is doing:
 
-    ```
-    db.startups.find({}).forEach(function(startup) {
-      if (startup.tag_list && startup.tag_list.split) {
-        startup.tag_list = startup.tag_list.split(',').map(function(a){return a.trim()});
-      } else {
-        startup.tag_list = [];
-      }
-      print(startup.tag_list);
-      db.startups.save(startup)
-    })
-    ```
 
-  //-# TODO: test this script!
+  //- ```
+  //- db.startups.find({}).forEach(function(startup) {
+  //-   if (startup.tag_list && startup.tag_list.split) {
+  //-     startup.tag_list = startup.tag_list.split(',').map(function(a){return a.trim()});
+  //-   } else {
+  //-     startup.tag_list = [];
+  //-   }
+  //-   print(startup.tag_list);
+  //-   db.startups.save(startup)
+  //- })
+  //- ```
+
+  //-# TODO: Write a script!!
 
   :markdown
     ### Split by day
