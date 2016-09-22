@@ -55,6 +55,21 @@ section.exercise
     "a,b".split(",")
     ```
 
+    You might use code like this:
+
+    ```
+    db.startups.find({}).forEach(function(startup) {
+      if (startup.tag_list && startup.tag_list.split) {
+        startup.tag_list = startup.tag_list.split(',').map(function(a){return a.trim()});
+        print(startup.tag_list);
+      } else {
+        startup.tag_list = [];
+      }
+      db.startups.save(startup)
+    })
+    ```
+
+
   :markdown
     ### unwind the data
 

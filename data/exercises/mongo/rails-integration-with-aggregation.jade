@@ -24,10 +24,12 @@ section
           "name"=> true
         }
       }
-    ]).each { | doc | puts doc }
+    ]).each do | doc |
+      puts doc
+    end
     ```
 
-    Each time round we'll get a BSON object, which will have the fields we need.
+    Each time round we'll get a BSON object, which will have the fields we would expect.
 
     ## Multi stage aggregation
 
