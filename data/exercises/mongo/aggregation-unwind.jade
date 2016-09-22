@@ -112,8 +112,14 @@ section.exercise
   :markdown
     First we have to prep the data. Unless you've already converted it, The date will be stored as a string. We would ideally like to convert it to an actual date.
 
-  //- We can split the data using a script like this one. See if you can see what it is doing:
+    We can split the data using a script like this one. See if you can see what it is doing:
 
+    ```
+    db.emails.find().forEach(function(email) {
+      email.isodate = new ISODate(email.date)
+      db.emails.save(email)
+    });
+    ```
 
   //- ```
   //- db.startups.find({}).forEach(function(startup) {
