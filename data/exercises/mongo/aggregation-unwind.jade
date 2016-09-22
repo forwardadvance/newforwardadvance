@@ -60,11 +60,13 @@ section.exercise
     ```
     db.startups.find({}).forEach(function(startup) {
       if (startup.tag_list && startup.tag_list.split) {
-        startup.tag_list = startup.tag_list.split(',').map(function(a){return a.trim()});
-        print(startup.tag_list);
+        startup.tag_list = startup.tag_list.split(',').map(function(a) {
+          return a.trim()
+        });
       } else {
         startup.tag_list = [];
       }
+      print(startup.tag_list);
       db.startups.save(startup)
     })
     ```
