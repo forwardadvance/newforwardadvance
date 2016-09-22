@@ -69,6 +69,13 @@ module.exports = {
       path: 'mongo/aggregation-unwind'
     },
     {
+      slug: 'rails-integration-with-aggregation',
+      title: 'Rails Integration with Aggregation (Optional)',
+      description: '',
+      github: '',
+      path: 'mongo/rails-integration-with-aggregation'
+    },
+    {
       slug: 'map-reduce',
       title: 'Introducing Map Reduce',
       description: 'We can use the date functions to group by date and output stats. Pipe through project and generate date for a graph.',

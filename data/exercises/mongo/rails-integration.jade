@@ -22,7 +22,9 @@ section
 
     Then add the Mongoid gem to the Gemfile
 
+    ```ruby
     gem 'mongoid'
+    ```
 
     now bundle to get the new gem:
 
@@ -145,6 +147,7 @@ section
     ```ruby
     class Address
       include Mongoid::Document
+      embedded_in :kitten
     end
 
     class Kitten
@@ -156,7 +159,7 @@ section
     We can then set addresses:
 
     ```ruby
-    kitten.addresses = [ Address.new() ]
+    kitten.addresses.create = address_params
     ```
 
     To get the addresses back, we can just call:

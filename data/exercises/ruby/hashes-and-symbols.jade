@@ -67,7 +67,8 @@ section
 
     ```ruby
     animals.default = "star mole"
-    puts animals[:odd]=> star mole
+    puts animals[:odd]
+        # will output: star mole
     ```
 
     ## Any Objects can be used as a key
@@ -76,7 +77,8 @@ section
 
     ```ruby
     animals[45] = Dir.new '/'
-    puts animals.inspect # {45 => #<Dir:0x284a394>
+    puts animals.inspect
+        # will output {45 => #<Dir:0x284a394>
     ```
 
 aside.box

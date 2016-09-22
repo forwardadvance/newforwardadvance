@@ -1,0 +1,45 @@
+section
+  :markdown
+    We can issue aggregation queries to Mongo using the Mongoid gem. We call Model.aggregate, then pass an array of aggregation operators. For example, say we wanted to perform a simple projection on our kitten to get its name and birth year, we might do this:
+
+    ```ruby
+    Kitten.collection.aggregate([
+      {"$project" =>
+        {
+          "name" => 1,
+          "year"    => { "$year" => "$birthday"},
+        }
+      }
+    ]);
+    ```
+
+    If we wanted to group by year, to get the number of kittens born each year, we could chain a group operator:
+
+    ```ruby
+    Kitten.collection.aggregate([
+      {"$project" =>
+        {
+          "name" => 1,
+          "year"    => { "$year" => "$birthday"},
+        }
+      },
+      { "$group" =>
+        {
+          "_id" => {"year" => "$year"},
+          "count" => { "$sum" => 1 }
+        }
+      }
+    ]);
+    ```
+
+    The syntax is very similar to the aggregation we have been doing in the console.
+
+section.exercise
+  :markdown
+    ## Exercise - Mongoid Aggregation
+
+    Extend your Rails app. Create a model that has a birth date. Create a controller that uses aggregation to group these on date. Create a view that outputs this data, showing the most popular year and month.
+
+  //- ## Optional Extension
+
+  //- Pick one of the
