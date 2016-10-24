@@ -9,6 +9,10 @@ block content
 
       section
 
-        //- for exercise in exercises
-        //-   h1=exercise.title
-        //-   =renderExercise(exercise)
+        for exercise in exercises
+          h1
+            a( href=['/course', exercise.course.slug, exercise.courseModule.slug, exercise.exercise.slug].join('/') )
+              =exercise.courseModule.title
+              =" - "
+              =exercise.exercise.title
+          != renderExercise(exercise.courseModule, exercise.exercise)

@@ -27,11 +27,8 @@ module.exports = {
   `,
   duration: 3,
   courseModules: [
-    require('../modules/rb-1'),
     require('../modules/rails-1'),
-    require('../modules/rb-2'),
     require('../modules/rails-2'),
-    require('../modules/rb-3'),
     require('../modules/rails-3'),
   ]
 };

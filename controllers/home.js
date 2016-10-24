@@ -13,7 +13,11 @@ var getHomepageItems = () => {
       if (courseModule.exercises.forEach) {
         courseModule.exercises.forEach((exercise) => {
           if (exercise.homepage) {
-            homepageItems.push(exercise);
+            homepageItems.push({
+              course: course,
+              courseModule: courseModule,
+              exercise: exercise
+            });
           }
         });
       }

@@ -8,6 +8,14 @@ module.exports = {
   outcome: ``,
   exercises:[
     {
+      title: "Hello and welcome to Rails!",
+      slug: "welcome",
+      description: "What is Rails and what does it do?",
+      code: "",
+      path: "rails/welcome"
+
+    },
+    {
       title: "Hello World with Rails",
       slug: "hello-world",
       description: "Every decent code adventure starts with a hello world",
