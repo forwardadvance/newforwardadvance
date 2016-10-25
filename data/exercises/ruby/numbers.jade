@@ -1,215 +1,215 @@
-article
-  section
-    :markdown
-      ## Integers (Fixnums)
 
-      Everything in Ruby is an object including integers, or Fixnums as they are known in Ruby. Integers therefore have methods.
+section
+  :markdown
+    ## Integers (Fixnums)
 
-      ```ruby
-      x = 1
-      x.to_s
-        => '1'
-      ```
+    Everything in Ruby is an object including integers, or Fixnums as they are known in Ruby. Integers therefore have methods.
 
-      ## Basic Maths
+    ```ruby
+    x = 1
+    x.to_s
+      => '1'
+    ```
 
-      You can do all the maths you would like with integers. It all works as you would expect:
+    ## Basic Maths
 
-      ```ruby
-      1 + 2
-        => 3
+    You can do all the maths you would like with integers. It all works as you would expect:
 
-      5 - 1
-        => 4
+    ```ruby
+    1 + 2
+      => 3
 
-      3 * 4
-        => 12
+    5 - 1
+      => 4
 
-      4 / 2
-        => 2
-      ```
+    3 * 4
+      => 12
 
-      You also have the common maths shortcuts you find in other languages. Again, these work as you would expect:
+    4 / 2
+      => 2
+    ```
 
-      ```ruby
-      x = 2
-        => 2
+    You also have the common maths shortcuts you find in other languages. Again, these work as you would expect:
 
-      x += 5
-        => 7
+    ```ruby
+    x = 2
+      => 2
 
-      x *= 2
-        => 14
-      ```
+    x += 5
+      => 7
 
-      Use ** for exponentiation should you feel that way inclined:
+    x *= 2
+      => 14
+    ```
 
-      ```ruby
-      2 ** 2
-        => 4
-      2 ** 3
-        => 8
-      2 ** 4
-        => 16
-      ```
+    Use ** for exponentiation should you feel that way inclined:
 
-  aside.box
-    :markdown
-      ## Note: There is no Incrementation operator
+    ```ruby
+    2 ** 2
+      => 4
+    2 ** 3
+      => 8
+    2 ** 4
+      => 16
+    ```
 
-      A surprise here. Ruby has no pre/post increment/decrement operator. For instance, x++ or x-- will fail to parse. Use x += 1 instead. There are some relatively technical and quite good reasons for this to do with consistency.
+aside.box
+  :markdown
+    ## Note: There is no Incrementation operator
 
-      Matz dislikes this because the ++ incrementation is the only operator with an implied second value, so we don't have it. Use a +=1 instead.
+    A surprise here. Ruby has no pre/post increment/decrement operator. For instance, x++ or x-- will fail to parse. Use x += 1 instead. There are some relatively technical and quite good reasons for this to do with consistency.
 
-  section
-    :markdown
-      ## Looping with Integers
+    Matz dislikes this because the ++ incrementation is the only operator with an implied second value, so we don't have it. Use a +=1 instead.
 
-      Remember how everything in Ruby is an object? This lets us do some reasonably clever things. For example, we can it to perform looping, like so:
+section
+  :markdown
+    ## Looping with Integers
 
-      ```ruby
-      5.times {puts "hello"}
+    Remember how everything in Ruby is an object? This lets us do some reasonably clever things. For example, we can it to perform looping, like so:
 
-      hello
-      hello
-      hello
-      hello
-      hello
-      ```
+    ```ruby
+    5.times {puts "hello"}
 
-      This might look strange. The little bit of code between the curly brackets {puts "hello"} is called a block. A block is an inline function. We are actually passing this block (or function) to the Fixnum times method, which is then executing it 5 times. This may seem a little odd at first, but it's actually really rather good and will soon become second nature, as we shall see when we reach the section on blocks.
+    hello
+    hello
+    hello
+    hello
+    hello
+    ```
 
-      ## Comparison
+    This might look strange. The little bit of code between the curly brackets {puts "hello"} is called a block. A block is an inline function. We are actually passing this block (or function) to the Fixnum times method, which is then executing it 5 times. This may seem a little odd at first, but it's actually really rather good and will soon become second nature, as we shall see when we reach the section on blocks.
 
-      As you would expect, greater than or less than signs to do comparison. == tests for equality.
+    ## Comparison
 
-      ```ruby
-      1 > 2
-        => false
+    As you would expect, greater than or less than signs to do comparison. == tests for equality.
 
-      2 >= 2
-        => true
+    ```ruby
+    1 > 2
+      => false
 
-      1 < 2
-        => true
+    2 >= 2
+      => true
 
-      1 == 1
-        => true
-      ```
+    1 < 2
+      => true
 
-      ## The Spaceship Operator
+    1 == 1
+      => true
+    ```
 
-      A tremendously useful one this, the spaceship operator returns 1, 0 or-1 depending on whether the first operand is larger, the same as or smaller than the second. This is excellent, as this type of comparison forms the basis of all known sorting algorithms.
+    ## The Spaceship Operator
 
-      To make any class sortable, all you need to do is to implement the spaceship operator on it. Telling a custom class how to respond to an operator is called operator overloading. More on operator overloading later.
+    A tremendously useful one this, the spaceship operator returns 1, 0 or-1 depending on whether the first operand is larger, the same as or smaller than the second. This is excellent, as this type of comparison forms the basis of all known sorting algorithms.
 
-          4 <=> 3
-            => 1
+    To make any class sortable, all you need to do is to implement the spaceship operator on it. Telling a custom class how to respond to an operator is called operator overloading. More on operator overloading later.
 
-          4 <=> 4
-            => 0
+        4 <=> 3
+          => 1
 
-          2 <=> 10
-            => -1
+        4 <=> 4
+          => 0
 
-      ## Large integers
+        2 <=> 10
+          => -1
 
-      Underscores can be included in integers to make them more legible. We don’t do this often, but it’s a fun trick to know:
+    ## Large integers
 
-      ```ruby
-      x = 100_000_000
-      y= 100000000
-      puts x == y
-        => true
-      ```
+    Underscores can be included in integers to make them more legible. We don’t do this often, but it’s a fun trick to know:
 
-  section
-    :markdown
-      ## Floats
+    ```ruby
+    x = 100_000_000
+    y= 100000000
+    puts x == y
+      => true
+    ```
 
-      Ruby also has floating point numbers. Floats are useful for dealing with very large numbers, or high precision numbers.
+section
+  :markdown
+    ## Floats
 
-      Declare a float just by including a decimal point, like so:
+    Ruby also has floating point numbers. Floats are useful for dealing with very large numbers, or high precision numbers.
 
-      ```ruby
-      a = 0.5
-        => 0.5
+    Declare a float just by including a decimal point, like so:
 
-      a = 1.0
-        => 1.0
-      ```
+    ```ruby
+    a = 0.5
+      => 0.5
 
-      You can convert integers to floats using the to_f method like so:
+    a = 1.0
+      => 1.0
+    ```
 
-      ```ruby
-      15.to_f
-        => 15.0
-      ```
+    You can convert integers to floats using the to_f method like so:
 
-      Integers are not implicitly converted to floats, so:
+    ```ruby
+    15.to_f
+      => 15.0
+    ```
 
-      ```ruby
-      3 / 2
-        => 1
-      ```
+    Integers are not implicitly converted to floats, so:
 
-      rather than 1.5
+    ```ruby
+    3 / 2
+      => 1
+    ```
 
-      However, if one of the operands is already a float, the output will be a float so:
+    rather than 1.5
 
-      ```ruby
-      3.0 / 2
-        => 1.5
+    However, if one of the operands is already a float, the output will be a float so:
 
-      3 / 2.0
-        => 1.5
-      ```
+    ```ruby
+    3.0 / 2
+      => 1.5
 
-      ## Infinity
+    3 / 2.0
+      => 1.5
+    ```
 
-      Floats have the rather handy ability of extending to infinity, like so:
+    ## Infinity
 
-      ```ruby
-      1.0 / 0
-        => Infinity
+    Floats have the rather handy ability of extending to infinity, like so:
 
-      (1.0 / 0).infinite?
-        => 1
+    ```ruby
+    1.0 / 0
+      => Infinity
 
-      (-1.0 / 0).infinite?
-        => -1
-      ```
+    (1.0 / 0).infinite?
+      => 1
 
-      If you need to say that something, say a stack, can contain an unlimited number of values, you might find a use for infinity.
+    (-1.0 / 0).infinite?
+      => -1
+    ```
 
+    If you need to say that something, say a stack, can contain an unlimited number of values, you might find a use for infinity.
 
-  section.exercise
-    :markdown
-      ## Exercise - do a little maths
 
-      1. Get a value from the command line using a = gets
-      2. Write a little program that asks the user how old they are in years. You will need to use years.to_i
-      3. Output the number of weeks they have lived for.
-      4. Assume a lifespan of 79 years. Output the number of weeks they have left.
+section.exercise
+  :markdown
+    ## Exercise - do a little maths
 
-  section.exercise
-    :markdown
-      ## Exercise - repeat yourself
+    1. Get a value from the command line using a = gets
+    2. Write a little program that asks the user how old they are in years. You will need to use years.to_i
+    3. Output the number of weeks they have lived for.
+    4. Assume a lifespan of 79 years. Output the number of weeks they have left.
 
-      Write a one line program that writes "Hello World" 250 times to the screen
+section.exercise
+  :markdown
+    ## Exercise - repeat yourself
 
-  section.exercise
-    :markdown
-      ## Exercise - exponents
+    Write a one line program that writes "Hello World" 250 times to the screen
 
-      Use times to write a program which outputs powers of 2, up to some maximum value, like this:
+section.exercise
+  :markdown
+    ## Exercise - exponents
 
-      ```ruby
-      1
-      2
-      4
-      8
-      16
-      32
-      ...
-      ```
+    Use times to write a program which outputs powers of 2, up to some maximum value, like this:
+
+    ```ruby
+    1
+    2
+    4
+    8
+    16
+    32
+    ...
+    ```
