@@ -121,25 +121,6 @@ secion.exercise
 
     Great. You can now create comments from the comments form, and see them when you view a blog but you will need to manually enter the blog_post_id when creating the comment. Let's fix that.
 
-    ## Extension: Nested Routes
-
-    Use a nested route to nest your comment inside a BlogPost. Modify your routes.rb file like so:
-
-    ```ruby
-    resources :blog_posts do
-      resources :comments
-    end
-    ```
-
-    Use rake routes to check the routes you have made.
-
-    ```bash
-    rake routes
-    ```
-
-    Now you can visit a URL like
-
-    <http://localhost:3000/blog_post/1/comments/new> to create a comment. Remove the blog_post_id field from the comment form view. Instead, in your controller set it using the params hash. You may need to drop into the debugger to check the params hash here.
 
     ## Optional finishing up
 
@@ -151,3 +132,26 @@ secion.exercise
     @comment = Comment.new.
     ```
     This will let the comment form just work without modifications.)
+
+
+//- ## Extension: Nested Routes
+
+//- Use a nested route to nest your comment inside a BlogPost. Modify your routes.rb file like so:
+
+//- ```ruby
+//- resources :blog_posts do
+//-   resources :comments
+//- end
+//- ```
+
+//- Use rake routes to check the routes you have made.
+
+//- ```bash
+//- rake routes
+//- ```
+
+//- Now you can visit a URL like
+
+//- <http://localhost:3000/blog_post/1/comments/new> to create a comment. Remove the blog_post_id field from the comment form view. Instead, in your controller set it using the params hash. You may need to drop into the debugger to check the params hash here.
+
+  :markdown
