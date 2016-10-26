@@ -8,6 +8,13 @@ module.exports = {
   outcome: ``,
   exercises:[
     {
+      title: "Integrating Gems",
+      slug: "integrating-gems",
+      description: "",
+      code: "",
+      path: "rails/integrating-gems"
+    },
+    {
       title: "Concerns",
       slug: "concerns",
       description: "",

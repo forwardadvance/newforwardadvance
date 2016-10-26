@@ -57,6 +57,13 @@ module.exports = {
       code: "",
       path: "ruby/extend-and-include"
     },
+    {
+      title: "RSpec",
+      slug: "rspec",
+      description: "Introduction to Automated Testing with RSpec",
+      code: "",
+      path: "ruby/rspec"
+    },
   ],
   'outline': [
     ''
