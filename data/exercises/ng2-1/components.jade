@@ -3,13 +3,14 @@ section
   :markdown
     Angular applications are built out of components. A component works like a brand new type of DOM node which we invent. It can have behaviour, it can emit events, it can have custom attributes, it holds its own state.
 
-    In this section we'll build the simplest possible "Hello World" component using regular ol' JavaScript.
+    In this section we'll build the simplest possible "Hello World" component using regular ol' JavaScript and plain script tags. We won't use a module packer or any tooling (though we will get to those things later). The goal is just to produce the simplest possible working Angular so we can see Angular gives us.
 
   aside.questions_answered
     :markdown
       ## Questions Answered
 
       * What is an Angular 2 component?
+      * What is an Angular 2 module?
       * What is the simplest meaningful Angular 2 *Hello World* we can create?
 
   :markdown
@@ -17,43 +18,52 @@ section
 
     First up we need some JavaScript. We currently need four files to make our simple app work. These are:
 
-    1. angular2-polyfills.js
-    2. Rx.umd.js
-    3. angular2-all.umd.js
-    4. app.js
+    * shim.js
+    * zone.js
+    * reflect.js
+    * Rx.js
+    * app.js
 
-    ### angular2-polyfills.js
+    ### shim.js
 
-    Angular uses edge JavaScript, things like Reflect for example that are not available in any current browser. The polyfills script makes these features available.
+    Angular uses edge JavaScript. If you're only targeting Chrome you can leave this file off, but if you want support for older browsers like IE9, you need this polyfill.
+
+    ### zone.js
+
+    Angular change detection works by polyfilling all built in asynchronous code. Things like setTimeout, setInterval, and AJAX, so that they give us an Observable which Angular can listen to. ZoneJS is a third party project that enables this.
+
+    ### reflect.js
+
+    Reflect is a JavaScript API that allows you to inspect other objects. Angular uses Reflect.metadata to store metadata about an object, without storing it as an attribute of that object. Angular uses Reflect metadata to store information about the types of objects.
 
     ### Rx.umd.js
 
-    Angular uses Observables for AJAX. Observables are like Promises, but with a much fuller API.
+    Angular uses Observables all over the place, for example for AJAX. Observables are like Promises, but with a much fuller API. They are objects that can emit streams of events.
 
-    ### angular2-all.umd.js
+    ### @angular2 *.umd.js
 
-    Angular 2 UMD - the Universal Module Definition version of Angular exposes the Angular internals on a glbal variable called ng. This means we don't need a module loader for our hello world which simplifies things a lot.
+    Angular 2 UMD - the Universal Module Definition version of Angular exposes the Angular internals on a global variable called ng. This means we don't need a module loader for our hello world which simplifies things a lot.
 
     Module loaders are cool, and we will get to them, but not in a hello world.
 
     ### app.js
 
-    Our code.
+    Your code.
 
 
 section.box
   :markdown
     ## What is UMD?
 
-    UMD (as in angular-all.umd.js) stands for Universal Module Definition. It is a common specification for exposing variables. In this case, it creates the ng global for us.
+    UMD (as in angular-all.umd.js) stands for Universal Module Definition. It is a common specification for exposing variables. In this case, it creates the ng global for us. This is great for initial playing around, because we can just include Angular with a script tag and make everything global, but eventually you will want to start using a module packer like WebPack to avoid globals.
 
-    We don't have to use it. We can explicitly import Angular components wherever they are required. More on this later.
+    More on this later.
 
 section
   :markdown
     ## HTML5 Skeleton
 
-    An HTML skeleton includes the necessary JavaScripts, then declared an app component.
+    An HTML skeleton includes the necessary JavaScripts, then declares an app component.
 
     Here's a skeleton HTML page for you to copy.
 
@@ -61,41 +71,78 @@ section
     <!DOCTYPE html>
     <html>
       <head>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.3/angular2-polyfills.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.3/Rx.umd.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/2.0.0-beta.3/angular2-all.umd.js"></script>
-        <script src='app/app.js'></script>
+        <title>Angular 2 Hello World Demo</title>
+
+        <script src="lib/corejs/shim.js"></script>
+        <script src="lib/zone.js"></script>
+        <script src="lib/reflect-metadata/reflect.js"></script>
+        <script src="lib/Rx.umd.js"></script>
+
+        <script src='lib/@angular-2.1.0/core.umd.js'></script>
+        <script src='lib/@angular-2.1.0/common.umd.js'></script>
+        <script src='lib/@angular-2.1.0/compiler.umd.js'></script>
+        <script src='lib/@angular-2.1.0/platform-browser.umd.js'></script>
+        <script src='lib/@angular-2.1.0/platform-browser-dynamic.umd.js'></script>
+
       </head>
       <body>
-        <app>Hello from the HTML</app>
+        <app></app>
+        <script src='app/app.js'></script>
       </body>
     </html>
     ```
+
+    You can find this code in the resources repository here:
+
+  !=resources(exercise)
 
   :markdown
     ## What is that &lt;app> tag?
 
     The &lt;app> tag is going to be a component. We will create a component that matches that tag, and add behaviour and a template to it.
 
-    ## The JavaScript
+    ## The Component
 
-    Now we need to create our app component. In app.js, include the following:
+    An Angular app is built out of components. We need to create a root, which is typically called app. I am using a global variable here for simplicity. Don't do this in a real application. Use a module packer. More on this later.
 
     ```
     // First define the component. I'm just whopping it in a global variable here.
-    // Globals are uncool, but this is fine for our simple hello world.
     var AppComponent = ng.core
       .Component({
-        selector: 'app', // Look for the <app> element in the HTML
-        template: '<p>Hello World!</p>' // Insert this template
+        selector: "app",
+        template: `
+          <p>
+            Hello
+            <em>Angular!</em>
+          </p>
+        `
       })
       .Class({
-        constructor: function() {} // An empty constructor
+        constructor: function() {}
       });
     ```
 
-  :markdown
-    Now we have a component to match the &lt;app> tag
+    Notice the selector attribute. This component will match the &lt;app> tag
+
+
+    ## The Module
+
+    All Angular 2 code exists in a module. We use modules to manage imports and dependencies.
+
+    ```
+    var AppModule =
+      ng.core.NgModule({
+        imports: [ ng.platformBrowser.BrowserModule ],
+        declarations: [ AppComponent ],
+        bootstrap: [ AppComponent ]
+      })
+      .Class({
+        constructor: function() {}
+      });
+    ```
+
+    Bootstrapping our app module will start the app.
+
 
     ## Bootstrapping
 
@@ -104,10 +151,9 @@ section
     We wait till the DOM is loaded, then we call `ng.platform.browser.bootstrap` to initialise the application.
 
     ```
-    // Wait till the DOM is loaded, them Bootstrap the component.
-    document.addEventListener('DOMContentLoaded', function() {
-      ng.platform.browser.bootstrap(AppComponent);
-    });
+    ng.platformBrowserDynamic
+      .platformBrowserDynamic()
+      .bootstrapModule(AppModule);
     ```
 
   :markdown

@@ -147,11 +147,36 @@ section.exercise
 
 section.exercise
   :markdown
-    ## Exercise - Closure and the Sandwich Calculator
+    ## Exercise - Closure and the Sandwich Machine
 
     Mrs Potts the school dinner lady is tired of all the global sandwich variables getting under her feet and tripping her up all the time. She needs help cleaning her kitchen. Will you help her?
 
-    She would like it very much if you would build a sandwich machine for her, but wrap it in a closure so as to keep everything neat.
+    She has code like this:
+
+    ```
+    var addBread = function() {
+      console.log('now adding bread');
+    }
+
+    var spreadMargarine = function() {
+      console.log('now spreading the margarine');
+    }
+
+    var addFilling = function(filling) {
+      console.log('now adding the ' + filling);
+    }
+
+    var makeSandwich = function() {
+      addBread();
+      spreadMargarine();
+      addFilling('Hummous');
+    }
+    ```
+
+    That's a lot of globals!
+
+    She would like it very much if you would take her functions and build a sandwich machine for her, but wrap it in a closure so as to keep everything neat.
+
 
     ### 1. Create a self executing function
 
