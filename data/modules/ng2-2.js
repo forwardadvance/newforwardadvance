@@ -11,21 +11,24 @@ module.exports = {
       slug: 'property-binding',
       description: 'Angular brings back the DOM',
       github: 'angular2_dom_properties_demo',
-      learnings: []
+      learnings: [],
+      path: 'ng2/property-binding'
     },
     {
       title: 'Nesting Components',
       slug: 'nested-components',
       description: '',
       github: 'angular2_nested_components_demo',
-      learnings: []
+      learnings: [],
+      path: 'ng2/nested-components'
     },
     {
       title: 'Making Angular 2 Components Receive Values (inputs)',
       slug: 'component-inputs',
       description: '',
       github: 'angular2_component_inputs_demo',
-      learnings: []
+      learnings: [],
+      path: 'ng2/component-inputs'
     },
     {
       title: 'Event Emitters (Outputs)',
@@ -34,21 +37,24 @@ module.exports = {
       github: 'angular2_component_event_emitters_demo',
       date: new Date('July 18, 2016'),
       homepage: true,
-      learnings: []
+      learnings: [],
+      path: 'ng2/event-emitters'
     },
     {
       title: 'Two-Way-Binding Forms in Angular 2',
       slug: 'two-way-binding',
       description: '',
       github: 'angular2_two_way_binding_demo',
-      learnings: []
+      learnings: [],
+      path: 'ng2/two-way-binding'
     },
     {
       title: 'Styling Components with the Shadow DOM',
       slug: 'shadow-dom',
       description: '',
       github: 'angular2_shadow_dom_demo',
-      learnings: []
+      learnings: [],
+      path: 'ng2/shadow-dom'
     },
   ],
   outline: [

@@ -11,35 +11,40 @@ module.exports = {
       slug: 'typescript-intro',
       description: '',
       github: '',
-      learnings: []
+      learnings: [],
+      path: 'ng2/typescript-intro'
     },
     {
       title: 'TypeScript plus Webpack',
       slug: 'typescript-webpack',
       description: '',
       github: '',
-      learnings: []
+      learnings: [],
+      path: 'ng2/typescript-webpack'
     },
     {
       title: 'Angular Components with TypeScript',
       slug: 'typescript-components',
       description: '',
       github: 'angular2_typescript_component_demo',
-      learnings: []
+      learnings: [],
+      path: 'ng2/typescript-components'
     },
     {
       title: 'Services and Dependency Injection with TypeScript',
       slug: 'services',
       description: '',
       github: 'angular2_services_demo',
-      learnings: []
+      learnings: [],
+      path: 'ng2/services'
     },
     {
       title: 'AJAX - with a Service',
       slug: 'ajax-typescript-service',
       description: '',
       github: 'angular2_ajax_demo',
-      learnings: []
+      learnings: [],
+      path: 'ng2/ajax-typescript-service'
     },
   ],
   outline: [

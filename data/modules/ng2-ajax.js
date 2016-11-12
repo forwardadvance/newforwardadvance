@@ -10,21 +10,24 @@ module.exports = {
       slug: 'ng-for',
       description: '',
       github: 'angular2_ng_for_demo',
-      learnings: []
+      learnings: [],
+      path:'ng2/ng-for'
     },
     {
       title: 'AJAX - Talking to a Server',
       slug: 'ajax',
       description: '',
       github: 'angular2_ajax_demo',
-      learnings: []
+      learnings: [],
+      path:'ng2/ajax'
     },
     {
       title: 'Observables',
       slug: 'observables',
       description: '',
       github: '',
-      learnings: []
+      learnings: [],
+      path:'ng2/observables'
     },
   ],
   outline: [

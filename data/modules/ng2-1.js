@@ -12,42 +12,48 @@ module.exports = {
       slug: 'angular2-intro',
       description: 'A high level summary of Angular 2',
       github: '',
-      learnings: []
+      learnings: [],
+      path: 'ng2/angular2-intro'
     },
     {
       title: 'Angular 1 to Angular 2',
       slug: 'summary-of-differences',
       description: 'Coming from Angular 1, Angular 2 may confuse you. Many features are you may have come to rely on are missing, or have been changed. Here we summarise the differences.',
       github: '',
-      learnings: []
+      learnings: [],
+      path: 'ng2/summary-of-differences'
     },
     {
       title: 'Component Based Hello World',
       slug: 'components',
       description: '',
       github: 'angular2_hello_world_demo',
-      learnings: []
+      learnings: [],
+      path: 'ng2/components'
     },
     {
       title: 'Bound Variables',
       slug: 'bound-variables',
       description: '',
       github: 'angular2_bound_variables_demo',
-      learnings: []
+      learnings: [],
+      path: 'ng2/bound-variables'
     },
     {
       title: 'Live Binding with Zone.js',
       slug: 'live-binding',
       description: '',
       github: 'angular2_live_binding_demo',
-      learnings: []
+      learnings: [],
+      path: 'ng2/live-binding'
     },
     {
       title: 'Dealing with Browser Events',
       slug: 'events',
       description: '',
       github: 'angular2_browser_events_demo',
-      learnings: []
+      learnings: [],
+      path: 'ng2/events'
     },
   ],
   outline: [

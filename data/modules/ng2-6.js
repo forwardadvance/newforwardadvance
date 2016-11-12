@@ -11,14 +11,16 @@ module.exports = {
       slug: 'custom-pipes',
       description: '',
       github: 'angular2_custom_pipes_demo',
-      learnings: []
+      learnings: [],
+      path: 'ng2/custom-pipes'
     },
     // {
     //   title: 'Form Validation',
     //   slug: 'form-validation',
     //   description: '',
     //   github: '',
-    //   learnings: []
+    //   learnings: [],
+    //   path: 'ng2/form-validation'
     // },
 
     // {
@@ -26,14 +28,16 @@ module.exports = {
     //   slug: 'hierarchical-injectors',
     //   description: '',
     //   github: 'angular2_hierarcical_injectors_demo',
-    //   learnings: []
+    //   learnings: [],
+    //   path: 'ng2/hierarchical-injectors'
     // },
     {
       title: 'Inline Templates and ngIf',
       slug: 'inline-templates',
       description: '',
       github: 'angular2_inline_templates_demo',
-      learnings: []
+      learnings: [],
+      path: 'ng2/inline-templates'
     },
   ],
   outline: [

@@ -11,28 +11,32 @@ module.exports = {
       slug: 'jasmine-intro',
       description: '',
       github: 'angular2_jasmine_demo',
-      learnings: []
+      learnings: [],
+      path: 'ng2/jasmine-intro'
     },
     {
       title: 'Introducing Webpack',
       slug: 'introducing-webpack',
       description: '',
       github: '',
-      learnings: []
+      learnings: [],
+      path: 'ng2/introducing-webpack'
     },
     {
       title: 'Building Angular 2 with Webpack',
       slug: 'angular2-webpack',
       description: '',
       github: '',
-      learnings: []
+      learnings: [],
+      path: 'ng2/angular2-webpack'
     },
     {
       title: 'Services and Dependency Injection',
       slug: 'services',
       description: '',
       github: '',
-      learnings: []
+      learnings: [],
+      path: 'ng2/services-es6'
     },
     // {
     //   title: 'Testing Components',
