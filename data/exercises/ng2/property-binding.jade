@@ -21,9 +21,7 @@ section
 
     The attribute here is `src`. Attributes are visible in the HTML, and also stored in the DOM as Element attributes.
 
-
     ## DOM properties != HTML attributes
-
 
     DOM properties are not visible in the HTML. They may be kept in sync with the HTML attributes, or they may not, depending on the exact behaviour of the attribute.
 
@@ -35,9 +33,11 @@ section
 
     Angular takes the DOM and makes it available directly in the HTML. Angular does not work on attributes at all. If you open your elements tab in Chrome and look at an Angular component, you may be surprised to see fewer attributes than you expected, perhaps none at all.
 
+    Angular gives you a nice, template based interface onto the DOM so you don't need to muck around setting attributes on the DOM in code.
+
     ## Setting DOM properties
 
-    We can create a template like this:
+    If we wrap an attribute in square braces, then that directly sets the DOM property.
 
     ```html
     <img [src]="wiggling_hamster_bums.gif" />
@@ -72,19 +72,22 @@ section
     <div [hidden]="iAmHidden">Hey!</div>
     ```
 
+    However, we need to be a little careful with this, as this property will be overridden by CSS in some browsers.
 
   !=resources(exercise)
 
 
 section.exercise
   :markdown
-    ## Exercise - A Show / Hide link
+    ## Simple Exercise - A Show / Hide link
 
     Use the above as a base to create a little "read more link". When you click it, it flips the value of a boolean (check out the section on events if you can't remember how) and sets the [hidden] attribute of a div.
 
     ## Extension
 
     When you click it again, it becomes a read less link, so you can hide the content again.
+
+    This is good practice, but note that the ngIf directive does this better. More on this in the next section.
 
 //- section.exercise
 //-   :markdown
@@ -127,13 +130,24 @@ section
     <input [disabled]="true" />
     ```
 
-
-
 section.exercise
   :markdown
-    ## Exercise - Disabled Submit Button
+    ## Escape the Dungeon Exercise - Disabled Movement Buttons
 
-    Create a little email signup form with fields for name and email, and submit button. Make it so that the button is disabled until you detect a keyup event in the name field and the email field.
+    Extend the location model with some exits. You can only go in certain directions.
+
+    var locationModel = {
+      name: "Nondescript Corridor",
+      description: "It is very dark. To the north you can just make out a faint glimmer of golden light.",
+      exits: {
+        north: true,
+        south: false,
+        east: false,
+        west: false
+      }
+    }
+
+
 
     Note, we will find a better way to do this when we get to the section on forms.
 

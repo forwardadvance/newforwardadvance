@@ -76,19 +76,52 @@ section
       })
     ```
 
+    ## Dealing with input elements
+
+    Say we have an input element, we might bind the keyup event
+
 
   !=resources(exercise)
 
 
 section.exercise
   :markdown
-    ## Exercise - A Click Counter
+    ## Easy Exercise - A Click Counter
 
     Make a little click counter. Each time you click a link, the counter should increment.
 
     For bonus points, make a down button as well, so you can change a value with up and down clicks.
 
     *Note that i++ or i+=1 is not currently supported in Angular expressions. You will need to use the longhand i = i + 1;*
+
+
+section.exercise
+  :markdown
+    ## Escape the Dungeon Exercise - Moving around
+
+    Assume we have a hero model, like this:
+
+    ```
+    var hero = {
+      name: "LLars Bunderchump",
+      x: 0,
+      y: 0,
+      moveNorth = function() {
+        this.x++;
+      },
+      moveSouth = function() {
+        this.x--;
+      },
+      moveEast = function() {
+        this.y--
+      },
+      moveWest = function() {
+        this.y++
+      }
+    }
+    ```
+
+    Bind the hero model to your app component. Output your hero's name and location in your app template (just output the numbers). Add buttons to the app. Wire them up so that when you click them the hero's location changes.
 
 section
   :markdown
@@ -113,7 +146,7 @@ section
 
 section.exercise
   :markdown
-    ## Exercise - Mouse Coordinates
+    ## Harder Exercise - Mouse Coordinates
 
     We are going to access the mouse coordinates in a div. Use the following scaffold:
 

@@ -35,6 +35,10 @@ nav.course_sidebar
             else
               a( href=['/course', course.slug, courseModule.slug, exercise.slug].join('/') )
                 =exercise.title
+            if exercise.github
+              | &nbsp;
+              a.code( href="https://github.com/forwardadvance/#{exercise.github}" rel="external" target="_blank" )
+                | (code)
 
       if courseModule.github
         .module_resources

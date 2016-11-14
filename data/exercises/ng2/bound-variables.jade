@@ -2,23 +2,12 @@ section
   :markdown
     **tl;dr: Any attributes of our component are available in the component template. These are plain old attributes of the component. Bindings are live, so whenever an attribute of the component updates, the template will be automatically updated to match.**
 
-    ## What Was Wrong with Binding in Angular 1?
+    ## Data binding
 
-    In Angular 1 we had an object called $scope which we used to pass variables to and from the front end. Anything we wrote to $scope would be available in the template. Bound variables were available in a $scope and any child $scopes.
+    Your component template is automatically bound to your component class. Any attributes you create on your component class are available in the template. The component class acts a ViewModel, a model that specifically holds data for the view.
 
-    For small apps this was wonderful. Our data was always just magically *available* to us. However, as we started building larger apps $scope started to become a problem. Because the $scope tree spanned the whole application, it became difficult to think about small components of our app. This could lead to code overwhelm and cause a project to stall.
 
-    We began to address this issue with isolate $scope, controllerAs and components, trying to give each component clear input/output.
-
-    ## Binding in Angular 2
-
-    Angular 2 completes this transformation. $scope is no more (sad but necessary). Instead, our components themselves hold bound variables as attributes. Any attributes of our component will be bound.
-
-    This means we always write to `this` in our constructor.
-
-    Bound variables are only available to the current component, not child components. If we want to access a variable in a child component, we have to explicitly pass it in. This makes Angular 2 much less *magical*, and much more strict, which is a good thing when dealing with a non-trivial app.
-
-    ## We bind with curlies {{}}
+    ## We bind with curly braces {{}}
 
     We have a range of template binding options in Angular 2, the simplest uses the curly brace syntax, like so:
 
@@ -26,8 +15,7 @@ section
     <div>Hello {{dinosaurName}}</div>
     ```
 
-  :markdown
-    Here's that in context:
+    Let's wrap that up in an app component:
 
     ```
     var AppComponent = ng.core
@@ -42,7 +30,7 @@ section
       });
     ```
 
-  :markdown
+
     <http://codepen.io/superluminary/pen/GoYaYa?editors=1010>
 
     ## Including Expressions
@@ -54,18 +42,21 @@ section
     <div>{{"Hello " + "World"}}</div>
     ```
 
-
-  !=resources(exercise)
-
-section.exercise
+aside.box
   :markdown
-    ## Exercise - seconds in a day
+    ## What Was Wrong with Binding in Angular 1?
 
-    * Create a micro app that simply outputs the number of seconds in a day.
-    * Extend it to show you the number of weeks in a human lifetime of 80 years.
+    In Angular 1 we had an object called $scope which we used to pass variables to and from the front end. Anything we wrote to $scope would be available in the template. Bound variables were available in a $scope and any child $scopes.
 
-    You can either generate these values in the component, or directly into the template.
+    For small apps this was wonderful. Our data was always just magically *available* to us in the current element and all its children. Bound properties mimicked the way local variables work in a stack where a variable is available in a block, and all nested blocks. However, as we started building larger apps $scope started to become a problem. Because the $scope tree spanned the whole application, it became difficult to think about small components of our app. This could easily lead to code overwhelm and cause a project to stall.
 
+    Angular 1 began to address this issue with isolate $scope, controllerAs and components, trying to give each component clear input and output, so they could be reasoned about independently.
+
+    ### Angular 2
+
+    Angular 2 completes this transformation. $scope is no more. Instead, our components themselves hold bound variables as attributes. Any attributes of our component will be bound to the template.
+
+    Bound variables are only available to the current component, not child components. If we want to access a variable in a child component, we have to explicitly pass it in. This makes Angular 2 much less *magical*, and much more strict, which is a good thing when dealing with a non-trivial app, though it does require significantly more code.
 
 section
   :markdown
@@ -92,13 +83,11 @@ section
       });
     ```
 
-    ## Side effects are not allowed
+    ### Side effects are not allowed in bound functions
 
     A function called from a template cannot have side effects. This means you can't update other attributes of the component.
 
-    **Why not?**
-
-    Angular 2's change detection works in a single pass. If you call a function from the template that changes a value that is referred to elsewhere, you may end up with an inconsistent result, and Angular will throw an error.
+    **Why not?** Angular 2's change detection works in a single pass. If you call a function from the template that changes a value that is referred to elsewhere, you may end up with an inconsistent result, and Angular will throw an error.
 
     For example:
 
@@ -122,7 +111,7 @@ section
       });
     ```
 
-    The value of toast is set, then later the value of toast is updated. The first value is now incorrect. Angular will cleverly notice that you have done this, and will complain.
+    The value of toast is set, then later the value of toast is updated. The first value is now incorrect. If you are in development mode, Angular 2 will traverse the component tree twice and notice that it has changed, giving you a helpful warning message.
 
     ## This is different to Angular 1
 
@@ -130,10 +119,41 @@ section
 
     Angular 2 does away with this. Binding in Angular 2 is one-way. This means it goes in a single pass depth-first down the component tree.
 
+section
+  !=resources(exercise)
 
 section.exercise
   :markdown
-    ## Exercise - Cats in the world
+    ## Easy Exercise - seconds in a day
+
+    We are going to do a little simple binding now.
+
+    * Create a micro app that simply outputs the number of seconds in a day. You'll need to create a component and give it an attribute: `secondsInAYear`.
+    * Extend it to show you the number of weeks in a human lifetime of 80 years.
+
+    You can either generate these values in the component, or directly into the template.
+
+
+section.exercise
+  :markdown
+    ## Escape the Dungeon Exercise - Binding to a Model
+
+    Let's assume we want to create an "escape the dungeon" app. We might model a location like so:
+
+    ```
+    var locationModel = {
+      name: "Nondescript Corridor",
+      description: "It is very dark. To the north you can just make out a faint glimmer of golden light.",
+      exits: "North"
+    }
+    ```
+
+    Create an app component that will display this model. Bind it as an attribute of your component, then create a view to display it.
+
+
+section.exercise
+  :markdown
+    ## Bonus Exercise - Catpocalypse
 
     * Assume the universe contains exactly one cat.
     * Assume also that a cat can produce an average of 6 kittens a year, and that all kittens are female.

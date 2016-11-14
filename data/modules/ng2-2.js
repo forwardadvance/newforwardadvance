@@ -3,16 +3,24 @@ module.exports = {
   duration: 0.5,
   slug: 'ng2-2',
   price: 2250,
-  github: 'angular2_fundamentals_part_2',
+  // github: 'angular2_fundamentals_part_2',
   description: 'Nesting components, and component communication.',
   exercises: [
     {
-      title: 'Binding to DOM properties',
+      title: 'Binding Components to DOM properties with Angular and ES6',
       slug: 'property-binding',
-      description: 'Angular brings back the DOM',
+      description: 'Angular 2 brings back the DOM',
       github: 'angular2_dom_properties_demo',
       learnings: [],
       path: 'ng2/property-binding'
+    },
+    {
+      title: 'Built In Template Directives, ngIf, ngRepeat, ngSwitch',
+      slug: 'template-directives',
+      description: '',
+      github: 'angular2_template_directives_demo',
+      learnings: [],
+      path: 'ng2/template-directives'
     },
     {
       title: 'Nesting Components',

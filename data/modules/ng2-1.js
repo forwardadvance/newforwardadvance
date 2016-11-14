@@ -3,7 +3,7 @@ module.exports = {
   duration: 0.5,
   slug: 'ng2-1',
   price: 2250,
-  github: 'angular2_fundamentals_part_1',
+  // github: 'angular2_fundamentals_part_1',
   description: 'Introducing components, templates and bound data.',
   outcome: 'By the end of this module you\'ll be able to create a simple component based app that responds to events and outputs data',
   exercises: [
@@ -32,7 +32,7 @@ module.exports = {
       path: 'ng2/components'
     },
     {
-      title: 'Bound Variables',
+      title: 'Angular 2 Bound Variables with ES6',
       slug: 'bound-variables',
       description: '',
       github: 'angular2_bound_variables_demo',

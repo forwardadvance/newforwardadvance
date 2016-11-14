@@ -97,13 +97,19 @@ section
   !=resources(exercise)
 
   :markdown
-    ## What is that &lt;app> tag?
+    ### Why so many JavaScripts?
 
-    The &lt;app> tag is going to be a component. We will create a component that matches that tag, and add behaviour and a template to it.
+    That's ten JavaScript files for a simple hello world, which may seem like a lot.
+
+    Angular 2 works best when it's integrated into a toolchain like Webpack. These dependencies are meant to be provided by your tooling. Here, because this is a hello world, we are using simple script tags, so we can see everything explicitly. This is different to most other current frameworks where tooling is optional but nice.
+
+    ### What is that &lt;app> tag?
+
+    The &lt;app> tag is going to be a component. We will create a component that matches that tag, and add behaviour and a template to it. Notice how we include the app.js file afterwards. This is so we don't run the JavaScript until after the app tag has been loaded into the DOM.
 
     ## The Component
 
-    An Angular app is built out of components. We need to create a root, which is typically called app. I am using a global variable here for simplicity. Don't do this in a real application. Use a module packer. More on this later.
+    An Angular app is built out of tree of components, one inside the other. We first need to create a root component, which is typically called app. I am using a global variable here for simplicity, because this is a hello world. Later we will use proper modules.
 
     ```
     // First define the component. I'm just whopping it in a global variable here.
@@ -122,12 +128,16 @@ section
       });
     ```
 
-    Notice the selector attribute. This component will match the &lt;app> tag
+    Notice the selector attribute. This component will match the &lt;app> element. We also have a template. This will be inserted into the &lt;app> element.
+
+    The `.Class` object is there to help us pretent that JavaScript has classes, and to make it look more like TypeScript. LAter, when we start writing TypeScript, we will use actual classes.
 
 
     ## The Module
 
-    All Angular 2 code exists in a module. We use modules to manage imports and dependencies.
+    All Angular 2 code exists in an Angular 2 module. Modules are used to manage imports and dependencies. Each app will have a root module that will declare a root (`bootstrap`) component. We will use this module to start up the app. A typical app may have dozens or hundreds of modules.
+
+    Angular 2 runs in multiple environments, not only the browser, so here we declare the BrowserModule as a dependency. We included this using a `script` tag in the head of our page.
 
     ```
     var AppModule =
@@ -141,14 +151,11 @@ section
       });
     ```
 
-    Bootstrapping our app module will start the app.
-
-
     ## Bootstrapping
 
     In Angular 1 we could bootstrap an application automatically using the ng-app directive. In Angular 2 we must manually bootstrap our app.
 
-    We wait till the DOM is loaded, then we call `ng.platform.browser.bootstrap` to initialise the application.
+    We wait till the DOM is loaded, then we call `bootstrapModule` to initialise the application.
 
     ```
     ng.platformBrowserDynamic
@@ -165,30 +172,30 @@ section
   !=resources(exercise)
 
 
-section.exercise
-  :markdown
-    ## Exercise - Mucking about with code
+//- section.exercise
+//-   :markdown
+//-     ## Exercise - Mucking about with code
 
-    As coders we learn best by getting our hands dirty, by tinkering. Let's get tinkering.
+//-     As coders we learn best by getting our hands dirty, by tinkering. Let's get tinkering.
 
-    Fork this pen <http://codepen.io/superluminary/pen/ZQMNqa?editors=1010> (click the fork button at the top).
+//-     Fork this pen <http://codepen.io/superluminary/pen/ZQMNqa?editors=1010> (click the fork button at the top).
 
-    1. Now improve on this template a little. Change the p into an h1.
-    2. Make it say goodbye world.
-    3. Change the html selector from app to monsier-moreau. Update the HTML as well. Make it work.
+//-     1. Now improve on this template a little. Change the p into an h1.
+//-     2. Make it say goodbye world.
+//-     3. Change the html selector from app to monsier-moreau. Update the HTML as well. Make it work.
 
-section.exercise
-  :markdown
-    ## Exercise - Looking at errors
+//- section.exercise
+//-   :markdown
+//-     ## Exercise - Looking at errors
 
-    Angular 1 would often fail silently on error. Angular 2 is great at error handling. Let's make some mistakes.
+//-     Angular 1 would often fail silently on error. Angular 2 is great at error handling. Let's make some mistakes.
 
-    Codepen has a console button at the bottom. Click it to see the errors. Scroll down until you see something meaningful.
+//-     Codepen has a console button at the bottom. Click it to see the errors. Scroll down until you see something meaningful.
 
-    1. Break the template. Change it to this: <p>Hello World!</>
-    2. Break the selector. Change it to 'abc123', but don't update the html.
+//-     1. Break the template. Change it to this: <p>Hello World!</>
+//-     2. Break the selector. Change it to 'abc123', but don't update the html.
 
-    Angular 2 is much more strict. It will not try to make everything right for you, and will fail loudly and explicitly, which is generally what we developers like.
+//-     Angular 2 is much more strict. It will not try to make everything right for you, and will fail loudly and explicitly, which is generally what we developers like.
 
 section.exercise
   :markdown
@@ -196,13 +203,13 @@ section.exercise
 
     The goal of this exercise is just to get something working for real.
 
-    Break out of the pen. Make your own variation of the hello world app in an editor. Use the HTML skeleton above.
+    Download the exercise start point above.
 
-    Save it in a folder and view it in a browser.
-
-    You don't need to have a server running or anything special, just open the HTML file in the browser as a file.
+    Save it in a folder and view it in a browser by double clicking the index.html file. You don't need to have a server running or anything special, just open the HTML file in the browser as a file.
 
     If you run into errors, open the console, view them and fix them.
+
+    Change the app into a goodbye world app.
 
 
 section.exercise
