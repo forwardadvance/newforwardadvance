@@ -15,14 +15,6 @@ module.exports = {
       path: 'ng2/nested-components'
     },
     {
-      title: 'Built In Template Directives, ngIf, ngRepeat, ngSwitch',
-      slug: 'template-directives',
-      description: '',
-      github: 'angular2_template_directives_demo',
-      learnings: [],
-      path: 'ng2/template-directives'
-    },
-    {
       title: 'Making Angular 2 Components Receive Values (inputs)',
       slug: 'component-inputs',
       description: '',
@@ -39,6 +31,14 @@ module.exports = {
       homepage: true,
       learnings: [],
       path: 'ng2/event-emitters'
+    },
+    {
+      title: 'Built In Template Directives, ngIf, ngRepeat, ngSwitch',
+      slug: 'template-directives',
+      description: '',
+      github: 'angular2_template_directives_demo',
+      learnings: [],
+      path: 'ng2/template-directives'
     },
     {
       title: 'Two-Way-Binding Forms in Angular 2',
