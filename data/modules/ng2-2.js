@@ -15,14 +15,6 @@ module.exports = {
       path: 'ng2/nested-components'
     },
     {
-      title: 'Binding Components to DOM properties with Angular and ES6',
-      slug: 'property-binding',
-      description: 'Angular 2 brings back the DOM',
-      github: 'angular2_dom_properties_demo',
-      learnings: [],
-      path: 'ng2/property-binding'
-    },
-    {
       title: 'Built In Template Directives, ngIf, ngRepeat, ngSwitch',
       slug: 'template-directives',
       description: '',

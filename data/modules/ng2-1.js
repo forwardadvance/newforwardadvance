@@ -55,6 +55,14 @@ module.exports = {
       learnings: [],
       path: 'ng2/events'
     },
+    {
+      title: 'Binding Components to DOM properties with Angular and ES6',
+      slug: 'property-binding',
+      description: 'Angular 2 brings back the DOM',
+      github: 'angular2_dom_properties_demo',
+      learnings: [],
+      path: 'ng2/property-binding'
+    },
   ],
   outline: [
     'Flux and one-way binding',
