@@ -1,6 +1,41 @@
 
 section
   :markdown
+    Angular 2 comes with a small selection of template directives to help you achieve common tasks. These are:
 
+    * NgIf - for conditional content
+    * NgFor - for iterating over arrays
+    * NgClass - for dynamic classes
+    * NgStyle - for adding styles conditionally
 
-    We can bind
+    ## NgIf
+
+    Lets us display conditional content. The content will be shown if the expression evaluates to true.
+
+    ```html
+    <div *ngIf="location.exits.left">Go Left</div>
+    ```
+
+    ## NgFor
+
+    ```html
+    <li *ngFor="let cat of cats">
+      {{cat.name}}
+    </li>
+    ```
+
+    Lets us loop over content in an array. You might use this to list out a set of people or things.
+
+    ## What is the * all about?
+
+    Because NgIf and NgFor don't have templates of their own, they use the html element they are attached to. The little star tells Angular to use the current element as a template for the directive.
+
+section.exercise
+  :markdown
+    ## Escape the Dungeon Exercise - NgFor and NgIf
+
+    Use NgFor to show or hide the direction buttons depending on which directions you can go in.
+
+    ### Extension
+
+    Create an inventory object. Use the hero object as a base. Create a component that will list out the current

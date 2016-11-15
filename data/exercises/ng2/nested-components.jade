@@ -32,22 +32,20 @@ section
     var AppComponent = ng.core
       .Component({
         selector: 'app',
-        template: '<cat>hello</cat>',
-        directives: [CatComponent]
+        template: '<cat>hello</cat>'
       })
       .Class({
         constructor: function() {}
       });
     ```
 
-    Notice that we tell our AppComponent that it can contain CatComponents by giving it an array of directives.
 
     Finally we can bootstrap:
 
     ```
-    document.addEventListener('DOMContentLoaded', function() {
-      ng.platform.browser.bootstrap(AppComponent);
-    });
+    ng.platformBrowserDynamic
+      .platformBrowserDynamic()
+      .bootstrapModule(AppModule);
     ```
 
 
@@ -56,28 +54,26 @@ section
 
 section.exercise
   :markdown
-    ## Exercise - A little web app
+    ## Simple Exercise - A little web app
 
-    We are going to create a small web page using components that will render information about a single user / product / cat.
+    Extend the exercise with header, footer and main components, so your app template looks like this:
 
-    We won't be passing the cat into the component yet, we'll get to this in the next section.
+    ```html
+    <header></header>
+    <main></main>
+    <footer></footer>
+    ```
 
-    Use the examples above to create an app component that contains three child components:
-
-    * A Header
-    * A Cat
-    * A Footer
-
-    You will need to create each component separately, and then pass them in to to app component in the directives array.
+    You will need to create each component separately, and add them to the module.
 
     Later we will look at passing data into our component and sending it back out again.
 
-    ## Extension
 
-    Re-implement your tabbed panel using nested components, so you should have a pane conponent that will be shown or hidden.
+section.exercise
+  :markdown
+    ## Escape the Dungeon Exercise - Split into components
 
-
-
+    Your game renders a location and a hero. Break these into separate components, so you have a `<protagonist>` component and a `<location>` component.
 
 // # Further reading:
 

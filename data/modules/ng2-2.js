@@ -7,6 +7,14 @@ module.exports = {
   description: 'Nesting components, and component communication.',
   exercises: [
     {
+      title: 'Nesting Components',
+      slug: 'nested-components',
+      description: '',
+      github: 'angular2_nested_components_demo',
+      learnings: [],
+      path: 'ng2/nested-components'
+    },
+    {
       title: 'Binding Components to DOM properties with Angular and ES6',
       slug: 'property-binding',
       description: 'Angular 2 brings back the DOM',
@@ -21,14 +29,6 @@ module.exports = {
       github: 'angular2_template_directives_demo',
       learnings: [],
       path: 'ng2/template-directives'
-    },
-    {
-      title: 'Nesting Components',
-      slug: 'nested-components',
-      description: '',
-      github: 'angular2_nested_components_demo',
-      learnings: [],
-      path: 'ng2/nested-components'
     },
     {
       title: 'Making Angular 2 Components Receive Values (inputs)',
