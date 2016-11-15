@@ -70,7 +70,6 @@ section
     var AppComponent = ng.core
       .Component({
         selector: "app",
-        directives: [UserComponent],
         template:
         `
           <user [profile]="name"></user>
@@ -81,14 +80,10 @@ section
       })
       .Class({
         constructor: function() {
-          var vm = this;
-          vm.name = 'stewey'
+          this.name = 'stewey'
         }
       })
 
-    document.addEventListener('DOMContentLoaded', function() {
-      ng.platform.browser.bootstrap(AppComponent, [])
-    });
     ```
 
 
@@ -96,13 +91,40 @@ section
 
 section.exercise
   :markdown
-    ## Exercise - Bind the profile component
+    ## Exercise - Escape the Dungeon
 
-    Remember the profile component we made before that displays a single user or cat? We are going to parameterise that, so that the cat can be passed in from outside.
+    Our dungeon game currently has four components:
 
-    Add an inputs attribute to your component decorator. Now make the user component receive a parameter that tells it which user to show.
+    * app
+      * location
+      * protagonist
+      * inventory
 
-    ## Extension
+    and three models:
 
-    Parameterise the header component with a title and subtitle. Parameterise the footer with a copyright statement.
+    * Location
+    * Protagonist
+    * Inventory
 
+    Assign the models as properties of the app component, like so:
+
+    ```
+    var AppComponent = ng.core
+      .Component({
+        selector: "app",
+        template:
+        ``
+      })
+      .Class({
+        constructor: function() {
+          this.Location = {...}
+          this.Protagonist = {...}
+          this.Inventory = {...}
+        }
+      })
+
+    ```
+
+    Make the Location, Protagonist and Inventory components receive their values from the app component.
+
+    We have a single source of truth, and we are passing the values down into the components where they are needed.

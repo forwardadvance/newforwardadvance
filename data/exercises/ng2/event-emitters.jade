@@ -2,7 +2,7 @@ section
   :markdown
     Just as an anchor can emit a click event, and a form can emit a submit event, our custom components can emit events that we make up too.
 
-    For example, say we have a likes button. We might have it output a 'like' event and an 'unlike' event. It we have a rating star component, we might have it emit a 'rate' event. We might extend that event object to include the number of stars.
+    For example, say we have a likes button. We might have it output a 'like' event and an 'unlike' event. If we have a rating star component, we might have it emit a 'rate' event. We might extend that event object to include the number of stars.
 
     <iframe width="560" height="315" src="https://www.youtube.com/embed/RkzgXGhfPV8?rel=0" frameborder="0" allowfullscreen></iframe>
 
@@ -100,7 +100,6 @@ section
     var AppComponent = ng.core
       .Component({
         selector: "app",
-        directives: [LikeButtonComponent],
         template:
         `
           <like (liked)="handleLike()">Hello</like>
@@ -180,12 +179,22 @@ section
     ```
 
 
+//- section.exercise
+//-   :markdown
+//-     ## Integration Exercise - Select a user
+
+//-     Add a select button to the user component. Make it so that when I click the select button, an event fires and returns the user. Save this user on the parent component and display it nicely.
+
+//-     ## Bonus points
+
+//-     Create a component that displays the currently selected user. This will need to receive the user from the parent component as a property binding.
+
 section.exercise
   :markdown
-    ## Integration Exercise - Select a user
+    ## Escape the Dungeon Exercise
 
-    Add a select button to the user component. Make it so that when I click the select button, an event fires and returns the user. Save this user on the parent component and display it nicely.
+    Add a list of items to the location model. Add buttons to let people pick up items.
 
-    ## Bonus points
+    When someone picks up an item, have the location component emit an event, and add it to the inventory model. Have the app component pass the item back down to the inventory component.
 
-    Create a component that displays the currently selected user. This will need to receive the user from the parent component as a property binding.
+    For bonus points, create a status component that says "You picked up the item"!
