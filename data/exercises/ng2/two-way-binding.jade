@@ -55,7 +55,56 @@ section
     <input [(ngModel)]='catName' />
     ```
 
-    Notice the [()] brace combo. This shows that we are binding a property, to the return value of the event listener. It's a two way binding.
+    Notice the [()] brace combo. This shows that we are binding a property, to the return value of the event listener. It's a two way binding. We sometimes call this a banana-in-a-box.
+
+    ## Validation
+
+    The ngModel directive will add classes to our input. Say we do this:
+
+    ```html
+    <input required [(ngModel)]='catName' />
+    ```
+
+    We will find the following classes:
+
+    * ng-valid
+    * ng-invalid
+    * ng-touched - happens after a blur
+    * ng-untouched - happens before a blur
+    * ng-pristine
+    * ng-dirty
+
+    We can write CSS to match this:
+
+    ```css
+    input.ng-invalid.ng-touched {
+      background:pink;
+    }
+    ```
+
+    If the item is invalid and has been touched, it will be pink.
+
+    We can validate on type, eg: `type="number", also on pattern: pattern="/regex/".
+
+    ## Outputing an error message
+
+    If we want to output an error, we need to get access to the ngModel itself. This will hold validation data. We do this with a #tempalte variable, like so:
+
+    ```html
+    <input required [(ngModel)]="user.name" #name="ngModel" />
+    <p *ngIf="!name.valid">Name is required</p>
+    ```
+
+    Validating the whole form
+
+    We can optionally get validation messages for the whole form, like so:
+
+    ```html
+    <form #form="ngForm" (submit)="handleSubmit()">
+      <input name="name" required [(ngModel)]="user.name" #name="ngModel" />
+      <p *ngIf="!form.form.valid">Form has errors</p>
+      <button *ngIf="form.form.valid">Submit</button>
+    </form>
 
     ## Binding to submit
 
@@ -73,12 +122,13 @@ section
 
 section.exercise
   :markdown
-    ## Exercise - Create an edit user form
+    ## Escape the Dungeon Exercise - Create a hero edit form
 
-    Create an app containing a user profile component, and a user profile edit component. Make it so that when you edit the user profile, the data is passed back up to the app component via an event, and then back down into the user profile display component.
+    Extend the Dungeon game with a hero edit component. When we click the edit button, the form should become visible. Remember to pass your hero into the component. Bind the form it to the hero model so that you can update it.
 
-//- TODO: Write Exercises
+    ## Extension
 
+    Make the edit component emit an event when the hero is updated. Create an `output` component that will pop up a message when the form is submitted.
 
 
 //- section.exercise
