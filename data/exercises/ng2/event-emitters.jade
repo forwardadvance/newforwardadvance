@@ -21,7 +21,7 @@ section
     ```
     .Component({
       selector: "like",
-      events: ["liked"],
+      outputs: ["liked"],
       template:
       `
         <a (click)="handleClick()">
@@ -71,7 +71,7 @@ section
     var LikeButtonComponent = ng.core
       .Component({
         selector: "like",
-        events: ["liked"],
+        outputs: ["liked"],
         template:
         `
           <a (click)="handleClick()">
@@ -156,7 +156,7 @@ section
     var CatComponent = ng.core
       .Component({
         selector: "like",
-        events: ["liked"],
+        outputs: ["liked"],
         template:
         `
           <a (click)="handleClick()">
