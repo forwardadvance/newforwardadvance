@@ -18,8 +18,7 @@ section
       })
       .Class({
         constructor: function() {
-          var vm = this;
-          vm.catName = "Fluffy"
+          this.catName = "Fluffy"
         }
       });
     ```
@@ -32,7 +31,7 @@ section
     var AppComponent = ng.core
       .Component({
         selector: 'app',
-        template: '<cat>hello</cat>'
+        template: '<cat></cat>'
       })
       .Class({
         constructor: function() {}

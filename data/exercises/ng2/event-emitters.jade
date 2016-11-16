@@ -193,8 +193,35 @@ section.exercise
   :markdown
     ## Escape the Dungeon Exercise
 
-    Add a list of items to the location model. Add buttons to let people pick up items.
+    Add a list of items to the location model, like this:
 
-    When someone picks up an item, have the location component emit an event, and add it to the inventory model. Have the app component pass the item back down to the inventory component.
+    ```
+    var LocationModel = {
+      name: "Nondescript Corridor",
+      description: "It is very dark. To the north you can just make out a faint glimmer of golden light.",
+      exits: "North",
+      items: [
+        {
+          name: "rusty_sword",
+          type: "weapon",
+          damage: 1,
+          description: "A Rusty old Sword, knocked and well used"
+        },
+        {
+          name: "cheese",
+          type: "food",
+          health: 0.5,
+          description: "A Piece of Mouldy Cheese"
+        }
+      ]
+    }
+    ```
+
+    Add buttons to the location component let people pick up items.
+
+    When someone picks up an item, have the location component emit an event, firing out the item.
+
+
+    Create an inventory model which is owned by the app component. Have the app component pass the inventory back to the inventory component.
 
     For bonus points, create a status component that says "You picked up the item"!
