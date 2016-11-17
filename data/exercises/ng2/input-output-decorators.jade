@@ -18,8 +18,8 @@ section
     })
     export class DatatableComponent {
 
-      @Input() person:Array<any> = [];
-      @Output() upvote:Array<any> = [];
+      @Input() person:Person;
+      @Output() upvote:EventEmitter<any> = new EventEmitter();
 
       constructor() {}
       handleClick() {
