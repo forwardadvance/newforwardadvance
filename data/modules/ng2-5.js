@@ -31,6 +31,14 @@ module.exports = {
       path: 'ng2/typescript-components'
     },
     {
+      title: 'Input and @Output Decorators',
+      slug: 'input-output-decorators',
+      description: '',
+      github: 'angular2_typescript_input_output_demo',
+      learnings: [],
+      path: 'ng2/input-output-decorators'
+    },
+    {
       title: 'Services and Dependency Injection with TypeScript',
       slug: 'services',
       description: '',

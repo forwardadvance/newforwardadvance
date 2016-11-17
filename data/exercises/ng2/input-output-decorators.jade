@@ -1,0 +1,37 @@
+section
+  :markdown
+    When writing TypeScript we can use @Input and @Output decorators to provide component inputs and outputs.
+
+    ```
+    import {Component, Input, Output} from '@angular/core';
+
+    @Component({
+      selector: 'profile',
+      template: `
+        <div>
+          <h1>{{person.name}}</h1>
+          <button (click)="handleClick()">
+            Upvote
+          </button>
+        </div>
+      `
+    })
+    export class DatatableComponent {
+
+      @Input() person:Array<any> = [];
+      @Output() upvote:Array<any> = [];
+
+      constructor() {}
+      handleClick() {
+        upvote.emit(this.person)
+      }
+    };
+    ```
+
+section.exercise
+  :markdown
+    Escape the Dungeon Exercise - Convert to TypeScript
+
+    Take your game and convert it to TypeScript. You'll find an ES6 starting point in the exercises folder. Use the @Input and @Output decorators for component interaction.
+
+

@@ -12,44 +12,65 @@ section
       "version": "1.0.0",
       "description": "",
       "main": "index.js",
-      "scripts": {},
+      "scripts": {
+        "dev": "webpack -wd"
+      },
       "author": "",
       "license": "ISC",
+      "dependencies": {
+        "@angular/common": "2.0.0",
+        "@angular/compiler": "2.0.0",
+        "@angular/core": "2.0.0",
+        "@angular/forms": "2.0.0",
+        "@angular/http": "2.0.0",
+        "@angular/platform-browser": "2.0.0",
+        "@angular/platform-browser-dynamic": "2.0.0",
+        "@angular/router": "3.0.0",
+        "core-js": "^2.4.1",
+        "rxjs": "5.0.0-beta.12",
+        "zone.js": "^0.6.23"
+      },
       "devDependencies": {
-        "@angular/common":  "2.0.0-rc.1",
-        "@angular/compiler":  "2.0.0-rc.1",
-        "@angular/core":  "2.0.0-rc.1",
-        "@angular/http":  "2.0.0-rc.1",
-        "@angular/platform-browser":  "2.0.0-rc.1",
-        "@angular/platform-browser-dynamic":  "2.0.0-rc.1",
-        "@angular/router":  "2.0.0-rc.1",
-        "@angular/router-deprecated":  "2.0.0-rc.1",
-        "@angular/upgrade":  "2.0.0-rc.1",
-        "systemjs": "0.19.27",
-        "core-js": "^2.4.0",
-        "reflect-metadata": "^0.1.3",
-        "rxjs": "5.0.0-beta.6",
-        "zone.js": "^0.6.12"
+        "angular2-template-loader": "^0.5.0",
+        "awesome-typescript-loader": "^2.2.4",
+        "babel-core": "^6.9.1",
+        "babel-loader": "^6.2.4",
+        "concurrently": "^2.1.0",
+        "css-loader": "^0.23.1",
+        "d3": "3.4.4",
+        "extract-text-webpack-plugin": "^1.0.1",
+        "jasmine-core": "^2.4.1",
+        "live-server": "^1.0.0",
+        "node-sass": "^3.8.0",
+        "nvd3": "^1.8.4",
+        "reflect-metadata": "0.1.3",
+        "sass-loader": "^4.0.0",
+        "style-loader": "^0.13.1",
+        "typescript": "^2.0.2",
+        "typings": "^1.3.2",
+        "webpack": "^1.13.1",
+        "webpack-dev-server": "^1.14.1"
       }
     }
+
     ```
 
     Now run `npm install` to get them all. Presto, we can now make use of the dependencies in our code.
 
     ## app.js
 
-    Create a file called `source/app.js`. This will be our entry file. In this file we want to require all aour Angular dependencies, and bootstrap the app component.
+    Create a file called `source/app.js`. This will be our entry file. In this file we want to require all our Angular dependencies, and bootstrap the app component.
 
     ```
     require('reflect-metadata');
     require('rxjs');
     require('zone.js');
-    var platform = require('@angular/platform-browser-dynamic');
-    var AppComponent = require('./app.component')
 
-    document.addEventListener('DOMContentLoaded', function() {
-      platform.bootstrap(AppComponent);
-    });
+    var { platformBrowserDynamic } = require('@angular/platform-browser-dynamic');
+
+    var AppModule = require('./app.module');
+    platformBrowserDynamic().bootstrapModule(AppModule);
+
     ```
 
     ## app.component.js
@@ -57,9 +78,9 @@ section
     Now we need to create the actual app component. Make a file called source/app.component.js and put the following into it:
 
     ```
-    var core = require('@angular/core');
+    var {Component} = require('@angular/core');
 
-    module.exports = core.Component({
+    module.exports = Component({
       selector: "app",
       template:
       `
@@ -67,11 +88,32 @@ section
       `
     })
     .Class({
-      constructor: function() {}
+      constructor: function() {
+      }
     })
+
     ```
 
-    This is out actual component.
+    ## The Module
+
+    Now we need an ngModule. Build your module like this:
+
+    ```
+    var {NgModule} = require('@angular/core');
+    var {BrowserModule} = require('@angular/platform-browser');
+    var AppComponent = require('./app.component');
+
+    module.exports = NgModule({
+        imports: [ BrowserModule ],
+        declarations: [ AppComponent ],
+        bootstrap: [ AppComponent ]
+      })
+      .Class({
+        constructor: function() {
+        }
+      });
+    ```
+
 
     ## A note on naming conventions
 
@@ -109,26 +151,13 @@ section
 
 section.exercise
   :markdown
-    ## Exercise - Build some Angular
+    ## Easy Exercise - Build some Angular
 
-    We're going to use the Maths code from earlier to build a simple little calculator app with two components. We will build each component in a separate file, and require them.
+    First up, create the hello world above. You can download the exercise start point from the repository to get you started. Download the dependencies with npm install. Build the app with webpack, then preview in a browser.
 
-    First, create an app component. Create a calculator component in a separate file, then `require` it into `app.js`.
 
-    ```
-    var CalculatorComponent = require('./calculator.component');
-    ```
+section.exercise
+  :markdown
+    ## Escape the Dungeon Exercise - Build with Webpack
 
-    Give the calculator component two input fields and bind them to attributes using `[(ngModel)]`. Now add three buttons for `add`, `subtract` and `power`.
-
-    Require `maths` in your calculator component, then hook up the buttons to `maths.sum`, `maths.subtract`, and `maths.pow`
-
-    ```
-    var maths = require('./maths');
-    ```
-
-    When you click the buttons, your Angular code calls the relevant function in the maths object, passing the values from the input elements. The calculator then outputs the result.
-
-    ## Extension
-
-    For bonus points, have the calculator emit the result, and display it in the app module.
+    Now take your escape the dungeon app and convert it to use Webpack. Each component and model should live in it's own file.
