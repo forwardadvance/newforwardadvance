@@ -47,6 +47,15 @@ module.exports = {
       path: 'ng2/services'
     },
     {
+      title: 'Routing',
+      slug: 'routing',
+      description: '',
+      github: 'angular2_routing_demo',
+      learnings: [],
+      path: 'ng2/routing'
+    },
+
+    {
       title: 'AJAX - with a Service',
       slug: 'ajax-typescript-service',
       description: '',

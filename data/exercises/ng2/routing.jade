@@ -1,0 +1,61 @@
+section
+  :markdown
+    Routing lets us make use of the address bar to control our app. This gives us several big advantages:
+
+    1. A working back button - you can go to a previous URL
+    2. Sharable links, you can sent the link to a friend.
+
+    We define our routes in an array, then make our module import them.
+
+    ```
+    import { NgModule } from '@angular/core';
+    import { RouterModule, Routes } from '@angular/router';
+    import { BrowserModule } from '@angular/platform-browser';
+
+    import { AppComponent } from './app.component';
+    import { CatPageComponent } from './cat.page.component';
+    import { HomePageComponent } from './home.page.component';
+
+    const appRoutes: Routes = [
+      {path: '', component:  HomePageComponent },
+      {path: 'cat', component: CatPageComponent, }
+    ]
+
+    @NgModule({
+      imports: [
+        BrowserModule,
+        RouterModule.forRoot(appRoutes)
+      ],
+      declarations: [ AppComponent, CatPageComponent, HomePageComponent ],
+      bootstrap: [ AppComponent ],
+    })
+    export class AppModule { }
+    ```
+
+    The in our component, we link to our new routes using `<a routerLink="cat">Cat</a>`. The component will be inserted in the `<router-outlet></router-outlet>` element.
+
+    ```
+    import {Component} from '@angular/core';
+
+    @Component({
+        selector: 'app',
+        template: `
+          <header>
+            <a routerLink="">Home</a>
+            <a routerLink="cat">Cat</a>
+          </header>
+          <router-outlet></router-outlet>
+        `
+    })
+    export class AppComponent {
+      private name: string
+      miowCount:number = 0;
+      constructor() {
+        this.name = 'Mikey the Cat'
+      }
+    }
+    ```
+
+section.exercise
+  :markdown
+    Download the starting point. Create a new route for Dogs and link to it.
