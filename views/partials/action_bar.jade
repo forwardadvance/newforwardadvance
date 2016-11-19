@@ -1,0 +1,28 @@
+header.action_bar
+  .home
+    a(href="/")
+      img( src="/images/logos/mountains.svg" alt="Forward Advance Learning" )
+
+  if !user
+    ul.login_opts
+      li
+        a(href='/login') Login
+      li
+        a(href='/signup') Create Account
+  else
+    .user_nav
+      a( ng-click="profileDropdownActive = !profileDropdownActive" )
+        span #{user.profile.name || user.email || user.id}&nbsp;
+        if user.profile.picture
+          img(src='#{user.profile.picture}')
+        else
+          img(src='#{user.gravatar(60)}')
+
+    .user_opts
+      ul( ng-show="profileDropdownActive" )
+        li
+          a(href='/account') My Account
+        li
+          a(href='/logout') Logout
+        li
+          a( href="/contact/" ) Contact

@@ -1,47 +1,31 @@
 @import '../imports';
-header {
-  nav.main, nav.technology {
-    @include clearfix;
+
+nav.course_nav {
+  @include clearfix;
+  margin:0;
+  padding:0 $gutter;
+  background:$white;
+  background:$dark_grey;
+  .home {
+    float:left;
+    img {
+      width:300px;
+    }
+  }
+  ul, li {
+    list-style:none;
     margin:0;
-    padding:0 $gutter;
-    background:$white;
-    .home {
-      float:left;
-      img {
-        width:300px;
-      }
-    }
-    ul, li {
-      list-style:none;
-      margin:0;
-      padding:0;
-    }
-    li {
-      display:inline-block;
-    }
-    a {
-      text-decoration:none;
-      display:inline-block;
-      padding:$gutter / 2;
-    }
+    padding:0;
   }
-  nav.main {
-    background:$white;
-    ul {
-      float:right;
-    }
-    a {
-      color:$black;
-    }
+  li {
+    display:inline-block;
   }
-
-  nav.technology {
-    background:$dark_grey;
-    a {
-      color:$white;
-    }
+  a {
+    text-decoration:none;
+    display:inline-block;
+    padding:$gutter / 2;
+    color:$white;
   }
-
 
   @media (max-width: $mobile) {
     $mobile_image_size: 50px;

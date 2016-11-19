@@ -100,67 +100,6 @@ body {
     width: auto;
     float: none; } }
 
-header nav.main, header nav.technology {
-  margin: 0;
-  padding: 0 20px;
-  background: #fff; }
-  header nav.main:after, header nav.technology:after {
-    content: '';
-    clear: both;
-    display: table; }
-  header nav.main .home, header nav.technology .home {
-    float: left; }
-    header nav.main .home img, header nav.technology .home img {
-      width: 300px; }
-  header nav.main ul, header nav.main li, header nav.technology ul, header nav.technology li {
-    list-style: none;
-    margin: 0;
-    padding: 0; }
-  header nav.main li, header nav.technology li {
-    display: inline-block; }
-  header nav.main a, header nav.technology a {
-    text-decoration: none;
-    display: inline-block;
-    padding: 10px; }
-
-header nav.main {
-  background: #fff; }
-  header nav.main ul {
-    float: right; }
-  header nav.main a {
-    color: #040404; }
-
-header nav.technology {
-  background: #222; }
-  header nav.technology a {
-    color: #fff; }
-
-@media (max-width: 800px) {
-  header nav.main, header nav.technology {
-    text-align: center;
-    padding: 10px; }
-    header nav.main li, header nav.technology li {
-      float: none;
-      display: inline-block; }
-    header nav.main a, header nav.technology a {
-      text-decoration: none;
-      display: inline-block;
-      padding: 10px; }
-  header nav.main {
-    padding-top: 70px; }
-    header nav.main li:first-child {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      text-align: center; }
-      header nav.main li:first-child a {
-        display: inline-block;
-        margin-top: 15px; }
-        header nav.main li:first-child a img {
-          width: 50px;
-          border: 10px solid red; } }
-
 footer {
   clear: both;
   margin: 40px 0 0 0;
@@ -525,66 +464,131 @@ footer {
       width: auto;
       float: none; } }
 
-header nav.main, header nav.technology {
+header.action_bar {
   margin: 0;
   padding: 0 20px;
   background: #fff; }
-  header nav.main:after, header nav.technology:after {
+  header.action_bar:after {
     content: '';
     clear: both;
     display: table; }
-  header nav.main .home, header nav.technology .home {
+  header.action_bar .home {
     float: left; }
-    header nav.main .home img, header nav.technology .home img {
+    header.action_bar .home img {
       width: 300px; }
-  header nav.main ul, header nav.main li, header nav.technology ul, header nav.technology li {
+  header.action_bar ul.login_opts {
+    float: right; }
+    header.action_bar ul.login_opts, header.action_bar ul.login_opts li {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+    header.action_bar ul.login_opts li {
+      display: inline-block; }
+  header.action_bar .user_nav {
+    float: right;
+    cursor: pointer; }
+    header.action_bar .user_nav a:after {
+      display: none; }
+    header.action_bar .user_nav a:hover {
+      background: #eee; }
+    header.action_bar .user_nav img img {
+      height: 30px; }
+    @media (max-width: 800px) {
+      header.action_bar .user_nav span {
+        display: none; } }
+  header.action_bar .user_opts {
+    clear: right;
+    float: right;
+    margin-right: 10px;
+    margin-bottom: 20px; }
+    header.action_bar .user_opts ul, header.action_bar .user_opts li {
+      list-style: none;
+      margin: 0;
+      padding: 0; }
+    header.action_bar .user_opts a {
+      display: block;
+      padding: 0;
+      text-align: right; }
+  header.action_bar a {
+    text-decoration: none;
+    color: #040404;
+    display: inline-block;
+    padding: 10px; }
+  @media (max-width: 800px) {
+    header.action_bar nav.main, header.action_bar nav.technology {
+      text-align: center;
+      padding: 10px; }
+      header.action_bar nav.main li, header.action_bar nav.technology li {
+        float: none;
+        display: inline-block; }
+      header.action_bar nav.main a, header.action_bar nav.technology a {
+        text-decoration: none;
+        display: inline-block;
+        padding: 10px; }
+    header.action_bar nav.main {
+      padding-top: 70px; }
+      header.action_bar nav.main li:first-child {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-align: center; }
+        header.action_bar nav.main li:first-child a {
+          display: inline-block;
+          margin-top: 15px; }
+          header.action_bar nav.main li:first-child a img {
+            width: 50px;
+            border: 10px solid red; } }
+
+nav.course_nav {
+  margin: 0;
+  padding: 0 20px;
+  background: #fff;
+  background: #222; }
+  nav.course_nav:after {
+    content: '';
+    clear: both;
+    display: table; }
+  nav.course_nav .home {
+    float: left; }
+    nav.course_nav .home img {
+      width: 300px; }
+  nav.course_nav ul, nav.course_nav li {
     list-style: none;
     margin: 0;
     padding: 0; }
-  header nav.main li, header nav.technology li {
+  nav.course_nav li {
     display: inline-block; }
-  header nav.main a, header nav.technology a {
+  nav.course_nav a {
     text-decoration: none;
     display: inline-block;
-    padding: 10px; }
-
-header nav.main {
-  background: #fff; }
-  header nav.main ul {
-    float: right; }
-  header nav.main a {
-    color: #040404; }
-
-header nav.technology {
-  background: #222; }
-  header nav.technology a {
+    padding: 10px;
     color: #fff; }
-
-@media (max-width: 800px) {
-  header nav.main, header nav.technology {
-    text-align: center;
-    padding: 10px; }
-    header nav.main li, header nav.technology li {
-      float: none;
-      display: inline-block; }
-    header nav.main a, header nav.technology a {
-      text-decoration: none;
-      display: inline-block;
+  @media (max-width: 800px) {
+    nav.course_nav nav.main, nav.course_nav nav.technology {
+      text-align: center;
       padding: 10px; }
-  header nav.main {
-    padding-top: 70px; }
-    header nav.main li:first-child {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      text-align: center; }
-      header nav.main li:first-child a {
+      nav.course_nav nav.main li, nav.course_nav nav.technology li {
+        float: none;
+        display: inline-block; }
+      nav.course_nav nav.main a, nav.course_nav nav.technology a {
+        text-decoration: none;
         display: inline-block;
-        margin-top: 15px; }
-        header nav.main li:first-child a img {
-          width: 50px;
-          border: 10px solid red; } }
+        padding: 10px; }
+    nav.course_nav nav.main {
+      padding-top: 70px; }
+      nav.course_nav nav.main li:first-child {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-align: center; }
+        nav.course_nav nav.main li:first-child a {
+          display: inline-block;
+          margin-top: 15px; }
+          nav.course_nav nav.main li:first-child a img {
+            width: 50px;
+            border: 10px solid red; } }
 
 section.intro {
   font-size: 26.56px;

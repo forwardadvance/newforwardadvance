@@ -4,6 +4,10 @@ html( ng-app="app" )
     include ../partials/meta
     include ../partials/css
 
-  block layout_content
-  include ../partials/javascript
-  include ../partials/analytics
+
+  body
+    include ../partials/action_bar
+    include ../partials/flash
+    block layout_content
+    include ../partials/javascript
+    include ../partials/analytics

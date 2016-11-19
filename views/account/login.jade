@@ -5,7 +5,7 @@ block content
     article.six_col.center
       h1.center_contents Sign in
 
-      form(method='POST')
+      form( action="/login" method='POST')
         input(type='hidden', name='_csrf', value=_csrf)
 
         .form_row

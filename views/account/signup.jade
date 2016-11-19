@@ -5,8 +5,12 @@ block content
     article.six_col.center
       h1.center_contents Sign up
 
-      form(id='signup-form', method='POST')
+      form( action="/signup" method='POST')
         input(type='hidden', name='_csrf', value=_csrf)
+
+        .form_row
+          label(for='name') Name
+          input.form-control(type='name', name='name', id='name', placeholder='Email', autofocus, required)
 
         .form_row
           label(for='email') Email
