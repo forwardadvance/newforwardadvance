@@ -11,18 +11,19 @@ header.action_bar
         a(href='/signup') Create Account
   else
     .user_nav
-      a( ng-click="profileDropdownActive = !profileDropdownActive" )
+      a( ng-click="userNav.active = !userNav.active" )
         span #{user.profile.name || user.email || user.id}&nbsp;
         if user.profile.picture
           img(src='#{user.profile.picture}')
         else
           img(src='#{user.gravatar(60)}')
 
-    .user_opts
-      ul( ng-show="profileDropdownActive" )
+    .user_opts.folded( ng-class="{unfolded: userNav.active, folded: !userNav.active}" )
+      ul
         li
           a(href='/account') My Account
         li
           a(href='/logout') Logout
         li
           a( href="/contact/" ) Contact
+

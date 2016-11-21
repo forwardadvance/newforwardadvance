@@ -47,6 +47,14 @@ header.action_bar {
     float:right;
     margin-right: $gutter/2;
     margin-bottom:$gutter;
+    transition:all 0.5s;
+    &.folded {
+      max-height:1px;
+      overflow:hidden;
+    }
+    &.unfolded {
+      max-height:100px;
+    }
     ul, li {
       list-style: none;
       margin:0;

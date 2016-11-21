@@ -500,7 +500,13 @@ header.action_bar {
     clear: right;
     float: right;
     margin-right: 10px;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    transition: all 0.5s; }
+    header.action_bar .user_opts.folded {
+      max-height: 1px;
+      overflow: hidden; }
+    header.action_bar .user_opts.unfolded {
+      max-height: 100px; }
     header.action_bar .user_opts ul, header.action_bar .user_opts li {
       list-style: none;
       margin: 0;
