@@ -1,0 +1,146 @@
+section
+  :markdown
+    Pretty much every major language in the world has a module system. Modules are just bits of stuff that can be pulled in from other files and used.
+
+    Every major language that is, apart from the three we use most: JavaScript, HTML and CSS. This is probably more of an issue than you have ever realised. If you've never used modules, you might be wondering why you need them. To this, I'd answer that you'll have to trust me on this for now. Give it 5 minutes, and then see how you feel.
+
+    ## Webpack lets you define your assets as modules, and choose how to build them
+
+    Webpack allows you to define all your front end assets as modules. It also allows you to build these assets from precursor languages. Want to write SASS instead of CSS? Webkit can compile that for you. Need ESNext, or JSX, or TypeScript, of CoffeeScript? Webkit has you covered.
+
+    ## Installation
+
+    Installation is via npm:
+
+    ```
+    npm install webpack -g
+    ```
+
+    ## Compiling JavaScript
+
+    To compile a simple JavaScript file, give Webpack an entry point and an output file:
+
+    ```
+    webpack ./app.js app.bundle.js
+    ```
+
+    ## Creating a JavaScript module
+
+    We can define modules in JavaScript using the CommonJS syntax, just like we do with NodeJS. Any file can export an object or function by writing to module.exports, like so:
+
+    **cats.js**
+
+    ```
+    var cats = ['dave', 'henry', 'martha'];
+    module.exports = cats;
+    ```
+
+    Any other file can then require that code from the file, by specifying an absolute path to the file:
+
+    **app.js**
+
+    ```
+    cats = require('./cats.js');
+    console.log(cats);
+    ```
+
+    ## Requiring node modules
+
+    We can also require any other node module from npm. Rather than a path, we give the name of the module, like so:
+
+    ```
+    var $ = require('jquery');
+    ```
+
+    We must have first installed jquery into our node modules directory using:
+
+    ```bash
+    npm install jquery
+    ```
+
+    We now have a local copy of JQuery in a local variable.
+
+
+    ## Exercise - Get Webpack Running
+
+    In this exercise, I would like you to simply get some webpack running.
+
+    Create an app.js file in a folder called source. Put a simple console.log into it. Now run:
+
+    ```bash
+    webpack source/app.js build/app.js
+    ```
+
+    Check inside the build folder. You should see a nice little file called app.js that contains the same code as the source.
+
+    ## Extension - watching
+
+    Run Wepback with the -w flag like so. You are now watching for changes. If app.js or any of its dependencies update, the file will be rebuilt.
+
+    ```bash
+    webpack source/app.js build/app.js -w
+    ```
+
+    Create an index.html file. Now include a script tag in the header:
+
+    ```html
+    <script src="build/app.js"></script>
+    ```
+
+    Update your source/app.js and save it. Now refresh the browser. Verify that the file has been rebuilt and you are seeing the new code.
+
+    ## Further Extension - imports
+
+    Make another file called source/cat.js. Export a function from this file that just alerts the word miow. Do this by writing the function to module.exports.
+
+    Now require the function in source/app.js. Call the function. Verify it works.
+
+    ## Webpack.config.js
+
+    We can set standard options for Webpack by creating a file called `webpack.config.js`. We can set options for input and output:
+
+    ```
+    module.exports = {
+      entry: "./source/app.js",
+      output: {
+        filename: "./build/app.js",
+      },
+      resolve: {
+        extensions: ['', '.js']
+      }
+    }
+    ```
+
+    If we create a webpack file, it is sufficient to just type `webpack` at the command line, and webpack will run.
+
+    ## Transpiling
+
+    We can integrate a transpiler into Webpack, to convert the code from one form into another. For example, you can use Babel to convert ES6 down to ES5 suitable for older browsers.
+
+    We need to install a transpiler first:
+
+    ```bash
+    npm install babel -- save-dev
+    npm install babel-core -- save-dev
+    npm install babel-loader -- save-dev
+    ```
+
+    Now we update the `webpack.config.js` to include the loader:
+
+    ```
+    module.exports = {
+      entry: "./source/app.js",
+      output: {
+        filename: "./build/app.js",
+      },
+      sourceMap: true,
+      resolve: {
+        extensions: ['', '.ts', '.js']
+      },
+      module: {
+        loaders: [
+          { test: /\.js$/, loader: 'babel-loader' }
+        ]
+      }
+    }
+    ```

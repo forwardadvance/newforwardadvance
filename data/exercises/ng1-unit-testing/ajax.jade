@@ -1,7 +1,6 @@
-//- TODO Talk about $httpBackend
-
 section
   :markdown
+
     We access remote services using the $http service, which we can inject into our controller.
 
     ```
@@ -14,33 +13,24 @@ section
     ```
     $http.get(url)
       .then(function(response) {
-        $scope.cats = response.data
+        this.cats = response.data
       })
     ```
 
     Once your data is in scope, a digest will fire and your template will automatically update to display it.
 
 
-
-section
-  :markdown
-    ## JSONP
-
-    JSONP is a hack which lets us make cross site AJAX requests. We use the $http object to make a request. We use the .then to respond when an AJAX request completes.
-
     ```
     angular.module('app', [])
-      .controller('ajaxController', function($scope, $http) {
-        var url = 'http://example.com/cats?callback=JSON_CALLBACK'
+      .controller('ajaxController', function($http) {
+        var url = 'http://example.com/cats?callback=JSON_CALLBACK';
+        var vm = this;
         $http.jsonp(url)
           .then(function(response) {
-            $scope.cats = response.data;
-          })
+            vm.cats = response.data;
+          });
       });
     ```
-
-
-  !=resources(exercise)
 
 section.exercise
   :markdown

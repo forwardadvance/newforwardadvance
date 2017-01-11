@@ -25,26 +25,26 @@ module.exports = [
       ]
     }
   },
-  // {
-  //   entry: './app/app.scss',
-  //   output: {
-  //     filename: './app.build/app.build.styles.js'
-  //   },
-  //   resolve: {
-  //     extensions: ['', '.scss']
-  //   },
-  //   module: {
-  //     loaders: [
-  //       {
-  //         test: /\.scss$/,
-  //         loader: ExtractTextPlugin.extract("style", "css!sass")
-  //       }
-  //     ]
-  //   },
-  //   plugins: [
-  //     new ExtractTextPlugin("./app.build/app.build.css")
-  //   ]
-  // },
+  {
+    entry: './public/css/style.scss',
+    output: {
+      filename: './public/css/style.css'
+    },
+    resolve: {
+      extensions: ['', '.scss']
+    },
+    module: {
+      loaders: [
+        {
+          test: /\.scss$/,
+          loader: ExtractTextPlugin.extract("style", "css!sass")
+        }
+      ]
+    },
+    plugins: [
+      new ExtractTextPlugin("./app.build/app.build.css")
+    ]
+  },
   {
     entry: './public/js/specs.js',
     output: {

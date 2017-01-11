@@ -9,6 +9,13 @@ module.exports = {
   exercises:[
 
     {
+      title: "Models & Talking to the Database",
+      slug: "models",
+      description: "The M in MVC",
+      code: "",
+      path: "rails/models"
+    },
+    {
       title: 'Scaffolding and CRUD',
       slug: 'scaffolding',
       description: 'Doing a lot of boilerplate stuff very quickly.',
@@ -28,20 +35,6 @@ module.exports = {
       description: 'Associations between models.',
       code: 'rails_associations_demo',
       path: 'rails/associations'
-    },
-    {
-      title: 'The Session Hash',
-      slug: 'sessions',
-      description: 'Persisting session data has never been so much fun.',
-      code: '',
-      path: 'rails/sessions'
-    },
-    {
-      title: 'Assets',
-      slug: 'assets',
-      description: 'The Asset Pipeline is a powerful thing',
-      code: '',
-      path: 'rails/assets'
     },
     // {
     //   title: 'Helpers',

@@ -1,0 +1,63 @@
+//- TODO Talk about $httpBackend
+
+section
+  :markdown
+    We access remote services using the $http service, which we can inject into our controller.
+
+    ```
+    var url = 'http://www.mycats.com/api/cats';
+    $http.get(url);
+    ```
+
+    This gives us a `Promise` object, which we can chain callbacks onto. In the callback, we generally push the response in to $scope, then allow the template to take over.
+
+    ```
+    $http.get(url)
+      .then(function(response) {
+        $scope.cats = response.data
+      })
+    ```
+
+    Once your data is in scope, a digest will fire and your template will automatically update to display it.
+
+
+    ## JSONP
+
+    JSONP is a hack which lets us make cross site AJAX requests. We use the $http object to make a request. We use the .then to respond when an AJAX request completes.
+
+    ```
+    angular.module('app', [])
+      .controller('ajaxController', function($scope, $http) {
+        var url = 'http://example.com/cats?callback=JSON_CALLBACK'
+        $http.jsonp(url)
+          .then(function(response) {
+            $scope.cats = response.data;
+          })
+      });
+    ```
+
+
+  !=resources(exercise)
+
+section.exercise
+  :markdown
+    ## Flickr Exercise
+
+    The Flickr JSONP endpoint looks like this:
+
+    <http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&tagmode=any&format=json&jsoncallback=JSON_CALLBACK>
+
+    Pull the Flickr feed from the Internet and display the images.
+
+    ## Extension
+
+    Allow the user to search for a tag.
+
+    Test with Karma.
+
+
+section.exercise
+  :markdown
+    ## Exercise - Karma
+
+    Write Karma tests. Use $httpBackend to mock out the AJAX call and verify that the data is retrieved.

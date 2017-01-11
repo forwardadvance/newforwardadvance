@@ -1,6 +1,7 @@
 module.exports = [
   // Public courses
   require('./angular.js'),
+  require('./angular-unit-testing.js'),
   require('./angular2.js'),
   require('./ionic2.js'),
   // require('./react.js'),

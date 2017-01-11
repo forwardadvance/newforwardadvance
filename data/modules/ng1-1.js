@@ -10,50 +10,10 @@ module.exports = {
   outcome: 'You will be able to create simple data driven forms and lists.',
   exercises:[
     // TODO: Reinstate Angular Intro
-    // {
-    //   slug: 'intro',
-    //   title: 'Introducing Angular - Theory and Architecture',
-    //   description: 'Here we learn, at a high level, what angular is, how it works, and how we should think about it.',
-    //   learnings: [
-    //     'How Angular compiles an app',
-    //     'Angular is template driven',
-    //     'Directives and components',
-    //     'How Angular supports testing'
-    //   ]
-    // },
-    {
-      slug: 'hello-world',
-      title: 'Hello Angular',
-      description: 'We build a Hello World app and learn about templates, expressions and filters.',
-      github: 'angular_templates_demo',
-      learnings: [
-        'ng-app',
-        'curly bindings',
-        'template expressions'
-      ]
-    },
-    {
-      slug: 'binding',
-      title: 'Data Binding',
-      description: 'We discover the spooky magic that is Angular data binding (of course it\'s not magic really, as we shall very soon see).',
-      github: 'angular_binding_demo',
-      learnings: [
-        'ng-model',
-        'ng-bind'
-      ]
-    },
-    {
-      slug: 'more-binding',
-      title: 'Class, attribute and conditional binding',
-      description: 'In which we bind expressions to classes and attributes and add conditional logic to our templates.',
-      github: 'angular_further_binding_demo',
-      learnings: [
-        'binding attributes',
-        'ng-class',
-        'ng-show / ng-hide',
-        'ng-if and $scope issues'
-      ]
-    },
+    // require('../exercises/ng/intro'),
+    require('../exercises/ng/hello-world'),
+    require('../exercises/ng/binding'),
+    require('../exercises/ng/more-binding')
   ],
   'outline': [
     'Hello World',

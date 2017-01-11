@@ -8,6 +8,20 @@ module.exports = {
   outcome: ``,
   exercises:[
     {
+      title: 'The Session Hash',
+      slug: 'sessions',
+      description: 'Persisting session data has never been so much fun.',
+      code: '',
+      path: 'rails/sessions'
+    },
+    {
+      title: 'Assets',
+      slug: 'assets',
+      description: 'The Asset Pipeline is a powerful thing',
+      code: '',
+      path: 'rails/assets'
+    },
+    {
       title: "Integrating Gems",
       slug: "integrating-gems",
       description: "",

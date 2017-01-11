@@ -44,12 +44,5 @@ module.exports = {
       code: "",
       path: "rails/params"
     },
-    {
-      title: "Models & Talking to the Database",
-      slug: "models",
-      description: "The M in MVC",
-      code: "",
-      path: "rails/models"
-    },
   ]
 };

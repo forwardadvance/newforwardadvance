@@ -18,6 +18,7 @@ var expressValidator = require('express-validator');
 var sass = require('node-sass-middleware');
 var multer = require('multer');
 var upload = multer({ dest: path.join(__dirname, 'uploads') });
+// var assetSmasher = require('asset-smasher');
 
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
@@ -144,6 +145,16 @@ renderer.code = function(code, lexer) {
 
 marked.setOptions({renderer: renderer});
 jade.filters.markdown = marked;
+
+/**
+ * Asset Pipeline
+ */
+//  app.use(assetSmasher.middleware({
+//   serve: true,
+//   paths: [path.join(__dirname, 'assetDir1'), path.join(__dirname, 'assetDir2')],
+//   prefix: '/assets',
+//   outputTo: path.join(__dirname, 'tmp')
+// }));
 
 /**
  * Primary app routes.

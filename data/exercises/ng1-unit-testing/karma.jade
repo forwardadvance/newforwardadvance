@@ -1,0 +1,122 @@
+section
+  :markdown
+    Running tests by manually pressing refresh in a browser is not the worst solution in the world, but if you're testing for real, you'll want to add in some automation.
+
+    Here you have two/three options
+
+    1. Building tests using a module packer like Webpack, then live reloading in a browser.
+    2. Running tests in the command line using Karma.
+    3. A combination thereof.
+
+    The one you choose will depend on your personal preferences.
+
+    ## Running tests in the browser with Webpack and Livereload
+
+    Possibly the most friendly option. You watch your test files, then autmatically recompile them when they change, then automatically refresh the browser. You'll get a nice frontend-y experience, and all the standard debugging tools you're used to. Effectively your tests are built into a regular JavaScript file that runs in the browser.
+
+    * Your tests will be built by Webpack or similar
+    * Your tests will run in the browser
+    * Your test results will be shown in the browser
+    * You will debug tests in the browser, just like any other javascript file.
+
+    ## Running tests in the command line with Karma
+
+    Karma will watch all your test files, then when one changes, it will pipe them from a command line into the browser. The report will be shown on the command line.
+
+    * Your tests will be built by Karma
+    * The tests will run in the browser
+    * The results will be show no the command line
+    * You will debug tests in the browser, but in a slightly less enjoyable way.
+
+    Karma is a unit testing framework that works especially nicely with Angular. A unit test will test a single tiny piece of our app. We might write a test for a single controller for example. Unit tests generally don't care about the template, they only test the code. We can write unit tests for template code, but this is generally a little more complex.
+
+    In this section we will talk about Karma. In the next section we will build tests using Webpack.
+
+    ## The Karma CLI
+
+    Unit tests are only useful if we run them all the time. It would be nice if all our tests could run automatically on save. The Karma CLI gives us this facility. Our tests run in a command line, and will turn green or red depending on the outcome.
+
+    We can install additional reporters, for example the Nyan cat reporter. The cat will die if a unit test fails.
+
+    ## Installing Karma
+
+    First up we need to install Karma. Karma is a NodeJS module, and Node is a JavaScript runtime that runs in your command line. We will need to have Node installed to run Karma. If you don't have it, you can grab it from here:
+
+    <http://nodejs.org/>
+
+    test your installation by typing `node` at a command line.
+
+    ## NPM
+
+    Once you have Node, you will we use NPM (Node Package Manager) to install a few Karma packages, like so:
+
+    ```bash
+    npm init
+    npm install karma --save-dev
+    npm install -g karma-cli
+    npm install jasmine-core --save-dev
+    npm install karma-jasmine --save-dev
+    npm install karma-chrome-launcher --save-dev
+    ```
+
+    Depending on your exact version of Node and Karma, NPM may complain about missing dependencies. If you see any red error messages, go and get those dependencies too.
+
+    When installing node modules, Don't worry about warnings and occasional errors, these are normal, and npm will usually work around them. You only need to worry if an npm install ends with an error.
+
+    Once Karma is installed, you should be able to type `karma` at a command line and see a helpful message.
+
+    ## Initialise Karma
+
+    Karma needs a karma.conf.js file in the root of your project directory to tell it how to work. Use the command line to navigate to the folder in which you want to work. Now type `karma init`. You will be taken through a wizard which will create the karma.conf.js file. Keep all the defaults for now.
+
+    ```bash
+    karma init
+    ```
+
+    We can now start the Karma runner using:
+
+    ```bash
+    karma start
+    ```
+
+    ## Specifying files
+
+    Karma may be running, but until we give it some files to test, nothing will happen. We need to tell it where to find our JavaScript. Open up the karma.conf.js file, look for the `files` attribute, and change it like so:
+
+    ```
+    files: [
+      'js/*.js',
+      'specs/*.js'
+    ]
+    ```
+
+    This is a list of file paths to look at in order. Karma will use this to include our JavaScript files in order. Put your JavaScripts in the js folder. Put your tests in the specs folder. This will ensure that the JavaScripts are always included before the tests that run them.
+
+    ## Writing a test
+
+    A Karma test contains one or more describe blocks, which can be nested. These define groups of functionality. Inside these are our tests, which are defined using the `it` function. These tests contain numerous expectations.
+
+    If a test fails, the strings in the describe and it blocks will be used to create an error message.
+
+    ```
+    describe('Maths in the universe', function() {
+
+      it('should be the case that 1 plus 1 is 2', function() {
+        expect( 1 + 1 ).toEqual( 2 );
+      })
+
+    });
+    ```
+
+
+
+    ## Exercise Karma CLI
+
+    Install Node and the Karma CLI following the instructions above. Now write a unit test to test the maths object.
+
+    Run it in a console. Whenever you save a file, all the tests should run.
+
+
+    ## Exercise - Pirate Escape
+
+    Configure Karma to test your pirate app.
