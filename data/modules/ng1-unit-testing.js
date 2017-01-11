@@ -14,7 +14,7 @@ module.exports = {
     require('../exercises/ng1-unit-testing/ng-mocks'),
     require('../exercises/ng1-unit-testing/services'),
     require('../exercises/ng1-unit-testing/spies-stubs-mocks'),
-    require('../exercises/ng1-unit-testing/mocking-services'),
+    // require('../exercises/ng1-unit-testing/mocking-services'),
     require('../exercises/ng1-unit-testing/karma'),
     require('../exercises/ng1-unit-testing/webpack'),
     require('../exercises/ng1-unit-testing/ajax'),
