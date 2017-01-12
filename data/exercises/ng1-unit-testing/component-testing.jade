@@ -1,26 +1,23 @@
 section
   :markdown
-    Yo might use integration testing to check your components work, but it's pretty helpful to be able to unit test them too.
+    Components and directives are slightly more difficult to test than services and controllers because by their nature they modify the DOM.
 
-    We test a component, by creating an element then compiling it. We can then check to see if the component has the stuff in it that we expected to see.
+    The easiest way to unit test a component or directive, is to create an orphaned DOM fragment, and compile it against the app. We can then check to see if the fragment has the stuff in it that we expected to see.
 
     Here's a simple cat component:
 
     ```
-    angular.module('app', [])
+    angular.module('app')
       .component('cat', {
         bindings: {
           miows: '@'
         },
         controllerAs: 'vm',
         template: `
-          <h1>
-            Cat miows
-            {{ vm.miows }}
-            times
-          </h1>
+          <h1>Cat miows {{ vm.miows }} times</h1>
         `
       });
+
     ```
 
     In order to test this, we need a DOM fragment that matches it:
@@ -29,7 +26,7 @@ section
     <cat miows="11"></cat>
     ```
 
-    Let's put that in context
+    Let's put that in context:
 
 
     ```
@@ -53,6 +50,10 @@ section
     });
     ```
 
+    We compile the fragment, then use jqlite or DOM scripting to pull it apart and check it has worked properly.
+
     ## Exercise 1
 
-    Create
+    Create a pirateStats component that renders information about the current pirate status. Unit test it to make sure it works.
+
+    *Extension:* Create a pirateIsle component that renders a map of the pirate island. Unit test it to make sure it works.

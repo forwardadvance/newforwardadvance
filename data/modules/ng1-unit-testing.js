@@ -19,5 +19,7 @@ module.exports = {
     require('../exercises/ng1-unit-testing/webpack'),
     require('../exercises/ng1-unit-testing/ajax'),
     require('../exercises/ng1-unit-testing/component-testing'),
+    require('../exercises/ng1-unit-testing/routes'),
+    require('../exercises/ng1-unit-testing/filters'),
   ]
 };
