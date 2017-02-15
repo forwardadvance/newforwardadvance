@@ -423,6 +423,15 @@ code {
     .course_creator article {
       padding: 0; } }
 
+.course_links ul, .course_links li {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
+.course_links ul li {
+  display: inline-block;
+  margin-right: 1em; }
+
 footer {
   clear: both;
   margin: 40px 0 0 0;

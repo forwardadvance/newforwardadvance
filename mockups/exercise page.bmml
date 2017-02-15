@@ -1,0 +1,95 @@
+<mockup version="1.0" skin="sketch" fontFace="Balsamiq Sans" measuredW="1680" measuredH="1230" mockupW="1620" mockupH="1210">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="60" y="20" w="1297" h="1210" measuredW="450" measuredH="400" zOrder="0" locked="true" isInGroup="-1">
+      <controlProperties/>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Title" x="425" y="192" w="-1" h="-1" measuredW="548" measuredH="43" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Component%20Based%20Hello%20World</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::VideoPlayer" x="425" y="242" w="561" h="374" measuredW="300" measuredH="200" zOrder="2" locked="false" isInGroup="-1"/>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Tree" x="103" y="242" w="-1" h="-1" measuredW="300" measuredH="579" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <selectedIndex>5</selectedIndex>
+        <text>Welcome%20to%20the%20Angular%202%20course%0A%20What%20you%20will%20learn%0A%20Angular%201%20to%20Angular%202%0A%20%0AEasy%20in%20Angular%202%20with%20JavaScript%0A%20Component%20Based%20Hello%20World%20%28code%29%0A%20%5Bx%5D%20Angular%202%20Bound%20Variables%20with%20ES6%20%20%28code%29%0A%20Live%20Binding%20with%20Zone.js%20%28code%29%0A%20Dealing%20with%20Browser%20Events%20%28code%29%0A%20Binding%20Components%20to%20DOM%20properties%20with%20Angular%20and%20ES6%20%28code%29%0A%20%0AComponent%20Hierarchies%0A%20Nesting%20Components%20%28code%29%0A%20Built%20In%20Template%20Directives%2C%20ngIf%20%26%20ngFor%20%28code%29%0A%20Making%20Angular%202%20Components%20Receive%20Values%20%28inputs%29%20%28code%29%0A%20Event%20Emitters%20%28Outputs%29%20%28code%29%0A%20Two-Way-Binding%20Forms%20in%20Angular%202%20%28code%29%0A%20Styling%20Components%20with%20the%20Shadow%20DOM%20%28code%29%0A%20%0AIntroducing%20TypeScript%0A%20Welcome%20to%20Typescript%0A%20TypeScript%20plus%20Webpack%0A%20Angular%20Components%20with%20TypeScript%20%28code%29%0A%20Input%20and%20@Output%20Decorators%20%28code%29%0A%20Services%20and%20Dependency%20Injection%20with%20TypeScript%20%28code%29%0A%20Routing%20%28code%29%0A%20AJAX%20-%20with%20a%20Service%20%28code%29</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::LinkBar" x="1022" y="120" w="-1" h="-1" measuredW="302" measuredH="19" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Home%2C%20Courses%2C%20Start%20Points%2C%20Blog%2C%20Account</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Paragraph" x="425" y="768" w="564" h="435" measuredW="275" measuredH="80" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Angular%20applications%20are%20built%20out%20of%20components.%20A%20component%20works%20like%20a%20brand%20new%20type%20of%20DOM%20node%20which%20we%20invent.%20It%20can%20have%20behaviour%2C%20it%20can%20emit%20events%2C%20it%20can%20have%20custom%20attributes%2C%20it%20holds%20its%20own%20state.%0A%0AIn%20this%20section%20we%27ll%20build%20the%20simplest%20possible%20%22Hello%20World%22%20component%20using%20regular%20ol%27%20JavaScript%20and%20plain%20script%20tags.%20We%20won%27t%20use%20a%20module%20packer%20or%20any%20tooling%20%28though%20we%20will%20get%20to%20those%20things%20later%29.%20The%20goal%20is%20just%20to%20produce%20the%20simplest%20possible%20working%20Angular%20so%20we%20can%20see%20Angular%20gives%20us.%0A%0AQuestions%20Answered%0A%0AWhat%20is%20an%20Angular%202%20component%3F%0AWhat%20is%20an%20Angular%202%20module%3F%0AWhat%20is%20the%20simplest%20meaningful%20Angular%202%20Hello%20World%20we%20can%20create%3F%0AThe%20JavaScripts%0A%0AFirst%20up%20we%20need%20some%20JavaScript.%20We%20currently%20need%20four%20files%20to%20make%20our%20simple%20app%20work.%20These%20are%3A%0A%0Ashim.js%0Azone.js%0Areflect.js%0ARx.js%0Aapp.js%0Ashim.js%0A%0AAngular%20uses%20edge%20JavaScript.%20If%20you%27re%20only%20targeting%20Chrome%20you%20can%20leave%20this%20file%20off%2C%20but%20if%20you%20want%20support%20for%20older%20browsers%20like%20IE9%2C%20you%20need%20this%20polyfill.%0A%0Azone.js%0A%0AAngular%20change%20detection%20works%20by%20polyfilling%20all%20built%20in%20asynchronous%20code.%20Things%20like%20setTimeout%2C%20setInterval%2C%20and%20AJAX%2C%20so%20that%20they%20give%20us%20an%20Observable%20which%20Angular%20can%20listen%20to.%20ZoneJS%20is%20a%20third%20party%20project%20that%20enables%20this.%0A%0Areflect.js%0A%0AReflect%20is%20a%20JavaScript%20API%20that%20allows%20you%20to%20inspect%20other%20objects.%20Angular%20uses%20Reflect.metadata%20to%20store%20metadata%20about%20an%20object%2C%20without%20storing%20it%20as%20an%20attribute%20of%20that%20object.%20Angular%20uses%20Reflect%20metadata%20to%20store%20information%20about%20the%20types%20of%20objects.%0A%0ARx.umd.js%0A%0AAngular%20uses%20Observables%20all%20over%20the%20place%2C%20for%20example%20for%20AJAX.%20Observables%20are%20like%20Promises%2C%20but%20with%20a%20much%20fuller%20API.%20They%20are%20objects%20that%20can%20emit%20streams%20of%20events.%0A%0A@angular2%20*.umd.js%0A%0AAngular%202%20UMD%20-%20the%20Universal%20Module%20Definition%20version%20of%20Angular%20exposes%20the%20Angular%20internals%20on%20a%20global%20variable%20called%20ng.%20This%20means%20we%20don%27t%20need%20a%20module%20loader%20for%20our%20hello%20world%20which%20simplifies%20things%20a%20lot.%0A%0AModule%20loaders%20are%20cool%2C%20and%20we%20will%20get%20to%20them%2C%20but%20not%20in%20a%20hello%20world.%0A%0Aapp.js%0A%0AYour%20code.%0A%0AWhat%20is%20UMD%3F%0A%0AUMD%20%28as%20in%20angular-all.umd.js%29%20stands%20for%20Universal%20Module%20Definition.%20It%20is%20a%20common%20specification%20for%20exposing%20variables.%20In%20this%20case%2C%20it%20creates%20the%20ng%20global%20for%20us.%20This%20is%20great%20for%20initial%20playing%20around%2C%20because%20we%20can%20just%20include%20Angular%20with%20a%20script%20tag%20and%20make%20everything%20global%2C%20but%20eventually%20you%20will%20want%20to%20start%20using%20a%20module%20packer%20like%20WebPack%20to%20avoid%20globals.%0A%0AMore%20on%20this%20later.%0A%0AHTML5%20Skeleton%0A%0AAn%20HTML%20skeleton%20includes%20the%20necessary%20JavaScripts%2C%20then%20declares%20an%20app%20component.%0A%0AHere%27s%20a%20skeleton%20HTML%20page%20for%20you%20to%20copy.%0A%0A%3C%21DOCTYPE%20html%3E%0A%3Chtml%3E%0A%20%20%3Chead%3E%0A%20%20%20%20%3Ctitle%3EAngular%202%20Hello%20World%20Demo%3C/title%3E%0A%20%20%20%20%3Cscript%20src%3D%22lib/corejs/shim.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22lib/zone.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22lib/reflect-metadata/reflect.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%22lib/Rx.umd.js%22%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%27lib/@angular-2.1.0/core.umd.js%27%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%27lib/@angular-2.1.0/common.umd.js%27%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%27lib/@angular-2.1.0/compiler.umd.js%27%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%27lib/@angular-2.1.0/platform-browser.umd.js%27%3E%3C/script%3E%0A%20%20%20%20%3Cscript%20src%3D%27lib/@angular-2.1.0/platform-browser-dynamic.umd.js%27%3E%3C/script%3E%0A%20%20%3C/head%3E%0A%20%20%3Cbody%3E%0A%20%20%20%20%3Capp%3E%3C/app%3E%0A%20%20%20%20%3Cscript%20src%3D%27app/app.js%27%3E%3C/script%3E%0A%20%20%3C/body%3E%0A%3C/html%3E%0AYou%20can%20find%20this%20code%20in%20the%20resources%20repository%20here%3A%0A%0AExercise%20Resources%20and%20Downloads%0A%0AGithub%20repository%20%28exercise%20start%20points%20and%20solutions%29%0ADownload%20repository%20as%20a%20zip%0AClone%20repository%20in%20Github%20app%0AWhy%20so%20many%20JavaScripts%3F%0A%0AThat%27s%20ten%20JavaScript%20files%20for%20a%20simple%20hello%20world%2C%20which%20may%20seem%20like%20a%20lot.%0A%0AAngular%202%20works%20best%20when%20it%27s%20integrated%20into%20a%20toolchain%20like%20Webpack.%20These%20dependencies%20are%20meant%20to%20be%20provided%20by%20your%20tooling.%20Here%2C%20because%20this%20is%20a%20hello%20world%2C%20we%20are%20using%20simple%20script%20tags%2C%20so%20we%20can%20see%20everything%20explicitly.%20This%20is%20different%20to%20most%20other%20current%20frameworks%20where%20tooling%20is%20optional%20but%20nice.%0A%0AWhat%20is%20that%20%3Capp%3E%20tag%3F%0A%0AThe%20%3Capp%3E%20tag%20is%20going%20to%20be%20a%20component.%20We%20will%20create%20a%20component%20that%20matches%20that%20tag%2C%20and%20add%20behaviour%20and%20a%20template%20to%20it.%20Notice%20how%20we%20include%20the%20app.js%20file%20afterwards.%20This%20is%20so%20we%20don%27t%20run%20the%20JavaScript%20until%20after%20the%20app%20tag%20has%20been%20loaded%20into%20the%20DOM.%0A%0AThe%20Component%0A%0AAn%20Angular%20app%20is%20built%20out%20of%20tree%20of%20components%2C%20one%20inside%20the%20other.%20We%20first%20need%20to%20create%20a%20root%20component%2C%20which%20is%20typically%20called%20app.%20I%20am%20using%20a%20global%20variable%20here%20for%20simplicity%2C%20because%20this%20is%20a%20hello%20world.%20Later%20we%20will%20use%20proper%20modules.%0A%0A//%20First%20define%20the%20component.%20I%27m%20just%20whopping%20it%20in%20a%20global%20variable%20here.%0Avar%20AppComponent%20%3D%20ng.core%0A%20%20.Component%28%7B%0A%20%20%20%20selector%3A%20%22app%22%2C%0A%20%20%20%20template%3A%20%60%0A%20%20%20%20%20%20%3Cp%3E%0A%20%20%20%20%20%20%20%20Hello%0A%20%20%20%20%20%20%20%20%3Cem%3EAngular%21%3C/em%3E%0A%20%20%20%20%20%20%3C/p%3E%0A%20%20%20%20%60%0A%20%20%7D%29%0A%20%20.Class%28%7B%0A%20%20%20%20constructor%3A%20function%28%29%20%7B%7D%0A%20%20%7D%29%3B%0ANotice%20the%20selector%20attribute.%20This%20component%20will%20match%20the%20%3Capp%3E%20element.%20We%20also%20have%20a%20template.%20This%20will%20be%20inserted%20into%20the%20%3Capp%3E%20element.%0A%0AThe%20.Class%20object%20is%20there%20to%20help%20us%20pretent%20that%20JavaScript%20has%20classes%2C%20and%20to%20make%20it%20look%20more%20like%20TypeScript.%20LAter%2C%20when%20we%20start%20writing%20TypeScript%2C%20we%20will%20use%20actual%20classes.%0A%0AThe%20Module%0A%0AAll%20Angular%202%20code%20exists%20in%20an%20Angular%202%20module.%20Modules%20are%20used%20to%20manage%20imports%20and%20dependencies.%20Each%20app%20will%20have%20a%20root%20module%20that%20will%20declare%20a%20root%20%28bootstrap%29%20component.%20We%20will%20use%20this%20module%20to%20start%20up%20the%20app.%20A%20typical%20app%20may%20have%20dozens%20or%20hundreds%20of%20modules.%0A%0AAngular%202%20runs%20in%20multiple%20environments%2C%20not%20only%20the%20browser%2C%20so%20here%20we%20declare%20the%20BrowserModule%20as%20a%20dependency.%20We%20included%20this%20using%20a%20script%20tag%20in%20the%20head%20of%20our%20page.%0A%0Avar%20AppModule%20%3D%0A%20%20ng.core.NgModule%28%7B%0A%20%20%20%20imports%3A%20%5B%20ng.platformBrowser.BrowserModule%20%5D%2C%0A%20%20%20%20declarations%3A%20%5B%20AppComponent%20%5D%2C%0A%20%20%20%20bootstrap%3A%20%5B%20AppComponent%20%5D%0A%20%20%7D%29%0A%20%20.Class%28%7B%0A%20%20%20%20constructor%3A%20function%28%29%20%7B%7D%0A%20%20%7D%29%3B%0ABootstrapping%0A%0AIn%20Angular%201%20we%20could%20bootstrap%20an%20application%20automatically%20using%20the%20ng-app%20directive.%20In%20Angular%202%20we%20must%20manually%20bootstrap%20our%20app.%0A%0AWe%20wait%20till%20the%20DOM%20is%20loaded%2C%20then%20we%20call%20bootstrapModule%20to%20initialise%20the%20application.%0A%0Ang.platformBrowserDynamic%0A%20%20.platformBrowserDynamic%28%29%0A%20%20.bootstrapModule%28AppModule%29%3B%0AYou%20can%20see%20this%20in%20action%20here%3A%0A%0Ahttp%3A//codepen.io/superluminary/pen/ZQMNqa%3Feditors%3D1010</text>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::BreadCrumbs" x="425" y="165" w="-1" h="-1" measuredW="349" measuredH="24" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>The%20Angular%202%20Course%2C%20Easy%20in%20Angular%202%20with%20JavaScript</text>
+      </controlProperties>
+    </control>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::Button" x="1405" y="310" w="-1" h="-1" measuredW="141" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Sign%20up%20with%20Google</text>
+      </controlProperties>
+    </control>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::ButtonBar" x="425" y="631" w="-1" h="-1" measuredW="425" measuredH="27" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Github%20Repo%2C%20Download%20code%20as%20Zip%2C%20Clone%20code%20in%20Github%20app</text>
+      </controlProperties>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::CheckBox" x="900" y="633" w="-1" h="-1" measuredW="77" measuredH="22" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>selected</state>
+        <text>Complete</text>
+      </controlProperties>
+    </control>
+    <control controlID="19" controlTypeID="com.balsamiq.mockups::TextInput" x="1405" y="357" w="-1" h="-1" measuredW="79" measuredH="26" zOrder="10" locked="false" isInGroup="-1"/>
+    <control controlID="20" controlTypeID="com.balsamiq.mockups::Paragraph" x="1405" y="276" w="275" h="34" measuredW="275" measuredH="80" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Sign%20up%20to%20get%20this%20course%20emailed%20to%20yourself%20daily%20or%20weekly</text>
+      </controlProperties>
+    </control>
+    <control controlID="21" controlTypeID="com.balsamiq.mockups::Tree" x="425" y="673" w="278" h="90" measuredW="300" measuredH="225" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <text>_Exercise%201_%0A_Exrcise%202_%0A_Exercise%203%20-%20Escape%20the%20Dungeon_</text>
+        <underline>true</underline>
+      </controlProperties>
+    </control>
+    <control controlID="22" controlTypeID="com.balsamiq.mockups::Paragraph" x="1046" y="265" w="275" h="34" measuredW="275" measuredH="80" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Get%20this%20course%20emailed%20to%20you%20daily%20or%20weekly.%20You%20can%20unsubscribe%20at%20any%20time.</text>
+      </controlProperties>
+    </control>
+    <control controlID="23" controlTypeID="com.balsamiq.mockups::ComboBox" x="1046" y="298" w="275" h="-1" measuredW="149" measuredH="24" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Weekly%20%28on%20Monday%29</text>
+      </controlProperties>
+    </control>
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::ComboBox" x="1046" y="351" w="275" h="-1" measuredW="301" measuredH="24" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>This%20Exercise%20%28Component%20Based%20Hello%20World%29</text>
+      </controlProperties>
+    </control>
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::Paragraph" x="1046" y="334" w="275" h="34" measuredW="275" measuredH="80" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Starting%20with</text>
+      </controlProperties>
+    </control>
+    <control controlID="26" controlTypeID="com.balsamiq.mockups::Button" x="1099" y="384" w="-1" h="-1" measuredW="164" measuredH="27" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>EmailIcon%7Csmall</icon>
+        <text>Start%20Getting%20Email</text>
+      </controlProperties>
+    </control>
+    <control controlID="27" controlTypeID="com.balsamiq.mockups::Icon" x="100" y="106" w="-1" h="-1" measuredW="48" measuredH="48" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <icon>WorldIcon%7Clarge</icon>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

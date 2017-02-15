@@ -111,8 +111,22 @@ section.exercise
   :markdown
     ## Exercise - Flickr
 
-    We are going to extend the Flickr code from earlier. Using the above as a base. grab a feed from Flickr, and us an *ngFor to render it on the page.
+    We are going to use the Flickr API to pull a list of images about a tag.
 
     The flickr JSONP endpoint looks like this:
 
     <http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&tagmode=any&format=json&jsoncallback=JSONP_CALLBACK>
+
+    1. First inject the ng.http.JSONP_PROVIDERS into your global injector. Do this when you bootstrap. See above for how.
+    2. Now inject ng.http.Jsonp into your constructor.
+    3. In the constructor, make your call, like this: `jsonp.get(url)`
+    4. Store the result in the component. `vm.feed = response.json()` See above if you don't know where to put this line.
+    5. Now in your template, put a line like this: {{feed}}. This will output the JSON feed onto the page.
+
+    ## Extension - List the cats
+
+    The JSON feed that comes from the server contains an items attribute, which is an array. Use ngFor to loop over the array
+
+    ## Harder Extension - Allow the user to search for a tag.
+
+    The URL has a tag parameter embedded in it. Create a search field with a button. When the user clicks search, trigger a JSONP request that will perform the search.

@@ -1,0 +1,13 @@
+.course_links {
+  ul, li {
+    margin:0;
+    padding: 0;
+    list-style:none;
+  }
+  ul {
+    li {
+      display:inline-block;
+      margin-right:1em;
+    }
+  }
+}

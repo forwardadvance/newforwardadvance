@@ -1,6 +1,10 @@
 section
   :markdown
-    When writing TypeScript we can use @Input and @Output decorators to provide component inputs and outputs.
+    When writing TypeScript we can use `@Input` and `@Output` decorators to provide component inputs and outputs.
+
+    These replace the `inputs` attribute in the decorator. We can even create the EventEmitter inline, which makes our code quite tidy.
+
+    `@Output() upvote:EventEmitter<any> = new EventEmitter();`
 
     ```
     import {Component, Input, Output} from '@angular/core';
@@ -21,7 +25,6 @@ section
       @Input() person:Person;
       @Output() upvote:EventEmitter<any> = new EventEmitter();
 
-      constructor() {}
       handleClick() {
         upvote.emit(this.person)
       }
@@ -30,8 +33,10 @@ section
 
 section.exercise
   :markdown
-    ## Escape the Dungeon Exercise - Convert to TypeScript
+    ## Exercise - Component Interaction
 
-    Take your game and convert it to TypeScript. You'll find an ES6 starting point in the exercises folder. Use the @Input and @Output decorators for component interaction.
+    Modify your dungeon exercise to use the @Input and @Output decorators for component interaction.
+
+    You can start with the start point in the repository, or decorate your own app.
 
 

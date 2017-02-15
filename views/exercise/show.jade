@@ -8,10 +8,11 @@ block content
         span.date
           | Posted #{exercise.date.toDateString()}
 
+      if exercise.github
+        include ../partials/course_links
 
       != exerciseContent
 
     .left.four_col
       -current_exercise = exercise
       include ../partials/course_sidebar
-//-

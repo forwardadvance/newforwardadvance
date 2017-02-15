@@ -15,10 +15,10 @@ module.exports = {
     require('../modules/ng2-1'),
     require('../modules/ng2-2'),
     require('../modules/ng2-webpack-and-jasmine'),
-    require('../modules/ng2-ajax'),
     require('../modules/ng2-5'),
+    require('../modules/ng2-ajax'),
     // require('../modules/ionic2-1'),
-    // require('../modules/ng2-6'),
+    require('../modules/ng2-6'),
     // require("../modules/es6")
   ],
   optionalModules: ['webpack', 'gulp']

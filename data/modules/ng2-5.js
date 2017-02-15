@@ -38,31 +38,6 @@ module.exports = {
       learnings: [],
       path: 'ng2/input-output-decorators'
     },
-    {
-      title: 'Services and Dependency Injection with TypeScript',
-      slug: 'services',
-      description: '',
-      github: 'angular2_services_demo',
-      learnings: [],
-      path: 'ng2/services'
-    },
-    {
-      title: 'Routing',
-      slug: 'routing',
-      description: '',
-      github: 'angular2_routing_demo',
-      learnings: [],
-      path: 'ng2/routing'
-    },
-
-    {
-      title: 'AJAX - with a Service',
-      slug: 'ajax-typescript-service',
-      description: '',
-      github: 'angular2_ajax_demo',
-      learnings: [],
-      path: 'ng2/ajax-typescript-service'
-    },
   ],
   outline: [
     'Flux and one-way binding',

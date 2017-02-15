@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Angular 2 Client Server Interaction (AJAX)',
+  title: 'Angular 2 Services and AJAX',
   duration: 0.5,
   slug: 'ng2-ajax',
   price: 2250,
@@ -13,14 +13,32 @@ module.exports = {
       learnings: [],
       path:'ng2/ng-for'
     },
+
     {
-      title: 'AJAX - Talking to a Server',
-      slug: 'ajax',
+      title: 'Services and Dependency Injection with TypeScript',
+      slug: 'services',
+      description: '',
+      github: 'angular2_services_demo',
+      learnings: [],
+      path: 'ng2/services'
+    },
+
+    {
+      title: 'AJAX - with a Service',
+      slug: 'ajax-typescript-service',
       description: '',
       github: 'angular2_ajax_demo',
       learnings: [],
-      path:'ng2/ajax'
+      path: 'ng2/ajax-typescript-service'
     },
+    // {
+    //   title: 'AJAX - Talking to a Server',
+    //   slug: 'ajax',
+    //   description: '',
+    //   github: 'angular2_ajax_demo',
+    //   learnings: [],
+    //   path:'ng2/ajax'
+    // },
     {
       title: 'Observables',
       slug: 'observables',

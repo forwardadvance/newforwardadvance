@@ -14,6 +14,15 @@ module.exports = {
       learnings: [],
       path: 'ng2/custom-pipes'
     },
+
+    {
+      title: 'Routing',
+      slug: 'routing',
+      description: '',
+      github: 'angular2_routing_demo',
+      learnings: [],
+      path: 'ng2/routing'
+    },
     // {
     //   title: 'Form Validation',
     //   slug: 'form-validation',
@@ -31,14 +40,14 @@ module.exports = {
     //   learnings: [],
     //   path: 'ng2/hierarchical-injectors'
     // },
-    {
-      title: 'Inline Templates and ngIf',
-      slug: 'inline-templates',
-      description: '',
-      github: 'angular2_inline_templates_demo',
-      learnings: [],
-      path: 'ng2/inline-templates'
-    },
+    // {
+    //   title: 'Inline Templates and ngIf',
+    //   slug: 'inline-templates',
+    //   description: '',
+    //   github: 'angular2_inline_templates_demo',
+    //   learnings: [],
+    //   path: 'ng2/inline-templates'
+    // },
   ],
   outline: [
     'Flux and one-way binding',
