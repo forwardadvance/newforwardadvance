@@ -1,0 +1,88 @@
+:markdown
+  React is a DOM manipulation library. It contains methods that allow us to create virtual DOM nodes, then render them to the real DOM so they appear on our web page.
+
+  A minimal React HTML page looks like this:
+
+
+  ```html
+  <!DOCTYPE html>
+  <html>
+    <body>
+      <div id="app"></div>
+
+      <script src="lib/react.js"></script>
+      <script src="lib/react-dom.js"></script>
+      <script src="app/app.js"></script>
+    </body>
+  </html>
+  ```
+
+  We havea div with an id of app, then we have three script tags, two of which belong to React, and one of which (`app.js`) contains our code.
+
+
+  ## Creating virtual DOM nodes
+
+  To use React, we create virtual DOM nodes, like so:
+
+  ```
+  React.createElement('h1', null, "Hello, world!");
+  ```
+
+  The parameters are:
+
+  1. The type of element we want.
+  2. A JSON object which will be used to make attributes.
+  3. The content of the element. This might be an array of other elements.
+
+
+  ## Rendering
+
+  Creating this DOM node does nothing, because so far we have only maipulated the *Virtual DOM*.
+
+  If we want to take these changes and slap them onto the real DOM, we have to 'render'. We do this using ReactDOM.
+
+  ```
+  // First make the virtual DOM node
+  React.createElement('h1', null, "Hello, world!");
+
+  // Next choose a real DOM node to act as the root
+  var root = document.getElementById('app');
+
+  // Now render
+  ReactDOM.render(h1, root);
+  ```
+
+  Run this code to make a hello world. Now that was pretty simple right?
+
+
+  ## Helper methods
+
+  Typing React.createElement all the time is going to get stale quite quickly. react gives us helper methods for common html DOM nodes. Say we want an h1, we can call:
+
+  ```
+  React.DOM.h1(null, "Hello, world!");
+
+  // this is fully equivalent to:
+
+  React.createElement('h1', null, "Hello, world!");
+  ```
+
+
+
+  http://codepen.io/superluminary/pen/oxoGyK?editors=1011
+
+
+
+section.exercise
+  :markdown
+    ## Exercise - Hello React
+
+    In this exercise, we're just going to get some React running in a browser.
+
+    Download the React starting point from the github repo. Now try to get it running in a browser.
+
+    Change the code to put the message "goodbye cruel world" in a footer tag.
+
+    For bonus points, try to add a title attribute.
+
+

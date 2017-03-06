@@ -4,7 +4,7 @@ module.exports = [
   require('./angular-unit-testing.js'),
   require('./angular2.js'),
   require('./ionic2.js'),
-  // require('./react.js'),
+  require('./react.js'),
   require('./backbone.js'),
   require('./javascript-and-jquery.js'),
   require('./sass.js'),
