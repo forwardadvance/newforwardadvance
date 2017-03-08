@@ -133,10 +133,10 @@ section.exercise
 
     <http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&tagmode=any&format=json&jsoncallback=JSONP_CALLBACK>
 
-    1. First inject the ng.http.JSONP_PROVIDERS into your global injector. Do this when you bootstrap. See above for how.
-    2. Now inject ng.http.Jsonp into your constructor.
+    1. First provide JSONP to app.module
+    2. Now inject Jsonp into your constructor.
     3. In the constructor, make your call, like this: `jsonp.get(url)`
-    4. Store the result in the component. `vm.feed = response.json()` See above if you don't know where to put this line.
+    4. Store the result in the component. `feed = response.json()` See above if you don't know where to put this line.
     5. Now in your template, put a line like this: {{feed}}. This will output the JSON feed onto the page.
 
     ## Extension - List the cats
