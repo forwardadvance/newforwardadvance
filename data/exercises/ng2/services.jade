@@ -111,9 +111,13 @@ section.exercise
 
     import {LocationModel} from './location.model'
 
+    var dungeon = new LocationModel()
+    var corridor = new LocationModel()
+    dungeon.north = corridor;
+
     @Injectable()
     export class LocationService {
-      currentLocation:LocationModel
+      currentLocation:LocationModel = dungeon
       moveNorth() {
         if (this.currentLocation.north) {
           this.currentLocation = this.currentLocation.north
