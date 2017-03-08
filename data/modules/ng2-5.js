@@ -42,7 +42,7 @@ module.exports = {
       title: 'Testing Components',
       slug: 'unit-testing-angular',
       description: '',
-      github: '',
+      github: 'angular2_unit_testing',
       learnings: [],
       path: 'ng2/unit-testing-angular'
     },
