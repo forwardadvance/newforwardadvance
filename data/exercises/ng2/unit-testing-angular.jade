@@ -1,0 +1,108 @@
+section
+  :markdown
+    In order to unit test an Angular 2 component, we create an instance of that component, then check to see:
+
+    * If it builds
+    * if it contains what we expected it to contain
+
+    Assume we have a simple component like this:
+
+    ```
+    import {Component} from '@angular/core';
+
+    @Component({
+      selector: 'toaster',
+      template: `
+        <div>
+          Toast!
+        </div>
+      `
+    })
+    export class ToasterComponent {
+    };
+    ```
+
+    A simple test for this would simply build an instance, and check it doesn't die:
+
+    ```
+    import { ComponentFixture, TestBed } from '@angular/core/testing';
+    import { By }              from '@angular/platform-browser';
+    import { DebugElement }    from '@angular/core';
+
+    import { ToasterComponent } from './footer.component';
+
+    describe('ToasterComponent', () => {
+      let component:    ToasterComponent;
+      let fixture: ComponentFixture<ToasterComponent>;
+      beforeEach(() => {
+        TestBed.configureTestingModule({
+          declarations: [ToasterComponent]
+        });
+        fixture = TestBed.createComponent(ToasterComponent);
+        component = fixture.componentInstance;
+      });
+
+      it ('should work', () => {
+        expect(component instanceof ToasterComponent).toBe(true, 'should create ToasterComponent');
+      });
+    });
+    ```
+
+    ## Checking the inside of a component
+
+    The above test only checks that the component builds. We may wish to check the html that actually gets generated
+
+    ```
+    import { ComponentFixture, TestBed } from '@angular/core/testing';
+    import { By }              from '@angular/platform-browser';
+    import { DebugElement }    from '@angular/core';
+
+    import { CatNameComponent } from './cat_name.component';
+
+    describe('CatNameComponent', () => {
+      let component: CatNameComponent;
+      let fixture: ComponentFixture<CatNameComponent>;
+      let inputEl: DebugElement;
+      beforeEach(() => {
+        TestBed.configureTestingModule({
+          declarations: [CatNameComponent]
+        });
+        fixture = TestBed.createComponent(CatNameComponent);
+        component = fixture.componentInstance;
+        inputEl  = fixture.debugElement.query(By.css('input')); // find cat search element
+
+      });
+
+      // Check it works
+      it ('should work', () => {
+        expect(component instanceof CatNameComponent).toBe(true, 'should create CatNameComponent');
+      });
+
+      // Check it has a cat name attribute
+      it ('should have a catName', () => {
+        expect(component.catName).toEqual('');
+      });
+
+      // Check it has an input element
+      it ('should have a input element', () => {
+        expect(defined inputEl).toBe(true);
+      });
+
+    });
+    ```
+
+
+    For more on this, see the guide here:
+
+    <https://angular.io/docs/ts/latest/guide/testing.html#!#simple-component-test>
+
+
+section.exercise
+  :markdown
+    ## Exercise
+
+    Create a simple component spec for one of your dungeon components.
+
+    Create a file called spec.ts. In it, require your component spec. Create a spec.html file that links the spec in a script tag.
+
+    Now create a new entry in webpack.config.js that builds the spec.ts file.

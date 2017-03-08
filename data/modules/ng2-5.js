@@ -38,6 +38,14 @@ module.exports = {
       learnings: [],
       path: 'ng2/input-output-decorators'
     },
+    {
+      title: 'Testing Components',
+      slug: 'unit-testing-angular',
+      description: '',
+      github: '',
+      learnings: [],
+      path: 'ng2/unit-testing-angular'
+    },
   ],
   outline: [
     'Flux and one-way binding',

@@ -38,13 +38,7 @@ module.exports = {
       learnings: [],
       path: 'ng2/services-es6'
     },
-    // {
-    //   title: 'Testing Components',
-    //   slug: 'testing components',
-    //   description: '',
-    //   github: '',
-    //   learnings: []
-    // },
+
   ],
   outline: [
   ]
