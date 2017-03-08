@@ -37,14 +37,27 @@ section
   :markdown
     ## Configuring the injector
 
-    I would like to make JSONP available globally, so I configure the injector in my **app.ts** file, like so:
+    I would like to make JSONP available globally, so I configure the injector in my **app.module.ts** file, like so:
 
     ```
-    import {bootstrap}    from '@angular/platform-browser-dynamic'
-    import {AppComponent} from './app.component'
-    import {JSONP_PROVIDERS} from '@angular/http'
+    import { NgModule } from '@angular/core';
+    import { BrowserModule } from '@angular/platform-browser';
+    import { AppComponent } from './app.component';
+    import { WeatherComponent } from './weather.component';
+    import { WeatherService } from './weather.service';
+    import { HttpModule, JsonpModule } from '@angular/http';
 
-    bootstrap(AppComponent, [JSONP_PROVIDERS]);
+    @NgModule({
+      imports: [
+        BrowserModule,
+        HttpModule,
+        JsonpModule ],
+      declarations: [ AppComponent, WeatherComponent ],
+      bootstrap: [ AppComponent ],
+      providers: [ WeatherService ]
+    })
+    export class AppModule { }
+
 
     ```
 
@@ -58,13 +71,18 @@ section
 
     @Injectable()
     export class WeatherService {
-      url
-      constructor(jsonp: Jsonp) {
-        this.url = "http://www.myweather.com/getweather" // Note this is not a real weather URL!
-        this.jsonp = jsonp;
+      constructor(public jsonp: Jsonp) {
       }
-      get() {
-          return jsonp.get(this.url)
+      get(location:string) {
+        var url = [
+          "http://api.openweathermap.org/data/2.5/weather?q=",
+          location,
+          "&APPID=57d36da6b8187a992393dc6a0f4c96c3",
+          "&callback=JSONP_CALLBACK"].join('')
+
+        return this.jsonp.get(url)
+          .map((res) => res.json())
+
       }
     }
     ```
@@ -93,18 +111,16 @@ section
 
     })
     export class WeatherComponent {
-      constructor(weather: WeatherService) {
+      constructor(public weather: WeatherService) {
         var vm = this;
-        weather.get()
-          .subscribe(function(response) {
-            vm.weather = response.json()
-          })
+        this.weather.get(this.loc)
+          .subscribe(data => {
+            this.weather = data;
+          });
+        }
       }
     }
     ```
-
-
-  !=resources(exercise)
 
 
 section.exercise
