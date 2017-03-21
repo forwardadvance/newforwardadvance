@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Angular 2 Services and AJAX',
   duration: 0.5,
-  slug: 'ng2-ajax',
+  slug: 'ng2-services-and-ajax',
   price: 2250,
   description: 'We build an AJAX app based on the Flickr API, and split it into services. We\'ll test it with Jasmine, and learn about Observables.',
   exercises: [

@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Angular 2 Foundations - Components, Templates & Data Binding',
   duration: 0.5,
-  slug: 'ng2-1',
+  slug: 'ng2-thinking-in-components',
   price: 2250,
   // github: 'angular2_fundamentals_part_1',
   description: 'In which we learn to think about our app in terms of nested components.',
