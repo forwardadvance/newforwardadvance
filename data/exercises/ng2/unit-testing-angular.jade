@@ -26,10 +26,8 @@ section
 
     ```
     import { ComponentFixture, TestBed } from '@angular/core/testing';
-    import { By }              from '@angular/platform-browser';
-    import { DebugElement }    from '@angular/core';
 
-    import { ToasterComponent } from './footer.component';
+    import { ToasterComponent } from './toaster.component';
 
     describe('ToasterComponent', () => {
       let component:    ToasterComponent;
@@ -38,8 +36,7 @@ section
         TestBed.configureTestingModule({
           declarations: [ToasterComponent]
         });
-        fixture = TestBed.createComponent(ToasterComponent);
-        component = fixture.componentInstance;
+        component = TestBed.createComponent(ToasterComponent).componentInstance;
       });
 
       it ('should work', () => {
@@ -99,10 +96,17 @@ section
 
 section.exercise
   :markdown
-    ## Exercise
+    ## Attack the Dungeon Exercise
 
-    Create a simple component spec for one of your dungeon components.
+    Use the github repository as a guide to create a component specs for your dungeon components.
 
-    Create a file called spec.ts. In it, require your component spec. Create a spec.html file that links the spec in a script tag.
+    You'll need a file called spec.ts. You can create this, or get it from the exercise startpoint. In it, you will require each of your component specs.
 
-    Now create a new entry in webpack.config.js that builds the spec.ts file.
+    Create a spec.html to be your jasmine test harness, similar to the ones you have made before. You'll find one of these in your exerrcise startpoint.
+
+    Now create a new entry in webpack.config.js that builds the spec.ts file. You'll find this already present in the exercise starter.
+
+
+    ## Extension
+
+    You'll find code in the package.json to start a live reload server for your specs. Have a go at starting one of these now.
