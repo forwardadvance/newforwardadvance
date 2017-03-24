@@ -1,0 +1,119 @@
+//- Crying at the moment. Why do I suck so badly?
+
+:markdown
+  We have two ways of interacting with forms in Angular 2. We can either do:
+
+  * Template driven forms - that we define entirely in the template, or,
+  * Reactive forms - that we control in the component class.
+
+  ## Template Driven Forms with the FormsModule
+
+  We can define a form entirely within a template using the FormsModule from @angular/forms.
+
+  First we include this in our app module:
+
+  ```
+  import { NgModule } from '@angular/core';
+  import { FormsModule } from '@angular/forms';
+  import { BrowserModule } from '@angular/platform-browser';
+  import { AppComponent } from './app.component';
+
+  @NgModule({
+    imports: [ BrowserModule, FormsModule ],
+    declarations: [ AppComponent ],
+    bootstrap: [ AppComponent ],
+  })
+  export class AppModule { }
+  ```
+
+  Now we can define our form:
+
+  ```
+  import {Component} from '@angular/core';
+
+  @Component({
+    selector: 'app',
+    template: `
+      <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <p>
+        <label>email:</label>
+        <input name="email" type="email"
+          [(ngModel)]="user.email" required>
+      </p>
+      <p>
+        <label>Password:</label>
+        <input name="password" type="password"
+          [(ngModel)]="user.password" required>
+      </p>
+      <p>
+        <button [disabled]="!form.valid">Submit</button>
+      </p>
+    </form>
+      `
+  })
+  ```
+  export class AppComponent {
+    user:any = {}
+
+    onSubmit() {
+      console.log(this.user);
+    }
+  }
+
+
+  ## Reactive Forms
+
+  In the above example, we defined our form entirely in the template. This is great for simple forms, but if we have a more complex form we might want to let the code take over.
+
+  We can use the FormBuilder to help us. Here's a component that makes use of FormBuilder:
+
+  ```
+  import {Component} from '@angular/core';
+  import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+  @Component({
+      selector: 'form-builder-demo',
+      template: `
+        <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+          <p>
+            <label>First Name:</label>
+            <input type="text" formControlName="email">
+          </p>
+          <p>
+            <label>Password:</label>
+            <input type="password" formControlName="password">
+          </p>
+          <p>
+            <button type="submit" [disabled]="!form.valid">Submit</button>
+          </p>
+        </form>
+      `
+  })
+  export class FormBuilderDemoComponent {
+    user:any = {}
+
+    form: FormGroup;
+
+    constructor(fb: FormBuilder) {
+        this.form = fb.group({
+            "email": ["", Validators.required],
+            "password":["", Validators.required]
+        });
+    }
+
+    onSubmit() {
+      console.log(this.user);
+    }
+  }
+  ```
+
+section.exercise
+  :markdown
+
+    ## Exercise
+
+    We are going to make a form that lets us modify the current location.
+
+    First include the ReactiveForms module in your AppModule.
+
+    Now create a reactive form component that lets you update the location. It should receive a locationModel and render it.

@@ -16,7 +16,7 @@ module.exports = {
     require('../modules/ng2-testing-and-tooling'),
     require('../modules/ng2-services-and-ajax'),
     // require('../modules/ionic2-1'),
-    require('../modules/ng2-6'),
+    require('../modules/ng2-further-topics'),
     // require("../modules/es6")
   ],
   optionalModules: ['webpack', 'gulp']

@@ -1,11 +1,27 @@
 module.exports = {
   title: 'Angular 2 Additional Topics',
   duration: 0.5,
-  slug: 'ng2-6',
+  slug: 'ng2-further-topics',
   price: 750,
   description: '',
   exercises: [
 
+    {
+      title: 'Template Driven and Reactive Forms',
+      slug: 'two-way-binding',
+      description: '',
+      github: 'angular2_forms_demo',
+      learnings: [],
+      path: 'ng2/forms'
+    }
+    {
+      title: 'Styling Components with SASS and the Shadow DOM',
+      slug: 'shadow-dom',
+      description: '',
+      github: 'angular2_shadow_dom_demo',
+      learnings: [],
+      path: 'ng2/shadow-dom'
+    },
     {
       title: 'Custom Pipes',
       slug: 'custom-pipes',
@@ -14,10 +30,17 @@ module.exports = {
       learnings: [],
       path: 'ng2/custom-pipes'
     },
-
     {
       title: 'Routing',
       slug: 'routing',
+      description: '',
+      github: 'angular2_routing_demo',
+      learnings: [],
+      path: 'ng2/routing'
+    },
+    {
+      title: 'NG-cli',
+      slug: 'ng-cli',
       description: '',
       github: 'angular2_routing_demo',
       learnings: [],

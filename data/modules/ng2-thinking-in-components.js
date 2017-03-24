@@ -97,22 +97,6 @@ module.exports = {
       learnings: [],
       path: 'ng2/event-emitters'
     },
-    {
-      title: 'Two-Way-Binding Forms in Angular 2',
-      slug: 'two-way-binding',
-      description: '',
-      github: 'angular2_two_way_binding_demo',
-      learnings: [],
-      path: 'ng2/two-way-binding'
-    },
-    {
-      title: 'Styling Components with the Shadow DOM',
-      slug: 'shadow-dom',
-      description: '',
-      github: 'angular2_shadow_dom_demo',
-      learnings: [],
-      path: 'ng2/shadow-dom'
-    }
   ],
   outline: [
     'Flux and one-way binding',
