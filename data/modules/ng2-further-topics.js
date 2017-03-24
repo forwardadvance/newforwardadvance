@@ -7,13 +7,21 @@ module.exports = {
   exercises: [
 
     {
+      title: 'Routing',
+      slug: 'routing',
+      description: '',
+      github: 'angular2_routing_demo',
+      learnings: [],
+      path: 'ng2/routing'
+    },
+    {
       title: 'Template Driven and Reactive Forms',
-      slug: 'two-way-binding',
+      slug: 'forms',
       description: '',
       github: 'angular2_forms_demo',
       learnings: [],
       path: 'ng2/forms'
-    }
+    },
     {
       title: 'Styling Components with SASS and the Shadow DOM',
       slug: 'shadow-dom',
@@ -29,14 +37,6 @@ module.exports = {
       github: 'angular2_custom_pipes_demo',
       learnings: [],
       path: 'ng2/custom-pipes'
-    },
-    {
-      title: 'Routing',
-      slug: 'routing',
-      description: '',
-      github: 'angular2_routing_demo',
-      learnings: [],
-      path: 'ng2/routing'
     },
     {
       title: 'NG-cli',
