@@ -1,0 +1,54 @@
+section
+  :markdown
+    In this section we are going to attempt to build a realistic app against a real API.
+
+    We have a public restful API that has articles, authors and comments. The endpoint is at:
+
+    <https://simple-api.herokuapp.com>
+
+    In order to get a list of all current articles, you would hit: <https://simple-api.herokuapp.com/api/v1/articles>
+
+    To get a specific article, get <https://simple-api.herokuapp.com/api/v1/articles/1>
+
+    To create an article, post a JSON payload to <https://simple-api.herokuapp.com/api/v1/articles>
+
+    The API spec is as follows:
+
+    ```
+    GET  /api/v1/articles/:id/destroy
+    POST /api/v1/articles/:id/update
+
+    GET  /api/v1/articles/:article_id/comments
+
+    GET  /api/v1/articles
+    POST /api/v1/articles
+    GET  /api/v1/articles/:id
+
+    GET  /api/v1/authors/:id/destroy
+    POST /api/v1/authors/:id/update
+
+    GET  /api/v1/authors/:author_id/articles
+
+    GET  /api/v1/authors
+    POST /api/v1/authors
+    GET  /api/v1/authors/:id
+
+    GET  /api/v1/comments/:id/destroy
+    POST /api/v1/comments/:id/update
+
+    GET  /api/v1/comments
+    POST /api/v1/comments
+    GET  /api/v1/comments/:id
+    ```
+
+section.exercise
+  :markdown
+    ## Exercise - integration
+
+    We are going to build a little app that can talk to this API. Use the NG-cli to make this easier.
+
+    You will need to create a nice little service that can do the AJAX. Pick a resource (probably articles), and make a service that can talk to it.
+
+    Now make a component that will inject the service. This will get a list of articles and render them on the page.
+
+    For bonus points, allow the user to click on an article and render it on the page.

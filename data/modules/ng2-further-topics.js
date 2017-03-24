@@ -42,9 +42,17 @@ module.exports = {
       title: 'NG-cli',
       slug: 'ng-cli',
       description: '',
-      github: 'angular2_routing_demo',
+      github: '',
       learnings: [],
-      path: 'ng2/routing'
+      path: 'ng2/ng-cli'
+    },
+    {
+      title: 'Integration and REST',
+      slug: 'integration-exercise',
+      description: '',
+      github: '',
+      learnings: [],
+      path: 'ng2/integration-exercise'
     },
     // {
     //   title: 'Form Validation',
