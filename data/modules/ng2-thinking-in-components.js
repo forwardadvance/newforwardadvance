@@ -1,11 +1,11 @@
 module.exports = {
   title: 'Angular 2 Foundations - Components, Templates & Data Binding',
-  duration: 0.5,
+  duration: 1,
   slug: 'ng2-thinking-in-components',
   price: 2250,
   // github: 'angular2_fundamentals_part_1',
-  description: 'In which we learn to think about our app in terms of nested components.',
-  outcome: 'By the end of this module you\'ll be able to create a simple component based app that responds to events and outputs data using simple ES6.',
+  description: 'In which we use simple ES6 to compose some applications, and learn to think in terms of nested components and reactivity.',
+  outcome: 'By the end of this module you\'ll be able to create a simple component based app that responds to events and outputs data using ES6.',
   exercises: [
     {
       title: 'Welcome to the Angular 2 course',

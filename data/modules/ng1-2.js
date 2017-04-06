@@ -10,6 +10,7 @@ module.exports = {
 
     {
       slug: 'controllers',
+      path: 'ng/controllers',
       title: 'Controllers',
       description: 'Controllers glue the scope to the template.',
       github: 'angular_controllers_demo',
@@ -21,6 +22,7 @@ module.exports = {
     },
     {
       slug: 'scope',
+      path: 'ng/scope',
       title: '$Scope and the $scope tree',
       description: '$scope is an object in which you can store your models',
       github: 'angular_scope_demo',
@@ -32,6 +34,7 @@ module.exports = {
     },
     {
       slug: 'controller-as',
+      path: "ng/controller-as",
       title: 'Controller As',
       description: 'We can use the controller itself as a model store.',
       github: 'angular_controller_as_demo',
@@ -41,6 +44,7 @@ module.exports = {
     },
     {
       slug: 'watch',
+      path: "ng/watch",
       title: 'Watch and the $digest cycle',
       description: 'Here we delve into the workings of the digest cycle and discover the logic behind Angular data binding.',
       github: 'angular_watch_demo',
@@ -53,6 +57,7 @@ module.exports = {
 
     {
       slug: 'repeat-and-filter',
+      path: "ng/repeat-and-filter",
       title: 'Repeat and Filter',
       description: 'The show-off feature of Angular. This stuff makes clients really happy.',
       github: 'angular_ngrepeat_demo',

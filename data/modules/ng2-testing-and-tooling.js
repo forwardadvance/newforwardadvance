@@ -1,6 +1,6 @@
 module.exports = {
   title: 'Testing and Tooling - Webpack, Jasmine and TypeScript',
-  duration: 0.5,
+  duration: 1,
   slug: 'ng2-testing-and-tooling',
   price: 2250,
   github: 'angular2_webpack_and_jasmine',
