@@ -39,14 +39,6 @@ module.exports = {
       path: 'ng2/custom-pipes'
     },
     {
-      title: 'NG-cli',
-      slug: 'ng-cli',
-      description: '',
-      github: '',
-      learnings: [],
-      path: 'ng2/ng-cli'
-    },
-    {
       title: 'Integration and REST',
       slug: 'integration-exercise',
       description: '',

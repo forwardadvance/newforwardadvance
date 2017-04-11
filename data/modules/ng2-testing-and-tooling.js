@@ -63,6 +63,14 @@ module.exports = {
       path: 'ng2/typescript-components'
     },
     {
+      title: 'NG-cli',
+      slug: 'ng-cli',
+      description: '',
+      github: '',
+      learnings: [],
+      path: 'ng2/ng-cli'
+    },
+    {
       title: 'Input and @Output Decorators',
       slug: 'input-output-decorators',
       description: '',
@@ -78,7 +86,6 @@ module.exports = {
       learnings: [],
       path: 'ng2/unit-testing-angular'
     },
-
   ],
   outline: [
   ]

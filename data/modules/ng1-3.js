@@ -8,6 +8,7 @@ module.exports = {
   'exercises': [
     {
       slug: 'di-and-services',
+      path: 'ng/di-and-services',
       title: 'Services and Dependency Injection (DI)',
       description: 'Dependency Injection allows us to require components simply be referring to them. Learn about DI and also split your code into sensible modules.',
       github: 'angular_di_demo',
@@ -18,6 +19,7 @@ module.exports = {
     },
     {
       slug: 'jasmine-intro',
+      path: 'ng/jasmine-intro',
       title: 'Introduction to Unit Testing',
       description: 'All good developers write unit tests. This is ongoing through the rest of the course.',
       github: 'angular_karma_intro_demo',
@@ -29,12 +31,14 @@ module.exports = {
     },
     // {
     //   slug: 'karma-cli',
+    // path: 'ng/karma-cli',
     //   title: 'Karma CLI - testing on the command line',
     //   description: 'Tests are only useful when they run all the time. The Karma CLI is a background test runner that will execute all tests on save.',
     //   github: 'angular_karma_cli_demo'
     // },
     {
       slug: 'jasmine-services',
+      path: 'ng/jasmine-services',
       title: 'Testing a Service with Jasmine',
       description: 'Here we see how to use Jasmine to automate service tests.',
       github: 'angular_jasmine_service_demo',
@@ -42,6 +46,7 @@ module.exports = {
     },
     {
       slug: 'jasmine-controllers',
+      path: 'ng/jasmine-controllers',
       title: 'Testing a Controller with Jasmine',
       description: 'Here we see how to use Jasmine to automate controller tests.',
       github: 'angular_jasmine_controller_demo',

@@ -27,12 +27,14 @@ module.exports = {
     // },
     {
       slug: 'resource',
+      path: 'ng/resource',
       title: 'Resource',
       description: 'Resource is an ORM for REST. Powerful and terse AJAX.',
       github: 'angular_resource_demo'
     },
     {
       slug: 'protractor',
+      path: 'ng/protractor',
       title: 'Protractor',
       description: 'End to end integration testing.',
       github: 'angular_protractor_demo',

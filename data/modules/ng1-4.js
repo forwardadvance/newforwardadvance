@@ -9,6 +9,7 @@ module.exports = {
 
     {
       slug: 'ajax',
+      path: 'ng/ajax',
       title: 'AJAX',
       description: 'Drop JSON into your $scope and it will automatically bind it to the template.',
       github: 'angular_ajax_demo',
@@ -20,6 +21,7 @@ module.exports = {
     },
     {
       slug: 'ng-include',
+      path: 'ng/ng-include',
       title: 'Templates, ng-include and the $templateCache',
       description: 'Talking to the template cache directly can make your app feel more responsive. Learn how.',
       github: 'angular_template_cache_demo',
@@ -32,6 +34,7 @@ module.exports = {
     },
     {
       slug: 'services',
+      path: 'ng/services',
       title: 'Services and Factories as AJAX wrappers',
       description: 'The Controller is not the right place for business logic. Here we create a Service to pick up the load.',
       github: 'angular_services_demo',

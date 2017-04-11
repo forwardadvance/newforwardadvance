@@ -22,6 +22,7 @@ module.exports = {
 
     {
       slug: 'directive-compilation',
+      path: 'ng/directive-compilation',
       title: 'Directive Compilation and the link function',
       description: 'We look at how the Angular compiler traverses the DOM, order of compilation, and when to use the compile, link and controller functions.',
       github: 'angular_directive_compilation_demo',
@@ -32,6 +33,7 @@ module.exports = {
     },
     {
       slug: 'transclusion',
+      path: 'ng/transclusion',
       title: 'Directive Transclusion',
       description: 'Transclusion allows us to pass template content to a directive as an attribute. This is a lot more useful than it sounds. Here we see why.',
       github: 'angular_directive_transclusion_demo',
@@ -41,6 +43,7 @@ module.exports = {
     },
     {
       slug: 'manual-transclusion',
+      path: 'ng/manual-transclusion',
       title: 'Manual Transclusion in the Link Function',
       description: 'The transclusion is available your link function, enabling some advanced usage.',
       github: 'angular_directive_transclusion_demo',
