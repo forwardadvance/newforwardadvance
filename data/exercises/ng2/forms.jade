@@ -106,12 +106,17 @@
 
 section.exercise
   :markdown
-    ## Exercise
+    ## Exercise 1
 
     We are going to make a form that allows the user to modify a hero.
 
     First include the ReactiveForms module in your AppModule.
 
-    Now create a reactive form component that lets you update that hero. It should receive a hero and modify it.
+    Now create a form component that lets you update that hero. It should receive a hero as a parameter. OnSubmit, you will have access to this.form.controls, which will be an object containing all the data. Use this to update the hero.
 
-    Now add routing. I want to be able to hit: `hero/:id/edit.
+
+section.exercise
+  :markdown
+    ## Exercise 2 - Routing
+
+    Add in some routing. I want to be able to hit: `hero/:id` and `hero/:id/edit`
