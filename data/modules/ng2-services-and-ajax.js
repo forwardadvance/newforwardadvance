@@ -24,6 +24,30 @@ module.exports = {
     },
 
     {
+      title: 'Routing',
+      slug: 'routing',
+      description: '',
+      github: 'angular2_routing_demo',
+      learnings: [],
+      path: 'ng2/routing'
+    },
+    {
+      title: 'Further Routing',
+      slug: 'further-routing',
+      description: '',
+      github: 'angular2_further_routing_demo',
+      learnings: [],
+      path: 'ng2/further-routing'
+    },
+    {
+      title: 'Template Driven and Reactive Forms',
+      slug: 'forms',
+      description: '',
+      github: 'angular2_forms_demo',
+      learnings: [],
+      path: 'ng2/forms'
+    },
+    {
       title: 'AJAX - with a Service',
       slug: 'ajax-typescript-service',
       description: '',

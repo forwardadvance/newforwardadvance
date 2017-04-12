@@ -1,0 +1,114 @@
+section
+  :markdown
+    In the last section we saw how easy routes can be. Here we look at nesting routes and passing data from routes to the app.
+    
+    ## Nested Routes
+
+    ```
+    const routes: Routes = [
+      {
+        path: "",
+        pathMatch: "full",
+        redirectTo: '/genes/braf'
+      },
+      { path: "cats", component: CatPageComponent, children: [
+        { path: "", component: CatListComponent },
+        { path: "fluffy", component: FluffyComponent },
+        { path: "terry", component: TerryComponent }
+      ]},
+      { path: "about", component: AboutPageComponent },
+      { path: '**', component: PageNotFoundComponent }
+    ];
+
+    @NgModule({
+      imports: [RouterModule.forRoot(routes)],
+      exports: [RouterModule]
+    })
+    export class AppRoutingModule { }
+    ```
+
+    The app will now respond to `/cats` and `/cats/fluffy`.
+
+    Because the routes are nested, we now need another `<router-outlet>` in our CatPageComponent. If we forget to add one, Angular will complain.
+
+    Our router link now looks like this:
+
+    ```html
+    <a [routerLink]="['cats', 'fluffy']" routerLinkActive="active">Fluffy</a>
+    ```
+
+    routerLinkActive will be activated for any partial match, so if we hit `/cats/fluffy`, the following link would be highlighted, even though it's only a partial match.
+
+    ```
+    <a routerLink="cats" routerLinkActive="active">Cats</a>
+    ``` 
+
+    ## Passing Parameters
+
+    We can pass parameters from a route by embedding those parameters  in the URL, like this `cats/:cat_id.
+
+
+    ```
+    const routes: Routes = [
+      { path: "cats/:cat_id", component: CatComponent }
+    ];
+
+    @NgModule({
+      imports: [RouterModule.forRoot(routes)],
+      exports: [RouterModule]
+    })
+    export class AppRoutingModule { }
+    ```
+
+    You can get hold of these parameters anywhere you like by injecting the ActivatedRoute service:
+
+    ```
+    constructor(private route: ActivatedRoute) {}
+    ```
+
+    ActivatedRoute gives us an Observable that we can subscribe to to watch for changes:
+
+    ```
+    this.route.params
+      .subscribe((params:Params) => {
+        this.catId = params[:cat_id]
+      });
+    ```
+
+    
+
+    ## Redirecting
+
+    Sometimes we don't want to implement a particular route. We'd like to simply redirect from that route to another place.
+
+    ```
+    const routes: Routes = [
+      {
+        path: "",
+        pathMatch: "full",
+        redirectTo: '/cats/1'
+      },
+      { path: "cats/:id", component: CatPageComponent }
+    ];
+
+    @NgModule({
+      imports: [RouterModule.forRoot(routes)],
+      exports: [RouterModule]
+    })
+    export class AppRoutingModule { }
+    ```
+
+
+
+section.exercise
+  :markdown
+    ## Exercise - Attack the Dungeon
+
+    Create a service that contains three unlikely heros, and three unline. Now create a tabbed UI that lets you view them by id. Pass the id parameter in the URL.
+
+    For bonus points, give each hero an inventory. Create a sidebar that lets you swap between the view and the inventory for each hero:
+
+    ```
+    /hero/:id
+    /hero/:id/inventory
+    ```

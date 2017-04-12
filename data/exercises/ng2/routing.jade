@@ -5,66 +5,124 @@ section
     1. A working back button - you can go to a previous URL
     2. Sharable links, you can sent the link to a friend.
 
-    We define our routes in an array, then make our module import them.
+    ## RouterModule
 
+    Routing in Angular is rich and deep. If you used UIRouter in Angular one, many of the features will be familiar to you. 
+
+    * Define routes and associated components
+    * Pass data from the route to the component
+    * Embed data in the route
+    * Nest routes, one inside the other
+    * Create a default 404 route
+    * Discover if a particular route or route segment is active and style a link accordingly.
+    * Inject data from the route anywhere in the app.
+
+    ## Defining Routes
+
+    We define our routes in an array, like so:
+    
     ```
-    import { NgModule } from '@angular/core';
-    import { RouterModule, Routes } from '@angular/router';
-    import { BrowserModule } from '@angular/platform-browser';
-
-    import { AppComponent } from './app.component';
     import { CatPageComponent } from './cat.page.component';
     import { HomePageComponent } from './home.page.component';
+    import { PageNotFoundComponent } from './404.page.component';
 
     const appRoutes: Routes = [
       {path: '', component:  HomePageComponent },
-      {path: 'cat', component: CatPageComponent, }
+      {path: 'cat', component: CatPageComponent },
+      { path: '**', component: PageNotFoundComponent }
     ]
+    ```
+    
+    Routes are matched in order. The first matching route will be activated, and the router will stop looking for more routes. Order of routes matters. This is especially important if you have split your routes over several modules. You must include your PageNotFoundComponent route last of all.
+
+    ## Making the Router Module
+
+    We then use this array to make a router module for our app, like so:
+
+    ```
+    @NgModule({
+      imports: [RouterModule.forRoot(routes)],
+      exports: [RouterModule]
+    })
+    export class AppRoutingModule { }
+    ```
+
+    ## Including in our app
+
+    Then we include the routing module in our app just like any other module.
+
+    ```
+    import { BrowserModule } from '@angular/platform-browser';
+    import { NgModule } from '@angular/core';
+
+    import { AppRoutingModule } from './app-routing.module';
+    import { AppComponent } from './app.component';
 
     @NgModule({
-      imports: [
-        BrowserModule,
-        RouterModule.forRoot(appRoutes)
-      ],
-      declarations: [ AppComponent, CatPageComponent, HomePageComponent ],
-      bootstrap: [ AppComponent ],
+      declarations: [AppComponent],
+      imports: [ BrowserModule, AppRoutingModule],
+      bootstrap: [AppComponent]
     })
     export class AppModule { }
     ```
 
-    The in our component, we link to our new routes using `<a routerLink="cat">Cat</a>`. The component will be inserted in the `<router-outlet></router-outlet>` element.
+    ## The Template
 
+    We link to our new routes using `<a routerLink="cat">Cat</a>`. The selected component will be inserted in the `<router-outlet>` element.
+
+    ```html
+    <header>
+      <a routerLink="">Home</a>
+      <a routerLink="cat">Cat</a>
+    </header>
+
+    <router-outlet></router-outlet>
     ```
-    import {Component} from '@angular/core';
 
-    @Component({
-        selector: 'app',
-        template: `
-          <header>
-            <a routerLink="">Home</a>
-            <a routerLink="cat">Cat</a>
-          </header>
-          <router-outlet></router-outlet>
-        `
-    })
-    export class AppComponent {
-      private name: string
-      miowCount:number = 0;
-      constructor() {
-        this.name = 'Mikey the Cat'
+    ## Highlighting links
+
+    We can add a class to a link with the routerLinkActive directive:
+
+    ```html
+    <a routerLink="genes" routerLinkActive="active">Gene Search</a>
+    ```
+
+    In our SCSS we then do something like this:
+
+    ```scss
+    a {
+      display:inline-block;
+      color:black;
+      padding:10px;
+      &:hover {
+        background:black;
+        color:white;
       }
     }
     ```
 
+    ## NG-CLI
+
+    We can use the ng-cli to get a start on a routed app. Run the generator with the --routing flag to build a routing module.
+
+    ```bash
+    ng new my-app --routing --style scss --prefix app
+    ```
+
+    If you start your app with ng serve, the index.html filte will be served for all urls that you hit directly.
+
 section.exercise
   :markdown
-    ## Exercise
+    ## Exercise - ng-cli
 
-    Download the starting point. Create a new route for Dogs and link to it.
+    Generate a new routed app using the ng-cli. 
+    
+    ```ng new my-app --routing --style scss --prefix app```
+    
+    GEnerate component and create routes for Home, About, Contact, and PageNotFound.
 
+    Make a header component which you can use to navigate between the components.
 
-section.exercise
-  :markdown
-    ## Escape the Dungeon Exercise
+    Add styling to the header. Highlight the link you are currently on.
 
-    You should have a heroEditForm component. Create a route, so that we can link to the heroEditForm, and change the URL when we do.
+    Optionally add a footer with the same links.
