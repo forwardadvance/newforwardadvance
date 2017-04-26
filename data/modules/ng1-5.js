@@ -9,7 +9,7 @@ module.exports = {
     {
       slug: 'directives',
       path: 'ng/directives',
-      title: 'Writing Directives and Components',
+      title: 'Writing Directives',
       description: 'Directives tell the Angular compiler how to transform the DOM. They are the guts of Angular. You will learn all about them.',
       github: 'angular_directives_demo',
       learnings: []
@@ -25,6 +25,14 @@ module.exports = {
         'Two way binding (=)',
         'Handling Events (&)'
       ]
+    },
+    {
+      slug: 'components',
+      path: 'ng/components',
+      title: 'Writing Components',
+      description: 'Components give you sensible defaults for constructing a component oriented architecture.',
+      github: 'angular_components_demo',
+      learnings: []
     },
     {
       slug: 'modules',

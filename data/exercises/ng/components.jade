@@ -1,0 +1,87 @@
+
+section
+  :markdown
+    Components were introduced in Angular 1.5. They let us define directives with sensible defaults for creating a component based architecture.
+
+    A component oriented architecture is an app built from multiple isolated directives. Data is explicitly passed in using '<', and events are used to send data back out using '&'. Apps built in this way can be much more scalable because each component can be thought about in isolation from its surroundings.
+
+    Here's a simple footer component:
+
+    ```
+    angular.module('app', [])
+      .component('appFooter', {
+          template: `
+            <footer>Thanks for using the app.</footer>
+          `
+        });
+    ```
+
+    This gives us:
+
+    * A default empty controller.
+    * An isolated, empty $scope.
+    * bindTocController, so we have a $ctrl attribute of $scope that contains the controller.
+
+
+    Here's a more complex example that defines an isolated $scope. We pass in the cheese using one way binding, then fire an event when the cheese is eaten.
+
+    ```
+    angular.module('app', [])
+      
+      .component('cheeseView', {
+          scope: {
+            cheese: '<',
+            onEat: '&'
+          },
+          template: `
+            <input ng-model='$ctrl.cheese' />{{cheese}}
+            <button ng-click="$ctrl.onEat()">Eat Me!</button>
+          `
+        });
+    ```
+
+    We would use this component like this:
+
+    ```html
+    <cheese-view cheese="Gouda" on-eat="eaten=true"></cheese-view>
+    ```
+
+    ## One way binding
+
+    This component is using one way binding. The cheese is passed down into the component.
+    Data goes down the tree using attributes. If we want to pass data back up we use events.
+
+section.exercise
+  :markdown
+    ## Exercise - Components
+
+    Modify your Flickr search to use components.
+
+    ### Create a header and footer
+
+    Create header and footer components for the app that look suitably swish.
+
+    ### Create a search box
+
+    Make a search box component. It should receive a term parameter, and emit an on-search event, which you will deal with at the app level.
+
+    ### Create a flickr search results component
+
+    It should receive a term and do a search whenever the term changes. You may need to $watch term to make this happen.
+
+    Have the flickr search results pane emit start and complete events when the search starts and completes
+
+    ### Create a spinner component
+
+    Have it receive a `visible` parameter. When it is visible, it spins. When it is not visible, it doesn't spin.
+
+    Your app structure should look like this:
+    
+    ```
+    app
+      search-field
+      flickr-results
+      spinner
+    ```
+
+    
