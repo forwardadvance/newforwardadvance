@@ -79,6 +79,23 @@ section
     </div>
     ```
 
+    ## One way binding with <
+
+    < will let you pass a value in which isn't bound back to the parent. To get data out again you fire an event with &.
+
+    ```
+    .directive('userProfile', function() {
+      return {
+        scope: {
+          user: '<'
+        },
+        template: "<h2>{{user.name}}</h2>"
+      }
+    })
+    ```
+
+    One way binding is more predictable and performant than two way binding, since you can't accidentally change a value on a parent. This is the default behaviour in Angular 2.
+
     ## Output with &
 
     We can achieve output from our component by calling functions on the parent $scope. We do this with an &.
