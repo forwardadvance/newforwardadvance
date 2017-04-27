@@ -51,9 +51,47 @@ section
     This component is using one way binding. The cheese is passed down into the component.
     Data goes down the tree using attributes. If we want to pass data back up we use events.
 
+
 section.exercise
   :markdown
-    ## Exercise - Components
+    ## Exercise - TODO
+
+    We ae going to ceate a little TODO app using components.
+
+    Download the start point, you will find an app component and a skeleton todoList component. Verify this works.
+
+    Create header and footer components. Hooray, easy win.
+
+    Use one way binding to pass the todo list from the app component down into the todo-list component.
+
+    Use and ng-repeat to loop over the list and output the results
+
+    For bonus points create a todo component that renders a single todo. Pass this todo in with one way binding.
+
+    ## Extension Add more TODOs
+
+    Create a todo-entry-form component. This will let you type in a new todo. This component should emit an on-new-todo event using the & binding. When it does so, append the new todo to the list in the app component.
+
+    ## Double Extension - delete TODOs
+
+    Add a button to the todo component that emits an on-delete event. This should send a message up via the todo-list to the app (you will need to emit two events, one from the todo, and one from the todo list. The app should then delete the todo from its list.
+    
+    The finished app structure will look like this:
+
+    ```
+    app
+      header
+      todo-list
+        todo
+        todo
+        todo
+      footer
+    ```
+
+    
+section.exercise
+  :markdown
+    ## Harder Exercise - Flickr
 
     Modify your Flickr search to use components.
 
