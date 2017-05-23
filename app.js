@@ -37,19 +37,19 @@ var config = require('./config/config');
 /**
  * Controllers (route handlers).
  */
-var homeController     = require('./controllers/home');
-var userController     = require('./controllers/user');
-var apiController      = require('./controllers/api');
-var contactController  = require('./controllers/contact');
-var courseController   = require('./controllers/course');
-var exerciseController = require('./controllers/exercise');
+var homeController     = require('./app/controllers/home');
+var userController     = require('./app/controllers/user');
+var apiController      = require('./app/controllers/api');
+var contactController  = require('./app/controllers/contact');
+var courseController   = require('./app/controllers/course');
+var exerciseController = require('./app/controllers/exercise');
 
 /**
  * Middleware
  */
-var getCourse = require('./middleware/get_course')
-var getCourseModule = require('./middleware/get_course_module')
-var getExercise = require('./middleware/get_exercise')
+var getCourse = require('./app/middleware/get_course')
+var getCourseModule = require('./app/middleware/get_course_module')
+var getExercise = require('./app/middleware/get_exercise')
 
 /**
  * API keys and Passport configuration.
@@ -77,7 +77,7 @@ mongoose.connection.on('error', function(err) {
  * Express configuration.
  */
 app.set('port', process.env.PORT || 3000);
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'app/views'));
 app.set('view engine', 'jade');
 app.use(compress());
 app.use(sass({

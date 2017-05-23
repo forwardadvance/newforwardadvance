@@ -3,7 +3,7 @@
  * Home page.
  */
 
-var courses = require('../data/courses');
+var courses = require('../../data/courses');
 var renderExercise = require('../helpers/render_exercise');
 
 var getHomepageItems = () => {

@@ -1,7 +1,7 @@
 module.exports = function(req, res, next) {
-  var course = req.course;
+  var courses = require('../../data/courses');
 
-  req.assert('moduleSlug', 'Course Module not found').isIn(course.courseModules.map((cm) => cm.slug));
+  req.assert('courseSlug', 'Course not found').isIn(courses.map((course) => course.slug));
   var errors = req.validationErrors();
 
   if (errors) {
@@ -9,7 +9,7 @@ module.exports = function(req, res, next) {
     res.status(404);
     return res.render('error/404', {title: '404: File Not Found', url: req.url });
   } else {
-    req.courseModule = require('../data/modules/' + req.params.moduleSlug);
+    req.course = require('../../data/courses/' + req.params.courseSlug);
     next();
   }
 }
