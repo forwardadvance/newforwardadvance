@@ -40,16 +40,6 @@ section
     ```
 
 
-
-
-    ```
-
-  :markdown
-    
-
-
-    ```
-
     ## Creating the Service and Making it Injectable
 
     Now we can create our service. Here is a super simple weather.service.ts
@@ -70,8 +60,7 @@ section
           "&callback=JSONP_CALLBACK"].join('')
 
         return this.jsonp.get(url)
-          .map((res) => res.json())
-
+          .map((res) => res.json());
       }
     }
     ```
