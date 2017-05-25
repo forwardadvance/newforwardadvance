@@ -1,5 +1,11 @@
 :markdown
-  The ng-cli is a command line generator for Angular.
+  The ng-cli is a command line tool for Angular. It gives you:
+
+  1. Generators to build new projects and components.
+  2. A server, to serve your app in development and production.
+  3. Live reload.
+  4. A test runner for unit, and E2E tests.
+  5. A build tool, with minifation and cache busting.
 
   install with:
 
@@ -16,22 +22,23 @@
   start a server with:
 
   ```bash
+  cd myapp
   ng serve
   ```
 
   ## Viewing in a browser
 
-  Open up `http://localhost:4200/` to check your work in a browser.
+  Open up `http://localhost:4200/` to check your work in a browser. This is a live-reloading server, so any change you make is immediately visible.
 
-  If you want to use webpack-dev-server, you can open `http://localhost:4200/webpack-dev-server/index.html` to get the live reload server.
-
-  ## Generating Component
+  ## Generating Components
 
   You can generate new components using:
 
   ```bash
-  ng generate component new-component
+  ng generate component cats
   ```
+
+  This will make you a new cat-component, complete with tests and templates.
 
   Likewise for services, directives, etc.
 
@@ -39,10 +46,13 @@
 
 section.exercise
   :markdown
-    ## Exercise - Create an app
+    ## Exercise - Hello World
 
     Use the ng-cli to build yourself a simple hello world app.
 
-    Now attempt to port the dungeon exercise to TypeScript.
 
+section.exercise
+  :markdown
+    ## Exercise - Attack the Dungeon
 
+    Generate an attack the dungeon app. Port your code over to it. For good measure, add a header, footer and some styling.
