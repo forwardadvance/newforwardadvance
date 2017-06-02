@@ -1,0 +1,27 @@
+:markdown
+  So far, we have seen props, and stateless components, and we should favour these wherever possible because they are extremely fast.
+
+  However, sometimes it's useful to have a component save its own internal state. Say we have a stopwatch for instance. It might be useful to have that stopwatch count up on its own, rather than having the time passed into it all the time via props.
+
+  For this we have state.
+
+  Stateful components are defined using a class. Until mid 2016, all components were defined this way, and could potentially have state. Here is an example of a component with state:
+
+  <p data-height="400" data-theme-id="dark" data-slug-hash="NgKerR" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Stateful Components Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/NgKerR/">React Stateful Components Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+  There are several things to notice here:
+
+  ### 1. We change state in setState
+
+  the setState function lets us set a new state for the component. React will pick up on this call, and will rerender the app. This isn't Angular, where you can just change values. There's no magic here.
+
+  ### 2. State is immutable
+
+  We don't change the state, we create a brand new state object, and copy in the values. The lets React see what has changed by comparing the old state object with the new one. We call this immutablility. Lots more on this later.
+
+  ## Be wary of State
+
+  State is a fairly old concept in React. It is more common now to store most of our application state in a central store which then passes itself into the root component, and then propogates down via props.
+
+  We call this a Flux Architecture. More on this soon.

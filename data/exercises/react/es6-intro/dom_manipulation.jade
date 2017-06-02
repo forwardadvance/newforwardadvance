@@ -1,0 +1,63 @@
+:markdown
+  We can use React to do simple DOM manipulation.
+
+  The DOM is a tree, things go inside other things, so the React virtual DOM allows us to create a tree too.
+
+  The third parameter of createElement can be one of three things:
+
+  1. A string
+  2. A React Element
+  3. An Array (or perhaps a function call that returns an array)
+
+  This means that when we create an element, we can put other elements inside it to build our DOM. Then when we render, the tree will be appended to the page.
+
+  ## Nesting Strings and Elements
+
+  We have already seen this. We simply pass a string as the third parameter and it becomes the innerText of the node.
+
+  <p data-height="265" data-theme-id="dark" data-slug-hash="jmjdKN" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Hello World Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/jmjdKN/">React Hello World Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+.mini_exercise Change the element to an h2. Change the text to something more personal.
+
+:markdown
+  Alternately, we can pass an element as a child.
+
+  <p data-height="265" data-theme-id="dark" data-slug-hash="YVoBjL" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Hello World Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/YVoBjL/">React Nested Element Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+  Here we have an em inside an h1.
+
+.mini_exercise Put an em inside an h1 inside a header element.
+
+:markdown
+  ## Nesting an Array of Elements
+
+  If the third parameter is an array of elements and strings, they will all be inserted, and can themselves contain their own children:
+
+  <p data-height="500" data-theme-id="dark" data-slug-hash="YVodWy" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Nested Elements Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/YVodWy/">React Nested Elements Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+  
+.mini_exercise Add a sidebar with an unordered list inside of it.
+
+:markdown
+  ## Generating a list
+
+  We can use this to programatically generate a list of elements. Say we have an array of retro spaceships. We might use Array.map to map them into an array of DOM nodes, which could then be passed in as children of another DOM node:
+
+  <p data-height="400" data-theme-id="dark" data-slug-hash="YVoBGr" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React List Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/YVoBGr/">React List Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+
+.mini_exercise Add a header and footer. Create a list of objects containin hyperlinks. Use these to generate a sidebar.
+
+:markdown
+  ## Setting Classes and Attributes.
+
+  We can optionally set classes and other attributes on an element. The second parameter can be an object containing a list of attributes that will be applied to the new DOM node.
+
+  The exception to this is the class attribute. `Class` is a keyword in JavaScript, so we use the `className` attribute instead.
+
+  <p data-height="265" data-theme-id="dark" data-slug-hash="BRXZye" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React DOM Attributes Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/BRXZye/">React DOM Attributes Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>

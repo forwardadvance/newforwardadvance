@@ -20,8 +20,8 @@ module.exports = {
   Attendees should bring their own laptops.
   `,
   courseModules: [
-    require('../modules/rx-1'),
-    require('../modules/rx-2'),
+    require('../modules/rx-intro'),
+    require('../modules/rx-tooling'),
     require('../modules/rx-3'),
     require('../modules/flux-1')
   ],

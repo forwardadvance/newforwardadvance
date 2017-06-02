@@ -1,10 +1,10 @@
 module.exports = {
-  title: 'React State, immutability and integration',
+  title: 'JSX and the React Toolchain',
   duration: 0.5,
-  slug: 'rx-2',
+  slug: 'rx-tooling',
   price: 750,
-  description: 'Further React - Modules with Webpack, automated testing, AJAX, routing.',
-  outcome: 'Part one taught the fundamentals, here we learn how to wire together a real world app. You will be able to build a Single Page App (SPA).',
+  // description: 'Further React - Modules with Webpack, automated testing, AJAX, routing.',
+  // outcome: 'Part one taught the fundamentals, here we learn how to wire together a real world app. You will be able to build a Single Page App (SPA).',
 
   exercises: [
     {

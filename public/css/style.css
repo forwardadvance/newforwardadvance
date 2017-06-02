@@ -730,6 +730,17 @@ section.exercise {
   section.exercise > :first-child {
     margin-top: 0; }
 
+.mini_exercise {
+  background: #9b9264;
+  color: white;
+  padding: 0.25em 1em;
+  margin: 1em 0; }
+  .mini_exercise p {
+    margin: 0; }
+  .mini_exercise:before {
+    content: "> Mini Exercise: ";
+    font-weight: bold; }
+
 nav.course_sidebar {
   margin-top: 50px; }
   nav.course_sidebar h2, nav.course_sidebar p {
@@ -793,17 +804,17 @@ nav.course_sidebar {
     nav.course_sidebar .course_module.inactive ul, nav.course_sidebar .course_module.inactive p, nav.course_sidebar .course_module.inactive h3 {
       display: none; }
 
-aside.box {
+.box {
   border-radius: 3px;
   background: #222;
   padding: 20px;
   margin: 20px 0; }
-  aside.box * {
+  .box * {
     color: #fff;
     text-shadow: 1px 1px #090909; }
-  aside.box *:first-child {
+  .box *:first-child {
     margin-top: 0; }
-  aside.box *:last-child {
+  .box *:last-child {
     margin-bottom: 0; }
 
 .exercise_resources {

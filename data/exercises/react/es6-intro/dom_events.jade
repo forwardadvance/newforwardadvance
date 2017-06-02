@@ -1,0 +1,152 @@
+:markdown
+  In the olden days, back when JavaScript was new, if we wanted to make something happen on click, we might have written code like this:
+
+  ```html
+  <button onclick="rainbowUnicornApocalypse">Release the Unicorns</button>
+  ```
+
+  In React we do the same, giving our DOM elements onClick attributes (note the capitalisation):
+
+  <p data-height="231" data-theme-id="dark" data-slug-hash="NgKdQr" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React DOM events Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/NgKdQr/">React DOM events Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+.mini_exercise Try to make the button respond onMouseOver or onFocus. Add an input box and make it respond onInput
+
+:markdown
+  Regular DOM events are lowercase, React has them in camelcase, but all the DOM events you would expect are present. Here are some events you can listen to:
+
+  * onClick - anything is clicked on
+  * onInput - an input element is typed into
+  * onBlur - when you tab out of an input
+  * onSubmit - when a form is submitted
+
+  ## Events that write to State
+
+  We might use a clicky button to modify the state of a component. Here is a simple counter that stores its value in state, then updates the state when we click a button.
+
+  <p data-height="600" data-theme-id="dark" data-slug-hash="XgrQRq" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Events that Modify State Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/XgrQRq/">React Events that Modify State Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+.mini_exercise Extend the counter with a count-down button. Add a zero button to reset the counter.
+
+:markdown
+  ## Four Ways to Bind an Event Handler
+
+  As we have seen, onClick can be bound to any old JavaScript function. It would be nice to be able to use a class method as an event handler, but if we do this, we'll run into a few issues to do with the way JavaScript handles `this`.
+
+.box
+  :markdown
+    ## An Aside: This in JavaScript
+
+    JavaScript is a functional language. It doesn't really have classes. The new `class` keyword is just sugar for a constructor function. All objects in JavaScript are realy just associative arrays conatining data and functions. Because functions are plain objects in JavaScript, we can store functions and data in an array without any special syntax. We can take a function out of one object and stick it in another. Variables are pointers, so a function can have many different contexts simultaneously.
+
+    Because objects are just arrays of function literals, the `this` keyword has to work rather differently. In most Classical languages, like Java or C#, this refers to the instance of the class. In JavaScript, this is a local variable, set at call time, which refers to the object that we are currently working inside of. This can be disorienting for classically trained programmers.
+
+    This causes some problems when trying to access this.state in an event callback, since the value of `this` will typically be `window`.
+
+:markdown
+  Some codebases like JQuery or Angular will take care of binding `this` in a callback. React does you no such favours. You must bind by hand. There are currently five good ways to do this. You must choose:
+
+  ### 1. Use an inline fat arrow function
+
+  Fat Arrow functions are an es6 feature. One of the cool things about them is they have a static value of `this`, which is set when the function is first initialised. They are designed to be used in callbacks like this, because they preserve their context.
+
+  ```
+  React.createElement(
+    'button', 
+    { onClick:() => this.setState({value: this.state.value + " inline"}) }, 
+    "Go"), 
+  ```
+
+  ### 2. The oldschool way with function.apply
+
+  You'll see this in lots of tutorials. JavaScript functions (being objects themselves) have a method called apply, that lets you choose a value for `this`. You can then use any old function, including a "class" method.
+
+  ```
+  React.createElement(
+    'button', 
+    { onClick:() => this.myEventHandler.apply(this) }, 
+    "Go")
+  ```
+
+  ### 3. The AirBnB Way - Bind in the Constructor
+
+  This is a good solution because it's ideomatic JavaScript and needs no transpiler. We declare our handler as a regular class method, then `bind` it to this in the constructor. Whenever we call it in future, `this` will be bound to the component instance.ting (mid 2017), this is the way recommended by AirBnB.
+
+  At time of wri
+
+  ```
+  class Cat extends React.Component {
+    constructor(props) {
+      super(props)
+      this.state = { value:"" }
+      
+      /* We can bind methods to this in the constructor. This is AirBnB's recommended solution */
+      this.myEventHandler = this.myEventHandler.bind(this) 
+    }
+    
+    /* Class method. bound in the constructor. */
+    myEventHandler(state) {
+      this.setState( {value: this.state.value + " myEventHandler - "})
+    }
+    
+    render() {
+      return React.createElement(
+        'button', { onClick:this.myEventHandler }, 
+        "Go");
+    }
+  }
+  ```
+
+
+
+  ### 4. The future way with Fat-Arrow class methods
+
+  This will only work if you have a very recent version of Babel. We create a class method as a fat-arrow function.
+
+  This is probably the best option if you have your Babel cranked up to max, because you can choose which methods to bind to `this`.
+
+  ```
+  class Cat extends React.Component {
+     myEventHandler = () => 
+       this.setState({value: this.state.value + " fatArrowInClass"})
+
+    render() {
+      return React.createElement(
+        'button', 
+        { onClick:myEventHandler }, 
+        "Go"),
+    }
+  }
+  ```
+
+  ### 5. The Almost Future Way - Fat-Arrows in the Constructor 
+
+  You can create attributes of the class in the constructor, including functions. This works in modern browsers, even without Babel.
+
+  ```
+  class Cat extends React.Component {
+    constructor() {
+      this.myEventHandler = () => 
+        this.setState({value: this.state.value + " fatArrowInClass"})
+    }
+    
+    render() {
+      return React.createElement(
+        'button', 
+        { onClick:myEventHandler }, 
+        "Go"),
+    }
+  }
+  ```
+  
+  ### What to pick?
+
+  Personally, I suggest option 4, using fat-arrow class methods, but you must pick a style and stick with it.
+
+  Here is an example of all the ways we can assign a callback function to an event
+  
+  <p data-height="1500" data-theme-id="dark" data-slug-hash="OgLddE" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Stateful Components with Different Types of Event Binding Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/OgLddE/">React Stateful Components with Different Types of Event Binding Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+

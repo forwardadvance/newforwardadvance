@@ -1,0 +1,6 @@
+:markdown
+  When we render a react app, by default we traverse the entire component tree. If only some of the data has changed, it might not be necessary to render parts of the app that have not changed.
+
+  React gives us a callback `shouldComponentUpdate(newProps, newState)`. This callback has one job, to return true or false. If it returns true, the component and it's children will have render called on them. If it returns false, render will not be called.
+
+  

@@ -1,0 +1,63 @@
+:markdown
+  A React app is made out of a tree of components. Our components need to receive information to change the way they look and behave. We want to be able to *pass data in*. This is done using props (properties).
+
+  For example:
+  
+  * A Profile component might receive a User object. 
+  * A LikeButton component might recieve an initial state, and a count.
+  * A Search component might receive an initial search string.
+
+  Here's a UserProfile component, created as a stateless component:
+
+  <p data-height="500" data-theme-id="dark" data-slug-hash="VbJOry" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Vanilla Props Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/VbJOry/">React Vanilla Props Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+  We can do the same thing with a class based stateful component. The main difference is that we don't explicitly recieve props, they become an attribute of the component object.
+
+  Here's the exact same thing, done with a class:
+
+  <p data-height="500" data-theme-id="dark" data-slug-hash="vZBOMR" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Vanilla Props Stateful Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/vZBOMR/">React Vanilla Props Stateful Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+  ## Props are like DOM properties
+
+  The sharp eyed amongst you may have noticed that the way we pass props into a component in the same as the way we set attributes on a DOM node:
+
+  ```
+    React.createElement('a', {href:'#'});
+    React.createElement(Cat, {name:'Geoffrey'});
+  ```
+
+  This is because, to React, Components work like new DOM nodes that we define. They sit inside the Shadow DOM tree, and do whatever they do.
+
+  When we define a UserProfile component, we treat it exactly the same as we would treat a regular HTML div, span, table or anchor.
+
+  ## Props are Immutable
+
+  Think about an HTML element `<img src="cat.gif" />`
+
+  The image tag recieves a src property which tells it how to behave (download the image and render the pixels on the page). The Image element recieves the src property from outside. It is passed in. The image tag is not able to change its own src property.
+
+  This is also true for Components. They should never change their own props. Props come from outside, and the element responds to them.
+
+  If we need to pass data back up the tree, we can do so with events, or by writing to a Flux store. More on this later.
+
+
+  ## One way binding
+
+  Passing data down via props gives us the concept of one-way-binding. 
+
+  Props in a react app go one way only, from parent components to child components. Data flows down through the app from parent to child. This means that once we are done rendering a parent node, we can forget about it and render its children. If we had two way binding, if children were allowed to modify their parent's data, then we might have to go back and re-render the parent having rendered the child.
+
+  We would need to loop around, over and over, until every component had finished modifying data.
+
+  ## Props flow data down through an app
+
+  Say we have a user with a list of friends. We might iterate over that list, passing friends down into Friend components. We pick up the values in the child components, and render them.
+
+  <p data-height="1000" data-theme-id="dark" data-slug-hash="ZKddJJ" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Vanilla Props One-Way-Binding Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/ZKddJJ/">React Vanilla Props One-Way-Binding Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+
+
+

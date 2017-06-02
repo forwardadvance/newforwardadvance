@@ -1,0 +1,28 @@
+:markdown
+  Tooling refers to the stack of software that you will use to compile your app into a form tha can be executed in the browser. A modern React toolchain typically consists of:
+
+  ### Webpack
+
+  This lets us watch a set of files, and compile them into a single file whenever they change. By default, it will compile JavaScript, but you can add loaders for JSX, TypeScript, SASS, Pug, even PNG.
+
+  ### JSX-Compiler
+
+  A compiler that will convert JSX into JavaScript.
+
+  ### ES-Lint
+
+  A linting tool that will spot mistakes in your code, and give you a line number
+
+  ### Jest / Enzyme
+
+  Jest is a testing framework that will watch your files and run tests when they change. Enzyme is a set of test helpers that make testing react apps easier
+
+  ### Live-reload
+
+  When we save a file, the browser automatically reloads, so we see the result right away.
+
+  We can plug all of this together by hand if we like. Up until mid 2016, this was the only way to go. It took a whole day to put together, and, like an old engine, needed constant tinkering to keep it running nicely. There are tutorials on the internet that will show you how, but we don't need to any more, because of create-react-app.
+
+  ## create-react-app
+
+  create-react-app will set up a functioning stack for you

@@ -1,0 +1,15 @@
+@import '../imports';
+
+.mini_exercise {
+  background: $green;
+  color:white;
+  padding:0.25em 1em;
+  margin:1em 0;
+  p {
+    margin:0;
+  }
+  &:before {
+    content: "> Mini Exercise: ";
+    font-weight:bold;
+  }
+}

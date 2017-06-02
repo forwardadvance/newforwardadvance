@@ -1,0 +1,42 @@
+:markdown
+  So far we have created elements and appended them to the DOM. We could do this with jQuery. The real strength of React is its component driven architecture. Components are objects that let us ball up templates, state and behaviour. They are effectively new DOM nodes.
+
+  We build our app out of a tree of Components, nested one inside the other.
+
+  Just 
+
+  ## Stateless Components
+
+  The simplest type of component is just a function that returns an element. This type of component should be preferred wherever possible. Stateless components are easy to reason about, are closer to ideomatic JavaScript, and are Facebook's reccomended way of using React.
+
+  <p data-height="265" data-theme-id="dark" data-slug-hash="PmrLdP" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Vanilla Component Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/PmrLdP/">React Vanilla Component Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+  We can use an ES6 fat arrow function to simplify this even further:
+
+  <p data-height="265" data-theme-id="dark" data-slug-hash="XgrWZa" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Vanilla Stateless ES6 Component Demo" data-editable="true"  class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/XgrWZa/">React Vanilla Stateless ES6 Component Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+  ## A Component can also be a Class
+
+  A component can also be an ES6 style class that extends React.Component. In JavaScript, a class is simply a constructor function, i.e. a function with a prototype attribute that writes to this. 
+
+  Creating a component as a class gives us more capabilities, at the expense of significantly greater overhead in terms of speed and memory. 
+  
+  Note that ES6 classes are understood natively in most current browsers. To support older browsers, we use a transpiler like Babel. More on this in the next section.
+
+  Here is a component declared as a class:
+
+  <p data-height="265" data-theme-id="dark" data-slug-hash="qmzvML" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Vanilla Component Demo with ES6 Classes" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/qmzvML/">React Vanilla Component Demo with ES6 Classes</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+  A component has a render method, and perhaps other methods too that we will define. We can also hook into the lifecycle callback methods, to execute code when the component is created or destroyed, and we can override shouldComponentUpdate to optimise our rendering cycle. More on this later.
+
+  ## Nesting Components
+
+  Once declared, components can be rendered just like regular DOM nodes using React.createElement.
+
+  <p data-height="700" data-theme-id="dark" data-slug-hash="wewBYq" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Vanilla ES6 Nested Component Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/wewBYq/">React Vanilla ES6 Nested Component Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+.mini_exercise Add a navigation component to the header. Add a copywrite message to the footer.
