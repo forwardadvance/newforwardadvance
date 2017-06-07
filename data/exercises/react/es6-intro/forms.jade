@@ -1,0 +1,47 @@
+:markdown
+  There are two ways of dealing with forms in React. 
+  
+  either...
+
+  1. We can use a stateful component, and bind the form values to state, or...
+  2. We can use a stateless component, store the data in the form, and pull it out on submit.
+
+  Both are good options, and you'll want to be aware of both of them.
+
+  ## Binding Forms to State
+
+  Say we have an input field. When the change event is fired on the component, we pull the value out of the component, and store it in state.
+
+  We can also optionally go the other way, and bind the current value to the `value` property of the input field.
+
+  Here's a catName input field:
+
+  ```
+  <input 
+    onChange={(evt) => this.setState({catName: evt.target.value})} 
+    value={this.state.catName}/>
+  ```
+
+  To handle the form submission, we bind to the onSubmit event. We might then call a method on the parent:
+
+  <form onSubmit={this.props.onCat} />
+
+  Here that is in context:
+
+  <p data-height="800" data-theme-id="dark" data-slug-hash="zzvKNK" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Stateful Form Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/zzvKNK/">React Stateful Form Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+  ## Stateless Forms
+
+  The other option is to store form data actually in the form, until we're ready to use it, typically onSubmit. We use a thing called a template ref to get access to the input element itself, like so:
+  
+  ```
+  <input ref={(el)=>catInput=el} />
+  ```
+  
+  The value lives only in the form, but we can get it out again, just by getting the element.value.
+
+  Here it is in action:
+
+  <p data-height="514" data-theme-id="dark" data-slug-hash="yXYVjP" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React StateLess Form Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/yXYVjP/">React StateLess Form Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>

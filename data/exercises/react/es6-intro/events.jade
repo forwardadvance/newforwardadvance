@@ -1,0 +1,20 @@
+:markdown
+  We can think of Components as being like new DOM nodes that we define.
+
+  Here is a regular old anchor tag:
+
+  ```
+  <a href="cats" onclick="miow">Miffy</a>
+  ```
+
+  The input to this is the href property. The output is the onclick event. Both `href` and `onclick` are properties of the DOM node.
+
+  We can do the same with our own Components. 
+
+  ```
+  <Cat onMiow="miow" />
+  ```
+  
+  If we pass in a function as a prop and bind it to the parent, then the child component can call a method on the parent:
+
+  

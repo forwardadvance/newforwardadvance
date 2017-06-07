@@ -47,18 +47,6 @@ module.exports = {
       github: '',
       path: 'react/es6-intro/components'
     },
-    {
-      slug: 'props',
-      title: 'Passing Data into Vanilla React Components with Props',
-      description: '',
-      learnings: [
-        'What is one-way binding?',
-        'How do I pass data around a React app?',
-        'What are props?'
-      ],
-      github: '',
-      path: 'react/es6-intro/props'
-    },
 
     {
       slug: 'state',
@@ -82,6 +70,18 @@ module.exports = {
       path: 'react/es6-intro/dom_events'
     },
     {
+      slug: 'props',
+      title: 'Passing Data into Vanilla React Components with Props',
+      description: '',
+      learnings: [
+        'What is one-way binding?',
+        'How do I pass data around a React app?',
+        'What are props?'
+      ],
+      github: '',
+      path: 'react/es6-intro/props'
+    },
+    {
       slug: 'events',
       title: 'Making Components Emit Events',
       description: '',
@@ -92,6 +92,49 @@ module.exports = {
       ],
       github: '',
       path: 'react/es6-intro/events'
+    },
+    {
+      slug: 'immutables',
+      title: 'A Word on Immutables',
+      description: '',
+      learnings: [
+        ''
+      ],
+      github: '',
+      path: 'react/es6-intro/immutables'
+    },
+
+    {
+      slug: 'jsx',
+      title: 'Introducing JSX',
+      description: '',
+      learnings: [
+        'What is JSX?',
+        'What is a transpiler?',
+        'How do I convert JSX to JavaScript?',
+      ],
+      github: '',
+      path: 'react/es6-intro/jsx'
+    },
+    {
+      slug: 'toolchain',
+      title: 'Initialising an App with create-react-app',
+      description: '',
+      learnings: [
+        '',
+      ],
+      github: '',
+      path: 'react/es6-intro/toolchain'
+    },
+    {
+      slug: 'forms',
+      title: 'Handling Forms',
+      description: '',
+      learnings: [
+        '',
+      ],
+      github: '',
+      path: 'react/es6-intro/forms'
     },
     {
       slug: 'should-component-update',

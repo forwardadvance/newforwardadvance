@@ -1,0 +1,45 @@
+:markdown
+  In React, state and props are what we call immutable. That means, we are never allowed to change their values. If we want to make a change, we copy the whole object into a new object, and set the new object as this.state.
+
+  Generally speaking, we will never change props directly at all.
+
+  Imagine an object:
+
+  ```
+  var cat = { name: "Cantaloupe Sundae" };
+  ```
+
+  Now do this:
+
+  ```
+  var dog = cat;
+  dog.name = "Rufus";
+  ```
+
+  Now if I do this, what do I get?
+
+  ```
+  console.log(dog === cat);
+  ```
+
+  Try it out:
+
+  <p data-height="430" data-theme-id="dark" data-slug-hash="eRYdmE" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="Immutables Demo" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/eRYdmE/">Immutables Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+  So immutables help us to tell if something has changed. React can use immutables to speed up change detection. If two objects are actually different objects, react can tell very quickly. This will open the door to all sorts of optimisations later.
+
+
+  ## Duplicating an object
+
+  var cat = {name:'Foofums'}
+  var monkey = Object.assign({}, cat)
+  console.log(cat == monkey)
+
+  ## Duplicating an Array
+
+  The simplest way to duplicate an array is with the spread operator
+
+  var kittens = ["Foofums", "Special Sauce", "Tinkerbell"]
+  var pirates = [...cats]
+  console.log(kittens == pirates)

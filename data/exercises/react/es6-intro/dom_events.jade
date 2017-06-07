@@ -100,9 +100,9 @@
 
 
 
-  ### 4. The future way with Fat-Arrow class methods
+  ### 4. The Future Way with Class Property Initialisation
 
-  This will only work if you have a very recent version of Babel. We create a class method as a fat-arrow function.
+  This is a possible future spec, and it currently only available as a Babel plugin. We create a class method as a fat-arrow function.
 
   This is probably the best option if you have your Babel cranked up to max, because you can choose which methods to bind to `this`.
 
@@ -142,7 +142,7 @@
   
   ### What to pick?
 
-  Personally, I suggest option 4, using fat-arrow class methods, but you must pick a style and stick with it.
+  Personally, I suggest either option 4, using fat-arrow class methods, or option 3, binding in the constructor, but you must pick a style and stick with it.
 
   Here is an example of all the ways we can assign a callback function to an event
   

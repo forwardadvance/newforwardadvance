@@ -1,13 +1,20 @@
 :markdown
   So far we have created elements and appended them to the DOM. We could do this with jQuery. The real strength of React is its component driven architecture. Components are objects that let us ball up templates, state and behaviour. They are effectively new DOM nodes.
 
-  We build our app out of a tree of Components, nested one inside the other.
+  **Understand this: Writing React means creating components. Components work like new DOM nodes. We build our app out of a tree of Components, nested one inside the other, in the same way we build a web page.**
 
-  Just 
+  There are two types of component:
+
+  1. Stateless - fast components that do nothing except render data.
+  2. Stateful - slower, object based components, which can do more, and can hold their own data, but are slower in most cases.
+
+  The React way is to use stateless components wherever possible.
 
   ## Stateless Components
 
-  The simplest type of component is just a function that returns an element. This type of component should be preferred wherever possible. Stateless components are easy to reason about, are closer to ideomatic JavaScript, and are Facebook's reccomended way of using React.
+  The simplest type of component is just a function that returns an element. This type of component should be preferred wherever possible. Stateless components are easy to reason about, are closer to ideomatic JavaScript, and are Facebook's recommended way of using React.
+
+  Because they are just functions, they don't hold any data. They just recieve information from their parent (via props, more on this soon), and render that information.
 
   <p data-height="265" data-theme-id="dark" data-slug-hash="PmrLdP" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Vanilla Component Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/PmrLdP/">React Vanilla Component Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
   <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
@@ -17,11 +24,11 @@
   <p data-height="265" data-theme-id="dark" data-slug-hash="XgrWZa" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Vanilla Stateless ES6 Component Demo" data-editable="true"  class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/XgrWZa/">React Vanilla Stateless ES6 Component Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
   <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-  ## A Component can also be a Class
+  ## Stateful Components
 
   A component can also be an ES6 style class that extends React.Component. In JavaScript, a class is simply a constructor function, i.e. a function with a prototype attribute that writes to this. 
 
-  Creating a component as a class gives us more capabilities, at the expense of significantly greater overhead in terms of speed and memory. 
+  Creating a component as a class gives us more capabilities, at the expense of significantly greater overhead in terms of speed and memory. The generated object can hold its own persistant data, callback methods for events, and can manage its lifecycle if necessary.
   
   Note that ES6 classes are understood natively in most current browsers. To support older browsers, we use a transpiler like Babel. More on this in the next section.
 

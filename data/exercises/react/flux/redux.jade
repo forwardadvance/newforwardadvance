@@ -1,0 +1,55 @@
+:markdown
+  Redux is an immutable data store. It's typically paired with React to make a Flux architecture, but it can be used alone. It maintains a `state`, which represents the current state of your app. State is typically an object, but could be something simpler like an array, or even a single number.
+
+  Any application can be represented as a set of data. The UI that you hang off that data is up to you, and possibly subject to change, but the data itself is what the user wants to interact with.
+
+  It's the database for your app.
+
+  ## (state, action) => state
+
+  Redux can be described as a state, plus a series of functions that can change that state into a new state.
+
+  Here's a simple Redux handler (written in ES6) that handles a counter. In this case the state is a single number:
+
+  const counter = (state = 0, action) => {
+    switch (action.type) {
+      case "INC_COUNTER": return state + 1
+      case "DEC_COUNTER": return state - 1
+      default: return state
+    }
+  }
+
+  To make use of this, we turn it into a store:
+
+  ```
+  var store = Redux.createStore(counter)
+  ```
+
+  We can then subscribe to that store with a callback function:
+
+  ```
+  store.subscribe(() => console.log(store.getState()));
+  ```
+
+  Each time the state changes, the callback function will run. Inside this callback function, we typically re-render our app.
+
+  When we want to trigger an action, we dispatch an action to the store:
+
+  ```
+  store.dispatch({
+    type: 'INC_COUNTER'
+  })
+  ```
+
+  Here's that in action:
+
+.mini_exercise Add a plus10 action that adds ten to the state, and trigger it at random intervals 
+
+:markdown
+  ## Immutables
+
+  State is immutable. This means that every time we change state, we create a brand-new state object and return that.
+
+  We don't necessarily need to duplicate everything that is in state, though we will want to duplicate everything that has changed. State itself will be a new object each time we call store.dispatch with a valid action.
+
+  This will help us optimise our compile. If nothing has changed, React knows it doesn't need to re-render.

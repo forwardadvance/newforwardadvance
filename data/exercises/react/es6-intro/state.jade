@@ -1,9 +1,13 @@
 :markdown
-  So far, we have seen props, and stateless components, and we should favour these wherever possible because they are extremely fast.
+  Applications need to store information about their current state. For example, if a user is logged in, we need to remember who they are. If we type in a form, we need to save the values.
 
-  However, sometimes it's useful to have a component save its own internal state. Say we have a stopwatch for instance. It might be useful to have that stopwatch count up on its own, rather than having the time passed into it all the time via props.
+  There are three places we can store state:
 
-  For this we have state.
+  1. In the component itself.
+  2. In the root component of the app.
+  3. In a Flux Store, which is like a database for the application.
+
+  Depending on what we want to achieve, we may use one or all of these techniques in our application.
 
   Stateful components are defined using a class. Until mid 2016, all components were defined this way, and could potentially have state. Here is an example of a component with state:
 
@@ -14,14 +18,22 @@
 
   ### 1. We change state in setState
 
-  the setState function lets us set a new state for the component. React will pick up on this call, and will rerender the app. This isn't Angular, where you can just change values. There's no magic here.
+  the setState function lets us change the state for the component. React will pick up on this call, and will rerender the app. This isn't Angular, where you can just change values. There's no magic here.
 
-  ### 2. State is immutable
+  Sometimes React may batch multiple setState commands into one, so you can't guarantee when setState will be run.
 
-  We don't change the state, we create a brand new state object, and copy in the values. The lets React see what has changed by comparing the old state object with the new one. We call this immutablility. Lots more on this later.
+  ### 2. Objects in state are ideally immutable
 
-  ## Be wary of State
+  We don't change objects in state, we create brand new objects, and copy in the values. The lets React see what has changed by comparing the old state object with the new one, and prevents wierd things happening where we render a value, then change it later in the rendering cycle. 
+  
+  We call this immutablility. Lots more on this later.
 
-  State is a fairly old concept in React. It is more common now to store most of our application state in a central store which then passes itself into the root component, and then propogates down via props.
+  ## Be wary of State Overuse
+
+  State is a fairly old concept in React. It is more common now to store most of our application state in a central store which then sets itself as the state of the root component, and then propogates down to the children via *props*.
 
   We call this a Flux Architecture. More on this soon.
+
+  ## Immutables
+
+  
