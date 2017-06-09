@@ -1,0 +1,77 @@
+:markdown
+  To connect React to Redux, we need some sort of wrapper. The current standard one is called React-Redux. It gives us a Component caller Provider which will take a store as a prop, and will then render its children.
+
+  ```jsx
+  const App = () => <p>Cats</p>
+  const {Provider} = ReactRedux;
+
+  ReactDOM.render(
+    <Provider store={store}>
+      <App></App>
+    </Provider>, 
+    document.getElementById('app'));
+  ```
+
+  The Provider component binds the React store to the app, so that the app can be re-rendered when it changes.
+
+//- TODO: Substantiate this
+:markdown
+  Now we can make use of our store in any component. Do you remember container components from the React section? A container (smart) component is a component that contains logic, and which then passes calculated values into a presentational (dumb) component via props.
+  
+  We use a container component here, to pass values from the store into our React component.
+  
+  Say we have a store that contains a hero:
+
+  ```
+  const initialState = {
+    hero: {
+      name: "Haldane Goodguy", 
+      type: "Swordsman", 
+      maxHp: 36, 
+      hp: 36, 
+      armour: 33, 
+      attack:12
+    }
+  }
+  ```
+
+  Then say we have a component that can render that hero:
+
+  ```
+  var Hero = (props) => 
+    <div className="hero">
+      <h2>{props.hero.name}</h2>
+      <pre>
+        {JSON.stringify(props, null, 2)}
+      </pre>
+    </div>
+  ```
+
+  Well, now we create a container component that will map the store into a set of props that will be passed into the Heros component. This looks like this:
+
+  ```
+  var HeroContainer = ReactRedux.connect(
+    (state) => ({hero: state.hero})
+  )(Hero);
+  ```
+
+  The props mapper is a function, because the store will change, so new props will need to be calculated each time we render.
+
+  Now we can make use of our container component right inside our app:
+
+  ```
+  var App = (props) => 
+    <div>
+      <h1>Tomb of the Ancients</h1>
+      <HeroContainer></HeroContainer>
+    </div>
+  ```
+
+  Here's a fuller example. We have a hero and a monster in our store. We have mapped the hero onto a Hero component, via a heroContainer. We can issue messages to the store to damage the hero or heal him.
+
+  Have a try.
+
+  <p data-height="2000" data-theme-id="dark" data-slug-hash="VWebMq" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Redux Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/VWebMq/">React Redux Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+.mini_exercise Try to add a component for the monster. Have the monster attack the hero at random intervals. Add a button that lets the hero hit the monster.

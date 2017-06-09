@@ -1,25 +1,42 @@
 :markdown
+  In the last section, we saw how we could build a Flux architecture using simple ES6. Luckily, we don't need to do this, because Flux already handles the store for us.
+
   Redux is an immutable data store. It's typically paired with React to make a Flux architecture, but it can be used alone. It maintains a `state`, which represents the current state of your app. State is typically an object, but could be something simpler like an array, or even a single number.
 
   Any application can be represented as a set of data. The UI that you hang off that data is up to you, and possibly subject to change, but the data itself is what the user wants to interact with.
 
-  It's the database for your app.
+  Redux is the magical, immutable database for your app.
 
   ## (state, action) => state
 
-  Redux can be described as a state, plus a series of functions that can change that state into a new state.
+  Redux can be described as a system that accepts a current state, and an action, and returns a new state. We call the function that does this a `reducer`.
 
-  Here's a simple Redux handler (written in ES6) that handles a counter. In this case the state is a single number:
+  We pass the reducer to `Redux.createStore`, to make our store. Anytime we `dispatch` to the store, the reducer has the opportunity to change the state of the store.
 
-  const counter = (state = 0, action) => {
+  ## Things to know about Redux
+
+  * There is only one store, which is typically an object, but may be anything.
+  * There is only one root reducer, which changes the state based on an action.
+  * The reducer can shell out to child reducers.
+  * Send messages to it using `dispatch`.
+  * Subscribe to updates using `subscribe`.
+
+  Here's a simple Redux handler (written in ES6) that handles a counter. In this case the state is an object containing a value which is a number.
+
+  ```
+  const reducer = (state=defaultState, action) => {
     switch (action.type) {
-      case "INC_COUNTER": return state + 1
-      case "DEC_COUNTER": return state - 1
-      default: return state
+      case "INC": 
+        return {...state, value: state.value + 1}
+      case "DEC": 
+        return {...state, value: state.value - 1}
+      default:
+        return state
     }
   }
+  ```
 
-  To make use of this, we turn it into a store:
+  To make use of this, we pass it into a new store:
 
   ```
   var store = Redux.createStore(counter)
@@ -41,7 +58,10 @@
   })
   ```
 
-  Here's that in action:
+  Here's that in action. I've added a bit of logging and a timeout for effect:
+
+  <p data-height="800" data-theme-id="dark" data-slug-hash="MoKpOW" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="Redux Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/MoKpOW/">Redux Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 .mini_exercise Add a plus10 action that adds ten to the state, and trigger it at random intervals 
 

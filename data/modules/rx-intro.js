@@ -94,17 +94,6 @@ module.exports = {
       path: 'react/es6-intro/events'
     },
     {
-      slug: 'immutables',
-      title: 'A Word on Immutables',
-      description: '',
-      learnings: [
-        ''
-      ],
-      github: '',
-      path: 'react/es6-intro/immutables'
-    },
-
-    {
       slug: 'jsx',
       title: 'Introducing JSX',
       description: '',
@@ -117,6 +106,27 @@ module.exports = {
       path: 'react/es6-intro/jsx'
     },
     {
+      slug: 'forms',
+      title: 'Handling Forms',
+      description: '',
+      learnings: [
+        '',
+      ],
+      github: '',
+      path: 'react/es6-intro/forms'
+    },
+    {
+      slug: 'immutables',
+      title: 'A Word on Immutables',
+      description: '',
+      learnings: [
+        ''
+      ],
+      github: '',
+      path: 'react/es6-intro/immutables'
+    },
+
+    {
       slug: 'toolchain',
       title: 'Initialising an App with create-react-app',
       description: '',
@@ -127,14 +137,24 @@ module.exports = {
       path: 'react/es6-intro/toolchain'
     },
     {
-      slug: 'forms',
-      title: 'Handling Forms',
+      slug: 'proptypes',
+      title: 'Controlling React Component Input/Output with Proptypes',
       description: '',
       learnings: [
         '',
       ],
       github: '',
-      path: 'react/es6-intro/forms'
+      path: 'react/es6-intro/proptypes'
+    },
+    {
+      slug: 'container-components',
+      title: 'Presentational vs Container React Components',
+      description: '',
+      learnings: [
+        '',
+      ],
+      github: '',
+      path: 'react/es6-intro/container-components'
     },
     {
       slug: 'should-component-update',

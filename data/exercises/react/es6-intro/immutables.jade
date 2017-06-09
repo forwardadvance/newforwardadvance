@@ -27,19 +27,113 @@
   <p data-height="430" data-theme-id="dark" data-slug-hash="eRYdmE" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="Immutables Demo" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/eRYdmE/">Immutables Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
   <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-  So immutables help us to tell if something has changed. React can use immutables to speed up change detection. If two objects are actually different objects, react can tell very quickly. This will open the door to all sorts of optimisations later.
+.mini_exercise Change the value of dog.name. Now alert or console.log the value of cat.name. Are they the same or different?
 
+:markdown
+  So immutables help us to tell if something has changed. React can use immutables to speed up change detection. If two objects are actually different objects, React can tell very quickly. This will open the door to all sorts of optimisations later.
 
-  ## Duplicating an object
-
-  var cat = {name:'Foofums'}
-  var monkey = Object.assign({}, cat)
-  console.log(cat == monkey)
 
   ## Duplicating an Array
 
-  The simplest way to duplicate an array is with the spread operator
+  The old ES5 way to duplicate an array was with concat.
 
+  ```
+  var x = [1,2,3];
+  y = x.concat();
+
+  (x == y) // false
+  ```
+
+  This will make a full copy of the array containing all the same objects.
+
+  The newer, and simper ES6 way is with the spread operator. This works in current evergreen browsers, and can be 
+
+  ```
   var kittens = ["Foofums", "Special Sauce", "Tinkerbell"]
   var pirates = [...cats]
-  console.log(kittens == pirates)
+  kittens == pirates //false
+  ```
+
+  Try it out here:
+
+  <p data-height="350" data-theme-id="dark" data-slug-hash="LLpqqv" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="Immutables Array Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/LLpqqv/">Immutables Array Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+
+.mini_exercise Create an array of TODOs. Now duplicate it and add a new todo to the top, and another to the bottom, returning a new array that doesn't affect the original array.
+
+:markdown
+  ## Duplicating an object
+
+  There are two ways to perform a shallow copy of an object. The old fashined way is to use Object.assign. This lets us make a new object with all the same attributes as the old one.
+
+  ```
+  var cat = {name:'Foofums', age:12}
+  var unix = Object.assign({}, cat, {age:65000})
+  console.log(cat == unix)
+  ```
+
+  The newer, better ES7 way is to use the Object spread operator. This won't work in browsers at time of writing. You'll need to run your code through Babel.
+
+  ```
+  var cat = {name:'Foofums', age:12}
+  var unix = {...cat, age:65000}  
+  ```
+
+  We can go all the way with this, unpacking two objects into a new object. The second object will override the first:
+
+  ```
+  var state = { name: "Twoodles", age:16 }
+  var newState = { age:17 }
+  var state = { ...state, ...newState }
+  ```
+
+  Try it out:
+
+  <p data-height="350" data-theme-id="dark" data-slug-hash="PjPLoG" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="Immutable Objects Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/PjPLoG/">Immutable Objects Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+.mini_exercise 
+
+:markdown
+  ## Shallow Copies
+
+  In all these cases, copies are shallow. Nested objects are not duplicated. This is generally speaking what you want. If a nested object has not been changed, we don't need to re-render components that depend on it.
+
+  ## Complex Transforms
+
+  We can combine these techniques to do more complex transformations. Here we append to a nested array:
+
+  <p data-height="500" data-theme-id="dark" data-slug-hash="KqdYoK" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="Immutables Complex Transformations Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/KqdYoK/">Immutables Complex Transformations Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+  Here we delete the element with id of 2, using filter:
+
+  <p data-height="600" data-theme-id="dark" data-slug-hash="MoaMjB" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="Immutables Remove Element From Array Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/MoaMjB/">Immutables Remove Element From Array Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+  Here we find the todo with id=2, and replace it with a new todo with the data copied over, but different text:
+
+  <p data-height="650" data-theme-id="dark" data-slug-hash="NgGVpx" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="Immutables Complex Array Manipulation Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/NgGVpx/">Immutables Complex Array Manipulation Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+  ## Exercise - TODOs
+
+  We have all the pieces in place now to create the classic example, a simple TODO app.
+
+  Making a TODO app from scratch is a little like constructing your own lightsabre. Open the starter project, or create your own with create-react-app. 
+
+  You'll need several components:
+
+  * An App component. This should hold your state.
+  * A TodoList component. This can be a stateless component. It should receive the list of todos
+  * An add Todo form which will contain a form and a button to add a new todo. It will emit an onAdd event that will append the todo to the array in the App state. Use a stateful or stateless form, your choice.
+
+  Make an application that allows you to add todo items to a list. Don't worry about deleting items yet.
+
+
+  ## Exercise Extension - Deleting and sorting
+
+  Put a delete button next to each todo that will delete it from the list. You'll want to emit an event that sends the TODO  up to the App component. Then have the App component handle it by removing it from the array.
+
+  ## Further Extension

@@ -12,9 +12,9 @@
 
   ## Stateless Components
 
-  The simplest type of component is just a function that returns an element. This type of component should be preferred wherever possible. Stateless components are easy to reason about, are closer to ideomatic JavaScript, and are Facebook's recommended way of using React.
+  The simplest type of component is just a function that returns an element. This type of component should be preferred because in almost all cases they're' significantly faster. Stateless components are easy to reason about, are closer to ideomatic JavaScript, and are Facebook's recommended way of using React.
 
-  Because they are just functions, they don't hold any data. They just recieve information from their parent (via props, more on this soon), and render that information.
+  Because they are just functions, they don't hold any persistent data. They just recieve information from their parent (via props, more on this soon), and render that information.
 
   <p data-height="265" data-theme-id="dark" data-slug-hash="PmrLdP" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Vanilla Component Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/PmrLdP/">React Vanilla Component Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
   <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
@@ -24,6 +24,9 @@
   <p data-height="265" data-theme-id="dark" data-slug-hash="XgrWZa" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Vanilla Stateless ES6 Component Demo" data-editable="true"  class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/XgrWZa/">React Vanilla Stateless ES6 Component Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
   <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
+.mini_exercise Change the text in the component. Change the name of the component to Goodbye, and update the render to match.
+
+:markdown
   ## Stateful Components
 
   A component can also be an ES6 style class that extends React.Component. In JavaScript, a class is simply a constructor function, i.e. a function with a prototype attribute that writes to this. 

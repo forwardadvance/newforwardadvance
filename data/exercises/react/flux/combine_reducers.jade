@@ -1,0 +1,68 @@
+:markdown
+  Redux always holds the entire application state in a single store, but that doesn't mean that we have to interact with it using a single reducer. In fact, splitting your reducers is a core redux principle.
+
+  You always need one root reducer to initialise the store, but you can split that reducer up however you like. Here's a common pattern. Say we have two reducers, each of which only deals with part of the state:
+
+  ```
+  // The CatList only deals with the array that holds cats.
+  const catList = (state = [], action) => {
+    switch(action.type) {
+      case 'ADD_CAT': 
+        return [...state, action.newCat]
+      default:
+        return state;
+    }
+  }
+
+  // The AppSettings deals with global application settings and switches
+  const appSettings = (state = {}, action ) => {
+    switch(action.type) {
+      case 'LEVEL_UP': 
+        return {...state, level: state.level + 1 }
+      default:
+        return state;
+    }
+  }
+  ```
+
+  Now we can combine these reducers into a single reducer function that explicitly shells out to the other reducers:
+
+  ```
+  const app = (state = {}, action ) => {
+    return {
+      catList: catList(state.catList, action),
+      appSettings: appSettings(state.appSettings, action)
+    }
+  }
+  ```
+
+  Now we can make use of our root app reducer:
+
+  ```
+  const store = Redux.createStore(app);
+
+  store.dispatch({
+    type:"ADD_CAT", 
+    newCat: { 
+      name:"Henry Mugglesworth" 
+    }
+  });
+  ```
+
+  This is such a common pattern, that there's a method for it:
+
+  ```
+  const app = combineReducers({
+    catList: catList,
+    appSettings: appSettings
+  })
+  const store = Redux.createStore(app);
+  ```
+
+  This will pass state.catList into the catList reducer, and assign the result back to state.catList. Very nice. Our code is now broken into multiple small reducers.
+
+  <p data-height="1800" data-theme-id="dark" data-slug-hash="rwxrqR" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Redux combineReducers Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/rwxrqR/">React Redux combineReducers Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+  <p data-height="265" data-theme-id="dark" data-slug-hash="MoKQvp" data-default-tab="result" data-user="superluminary" data-embed-version="2" data-pen-title="React Redux Multiple Reducers Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/MoKQvp/">React Redux Multiple Reducers Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>

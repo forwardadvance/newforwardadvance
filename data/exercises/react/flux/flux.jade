@@ -1,0 +1,106 @@
+:markdown
+  Flux means taking some, or all of your state, and *extracting it into a separate store*. When the store updates, it triggers the front end to render itself.
+
+  ## Message are Passed to the Store
+
+  Our components update the store by means of *message passing*. They call a `dispatch` method on the store, passing it an object containing data. The store updates itself based on the data it received.
+
+  ## The UI Subscribes to the Store
+
+  When the store updates, all its subscribers are notified. The UI typically `subscribe`s to the store with its render function.
+
+  ## Flux is an Architecture, not a Technology
+
+  We can implement a Flux Architecture using any old JavaScript, but typically we use Redux for the store, and React for the UI.
+
+  ## Advantages of Flux
+
+  When you think about it, any application is a data structure. The UI we hang off this data structure is really quite arbitrary. All we really care about is that the structure can be updated.
+
+  MVC scatters your logic all over the place. You have multiple models which may talk to each other. Multiple Controllers, which may redirect to each other, and may pull in multiple models each. It can actually become difficult to manage.
+  
+  Flux stores all your state in a single place, rather than scattering it across hundreds of models, services and components. we can easily see a list of all the changes that happened to our app, in order. The UI updates itself when the store updates, so our front end is always guaranteed consistent. There are no weird race conditions or edge cases to worry about. We update the store, and bang, we see the result.
+
+  ## How Flux Fits Together
+
+  We're going to put together a simple Flux architecture here using plain old ES6. This will for the backing store for a simple counter app. This is obviously wildly over-engineered for a simple counter app, but the point is that, since the store is decoupled, it will scale, from small, to very very large. Scroll to the bottom to see it in action.
+
+  A Flux store has a `state`, a `dispatch` method for changing the state, and a `subscribe` method, that lets us add callback functions.
+
+  ## The Store
+
+  Here's a Store class that implements those methods. We call `dispatch` and pass it an `action`, and it uses the reducer  to update the state. After we update the state, all the subscribers are notified.
+
+  ```
+  class Store {
+    constructor(reducer) {
+      this.subscribers = [];
+      this.reducer = reducer;
+    }
+    subscribe(fn) {
+      this.subscribers.push(fn);
+    }
+    dispatch(action) {
+      let oldState = this.state
+      this.state = this.reducer(this.state, action)
+      this.subscribers.forEach(
+        (fn) => fn(this.state, oldState));
+    }
+  }
+  ```
+
+  ## The Reducer - (state, action) => state
+
+  Next we need a simple reducer function. This will take a state and an action, and return a new state. This is where our state gets changed. Notice that the state is never mutated. Instead a new state object is returned each time, possibly containing some of the same values. This lets us do simple change detection in our UI.
+
+  
+  ```
+  const reducer = (state=defaultState, action) => {
+    switch (action.type) {
+      case "INC": 
+        return {...state, value: state.value + 1}
+      case "DEC": 
+        return {...state, value: state.value - 1}
+      default:
+        return state
+    }
+  }
+  ```
+
+  Now we can create our store:
+
+  ```
+  const store = new Store(reducer);
+  ```
+
+  ## Attaching the UI
+
+  Hanging the UI off the store is simply a matter of subscribing the render function to the store:
+
+  ```
+  store.subscribe(render)
+  ```
+
+  Whenever the store updates, render will be called.
+
+  ## Optimising the Render
+
+  In this simple example, the `render` function just pushes the current state into a `pre` tag, but we can still do some optimisations. Because we are using immutables, we can just compare the old state wit hthe new state. If the state hasn't changed, there's no need to redraw the UI.
+
+  ```
+  const render = (state, oldState) => {
+    if (state != oldState) 
+      document.getElementById('app')
+        .innerHTML += "\n" + JSON.stringify(state)  
+  }
+  ```
+
+  Here's that in context, with a couple of buttons thrown in for good measure. Notice that the NOOP (no operation) button doesn't change the store, so the render function doesn't need to do anything.
+
+  <p data-height="1400" data-theme-id="dark" data-slug-hash="owbqMX" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="Vanilla Flux Architecture Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/owbqMX/">Vanilla Flux Architecture Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+.mini_exercise Read the code and try to understand it. Add actions to add 10 to the counter, and to set it to zero. Wire them up to buttons.
+
+:markdown
+  In the next section we're going to start looking at building with Flux, using Redux as the store, and React as the UI.

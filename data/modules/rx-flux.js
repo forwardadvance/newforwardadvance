@@ -1,7 +1,7 @@
 module.exports = {
   title: "Flux with Redux",
   duration: 0.5,
-  slug: 'flux-1',
+  slug: 'rx-flux',
   price: 745,
   description: "",
   outcome: "",
@@ -19,7 +19,7 @@ module.exports = {
     },
     {
       slug: 'redux',
-      title: 'Introducing Plain Old Redux',
+      title: 'Introducing Plain Ol\' Redux',
       description: '',
       learnings: [
         "What is Redux and how does it relate to React?",
@@ -32,11 +32,32 @@ module.exports = {
       path: 'react/flux/redux'
     },
     {
-      slug: 'combining-redux-stores',
-      title: 'Combining Redux Stores',
+      slug: 'react-redux',
+      title: 'Binding Redux to React',
       description: '',
       learnings: [
-      ]
+        ""
+      ],
+      github: '',
+      path: 'react/flux/react-redux'
+    },
+    {
+      slug: 'combine-reducers',
+      title: 'Combining Redux Reducers',
+      description: '',
+      learnings: [
+      ],
+      github: '',
+      path: 'react/flux/combine_reducers'
+    },
+    {
+      slug: 'middleware',
+      title: 'Redux Middleware',
+      description: '',
+      learnings: [
+      ],
+      github: '',
+      path: 'react/flux/middleware'
     },
   ]
 };
