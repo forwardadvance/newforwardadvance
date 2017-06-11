@@ -11,29 +11,39 @@
 
   Stateful components are defined using a class. Until mid 2016, all components were defined this way, and could potentially have state. Here is an example of a component with state:
 
-  <p data-height="400" data-theme-id="dark" data-slug-hash="NgKerR" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Stateful Components Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/NgKerR/">React Stateful Components Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  <p data-height="550" data-theme-id="dark" data-slug-hash="NgKerR" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Stateful Components Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/NgKerR/">React Stateful Components Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
   <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
+.mini_exercise In the Counter constructor, use Math.random to generate an incrementValue, and save it to state. Rather than increasing by 1 each time, the counter should increase by incrementValue. Use React to add multiple counters, all with their own incrementValue.
+
+:markdown
   There are several things to notice here:
 
-  ### 1. We change state in setState
+  ### 1. We can initialise state anywhere, but unless we do so, state won't be available. Remember your super call, or everything will break.
+
+  ### 2. We change state in setState
 
   the setState function lets us change the state for the component. React will pick up on this call, and will rerender the app. This isn't Angular, where you can just change values. There's no magic here.
 
-  Sometimes React may batch multiple setState commands into one, so you can't guarantee when setState will be run.
+  **We never change objects directly in state**, we ask setState to do it for us. Real immutability allows us to do some serious speed optimisations. Lots more on this later.
 
-  ### 2. Objects in state are ideally immutable
+  Note also that sometimes React may batch multiple setState commands into one, so you can't guarantee when the state will actually change.
 
-  We don't change objects in state, we create brand new objects, and copy in the values. The lets React see what has changed by comparing the old state object with the new one, and prevents wierd things happening where we render a value, then change it later in the rendering cycle. 
-  
-  We call this immutablility. Lots more on this later.
 
-  ## Be wary of State Overuse
+  ## State is immutable
 
-  State is a fairly old concept in React. It is more common now to store most of our application state in a central store which then sets itself as the state of the root component, and then propogates down to the children via *props*.
+  Despite its name, setState doesn't set the entire state, will only change the keys we give it. If we want to set a particular field, we only pass an object containing the field we want to set. Everything else will remain unchanged. React will then update state for us and will be notified to do a erender at its earliest convenience.
 
-  We call this a Flux Architecture. More on this soon.
+  Objects in state are immutable. This means that we never change them. Instead, if we want to update them, we create a copy, modify the copy, and save it in the same place. This might sound inefficient. In practice, it's actually rather fast because we can make some assumptions about where our objects are available.
 
-  ## Immutables
+  This, for example, is naughty:
 
-  
+  <p data-height="600" data-theme-id="dark" data-slug-hash="XgdpNB" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Stateful Components Demo 2" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/XgdpNB/">React Stateful Components Demo 2</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+  Why? because I've directly modified this.state.hero.power. Imagine if this same hero object were shared by multiple components. We would modify it in one place, and it would be updated all over the place, *without React knowing*. Now we have a broken app.
+
+  Here's an example of mutating a shared object. Can you see how all most of the components are showing the wrong data most of the time?
+
+  <p data-height="700" data-theme-id="dark" data-slug-hash="jwqyXz" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Stateful Components Demo 2" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/jwqyXz/">React Stateful Components Demo 2</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+  In the next section, we're going to look at how we can deal with immutables in JavaScript.

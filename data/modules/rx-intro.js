@@ -60,6 +60,16 @@ module.exports = {
       path: 'react/es6-intro/state'
     },
     {
+      slug: 'immutables',
+      title: 'A Word on Immutables',
+      description: '',
+      learnings: [
+        ''
+      ],
+      github: '',
+      path: 'react/es6-intro/immutables'
+    },
+    {
       slug: 'dom-events',
       title: 'DOM Events',
       description: '',
@@ -115,16 +125,6 @@ module.exports = {
       github: '',
       path: 'react/es6-intro/forms'
     },
-    {
-      slug: 'immutables',
-      title: 'A Word on Immutables',
-      description: '',
-      learnings: [
-        ''
-      ],
-      github: '',
-      path: 'react/es6-intro/immutables'
-    },
 
     {
       slug: 'toolchain',
@@ -155,6 +155,16 @@ module.exports = {
       ],
       github: '',
       path: 'react/es6-intro/container-components'
+    },
+    {
+      slug: 'ajax',
+      title: 'Ajax with Container Components and React',
+      description: '',
+      learnings: [
+        '',
+      ],
+      github: '',
+      path: 'react/es6-intro/ajax'
     },
     {
       slug: 'should-component-update',

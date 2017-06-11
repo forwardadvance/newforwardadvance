@@ -32,6 +32,9 @@
 :markdown
   So immutables help us to tell if something has changed. React can use immutables to speed up change detection. If two objects are actually different objects, React can tell very quickly. This will open the door to all sorts of optimisations later.
 
+  If we mutate an object, and that object is referred to in two places, when we update one, we automatically update the other. This is potentially very bad. It's one step up from coding with globals.
+
+  Luckily, in ES6 and ES7 we have some great ways to duplicate objects without too much work. Let's look at some of them now.
 
   ## Duplicating an Array
 
@@ -46,12 +49,12 @@
 
   This will make a full copy of the array containing all the same objects.
 
-  The newer, and simper ES6 way is with the spread operator. This works in current evergreen browsers, and can be 
+  The newer, and simper ES6 way is with the spread operator. This works in current evergreen browsers, and can be transpiled into ES5 for older browsers with Babel.
 
   ```
   var kittens = ["Foofums", "Special Sauce", "Tinkerbell"]
   var pirates = [...cats]
-  kittens == pirates //false
+  kittens == pirates // false
   ```
 
   Try it out here:
@@ -93,7 +96,7 @@
   <p data-height="350" data-theme-id="dark" data-slug-hash="PjPLoG" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="Immutable Objects Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/PjPLoG/">Immutable Objects Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
   <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-.mini_exercise 
+.mini_exercise Make another duplicate of the cat object with four legs and two ears.
 
 :markdown
   ## Shallow Copies
@@ -107,33 +110,57 @@
   <p data-height="500" data-theme-id="dark" data-slug-hash="KqdYoK" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="Immutables Complex Transformations Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/KqdYoK/">Immutables Complex Transformations Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
   <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
+.mini_exercise Preprend another object to the start of the array.
+
+:markdown
   Here we delete the element with id of 2, using filter:
 
   <p data-height="600" data-theme-id="dark" data-slug-hash="MoaMjB" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="Immutables Remove Element From Array Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/MoaMjB/">Immutables Remove Element From Array Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
   <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
+.mini_exercise Delete all the nodes that contain the word Jam.
+
+:markdown
   Here we find the todo with id=2, and replace it with a new todo with the data copied over, but different text:
 
   <p data-height="650" data-theme-id="dark" data-slug-hash="NgGVpx" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="Immutables Complex Array Manipulation Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/NgGVpx/">Immutables Complex Array Manipulation Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
   <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-  ## Exercise - TODOs
+.mini_exercise Harder: add a status attribute to all the todo objects with the value "DONE".
 
-  We have all the pieces in place now to create the classic example, a simple TODO app.
+:markdown
+  ## Immutable State
 
-  Making a TODO app from scratch is a little like constructing your own lightsabre. Open the starter project, or create your own with create-react-app. 
+  This brings us back to our previous example. If you remember, we were modifying state directly on an object that was shared between multiple components, and this was causing our DOM to be out of sync with our models. We can fix this with immutables.
 
-  You'll need several components:
+  First, we will create a new copy of the hero for each Component:
 
-  * An App component. This should hold your state.
-  * A TodoList component. This can be a stateless component. It should receive the list of todos
-  * An add Todo form which will contain a form and a button to add a new todo. It will emit an onAdd event that will append the todo to the array in the App state. Use a stateful or stateless form, your choice.
+  ```
+  this.state = {hero: {...hero}}
+  ```
 
-  Make an application that allows you to add todo items to a list. Don't worry about deleting items yet.
+  This might be enough, but for good measure, we can use immutables on the setState too:
 
+  ```
+  let hero = this.state.hero
+  this.setState({ 
+    hero:{
+      ...hero, 
+      power: hero.power+1
+    }
+  })
+  ```
 
-  ## Exercise Extension - Deleting and sorting
+  Here's that in context:
 
-  Put a delete button next to each todo that will delete it from the list. You'll want to emit an event that sends the TODO  up to the App component. Then have the App component handle it by removing it from the array.
+  <p data-height="800" data-theme-id="dark" data-slug-hash="pwydaa" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Stateful Components Demo With Immutables" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/pwydaa/">React Stateful Components Demo With Immutables</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  
+section.exercise
+  :markdown
+    ## Exercise - Random Name Generator
 
-  ## Further Extension
+    Your mision is to create an app that generates random hero names. Create them, using some random means. Use a setInterval to add a new name to the roster every three seconds. The list should never be more than ten items long, so as new ones scroll in, old ones are knocked off the bottom.
+
+    Work in this Pen (you may wish to fork it, and open in full screen)
+
+    <p data-height="444" data-theme-id="dark" data-slug-hash="YQqEdy" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Stateful Components Exercise" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/YQqEdy/">React Stateful Components Exercise</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>

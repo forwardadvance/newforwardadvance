@@ -10,15 +10,19 @@
   Here's a UserProfile component, created as a stateless component:
 
   <p data-height="500" data-theme-id="dark" data-slug-hash="VbJOry" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Vanilla Props Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/VbJOry/">React Vanilla Props Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
+.mini_exercise Give Chopper a cat and pass that in too as another prop.
+
+:markdown
   We can do the same thing with a class based stateful component. The main difference is that we don't explicitly recieve props, they become an attribute of the component object.
 
   Here's the exact same thing, done with a class:
 
-  <p data-height="500" data-theme-id="dark" data-slug-hash="vZBOMR" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Vanilla Props Stateful Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/vZBOMR/">React Vanilla Props Stateful Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+  <p data-height="600" data-theme-id="dark" data-slug-hash="vZBOMR" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Vanilla Props Stateful Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/vZBOMR/">React Vanilla Props Stateful Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 
+.mini_exercise Walter needs a pet gerbil with a name and description. Make one and pass it in, then render it.
+
+:markdown
   ## Props are like DOM properties
 
   The sharp eyed amongst you may have noticed that the way we pass props into a component in the same as the way we set attributes on a DOM node:
@@ -47,17 +51,17 @@
 
   Passing data down via props gives us the concept of one-way-binding. 
 
-  Props in a react app go one way only, from parent components to child components. Data flows down through the app from parent to child. This means that once we are done rendering a parent node, we can forget about it and render its children. If we had two way binding, if children were allowed to modify their parent's data, then we might have to go back and re-render the parent having rendered the child.
+  Props in a react app go one way only, from parent components to child components. Data flows down through the app from parent to child. This means that once we are done rendering a parent node, we can forget about it and render its children.
+  
+  If children were allowed to modify their parent's data, then we might have to loop back over and over during our render each time a child changed a parent's data. This is actuaully how Angular 1 worked, and was part of the reason why it was slow.
 
-  We would need to loop around, over and over, until every component had finished modifying data.
-
-  ## Props flow data down through an app
+  ## Props in Action
 
   Say we have a user with a list of friends. We might iterate over that list, passing friends down into Friend components. We pick up the values in the child components, and render them.
 
+  Here's a set of components that handle a user profile. Notice how the data flows down through the app via props:
+
   <p data-height="1000" data-theme-id="dark" data-slug-hash="ZKddJJ" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Vanilla Props One-Way-Binding Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/ZKddJJ/">React Vanilla Props One-Way-Binding Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
-
-
-
+  
+.mini_exercise Give the user a newsfeed. Create a newsfeed component, and pass the feed into it via props.
 

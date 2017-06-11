@@ -1,7 +1,7 @@
 :markdown
   React is a DOM manipulation library. It contains methods that allow us to create virtual DOM nodes, then render them to the real DOM so they appear on our web page.
 
-  A minimal React HTML page looks like this:
+  A minimal React `index.html` page looks like this:
 
 
   ```html
@@ -10,14 +10,14 @@
     <body>
       <div id="app"></div>
 
-      <script src="lib/react.js"></script>
-      <script src="lib/react-dom.js"></script>
-      <script src="app/app.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.min.js"></script>
+      <script src="app.js"></script>
     </body>
   </html>
   ```
 
-  We havea div with an id of app, then we have three script tags, two of which belong to React, and one of which (`app.js`) contains our code.
+  We have a div with an id of app, then we have three script tags, two of which belong to React, and one of which (`app.js`) contains our code.
 
 
   ## Creating virtual DOM nodes
@@ -25,36 +25,43 @@
   To use React, we create virtual DOM nodes, like so:
 
   ```
-  React.createElement('h1', null, "Hello, world!");
+  var el = React.createElement('h1', null, "Hello, world!");
   ```
 
   The parameters are:
 
   1. The type of element we want.
-  2. A JSON object which will be used to make attributes.
+  2. A JSON object which will be used to make attributes (we call them props).
   3. The content of the element. This might be an array of other elements.
 
+aside.box
+  :markdown
+    ## What about JSX?
+    We can do the same using JSX. I'm deliberately not using JSX yet, because it can seem magical, and can take away from the learning. In this course we'll start out with plain old ES6, then ramp up through JSX and ESNext.
 
+:markdown
   ## Rendering
 
-  Creating this DOM node does nothing, because so far we have only maipulated the *Virtual DOM*.
+  Creating this DOM node does nothing visible, because it's not attached to the DOM.
 
-  If we want to take these changes and slap them onto the real DOM, we have to 'render'. We do this using ReactDOM.
+  If we want to take these changes and slap them onto the real DOM, we have to 'render'. We do this using ReactDOM, which is the second dependency of our app.
+
+  Here
 
   ```
-  // First make the virtual DOM node
-  React.createElement('h1', null, "Hello, world!");
-
-  // Next choose a real DOM node to act as the root
-  var root = document.getElementById('app');
-
-  // Now render
-  ReactDOM.render(h1, root);
+  
+  ReactDOM.render(
+    el, 
+    document.getElementById('app'));
   ```
 
-  Run this code to make a hello world. Now that was pretty simple right?
+  Here's that in context:
 
+  <p data-height="300" data-theme-id="dark" data-slug-hash="mwPPJG" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Hello World" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/mwPPJG/">React Hello World</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 
+.mini_exercise Try and change the hello world app to a goodbye world app.
+
+:markdown
   ## React-DOM gives us shortcuts
 
   Typing React.createElement all the time is going to get stale quite quickly. React gives us helper methods for common html DOM nodes. Say we want an h1, we can call:
@@ -75,18 +82,17 @@
   <p data-height="265" data-theme-id="dark" data-slug-hash="oxoGyK" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Hello World" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/oxoGyK/">React Hello World</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
   <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-.mini_exercise Try and change the hello world app to a goodbye world app.
+.mini_exercise Try and make an h2
 
 section.exercise
   :markdown
     ## Exercise - Hello React
 
-    In this course, we'll be working in code pens some of the time, and sometimes directly in the browser with a starter project.
+    In this course, we'll be working in code pens some of the time, and sometimes directly in the browser.
 
     In this exercise, we're just going to get a React Hello World running in a browser, without pens, or tooling, or ESNext, or any other fancy shmancy stuff that we'll get to later. Just plain, workmanlike, ES5 and HTML.
 
-    Download the React skeleton from the github repo. Open it in a browser. You'll find an HTML file, which you can open in your browser, and an app.js where you'll put your code.
+    Make an index.html file using the above as a guide. Now make an app.js file. Open the index.html file in your browser. Try and get a halfway decent little hello world running.
 
-    *Don't do copy-pasting. No-one learns from copy-pasting code.*
+    *Note: Don't do copy-pasting. No-one learns from copy-pasting code.*
     
-    Type out a minimal React hello world and view it in the browser.

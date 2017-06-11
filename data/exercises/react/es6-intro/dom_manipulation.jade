@@ -1,12 +1,11 @@
 :markdown
-  We can use React to do simple DOM manipulation.
-
   The DOM is a tree, things go inside other things, so the React virtual DOM allows us to create a tree too.
 
-  The third parameter of createElement can be one of three things:
+  The third parameter of createElement can be one of four things:
 
-  1. A string
-  2. A React Element
+  1. A string - which will append a text node
+  2. A React Element - which will append a child
+  2. A Component (more on this later)
   3. An Array (or perhaps a function call that returns an array)
 
   This means that when we create an element, we can put other elements inside it to build our DOM. Then when we render, the tree will be appended to the page.
@@ -49,26 +48,36 @@
   <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 
-.mini_exercise Add a header and footer. Create a list of objects containin hyperlinks. Use these to generate a sidebar.
+.mini_exercise Try and change the code so it outputs a table. Don't worry about the `key` warnings yet.
 
 :markdown
   ## Setting Classes and Attributes.
 
   We can optionally set classes and other attributes on an element. The second parameter can be an object containing a list of attributes that will be applied to the new DOM node.
 
-  The exception to this is the class attribute. `Class` is a keyword in JavaScript, so we use the `className` attribute instead.
+  The exception to this is the class attribute. `class` is a keyword in JavaScript, so we use the `className` attribute instead.
 
   <p data-height="265" data-theme-id="dark" data-slug-hash="BRXZye" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React DOM Attributes Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/BRXZye/">React DOM Attributes Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
   <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+
+.mini_exercise Come up with a list of your favourite websites. Now try to output them as a clickable list of links.
 
 section.exercise
   :markdown
     ## Exercise - A little DOM
 
-    Download the exercise starting point. You'll find an index.html file and an associated, almost empty app.js. Given the list of villains, try to create a little DOM that renders them in a nice table.
+    Here's a list of villains.
 
-    Add links to the associated Wikipedia pages.
+    * Godzilla
+    * Eye of Sauron
+    * Voldemort
+    * Saruman
+    * Dalek
 
-    For bonus points, add a header and a footer.
+    Download the exercise starting point. You'll find an index.html file and an associated, almost empty app.js. Given the list of villains, and without referring to the notes, try to create a little DOM that renders them in a nice table.
+
+    ## Extension
+
+    Hyperlink the vilains to their associated Wikipedia pages.
 
     Try to do it without referring to the docs. We're aiming for finger knowledge here.

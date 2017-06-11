@@ -1,0 +1,31 @@
+:markdown
+  React is a client-side DOM manipulation tool. At some point we will want to retrieve data from the server.
+
+  Unlike other frameworks like Angular, React has no specific AJAX API. You are free to use whatever you like to talk to the server, even $.ajax if you want (though there are better alternatives). 
+
+  ## fetch()
+
+  Fetch is a future JavaScript spec, supported by all major browsers apart from IE. Polyfills are available for IE if required. Fetch lets you hit a URL, and returns a standard JavaScript promise (a thennable) which you can chain callbacks on.
+
+  Use it like this
+
+  ```
+  fetch(url)
+    .then((response) => {
+      this.state = response
+      // do something with the response
+    })
+    .catch((error) => {
+      // do something with the error condition
+    })
+  ```
+
+  It does all the things you'd expect. You can read the docs here: <https://developer.mozilla.org/en/docs/Web/API/Fetch_API>
+
+  It's probably the most ideomatic way to do ajax at time of writing.
+
+  ## AJAX in a Container Component
+
+  So where to do AJAX? There are several options:
+
+  1. Right inside the Component that needs the data. 

@@ -16,16 +16,72 @@
   ```jsx
   const cats = <p>Cats</p>;
   ```
-.mini_exercise 
-  | Try out some JSX at the 
-  a( href="https://babeljs.io/repl/#?babili=false&evaluate=true&lineWrap=false&presets=es2015%2Creact%2Cstage-2&targets=&browsers=&builtIns=false&debug=false&experimental=false&loose=false&spec=false&code=const%20element%20%3D%20%3Cp%3ECats%3C%2Fp%3E%3B)" target="_blank") Babel repl here.
-  | Try to make an anchor with an h1 inside of it. Add an href attribute. Check what it compiles to.
+
+  ## Stateless Components
+
+  A simple component now looks like this:
+
+  ```
+  const App = () => 
+    <div className="app">
+      <h1>My App</h1>
+    </div>
+  ```
+
+  ## Embedding JavaScript
+
+  To insert JavaScript into an XML section of a JSX file, we use the curly braces, like so:
+
+  ```html
+  <button onClick={props.saveEveryone}>Save The World</button>
+  ```
+
+  ## Loops
+
+  Say we have a list of cats:
+
+  ```
+  const cats = [
+    {id: 1, name: "Sherlock"},
+    {id: 2, name: "Watson"}
+  ]
+  ```
+
+  We can map them to DOM nodes like so:
+
+  ```
+  const Cats = (props) =>
+    <ul>
+      {
+        props.cats.map((cat) => 
+          <li id={cat.id}>
+            {cat.name}
+          </li>
+        )
+      }
+    </ul>
+  ```
 
 :markdown
-  ## Components and Props
+  ## Props
 
-  If we write a component like this, our props become simple attributes of the html
+  If we write a component like this, our props become simple attributes of the html:
+
+  const App = () => {
+    let cat = {name: "Fluffy"};
+    return <Cat name={cat} />
+  }
+    
   
+section.exercise 
+  :markdown
+    ## Exercise
+    Try out some JSX at the 
+    <a href="https://babeljs.io/repl/#?babili=false&evaluate=true&lineWrap=false&presets=es2015%2Creact%2Cstage-2&targets=&browsers=&builtIns=false&debug=false&experimental=false&loose=false&spec=false&code=const%20element%20%3D%20%3Cp%3ECats%3C%2Fp%3E%3B)" target="_blank"> 
+      Babel repl here.
+    </a>
+    Try to make an anchor with an h1 inside of it. Add an href attribute. Check what it compiles to.
+
 :markdown
   ## The Toolchain
 

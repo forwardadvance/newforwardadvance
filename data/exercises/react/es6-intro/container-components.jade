@@ -1,0 +1,29 @@
+:markdown
+  Say we have a component that manipulates data before rendering it. Perhaps we have an array, like this one:
+
+  ```
+  const heros = [
+    {id: 1, name: "Marvyn Marvolo", type: "Wizard", maxHp: 12, hp: 12, armour: 3, attack:45},
+    {id: 2, name: "Haldane Rendall", type: "Swordsman", maxHp: 36, hp: 36, armour: 33, attack:12},
+    {id: 3, name: "Hylo Kitoma", type: "Rogue", maxHp: 21, hp: 21, armour: 12, attack:45},
+    {id: 4, name: "Oeliera Chordae", type: "Mystic", maxHp: 24, hp: 24, armour: 2, attack:99}
+  ]
+  ```
+
+  I'd like to be able to show and sort this list. I have three ways to do this:
+
+  ## Sort in the Heros Function (naive)
+
+  I could sort the data right in the render function. This works, but it feels a bit dirty. I've mixed my logic all up inside my front end, and my component now looks ugly.
+
+  <p data-height="1700" data-theme-id="dark" data-slug-hash="zzrMGJ" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Presentation Components Demo (Before)" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/zzrMGJ/">React Presentation Components Demo (Before)</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+  
+  ## A Better Solution - Container Components
+
+  The problem above is that we have a big old switch statement right inside my component. I could pull this switch up into The app component, but this is really not an improvement.
+
+  A better solution is a container component. This modifies the props, and then passes the data right back down into the presentation component. Here we have a new component called SortedHeros. It does the sorting, then immediately shells out to the Heros component.
+
+  We call this a container component. Notice how the container contains no JSX at all. I've kept them completely separate.
+
+  <p data-height="1700" data-theme-id="dark" data-slug-hash="KqVbVb" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Presentation Components Demo (After)" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/KqVbVb/">React Presentation Components Demo (After)</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>

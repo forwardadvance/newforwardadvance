@@ -23,6 +23,54 @@
 
   We can plug all of this together by hand if we like. Up until mid 2016, this was the only way to go. It took a whole day to put together, and, like an old engine, needed constant tinkering to keep it running nicely. There are tutorials on the internet that will show you how, but we don't need to any more, because of create-react-app.
 
-  ## create-react-app
+  ## Enter create-react-app
 
-  create-react-app will set up a functioning stack for you
+  create-react-app will set up a functioning stack for you. It gives you a boilerplate, plus a server and tests. [Check out the docs here](https://github.com/facebookincubator/create-react-app).
+
+  Install with:
+
+  ```
+  npm install -g create-react-app
+  ```
+
+  Now create an app with:
+
+  ```
+  create-react-app cat-app
+  cd cat-app/
+  npm start
+  ```
+
+  Now visit <http://localhost:3000> to see your webpage.
+
+  You can start your live-reloading test server with:
+
+
+section.exercise
+  :markdown
+    ## Quick Exercise - Hello World
+
+    Use CreateReactApp to create a simple hello world project. Get it running in the browser.
+
+    For bonus points, check out the test file, and run it with `npm run test`.
+
+section.exercise
+  :markdown
+    ## Extended Exercise - TODOs
+
+    We have all the pieces in place now to create the classic example, a very simple TODO app. 
+
+    Making a TODO app from scratch is a little like constructing your own lightsabre. This exercise will take an hour or so to do, and will test every skill you have learned so far. 
+
+    You'll need several components:
+
+    * An App component. This should hold your state.
+    * A TodoList component. This can be a stateless component. It should receive the list of todos and render it.
+    * An add Todo form which will contain a form and a button to add a new todo. It will emit an onAdd event that will append the todo to the array in the App state. Use a stateful or stateless form, your choice.
+
+    Make an application that allows you to add todo items to a list. Don't worry about deleting items yet.
+
+
+    ## Exercise Extension - Deleting and sorting
+
+    Put a delete button next to each todo that will delete it from the list. You'll want to emit an event that sends the TODO up to the App component. Then have the App component handle it by removing it from the array.

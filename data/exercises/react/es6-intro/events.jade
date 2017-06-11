@@ -1,5 +1,5 @@
 :markdown
-  We can think of Components as being like new DOM nodes that we define.
+  We can think of Components as being like new DOM nodes that we define. DOM nodes have input and output.
 
   Here is a regular old anchor tag:
 
@@ -15,6 +15,22 @@
   <Cat onMiow="miow" />
   ```
   
-  If we pass in a function as a prop and bind it to the parent, then the child component can call a method on the parent:
+  If we pass in a function as a prop and bind it to the parent, then the child component can call a method on the parent.
 
-  
+  Here's an example. The App component holds a hero, then the two stateless components simply render him. The App component passes a method to the Arena to allow the hero to take damage.
+
+  Data flows down the tree, and children can call methods on their parents to flow it back up again.
+
+  Note that these aren't real DOM events. They don't bubble. We're just calling a method in the context of the parent.
+
+  <p data-height="900" data-theme-id="dark" data-slug-hash="JJXpdJ" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Events demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/JJXpdJ/">React Events demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+section.exercise
+  :markdown
+    ## Exercise
+
+    Revisit MyFace.com. Try to make it so that Davros can like and unlike his friends.
+
+    Extension. Let Davros remove items from his newsfeed.
+
+    <p data-height="265" data-theme-id="dark" data-slug-hash="GEZQMz" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Vanilla Props One-Way-Binding Demo" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/GEZQMz/">React Vanilla Props One-Way-Binding Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
