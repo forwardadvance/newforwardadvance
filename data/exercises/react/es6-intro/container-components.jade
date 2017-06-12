@@ -17,7 +17,7 @@
   I could sort the data right in the render function. This works, but it feels a bit dirty. I've mixed my logic all up inside my front end, and my component now looks ugly.
 
   <p data-height="1700" data-theme-id="dark" data-slug-hash="zzrMGJ" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Presentation Components Demo (Before)" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/zzrMGJ/">React Presentation Components Demo (Before)</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-  
+
   ## A Better Solution - Container Components
 
   The problem above is that we have a big old switch statement right inside my component. I could pull this switch up into The app component, but this is really not an improvement.
@@ -27,3 +27,9 @@
   We call this a container component. Notice how the container contains no JSX at all. I've kept them completely separate.
 
   <p data-height="1700" data-theme-id="dark" data-slug-hash="KqVbVb" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Presentation Components Demo (After)" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/KqVbVb/">React Presentation Components Demo (After)</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+section.exercise
+  :markdown
+    ## Exercise
+
+    Add sort buttons to your TODO app. Create a Sorted Todos component that will handle the sorting, and pass it to the todo list.

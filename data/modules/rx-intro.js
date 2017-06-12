@@ -42,7 +42,7 @@ module.exports = {
       title: 'Vanilla React Components',
       description: '',
       learnings: [
-        
+
       ],
       github: '',
       path: 'react/es6-intro/components'
@@ -138,7 +138,7 @@ module.exports = {
     },
     {
       slug: 'container-components',
-      title: 'Presentational vs Container React Components',
+      title: 'Presentational vs. Container React Components',
       description: '',
       learnings: [
         '',
@@ -146,16 +146,16 @@ module.exports = {
       github: '',
       path: 'react/es6-intro/container-components'
     },
-    {
-      slug: 'ajax',
-      title: 'Ajax with Container Components and React',
-      description: '',
-      learnings: [
-        '',
-      ],
-      github: '',
-      path: 'react/es6-intro/ajax'
-    },
+    // {
+    //   slug: 'ajax',
+    //   title: 'Ajax with Container Components and React',
+    //   description: '',
+    //   learnings: [
+    //     '',
+    //   ],
+    //   github: '',
+    //   path: 'react/es6-intro/ajax'
+    // },
     {
       slug: 'should-component-update',
       title: 'Optimising Compilation with Pure Components',

@@ -1,6 +1,6 @@
 :markdown
   When we render a react app, by default we traverse the entire component tree. This is typically fine because traversing the tree is typically orders of magnitude faster than updating the DOM, and React already optimised DOM updates (see section 1).
-  
+
   However, this isn't always the case. Say we have a component that deals with some large data structure, it might not be OK to traverse that structure on each user interaction.
 
   ## For This, we have shouldComponentUpdate
@@ -17,7 +17,7 @@
   }
   ```
 
-  The `CatList` will only rerender if the cats actualy change. 
+  The `CatList` will only rerender if the cats actualy change.
 
   ## Immutables
 
@@ -55,4 +55,6 @@
 
   Visit <http://localhost:3000?react_perf>
 
-  Now in Chrome developer tools, navigate to the performance tab, and click record. You can now get a handy visualisation of exactly which components are dragging their feet.
+  Now in Chrome developer tools, navigate to the performance tab, and click record. Navigate around your app for a while, then click stop.
+
+  You'll see a visualisation of where the browser spent its time. In amongst all the DOM stuff, there will be a section marked `User Timing`. This contains a full breakdown of all your components.

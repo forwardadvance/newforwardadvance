@@ -1,6 +1,6 @@
 :markdown
-  There are two ways of dealing with forms in React. 
-  
+  There are two ways of dealing with forms in React.
+
   either...
 
   1. We can use a stateful component, and bind the form values to state, or...
@@ -17,8 +17,8 @@
   Here's a catName input field:
 
   ```
-  <input 
-    onChange={(evt) => this.setState({catName: evt.target.value})} 
+  <input
+    onChange={(evt) => this.setState({catName: evt.target.value})}
     value={this.state.catName}/>
   ```
 
@@ -37,7 +37,7 @@
   ## Stateless Forms
 
   The other option is to store form data actually in the form, until we're ready to use it, typically onSubmit. We use a thing called a template ref to get access to the input element itself, like so:
-  
+
   ```
   <input ref={(el)=>catInput=el} />
   ```
@@ -52,7 +52,7 @@
 .mini_exercise Add another field to the form and bind it.
 
 section.exercise
-  :markdown 
+  :markdown
     ## Exercise Hero Editor
 
     Assume we have a hero in our App component, like this:
