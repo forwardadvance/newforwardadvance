@@ -50,14 +50,14 @@ module.exports = {
       github: '',
       path: 'react/flux/combine_reducers'
     },
-    {
-      slug: 'middleware',
-      title: 'Redux Middleware',
-      description: '',
-      learnings: [
-      ],
-      github: '',
-      path: 'react/flux/middleware'
-    },
+    // {
+    //   slug: 'middleware',
+    //   title: 'Redux Middleware',
+    //   description: '',
+    //   learnings: [
+    //   ],
+    //   github: '',
+    //   path: 'react/flux/middleware'
+    // },
   ]
 };

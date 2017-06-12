@@ -8,7 +8,6 @@
   In React we do the same, giving our DOM elements onClick attributes (note the capitalisation):
 
   <p data-height="231" data-theme-id="dark" data-slug-hash="NgKdQr" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React DOM events Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/NgKdQr/">React DOM events Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 .mini_exercise Try to make the button respond onMouseOver or onFocus. Add an input box and make it respond onInput
 
@@ -16,7 +15,7 @@
   Regular DOM events are lowercase, React has them in camelcase, but all the DOM events you would expect are present. Here are some events you can listen to:
 
   * onClick - anything is clicked on
-  * onInput - an input element is typed into
+  * onChange - an input element is typed into
   * onBlur - when you tab out of an input
   * onSubmit - when a form is submitted
 
@@ -25,7 +24,6 @@
   We might use a clicky button to modify the state of a component. Here is a simple counter that stores its value in state, then updates the state when we click a button.
 
   <p data-height="600" data-theme-id="dark" data-slug-hash="XgrQRq" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Events that Modify State Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/XgrQRq/">React Events that Modify State Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 .mini_exercise Extend the counter with a count-down button. Add a zero button to reset the counter.
 

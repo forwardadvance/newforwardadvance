@@ -31,6 +31,9 @@
   <p data-height="800" data-theme-id="dark" data-slug-hash="zzvKNK" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Stateful Form Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/zzvKNK/">React Stateful Form Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
   <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
+.mini_exercise Add another field to the form and bind it.
+
+:markdown
   ## Stateless Forms
 
   The other option is to store form data actually in the form, until we're ready to use it, typically onSubmit. We use a thing called a template ref to get access to the input element itself, like so:
@@ -46,3 +49,14 @@
   <p data-height="514" data-theme-id="dark" data-slug-hash="yXYVjP" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React StateLess Form Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/yXYVjP/">React StateLess Form Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
   <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
+.mini_exercise Add another field to the form and bind it.
+
+section.exercise
+  :markdown 
+    ## Exercise Hero Editor
+
+    Assume we have a hero in our App component, like this:
+
+    Create a HeroEdit form that can edit that hero. Pass the hero into it via props. Be careful with immutability here. When the hero editing is complete, bind an onSubmit event to the form (remember to call event.preventDefault() here, or the form will really submit). Have the submit event pass the new, modified hero back up to the app.
+
+    For bonus points, create a component that can render the hero.

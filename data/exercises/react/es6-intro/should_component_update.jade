@@ -1,6 +1,58 @@
 :markdown
-  When we render a react app, by default we traverse the entire component tree. If only some of the data has changed, it might not be necessary to render parts of the app that have not changed.
-
-  React gives us a callback `shouldComponentUpdate(newProps, newState)`. This callback has one job, to return true or false. If it returns true, the component and it's children will have render called on them. If it returns false, render will not be called.
-
+  When we render a react app, by default we traverse the entire component tree. This is typically fine because traversing the tree is typically orders of magnitude faster than updating the DOM, and React already optimised DOM updates (see section 1).
   
+  However, this isn't always the case. Say we have a component that deals with some large data structure, it might not be OK to traverse that structure on each user interaction.
+
+  ## For This, we have shouldComponentUpdate
+
+  React gives us a callback `shouldComponentUpdate(newProps, newState)`. This callback has one job, to return true or false. If it returns true, the component will render, and traversal will continue down the tree. If it returns false, render will not be called, and the subtree will not be updated.
+
+  The default shouldComponentUpdate simply returns true, meaning that the component will always update, but we can override this:
+
+  ```
+  class CatList extends React.Component {
+    shouldComponentUpdate(newProps) {
+      return this.props.cats != newProps.cats
+    }
+  }
+  ```
+
+  The `CatList` will only rerender if the cats actualy change. 
+
+  ## Immutables
+
+  To make this work, we need to use immutables. If we just push to the array each time, we the props test will always fail.
+
+  Here we add a new cat to the list:
+
+  ```
+  newCats = [...cats, "Miffy"]
+  ```
+
+  ## PureComponent - There's a Subclass for That
+
+  Rather than just overriding shouldComponentUpdate all over the place, we can extend React.PureComponent
+
+  ```
+  class CatList extends React.PureComponent {
+    render() {/* Code goes here */}
+  }
+  ```
+
+  This gives a default shouldComponentUpdate that returns true if the state or props have changed since the last render.
+
+  ## When do I Use This?
+
+  This will depend on you. Some people make every single component a PureComponent. This sounds fast, but actually adds overhead for simple presentational components that can be more effectively rendered as a function.
+
+  Remember that React already optimises DOM updates for you, and calling a simple function that renders a few divs is blazingly fast already.
+
+  So how to know which parts of your app are slow?
+
+  ## Performance Profiling
+
+  Luckily, create-react-app comes with support for performance profiling.
+
+  Visit <http://localhost:3000?react_perf>
+
+  Now in Chrome developer tools, navigate to the performance tab, and click record. You can now get a handy visualisation of exactly which components are dragging their feet.

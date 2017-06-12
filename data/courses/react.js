@@ -21,7 +21,8 @@ module.exports = {
   `,
   courseModules: [
     require('../modules/rx-intro'),
-    require('../modules/rx-flux')
+    require('../modules/rx-flux'),
+    // require('../modules/rx-extras')
   ],
   optionalModules: ['js2', 'browserify', 'gulp']
 };

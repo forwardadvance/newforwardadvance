@@ -137,16 +137,6 @@ module.exports = {
       path: 'react/es6-intro/toolchain'
     },
     {
-      slug: 'proptypes',
-      title: 'Controlling React Component Input/Output with Proptypes',
-      description: '',
-      learnings: [
-        '',
-      ],
-      github: '',
-      path: 'react/es6-intro/proptypes'
-    },
-    {
       slug: 'container-components',
       title: 'Presentational vs Container React Components',
       description: '',
