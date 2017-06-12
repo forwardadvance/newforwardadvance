@@ -8,7 +8,7 @@
   ReactDOM.render(
     <Provider store={store}>
       <App></App>
-    </Provider>, 
+    </Provider>,
     document.getElementById('app'));
   ```
 
@@ -17,19 +17,19 @@
 //- TODO: Substantiate this
 :markdown
   Now we can make use of our store in any component. Do you remember container components from the React section? A container (smart) component is a component that contains logic, and which then passes calculated values into a presentational (dumb) component via props.
-  
+
   We use a container component here, to pass values from the store into our React component.
-  
+
   Say we have a store that contains a hero:
 
   ```
   const initialState = {
     hero: {
-      name: "Haldane Goodguy", 
-      type: "Swordsman", 
-      maxHp: 36, 
-      hp: 36, 
-      armour: 33, 
+      name: "Haldane Goodguy",
+      type: "Swordsman",
+      maxHp: 36,
+      hp: 36,
+      armour: 33,
       attack:12
     }
   }
@@ -38,7 +38,7 @@
   Then say we have a component that can render that hero:
 
   ```
-  var Hero = (props) => 
+  var Hero = (props) =>
     <div className="hero">
       <h2>{props.hero.name}</h2>
       <pre>
@@ -60,7 +60,7 @@
   Now we can make use of our container component right inside our app:
 
   ```
-  var App = (props) => 
+  var App = (props) =>
     <div>
       <h1>Tomb of the Ancients</h1>
       <HeroContainer></HeroContainer>
