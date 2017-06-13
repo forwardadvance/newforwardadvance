@@ -41,6 +41,23 @@
 
   This gives a default shouldComponentUpdate that returns true if the state or props have changed since the last render.
 
+  ## PureComponent in Action
+
+  Here's an example of how PureComponent can help us. This example renders a list of 100,000 items, and also lets you set a name for a cat. Slightly contrived I know, but hopefully sufficient to get the point across.
+
+  Typing in the CatForm sets the state on the App, which in turn will rerender the TodoContainer.
+
+  Depending on your CPU, this will lock up your browser for a few seconds or more
+
+  We can't do much about the initial render, but we can certainly make the compiled app faster, by having TodoContainer inherit from React.PureComponent.
+
+  <p data-height="265" data-theme-id="dark" data-slug-hash="BZzmXW" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React PureComponent Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/BZzmXW/">React PureComponent Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+.mini_exercise Make TodoListContainer extend React.PureComponent and check the performance.
+
+.mini_exercise Bonus: Make a Todo component that renders a single Todo. Make a method that edits a single todo in App state.todos. Remember to make state.todos immutable. Now make Todo a pure component and see the speed improvement. We can skip rendering most of the list, and only render a single item in it.
+
+:markdown
   ## When do I Use This?
 
   This will depend on you. Some people make every single component a PureComponent. This sounds fast, but actually adds overhead for simple presentational components that can be more effectively rendered as a function.
