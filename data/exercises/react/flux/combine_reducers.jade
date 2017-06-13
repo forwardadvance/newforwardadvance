@@ -7,7 +7,7 @@
   // The CatList only deals with the array that holds cats.
   const catList = (state = [], action) => {
     switch(action.type) {
-      case 'ADD_CAT': 
+      case 'ADD_CAT':
         return [...state, action.newCat]
       default:
         return state;
@@ -17,7 +17,7 @@
   // The AppSettings deals with global application settings and switches
   const appSettings = (state = {}, action ) => {
     switch(action.type) {
-      case 'LEVEL_UP': 
+      case 'LEVEL_UP':
         return {...state, level: state.level + 1 }
       default:
         return state;
@@ -42,9 +42,9 @@
   const store = Redux.createStore(app);
 
   store.dispatch({
-    type:"ADD_CAT", 
-    newCat: { 
-      name:"Henry Mugglesworth" 
+    type:"ADD_CAT",
+    newCat: {
+      name:"Henry Mugglesworth"
     }
   });
   ```
@@ -62,7 +62,18 @@
   This will pass state.catList into the catList reducer, and assign the result back to state.catList. Very nice. Our code is now broken into multiple small reducers.
 
   <p data-height="1800" data-theme-id="dark" data-slug-hash="rwxrqR" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Redux combineReducers Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/rwxrqR/">React Redux combineReducers Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-  <p data-height="265" data-theme-id="dark" data-slug-hash="MoKQvp" data-default-tab="result" data-user="superluminary" data-embed-version="2" data-pen-title="React Redux Multiple Reducers Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/MoKQvp/">React Redux Multiple Reducers Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-  <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
+//- <p data-height="265" data-theme-id="dark" data-slug-hash="MoKQvp" data-default-tab="result" data-user="superluminary" data-embed-version="2" data-pen-title="React Redux Multiple Reducers Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/MoKQvp/">React Redux Multiple Reducers Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
+.mini_exercise Create a dungeon object, and add a reducer and component to deal with it.
+
+section.exercise
+  :markdown
+    ## Extended Exercise
+
+    Pick one of your earlier exercises, perhaps the one you tackled in the last section. Try to break the store down. You might have to add another feature.
+
+    Work in the Pen below, or wherever you feel comfortable.
+
+    <p data-height="265" data-theme-id="dark" data-slug-hash="NgrBxG" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="React Redux Combine Reducers Exercise" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/NgrBxG/">React Redux Combine Reducers Exercise</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+
