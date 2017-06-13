@@ -26,9 +26,9 @@
   ```
   const reducer = (state=defaultState, action) => {
     switch (action.type) {
-      case "INC": 
+      case "INC":
         return {...state, value: state.value + 1}
-      case "DEC": 
+      case "DEC":
         return {...state, value: state.value - 1}
       default:
         return state
@@ -39,7 +39,7 @@
   To make use of this, we pass it into a new store:
 
   ```
-  var store = Redux.createStore(counter)
+  var store = Redux.createStore(reducer)
   ```
 
   We can then subscribe to that store with a callback function:
@@ -63,7 +63,7 @@
   <p data-height="800" data-theme-id="dark" data-slug-hash="MoKpOW" data-default-tab="js,result" data-user="superluminary" data-embed-version="2" data-pen-title="Redux Demo" data-editable="true" class="codepen">See the Pen <a href="https://codepen.io/superluminary/pen/MoKpOW/">Redux Demo</a> by Nicholas Johnson (<a href="https://codepen.io/superluminary">@superluminary</a>) on <a href="https://codepen.io">CodePen</a>.</p>
   <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
-.mini_exercise Add a plus10 action that adds ten to the state, and trigger it at random intervals 
+.mini_exercise Add a plus10 action that adds ten to the state, and trigger it at random intervals
 
 :markdown
   ## Immutables
